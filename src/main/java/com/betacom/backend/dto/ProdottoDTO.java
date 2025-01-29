@@ -2,7 +2,7 @@ package com.betacom.backend.dto;
 
 import com.betacom.backend.model.Prodotto;
 
-public class ProdottoDTO {
+public class ProdottoDTO { //ciao belliiiiiiii
 
 
 
