@@ -1,31 +1,28 @@
-package com.betacom.backend.model;
+package com.betacom.backend.request;
 
-import jakarta.persistence.*;
+public class prodottoRequest {
 
-@Entity
-@Table(name = "prodotto")
-public class Prodotto {
+    Integer id;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    String marca;
 
-    @Column(nullable = false)
-    private String marca;
+    String modello;
 
-    @Column(nullable = false)
-    private String modello;
+    String descrizione;
 
-    @Column(nullable = false)
-    private String descrizione;
+    Integer quantita;
 
-    @Column(nullable = false)
-    private Integer quantita;
-
-    public Prodotto() {
+    public prodottoRequest() {
     }
 
-    public Prodotto(Long id, String marca, String modello, String descrizione, Integer quantita) {
+    public prodottoRequest(String marca, String modello, String descrizione, Integer quantita) {
+        this.marca = marca;
+        this.modello = modello;
+        this.descrizione = descrizione;
+        this.quantita = quantita;
+    }
+
+    public prodottoRequest(Integer id, String marca, String modello, String descrizione, Integer quantita) {
         this.id = id;
         this.marca = marca;
         this.modello = modello;
@@ -33,18 +30,11 @@ public class Prodotto {
         this.quantita = quantita;
     }
 
-    public Prodotto(String marca, String modello, String descrizione, Integer quantita) {
-        this.marca = marca;
-        this.modello = modello;
-        this.descrizione = descrizione;
-        this.quantita = quantita;
-    }
-
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -82,7 +72,7 @@ public class Prodotto {
 
     @Override
     public String toString() {
-        return "Prodotto{" +
+        return "prodottoRequest{" +
                 "id=" + id +
                 ", marca='" + marca + '\'' +
                 ", modello='" + modello + '\'' +

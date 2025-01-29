@@ -1,31 +1,30 @@
-package com.betacom.backend.model;
+package com.betacom.backend.dto;
 
-import jakarta.persistence.*;
+public class prodottoDTO {
 
-@Entity
-@Table(name = "prodotto")
-public class Prodotto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
-    @Column(nullable = false)
-    private String marca;
+    Integer id;
 
-    @Column(nullable = false)
-    private String modello;
+    String marca;
 
-    @Column(nullable = false)
-    private String descrizione;
+    String modello;
 
-    @Column(nullable = false)
-    private Integer quantita;
+    String descrizione;
 
-    public Prodotto() {
+    Integer quantita;
+
+    public prodottoDTO() {
     }
 
-    public Prodotto(Long id, String marca, String modello, String descrizione, Integer quantita) {
+    public prodottoDTO(String marca, String modello, String descrizione, Integer quantita) {
+        this.marca = marca;
+        this.modello = modello;
+        this.descrizione = descrizione;
+        this.quantita = quantita;
+    }
+
+    public prodottoDTO(Integer id, String marca, String modello, String descrizione, Integer quantita) {
         this.id = id;
         this.marca = marca;
         this.modello = modello;
@@ -33,18 +32,11 @@ public class Prodotto {
         this.quantita = quantita;
     }
 
-    public Prodotto(String marca, String modello, String descrizione, Integer quantita) {
-        this.marca = marca;
-        this.modello = modello;
-        this.descrizione = descrizione;
-        this.quantita = quantita;
-    }
-
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -82,7 +74,7 @@ public class Prodotto {
 
     @Override
     public String toString() {
-        return "Prodotto{" +
+        return "prodottoRequest{" +
                 "id=" + id +
                 ", marca='" + marca + '\'' +
                 ", modello='" + modello + '\'' +
