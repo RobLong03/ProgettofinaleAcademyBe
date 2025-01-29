@@ -1,10 +1,12 @@
 package com.betacom.backend.dto;
 
-public class prodottoDTO {
+import com.betacom.backend.model.Prodotto;
+
+public class ProdottoDTO {
 
 
 
-    Integer id;
+    Long id;
 
     String marca;
 
@@ -14,17 +16,17 @@ public class prodottoDTO {
 
     Integer quantita;
 
-    public prodottoDTO() {
+    public ProdottoDTO() {
     }
 
-    public prodottoDTO(String marca, String modello, String descrizione, Integer quantita) {
+    public ProdottoDTO(String marca, String modello, String descrizione, Integer quantita) {
         this.marca = marca;
         this.modello = modello;
         this.descrizione = descrizione;
         this.quantita = quantita;
     }
 
-    public prodottoDTO(Integer id, String marca, String modello, String descrizione, Integer quantita) {
+    public ProdottoDTO(Long id, String marca, String modello, String descrizione, Integer quantita) {
         this.id = id;
         this.marca = marca;
         this.modello = modello;
@@ -32,11 +34,19 @@ public class prodottoDTO {
         this.quantita = quantita;
     }
 
-    public Integer getId() {
+    public ProdottoDTO(Prodotto prodotto) {
+        this.id = prodotto.getId();
+        this.marca = prodotto.getMarca();
+        this.modello = prodotto.getModello();
+        this.descrizione = prodotto.getDescrizione();
+        this.quantita = prodotto.getQuantita();
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
