@@ -1,8 +1,8 @@
 package com.betacom.backend.request;
 
-public class prodottoRequest {
+public class ProdottoRequest {
 
-    Integer id;
+    Long id;
 
     String marca;
 
@@ -12,17 +12,17 @@ public class prodottoRequest {
 
     Integer quantita;
 
-    public prodottoRequest() {
+    public ProdottoRequest() {
     }
 
-    public prodottoRequest(String marca, String modello, String descrizione, Integer quantita) {
+    public ProdottoRequest(String marca, String modello, String descrizione, Integer quantita) {
         this.marca = marca;
         this.modello = modello;
         this.descrizione = descrizione;
         this.quantita = quantita;
     }
 
-    public prodottoRequest(Integer id, String marca, String modello, String descrizione, Integer quantita) {
+    public ProdottoRequest(Long id, String marca, String modello, String descrizione, Integer quantita) {
         this.id = id;
         this.marca = marca;
         this.modello = modello;
@@ -30,11 +30,11 @@ public class prodottoRequest {
         this.quantita = quantita;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

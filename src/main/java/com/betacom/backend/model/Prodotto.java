@@ -1,5 +1,6 @@
 package com.betacom.backend.model;
 
+import com.betacom.backend.request.ProdottoRequest;
 import jakarta.persistence.*;
 
 @Entity
@@ -38,6 +39,16 @@ public class Prodotto {
         this.modello = modello;
         this.descrizione = descrizione;
         this.quantita = quantita;
+    }
+
+    public Prodotto(ProdottoRequest req){
+        this.marca = req.getMarca();
+        this.modello = req.getModello();
+        this.descrizione = req.getDescrizione();
+        this.quantita = req.getQuantita();
+        if(this.getId() != null)
+            this.id = req.getId();
+
     }
 
     public Long getId() {
