@@ -31,6 +31,7 @@ public class ProdottoDTO {
         this.marca = marca;
         this.modello = modello;
         this.descrizione = descrizione;
+        //commento
         this.quantita = quantita;
     }
 
