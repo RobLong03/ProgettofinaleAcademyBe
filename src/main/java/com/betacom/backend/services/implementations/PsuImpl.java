@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.betacom.backend.dto.PsuDTO;
 import com.betacom.backend.model.Psu;
-import com.betacom.backend.repositories.IProductRepositories;
-import com.betacom.backend.repositories.IPsuRepositories;
+import com.betacom.backend.repositories.IProductRepository;
+import com.betacom.backend.repositories.IPsuRepository;
 import com.betacom.backend.request.PsuRequest;
 import com.betacom.backend.services.interfaces.PsuServices;
 
@@ -18,10 +18,10 @@ import com.betacom.backend.services.interfaces.PsuServices;
 public class PsuImpl implements PsuServices {
 
 	 @Autowired
-	    IProductRepositories prodRep;
+     IProductRepository prodRep;
 	 
 	 @Autowired
-	    IPsuRepositories psuRep;
+	 IPsuRepository psuRep;
 
 	@Override
 	public List<PsuDTO> list() {

@@ -2,7 +2,7 @@ package com.betacom.backend.services.implementations;
 
 import com.betacom.backend.dto.CpuDTO;
 import com.betacom.backend.model.Cpu;
-import com.betacom.backend.repositories.ICpuRepositories;
+import com.betacom.backend.repositories.ICpuRepository;
 import com.betacom.backend.request.CpuRequest;
 import com.betacom.backend.services.interfaces.CpuServices;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ public class CpuImpl implements CpuServices {
 
 
     @Autowired
-    ICpuRepositories cpuRep;
+    ICpuRepository cpuRep;
 
     @Override
     public List<CpuDTO> list() {

@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.betacom.backend.model.Psu;
 
-public interface IPsuRepositories extends JpaRepository<Psu, Long> {
+public interface IPsuRepository extends JpaRepository<Psu, Long> {
 
 }
