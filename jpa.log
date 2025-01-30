@@ -9740,3 +9740,9 @@ Caused by: java.lang.ClassNotFoundException: ProdoRequest
 2025-01-30T15:06:17.942+01:00  INFO 13396 --- [projectbeta] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
 2025-01-30T15:06:17.946+01:00  INFO 13396 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Started ProjectbetaApplication in 0.542 seconds (process running for 1850.21)
 2025-01-30T15:06:17.948+01:00  INFO 13396 --- [projectbeta] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-01-30T15:08:00.874+01:00  INFO 13396 --- [projectbeta] [RMI TCP Connection(37)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2025-01-30T15:08:00.876+01:00  INFO 13396 --- [projectbeta] [RMI TCP Connection(37)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-01-30T15:08:00.879+01:00  INFO 13396 --- [projectbeta] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-01-30T15:08:00.882+01:00  INFO 13396 --- [projectbeta] [RMI TCP Connection(37)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-30T15:08:00.883+01:00  INFO 13396 --- [projectbeta] [RMI TCP Connection(37)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-111 - Shutdown initiated...
+2025-01-30T15:08:00.885+01:00  INFO 13396 --- [projectbeta] [RMI TCP Connection(37)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-111 - Shutdown completed.
