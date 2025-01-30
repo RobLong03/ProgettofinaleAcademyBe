@@ -2,7 +2,11 @@ package com.betacom.backend.model;
 
 import com.betacom.backend.request.CpuRequest;
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
+@Entity
+@Table(name="cpu")
 public class Cpu extends Product{
 
     @Column(nullable = false)
