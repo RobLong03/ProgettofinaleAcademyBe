@@ -6,58 +6,41 @@ import com.betacom.backend.utils.CaseSize;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "case")
-public class Case {
+public class Case extends Product{
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
 	@Column(nullable = false)
 	private CaseSize size;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(nullable=false)
-	private Color Color;
+	private Color color;
 
-	public Case(Long id, CaseSize size, Color color) {
-		super();
-		this.id = id;
+	public Case(Long id, String brand, String model, String description, Integer stock, CaseSize size, Color color) {
+		super(id, brand, model, description, stock);
 		this.size = size;
-		Color = color;
+		this.color = color;
 	}
 
-	public Case(CaseSize size, Color color) {
-		super();
+	public Case(String brand, String model, String description, Integer stock, CaseSize size, Color color) {
+		super(brand, model, description, stock);
 		this.size = size;
-		Color = color;
+		this.color = color;
 	}
 	
 	public Case(CaseRequest req) {
+		super(req);
 		this.size = CaseSize.valueOf(req.getsize().toUpperCase());
-		this.Color = new Color(req.getColor());
-		if (this.getId() != null)
-			this.id = req.getId();
+		this.color = new Color(req.getColor());
 	}
 
 	public Case() {
 		super();
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public CaseSize getSize() {
@@ -69,15 +52,15 @@ public class Case {
 	}
 
 	public Color getColor() {
-		return Color;
+		return color;
 	}
 
 	public void setColor(Color color) {
-		Color = color;
+		this.color = color;
 	}
 
 	@Override
 	public String toString() {
-		return "Case [id=" + id + ", size=" + size + ", Color=" + Color + "]";
+		return "Case [size=" + size + ", Color=" + color + "]";
 	}
 }

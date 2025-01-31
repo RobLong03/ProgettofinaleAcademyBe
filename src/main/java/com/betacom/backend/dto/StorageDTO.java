@@ -2,15 +2,13 @@ package com.betacom.backend.dto;
 
 import com.betacom.backend.model.Storage;
 
-public class StorageDTO {
+public class StorageDTO extends ProductDTO{
 
-	private Long id;
 	private String type;
 	private Integer size;
 	
-	public StorageDTO(Long id, String type, Integer size) {
-		super();
-		this.id = id;
+	public StorageDTO(Long id, String brand, String model, String description, Integer stock, String type, Integer size) {
+		super(id, brand, model, description, stock);
 		this.type = type;
 		this.size = size;
 	}
@@ -24,16 +22,10 @@ public class StorageDTO {
 	}
 	public StorageDTO(Storage storage) {
 		super();
-		this.id = storage.getId();
 		this.type = storage.getType().toString();
 		this.size = storage.getSize();
 	}
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
 	public String getType() {
 		return type;
 	}
@@ -48,6 +40,6 @@ public class StorageDTO {
 	}
 	@Override
 	public String toString() {
-		return "StorageDTO [id=" + id + ", type=" + type + ", size=" + size + "]";
+		return "StorageDTO [type=" + type + ", size=" + size + "]";
 	}
 }

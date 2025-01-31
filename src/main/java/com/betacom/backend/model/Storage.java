@@ -5,18 +5,11 @@ import com.betacom.backend.utils.StorageType;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "storage")
 public class Storage extends Product{
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
 	
 	@Column(nullable = false)
 	private StorageType type;
@@ -24,15 +17,14 @@ public class Storage extends Product{
 	@Column(nullable = false)
 	private Integer size;
 
-	public Storage(Long id, StorageType type, Integer size) {
-		super();
-		this.id = id;
+	public Storage(Long id, String brand, String model, String description, Integer stock, StorageType type, Integer size) {
+		super(id, brand, model, description, stock);
 		this.type = type;
 		this.size = size;
 	}
 
-	public Storage(StorageType type, Integer size) {
-		super();
+	public Storage(String brand, String model, String description, Integer stock,StorageType type, Integer size) {
+		super(brand, model, description, stock);
 		this.type = type;
 		this.size = size;
 	}
@@ -42,18 +34,9 @@ public class Storage extends Product{
 	}
 	
 	public Storage(StorageRequest req) {
+		super(req);
 		this.type = StorageType.valueOf(req.getType());
 		this.size = req.getSize();
-		if (this.getId() != null)
-			this.id = req.getId();
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public StorageType getType() {
@@ -74,6 +57,6 @@ public class Storage extends Product{
 
 	@Override
 	public String toString() {
-		return "Storage [id=" + id + ", type=" + type + ", size=" + size + "]";
+		return "Storage [type=" + type + ", size=" + size + "]";
 	}
 }

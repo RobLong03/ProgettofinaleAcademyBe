@@ -2,15 +2,13 @@ package com.betacom.backend.dto;
 
 import com.betacom.backend.model.Case;
 
-public class CaseDTO {
+public class CaseDTO extends ProductDTO{
 
-	private Long id;
 	private String size;
 	private ColorDTO color;
 	
-	public CaseDTO(Long id, String size, ColorDTO color) {
-		super();
-		this.id = id;
+	public CaseDTO(Long id, String brand, String model, String description, Integer stock, String size, ColorDTO color) {
+		super(id, brand, model, description, stock);
 		this.size = size;
 		this.color = color;
 	}
@@ -26,17 +24,8 @@ public class CaseDTO {
 	}
 	
 	public CaseDTO(Case caseObj) {
-		this.id = caseObj.getId();
 		this.size = caseObj.getSize().toString();
 		this.color = new ColorDTO(caseObj.getColor().getId(), caseObj.getColor().getColor());
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getsize() {
@@ -57,6 +46,6 @@ public class CaseDTO {
 
 	@Override
 	public String toString() {
-		return "CaseDTO [id=" + id + ", size=" + size + ", color=" + color + "]";
+		return "CaseDTO [size=" + size + ", color=" + color + "]";
 	}
 }

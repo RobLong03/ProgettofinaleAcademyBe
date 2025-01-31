@@ -1,31 +1,24 @@
 package com.betacom.backend.request;
 
-public class StorageRequest {
+public class StorageRequest extends ProductRequest{
 
-	private Long id;
 	private String type;
 	private Integer size;
 	
-	public StorageRequest(Long id, String type, Integer size) {
-		super();
-		this.id = id;
+	public StorageRequest(Long id, String brand, String model, String description, Integer stock, String type, Integer size) {
+		super(id, brand, model, description, stock);
 		this.type = type;
 		this.size = size;
 	}
-	public StorageRequest(String type, Integer size) {
-		super();
+	public StorageRequest(String brand, String model, String description, Integer stock, String type, Integer size) {
+		super(brand, model, description, stock);
 		this.type = type;
 		this.size = size;
 	}
 	public StorageRequest() {
 		super();
 	}
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
 	public String getType() {
 		return type;
 	}
@@ -40,6 +33,6 @@ public class StorageRequest {
 	}
 	@Override
 	public String toString() {
-		return "StorageRequest [id=" + id + ", type=" + type + ", size=" + size + "]";
+		return "StorageRequest [type=" + type + ", size=" + size + "]";
 	}
 }

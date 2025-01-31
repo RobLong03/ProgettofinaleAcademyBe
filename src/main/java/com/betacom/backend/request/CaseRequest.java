@@ -1,34 +1,24 @@
 package com.betacom.backend.request;
 
-public class CaseRequest {
+public class CaseRequest extends ProductRequest{
 
-	private Long id;
 	private String size;
 	private String color;
 	
-	public CaseRequest(Long id, String size, String color) {
-		super();
-		this.id = id;
+	public CaseRequest(String brand, String model, String description, Integer stock,Long id, String size, String color) {
+		super(brand, model, description, stock);
 		this.size = size;
 		this.color = color;
 	}
 
-	public CaseRequest(String size, String color) {
-		super();
+	public CaseRequest(Long id, String brand, String model, String description, Integer stock,String size, String color) {
+		super(id, brand, model, description, stock);
 		this.size = size;
 		this.color = color;
 	}
 
 	public CaseRequest() {
 		super();
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getsize() {
@@ -49,6 +39,6 @@ public class CaseRequest {
 
 	@Override
 	public String toString() {
-		return "CaseRequest [id=" + id + ", size=" + size + ", color=" + color + "]";
+		return "CaseRequest [size=" + size + ", color=" + color + "]";
 	}
 }
