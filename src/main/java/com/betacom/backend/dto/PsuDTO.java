@@ -6,18 +6,10 @@ public class PsuDTO extends ProductDTO{
 
 	
 
-	private Long id;
 
 	private Integer watt;
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
+	
 	public Integer getWatt() {
 		return watt;
 	}
@@ -32,24 +24,23 @@ public class PsuDTO extends ProductDTO{
 		super();
 	}
 
-	public PsuDTO(Integer watt) {
-		super();
+	public PsuDTO(Long id,String brand, String model, String description, Integer stock,Integer watt) {
+		super(id, brand, model, description, stock);
 		this.watt = watt;
 	
 	}
 	
-	public PsuDTO(Long id, Integer watt) {
-		super();
-		this.id = id;
-		this.watt = watt;
-		
-	}
+	
 	
 	public PsuDTO(Psu req) {
 		super(req);
-		this.id = req.getId();
 		this.watt = req.getWatt();
 
+	}
+
+	@Override
+	public String toString() {
+		return "PsuDTO {watt=" + watt + "}"+super.toString();
 	}
 
 }
