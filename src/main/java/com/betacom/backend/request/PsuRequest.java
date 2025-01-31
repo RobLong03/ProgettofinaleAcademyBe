@@ -5,20 +5,11 @@ package com.betacom.backend.request;
 public class PsuRequest extends ProductRequest{
 
 	
-	private Long id;
+
 
 	private Integer watt;
 
 	
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
 	public Integer getWatt() {
 		return watt;
 	}
@@ -33,19 +24,20 @@ public class PsuRequest extends ProductRequest{
 		super();
 	}
 
-	public PsuRequest(Integer watt) {
-		super();
+	public PsuRequest(String brand, String model, String description, Integer stock,Integer watt) {
+		super(brand, model, description, stock);
 		this.watt = watt;
 	}
-	public PsuRequest(Long id ,Integer watt) {
+	public PsuRequest(Long id, String brand, String model, String description, Integer stock ,Integer watt) {
 		super();
 		this.watt = watt;
 	}
 
 	@Override
 	public String toString() {
-		return "PsuRequest {id=" + id + ", watt=" + watt + "}";
+		return "PsuRequest {watt=" + watt+ "}"+ super.toString() ;
 	}
 
+	
 	
 }

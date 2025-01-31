@@ -84,6 +84,9 @@ public class PsuImpl implements PsuServices {
 	}
 	private boolean mancanoAttributi(PsuRequest req) {
         return req.getDescription() == null || req.getDescription().isBlank()
+                || req.getBrand() == null || req.getBrand().isBlank()
+                || req.getModel() == null || req.getModel().isBlank()
+                || req.getStock() == null
                 || req.getWatt() == null ;
                
 
