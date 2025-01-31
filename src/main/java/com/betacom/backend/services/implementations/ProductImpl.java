@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.betacom.backend.dto.ProductDTO;
 import com.betacom.backend.model.Product;
-import com.betacom.backend.repositories.IProductRepositories;
+import com.betacom.backend.repositories.IProductRepository;
 import com.betacom.backend.request.ProductRequest;
 import com.betacom.backend.services.interfaces.ProductServices;
 
@@ -18,7 +18,7 @@ import com.betacom.backend.services.interfaces.ProductServices;
 public class ProductImpl implements ProductServices {
 
     @Autowired
-    IProductRepositories prodRep;
+    IProductRepository prodRep;
 
     @Override
     public List<ProductDTO> list() {

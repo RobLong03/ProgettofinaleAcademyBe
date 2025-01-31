@@ -7,10 +7,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
+import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "product")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Product {
 
 	@Id
@@ -29,9 +32,7 @@ public class Product {
 	@Column(nullable = false)
 	private Integer stock;
 
-	public Product() {
-	}
-
+	
 	public Long getId() {
 		return id;
 	}
@@ -72,6 +73,17 @@ public class Product {
 		this.stock = stock;
 	}
 
+	public Product() {
+	}
+	
+	public Product(Long id ,String brand, String model, String description, Integer stock) {
+		super();
+		this.id=id;
+		this.brand = brand;
+		this.model = model;
+		this.description = description;
+		this.stock = stock;
+	}
 	public Product(String brand, String model, String description, Integer stock) {
 		super();
 		this.brand = brand;
