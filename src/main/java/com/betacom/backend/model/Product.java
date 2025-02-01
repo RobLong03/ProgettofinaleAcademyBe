@@ -108,4 +108,9 @@ public class Product {
 				+ description  + ", stock=" + stock + '}';
 	}
 
+	public Product(Long id) {
+		super();
+		this.id = id;
+	}
+
 }
