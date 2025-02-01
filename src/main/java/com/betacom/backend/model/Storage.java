@@ -17,14 +17,14 @@ public class Storage extends Product{
 	@Column(nullable = false)
 	private Integer size;
 
-	public Storage(Long id, String brand, String model, String description, Integer stock, StorageType type, Integer size) {
-		super(id, brand, model, description, stock);
+	public Storage(Long id, String brand, String model, String description, Integer stock,Double price, StorageType type, Integer size) {
+		super(id, brand, model, description, stock,price);
 		this.type = type;
 		this.size = size;
 	}
 
-	public Storage(String brand, String model, String description, Integer stock,StorageType type, Integer size) {
-		super(brand, model, description, stock);
+	public Storage(String brand, String model, String description, Integer stock,Double price,StorageType type, Integer size) {
+		super(brand, model, description, stock,price);
 		this.type = type;
 		this.size = size;
 	}

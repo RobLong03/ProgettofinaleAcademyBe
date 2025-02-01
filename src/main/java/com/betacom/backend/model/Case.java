@@ -21,14 +21,14 @@ public class Case extends Product{
 	@JoinColumn(nullable=false)
 	private Color color;
 
-	public Case(Long id, String brand, String model, String description, Integer stock, CaseSize size, Color color) {
-		super(id, brand, model, description, stock);
+	public Case(Long id, String brand, String model, String description, Integer stock,Double price, CaseSize size, Color color) {
+		super(id, brand, model, description, stock,price);
 		this.size = size;
 		this.color = color;
 	}
 
-	public Case(String brand, String model, String description, Integer stock, CaseSize size, Color color) {
-		super(brand, model, description, stock);
+	public Case(String brand, String model, String description, Integer stock,Double price, CaseSize size, Color color) {
+		super(brand, model, description, stock,price);
 		this.size = size;
 		this.color = color;
 	}

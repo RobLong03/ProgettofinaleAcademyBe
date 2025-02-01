@@ -21,14 +21,14 @@ public class Ram extends Product {
 		super();
 	}
 
-	public Ram(Long id, String brand, String model, String description, Integer stock, Integer mhz, Integer size) {
-		super(id, brand, model, description, stock);
+	public Ram(Long id, String brand, String model, String description, Integer stock,Double price, Integer mhz, Integer size) {
+		super(id, brand, model, description, stock,price);
 		this.mhz = mhz;
 		this.size = size;
 	}
 	
-	public Ram(String brand, String model, String description, Integer stock, Integer mhz, Integer size) {
-		super(brand, model, description, stock);
+	public Ram(String brand, String model, String description, Integer stock, Integer mhz,Double price, Integer size) {
+		super(brand, model, description, stock,price);
 		this.mhz = mhz;
 		this.size = size;
 	}

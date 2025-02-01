@@ -6,14 +6,14 @@ public class CpuRequest extends ProductRequest{
 
     public CpuRequest() {}
 
-    public CpuRequest(String brand, String model, String description, Integer stock, Double ghz, Integer core) {
-        super(brand, model, description, stock);
+    public CpuRequest(String brand, String model, String description, Integer stock,Double price, Double ghz, Integer core) {
+        super(brand, model, description, stock,price);
         this.ghz = ghz;
         this.core = core;
     }
 
-    public CpuRequest(Long id, String brand, String model, String description, Integer stock, Double ghz, Integer core) {
-        super(id, brand, model, description, stock);
+    public CpuRequest(Long id, String brand, String model, String description, Integer stock,Double price, Double ghz, Integer core) {
+        super(id, brand, model, description, stock,price);
         this.ghz = ghz;
         this.core = core;
     }

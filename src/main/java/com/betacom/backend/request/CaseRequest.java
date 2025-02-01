@@ -5,14 +5,14 @@ public class CaseRequest extends ProductRequest{
 	private String size;
 	private String color;
 	
-	public CaseRequest(String brand, String model, String description, Integer stock,Long id, String size, String color) {
-		super(brand, model, description, stock);
+	public CaseRequest(String brand, String model, String description, Integer stock,Double price, String size, String color) {
+		super(brand, model, description, stock,price);
 		this.size = size;
 		this.color = color;
 	}
 
-	public CaseRequest(Long id, String brand, String model, String description, Integer stock,String size, String color) {
-		super(id, brand, model, description, stock);
+	public CaseRequest(Long id, String brand, String model, String description, Integer stock,Double price,String size, String color) {
+		super(id, brand, model, description, stock, price);
 		this.size = size;
 		this.color = color;
 	}

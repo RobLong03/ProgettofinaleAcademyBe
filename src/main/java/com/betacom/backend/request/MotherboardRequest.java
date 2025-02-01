@@ -8,13 +8,13 @@ public class MotherboardRequest extends ProductRequest {
 		super();
 	}
 	
-	public MotherboardRequest(Long id, String brand, String model, String description, Integer stock, String cpuCompatibility) {
-		super(id, brand, model, description, stock);
+	public MotherboardRequest(Long id, String brand, String model, String description, Integer stock,Double price, String cpuCompatibility) {
+		super(id, brand, model, description, stock,price);
 		this.cpuCompatibility = cpuCompatibility;
 	}
 
-	public MotherboardRequest(String brand, String model, String description, Integer stock, String cpuCompatibility) {
-		super(brand, model, description, stock);
+	public MotherboardRequest(String brand, String model, String description, Integer stock,Double price, String cpuCompatibility) {
+		super(brand, model, description, stock,price);
 		this.cpuCompatibility = cpuCompatibility;
 	}
 

@@ -31,6 +31,9 @@ public class Product {
 
 	@Column(nullable = false)
 	private Integer stock;
+	
+	@Column(nullable=false)
+	private Double price;
 
 	
 	public Long getId() {
@@ -75,28 +78,38 @@ public class Product {
 
 	public Product() {
 	}
+
+	public Product(Long id) {
+		super();
+		this.id = id;
+	}
+
 	
-	public Product(Long id ,String brand, String model, String description, Integer stock) {
+	public Product(Long id ,String brand, String model, String description, Integer stock,Double price) {
 		super();
 		this.id=id;
 		this.brand = brand;
 		this.model = model;
 		this.description = description;
 		this.stock = stock;
+		this.price=price;
+		
 	}
-	public Product(String brand, String model, String description, Integer stock) {
+	public Product(String brand, String model, String description, Integer stock,Double price) {
 		super();
 		this.brand = brand;
 		this.model = model;
 		this.description = description;
 		this.stock = stock;
-	}
+		this.price=price;
+		}
 
 	public Product(ProductRequest req) {
 		this.brand = req.getBrand();
 		this.model = req.getModel();
 		this.description = req.getDescription();
 		this.stock = req.getStock();
+		this.price=req.getPrice();
 		if (this.getId() != null)
 			this.id = req.getId();
 
@@ -104,13 +117,11 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product{" + "id=" + id + ", brand='" + brand + ", model='" + model  + ", description='"
-				+ description  + ", stock=" + stock + '}';
+		return "Product {id=" + id + ", brand=" + brand + ", model=" + model + ", description=" + description
+				+ ", stock=" + stock + ", price=" + price + "}";
 	}
 
-	public Product(Long id) {
-		super();
-		this.id = id;
-	}
+	
 
+	
 }

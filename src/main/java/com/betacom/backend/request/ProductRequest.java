@@ -14,11 +14,13 @@ public class ProductRequest {
 
     private Integer stock;
 
+    private Double price;
     
 
 	public Long getId() {
 		return id;
 	}
+	
 
 	public void setId(Long id) {
 		this.id = id;
@@ -56,24 +58,34 @@ public class ProductRequest {
 		this.stock = stock;
 	}
     
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
     
     public ProductRequest() {
     }
 
-    public ProductRequest(String brand, String model, String description, Integer stock) {
+    public ProductRequest(String brand, String model, String description, Integer stock,Double price) {
         this.brand = brand;
         this.model = model;
         this.description = description;
         this.stock = stock;
+        this.price=price;
     }
 
-    public ProductRequest(Long id,String brand, String model, String description, Integer stock) {
+    public ProductRequest(Long id,String brand, String model, String description, Integer stock,Double price) {
         this.id = id;
         this.brand = brand;
         this.model = model;
         this.description = description;
         //commento
         this.stock = stock;
+        this.price=price;
     }
 
     @Override
@@ -87,4 +99,5 @@ public class ProductRequest {
                 '}';
     }
 //    prodottoRequest
+
 }

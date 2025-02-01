@@ -29,14 +29,14 @@ public class Psu extends Product {
 	}
 	
 	//with id 
-	public Psu(Long id, String brand, String model, String description, Integer stock, Integer watt) {
-		super(id, brand, model, description, stock);
+	public Psu(Long id, String brand, String model, String description, Integer stock,Double price, Integer watt) {
+		super(id, brand, model, description, stock,price);
 		this.watt = watt;
 	}
 	
 	//without id 
-	public Psu(String brand, String model, String description, Integer stock,Integer watt) {
-		super(brand, model, description, stock);
+	public Psu(String brand, String model, String description, Integer stock,Double price,Integer watt) {
+		super(brand, model, description, stock,price);
 		this.watt = watt;
 		
 	}
