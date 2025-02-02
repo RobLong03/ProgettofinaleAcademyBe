@@ -7,6 +7,7 @@ public class CartItemRequest {
 	private Long cartId;
 	private Integer quantity;
 	private Double price;
+
 	public Long getId() {
 		return id;
 	}
@@ -37,6 +38,7 @@ public class CartItemRequest {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+
 	public CartItemRequest(Long id, Long productId, Long cartId, Integer quantity, Double price) {
 		super();
 		this.id = id;
@@ -48,6 +50,7 @@ public class CartItemRequest {
 	public CartItemRequest() {
 		super();
 	}
+
 	public CartItemRequest(Long productId, Long cartId, Integer quantity, Double price) {
 		super();
 		this.productId = productId;

@@ -10,20 +10,31 @@ public class CartDTO {
 	private Long id;
 	private List<CartItemDTO> items;
 	private Double totalPrice;
-	
-	public CartDTO(Long id, List<CartItemDTO> items, Double totalPrice) {
+	private CustomerDTO customer;
+
+	public CustomerDTO getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(CustomerDTO customer) {
+		this.customer = customer;
+	}
+
+	public CartDTO(Long id, List<CartItemDTO> items, Double totalPrice,CustomerDTO customer) {
 		super();
 		this.id = id;
 		this.items = items;
 		this.totalPrice = totalPrice;
+		this.customer = customer;
 	}
 	public CartDTO() {
 		super();
 	}
-	public CartDTO(List<CartItemDTO> items, Double totalPrice) {
+	public CartDTO(List<CartItemDTO> items, Double totalPrice,CustomerDTO customer) {
 		super();
 		this.items = items;
 		this.totalPrice = totalPrice;
+		this.customer = customer;
 	}
 	public CartDTO(Cart cart) {
 		this.items = cart.getItems().stream()
@@ -33,7 +44,8 @@ public class CartDTO {
 	                    c.getQuantity(),
 	                    c.getPrice()
 	            		))
-	            .collect(Collectors.toList()); 
+	            .collect(Collectors.toList());
+		this.customer = new CustomerDTO(cart.getCustomer());
 		this.totalPrice = cart.getTotalPrice();
 	}
 	public Long getId() {
