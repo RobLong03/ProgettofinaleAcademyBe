@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.betacom.backend.dto.CaseDTO;
-import com.betacom.backend.model.Case;
+import com.betacom.backend.model.Cases;
 import com.betacom.backend.repositories.ICaseRepository;
 import com.betacom.backend.request.CaseRequest;
 import com.betacom.backend.services.interfaces.CaseServices;
@@ -21,7 +21,7 @@ public class CaseImpl implements CaseServices{
 
 	@Override
 	public List<CaseDTO> list() {
-		List<Case> lCase = caseRep.findAll();
+		List<Cases> lCase = caseRep.findAll();
 
         return lCase.stream().map(c ->
                 new CaseDTO(c)
@@ -34,7 +34,7 @@ public class CaseImpl implements CaseServices{
 	            throw new Exception("missing-id");
 	        }
 
-	        Optional<Case> cas = caseRep.findById(id);
+	        Optional<Cases> cas = caseRep.findById(id);
 
 	        if(cas.isPresent()){
 	            return new CaseDTO(cas.get());
@@ -48,7 +48,7 @@ public class CaseImpl implements CaseServices{
 		if(mancanoAttributi(req))
             throw new Exception("missing-attributes");
 
-        Case p = new Case(req);
+		Cases p = new Cases(req);
         caseRep.save(p);
 	}
 
@@ -62,7 +62,7 @@ public class CaseImpl implements CaseServices{
             throw new Exception("does-not-exists");
         }
 
-        Case c = new Case(req);
+        Cases c = new Cases(req);
 
         caseRep.save(c);
 	}

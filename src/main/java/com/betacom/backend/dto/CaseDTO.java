@@ -1,6 +1,6 @@
 package com.betacom.backend.dto;
 
-import com.betacom.backend.model.Case;
+import com.betacom.backend.model.Cases;
 
 public class CaseDTO extends ProductDTO{
 
@@ -23,7 +23,7 @@ public class CaseDTO extends ProductDTO{
 		super();
 	}
 	
-	public CaseDTO(Case caseObj) {
+	public CaseDTO(Cases caseObj) {
 		this.size = caseObj.getSize().toString();
 		this.color = new ColorDTO(caseObj.getColor().getId(), caseObj.getColor().getColor());
 	}

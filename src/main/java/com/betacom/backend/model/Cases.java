@@ -11,8 +11,8 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "case")
-public class Case extends Product{
+@Table(name = "cases")
+public class Cases extends Product{
 
 	@Column(nullable = false)
 	private CaseSize size;
@@ -21,25 +21,25 @@ public class Case extends Product{
 	@JoinColumn(nullable=false)
 	private Color color;
 
-	public Case(Long id, String brand, String model, String description, Integer stock,Double price, CaseSize size, Color color) {
+	public Cases(Long id, String brand, String model, String description, Integer stock,Double price, CaseSize size, Color color) {
 		super(id, brand, model, description, stock,price);
 		this.size = size;
 		this.color = color;
 	}
 
-	public Case(String brand, String model, String description, Integer stock,Double price, CaseSize size, Color color) {
+	public Cases(String brand, String model, String description, Integer stock,Double price, CaseSize size, Color color) {
 		super(brand, model, description, stock,price);
 		this.size = size;
 		this.color = color;
 	}
 	
-	public Case(CaseRequest req) {
+	public Cases(CaseRequest req) {
 		super(req);
 		this.size = CaseSize.valueOf(req.getsize().toUpperCase());
 		this.color = new Color(req.getColor());
 	}
 
-	public Case() {
+	public Cases() {
 		super();
 	}
 
