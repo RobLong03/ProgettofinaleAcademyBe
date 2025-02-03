@@ -1,9 +1,9 @@
 package com.betacom.backend.services.implementations;
 
 import com.betacom.backend.model.MessageID;
+import com.betacom.backend.model.Messages;
 import com.betacom.backend.repositories.IMessageRepository;
 import com.betacom.backend.services.interfaces.MessageServices;
-import org.aspectj.bridge.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -20,7 +20,7 @@ public class MessageImpl implements MessageServices {
 
     @Override
     public String getMessage(String code) {
-        Optional<Message> msg = msgR.findById( new MessageID(langMsg,code) );
+        Optional<Messages> msg = msgR.findById( new MessageID(langMsg,code) );
 
         String res = null;
 

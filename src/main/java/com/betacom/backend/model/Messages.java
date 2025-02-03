@@ -2,8 +2,10 @@ package com.betacom.backend.model;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
-@Entity(name="system_messages")
+@Entity
+@Table(name="system_messages")
 public class Messages {
     @EmbeddedId
     private MessageID msgID;

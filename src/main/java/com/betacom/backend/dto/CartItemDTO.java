@@ -9,6 +9,7 @@ public class CartItemDTO {
 	private Long cartId;
 	private Integer quantity;
 	private Double price;
+
 	public Long getId() {
 		return id;
 	}

@@ -90,7 +90,7 @@ public class OrderImpl implements OrderServices {
 
        order = orderRep.save(order);
 
-       List<OrderItem> orderItems = new ArrayList<>();
+        List<OrderItem> orderItems = new ArrayList<>();
 
        for(CartItem cartItem : cartItems){
             orderItems.add( new OrderItem(cartItem,order) );
