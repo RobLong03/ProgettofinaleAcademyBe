@@ -65,6 +65,16 @@ public class MotherboardImpl implements MotherboardServices {
 		motherbRep.save(m);
 	}
 	
+	@Override
+	public void delete(Long id) throws Exception {
+		
+		Optional<Motherboard> m=motherbRep.findById(id);
+		if(m.isEmpty())
+			throw new Exception("not-found");
+		
+		motherbRep.delete(m.get());
+	}
+	
 	private boolean missingAttributes(MotherboardRequest req) {
 		
 		return req.getBrand()==null || req.getBrand().isBlank()

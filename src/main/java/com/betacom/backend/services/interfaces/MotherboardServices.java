@@ -14,4 +14,6 @@ public interface MotherboardServices {
 	void create(MotherboardRequest req) throws Exception;
 	
 	void update(MotherboardRequest req) throws Exception;
+	
+	void delete(Long id) throws Exception;
 }
