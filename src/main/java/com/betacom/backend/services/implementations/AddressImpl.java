@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.betacom.backend.dto.AddressDTO;
 import com.betacom.backend.model.Address;
+import com.betacom.backend.model.Customer;
 import com.betacom.backend.repositories.IAddressRepository;
 import com.betacom.backend.repositories.ICustomerRepository;
 import com.betacom.backend.request.AddressRequest;
@@ -53,9 +54,18 @@ public class AddressImpl implements AddressServices {
 		//oggetto costumer di classe CostumerRequest		
 		//, da testare
 		
-		//dopo new address il controlllo sul customer e poi assegnazione
-		Address p = new Address(req);
-		AddrRep.save(p);
+		//dopo new address il controlllo sul customer e poi assegnazione8
+	
+		
+		Optional<Customer> customer=CustRep.findById(req.getCustomerId());
+		if (customer.isEmpty()) {
+			throw new Exception("missing-id");
+		}
+		
+
+		Address addr = new Address(req);
+		addr.setCustomer(customer.get());
+		AddrRep.save(addr);
 
 	}
 
