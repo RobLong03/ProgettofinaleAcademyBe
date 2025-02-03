@@ -145,5 +145,6 @@ public class Customer {
 		return "Customer {id=" + id + ", name=" + name + ", surname=" + surname + ", taxId=" + taxId + ", email="
 				+ email + ", password=" + password + ", addresses=" + addresses + "}";
 	}
+
     
 }

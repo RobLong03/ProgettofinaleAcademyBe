@@ -52,6 +52,8 @@ public class AddressImpl implements AddressServices {
 		//possibile modifiche per problema con l' id del costumer al momento con 
 		//oggetto costumer di classe CostumerRequest		
 		//, da testare
+		
+		//dopo new address il controlllo sul customer e poi assegnazione
 		Address p = new Address(req);
 		AddrRep.save(p);
 
@@ -84,7 +86,7 @@ public class AddressImpl implements AddressServices {
 	}
 
 	private boolean mancanoAttributi(AddressRequest req) {
-		return req.getCustomer() == null || req.getCountry() == null || req.getCountry().isBlank()
+		return req.getCustomerId() == null || req.getCountry() == null || req.getCountry().isBlank()
 				|| req.getCity().isBlank() || req.getCity().isBlank() || req.getPostalCode() == null
 				|| req.getPostalCode().isBlank() || req.getStreet() == null || req.getStreet().isBlank()
 				|| req.getHouseNumber() == null;

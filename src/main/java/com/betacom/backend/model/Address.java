@@ -96,7 +96,7 @@ public class Address {
 	}
 
 	public Address(AddressRequest req) {
-		this.customer=new Customer(req.getCustomer());
+		this.customer=new Customer();
 		this.country=req.getCountry();
 		this.city=req.getCity();
 		this.postalCode=req.getPostalCode();
