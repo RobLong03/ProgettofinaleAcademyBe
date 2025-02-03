@@ -65,6 +65,16 @@ public class RamImpl implements RamServices {
 		ramRep.save(r);
 	}
 	
+	@Override
+	public void delete(Long id) throws Exception {
+		
+		Optional<Ram> r=ramRep.findById(id);
+		if(r.isEmpty())
+			throw new Exception("not-found");
+		
+		ramRep.delete(r.get());
+	}
+	
 	private boolean missingAttributes(RamRequest req) {
 		
 		return req.getBrand()==null || req.getBrand().isBlank()

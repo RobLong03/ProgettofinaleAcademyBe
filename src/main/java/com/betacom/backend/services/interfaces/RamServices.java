@@ -14,4 +14,6 @@ public interface RamServices {
 	void create(RamRequest req) throws Exception;
 	
 	void update(RamRequest req) throws Exception;
+	
+	void delete(Long id) throws Exception;
 }
