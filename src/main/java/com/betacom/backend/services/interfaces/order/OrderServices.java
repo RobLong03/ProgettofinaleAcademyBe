@@ -8,7 +8,9 @@ import java.util.List;
 
 public interface OrderServices {
 
-    List<OrderDTO> list();        //list per fare list di tutto
+
+    List<OrderDTO> list();        //list per fare list di tutti
+
     OrderDTO get(Long id) throws Exception;         //get per prendere con id,
     //poi altri get o list con specifiche diverse si decide dopo
 
@@ -20,8 +22,8 @@ public interface OrderServices {
 
     void delete(Long id) throws Exception ;
     
-    void addItemToOrder(OrderItemRequest itemReq) throws Exception;
-    
-    void removeItemFromOrder(OrderItemRequest itemReq) throws Exception;
+//    void addItemToOrder(OrderItemRequest itemReq) throws Exception;
+//
+//    void removeItemFromOrder(OrderItemRequest itemReq) throws Exception;
     
 }
