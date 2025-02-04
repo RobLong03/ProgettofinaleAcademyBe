@@ -8,7 +8,7 @@ import java.util.List;
 public interface OrderItemsServices {
 //    List<OrderItemDTO> list();        //list per fare list di tutto
 
-    List<OrderItemDTO> listByOrder(Long orderId);
+    List<OrderItemDTO> listByOrder(Long orderId) throws Exception;
 
     OrderItemDTO get(Long id) throws Exception;         //get per prendere con id,
 

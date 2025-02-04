@@ -2,7 +2,9 @@ package com.betacom.backend.services.implementations.order;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+import com.betacom.backend.repositories.order.IOrderItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.betacom.backend.dto.order.OrderDTO;
@@ -26,19 +28,38 @@ public class OrderItemimpl implements OrderItemsServices {
     @Autowired
     IOrderRepository orderRep;
 
+	@Autowired
+	IOrderItemRepository orderItemRep;
+
     @Autowired
     IProductRepository prodRep;
 	
 	@Override
-	public List<OrderItemDTO> listByOrder(Long orderId) {
-		
-		return null;
+	public List<OrderItemDTO> listByOrder(Long orderId) throws Exception {
+		if(orderId == null){
+			throw new Exception("missing-id");
+		}
+
+		List<OrderItem> orderItemss = orderItemRep.findByOrder_id(orderId);
+		if(orderItemss.isEmpty()){
+			throw new Exception("not-found");
+		}
+
+		return orderItemss.stream().map( oi->
+				new OrderItemDTO(oi)
+		).collect(Collectors.toList());
 	}
 
 	@Override
 	public OrderItemDTO get(Long id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		if(id == null){
+			throw new Exception("missing-id");
+		}
+		Optional<OrderItem> orderItem = orderItemRep.findById(id);
+		if(orderItem.isEmpty())
+			throw new Exception("not-found");
+
+        return new OrderItemDTO(orderItem.get());
 	}
 
 	@Override
@@ -123,7 +144,16 @@ public class OrderItemimpl implements OrderItemsServices {
 
 	@Override
 	public void delete(Long id) throws Exception {
-		// TODO Auto-generated method stub
+		if(id == null){
+			throw new Exception("missing-id");
+		}
+		Optional<OrderItem> orderItem = orderItemRep.findById(id);
+
+		if(orderItem.isEmpty())
+			throw new Exception("not-found");
+
+
+		orderItemRep.deleteById(id);
 		
 	}
 
