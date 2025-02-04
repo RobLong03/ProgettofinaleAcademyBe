@@ -9,7 +9,7 @@ public class CartRequest {
 	private Long id;
 	private List<CartItemDTO> items;
 	private Double totalPrice;
-	private Double customerId;
+	private Long customerId;
 	
 	public Long getId() {
 		return id;
@@ -30,15 +30,15 @@ public class CartRequest {
 		this.totalPrice = totalPrice;
 	}
 
-	public Double getCustomerId() {
+	public Long getCustomerId() {
 		return customerId;
 	}
 
-	public void setCustomerId(Double customerId) {
+	public void setCustomerId(Long customerId) {
 		this.customerId = customerId;
 	}
 
-	public CartRequest(Long id, List<CartItemDTO> items, Double totalPrice,Double customerId) {
+	public CartRequest(Long id, List<CartItemDTO> items, Double totalPrice,Long customerId) {
 		super();
 		this.id = id;
 		this.items = items;
@@ -49,7 +49,7 @@ public class CartRequest {
 		super();
 	}
 
-	public CartRequest(List<CartItemDTO> items, Double totalPrice,Double customerId) {
+	public CartRequest(List<CartItemDTO> items, Double totalPrice,Long customerId) {
 		super();
 		this.items = items;
 		this.totalPrice = totalPrice;

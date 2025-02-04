@@ -1,11 +1,16 @@
 package com.betacom.backend.model;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-import com.betacom.backend.request.CartRequest;
-
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "cart")
@@ -15,7 +20,7 @@ public class Cart {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<CartItem> items;
 
 	@OneToOne()
@@ -99,20 +104,6 @@ public class Cart {
 		this.totalPrice = 0.0;
 		for(CartItem item : items)
 			this.totalPrice += item.getPrice() * item.getQuantity();
-	}
-	
-	public Cart(CartRequest req) {		//DanielPensaChe in casi come questo , con campi che sono altre entita meglio non fare questo costruttore
-		super();
-		this.items = req.getItems().stream().map(c -> 
-			new CartItem(
-                c.getProductId(),
-                new Cart(c.getCartId(), customer ), //magari rivediamo insieme dopo
-                new Product(c.getProductId()),
-                c.getQuantity(),
-                c.getPrice()
-        		))
-        .collect(Collectors.toList()); ;
-		this.totalPrice = req.getTotalPrice();
 	}
 
 	public void updateTotalPrice() {

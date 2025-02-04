@@ -2,7 +2,6 @@ package com.betacom.backend.dto;
 
 import java.util.List;
 
-import com.betacom.backend.model.Address;
 import com.betacom.backend.model.Customer;
 
 public class CustomerDTO {

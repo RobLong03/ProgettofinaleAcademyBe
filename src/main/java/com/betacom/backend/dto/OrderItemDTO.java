@@ -1,8 +1,6 @@
 package com.betacom.backend.dto;
 
-import com.betacom.backend.model.Order;
 import com.betacom.backend.model.OrderItem;
-import com.betacom.backend.model.Product;
 
 public class OrderItemDTO {
     private Long id;
