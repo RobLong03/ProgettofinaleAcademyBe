@@ -22,15 +22,17 @@ public class CpuController {
 
     @PostMapping("/create")
     public ResponseBase create(@RequestBody(required = true)CpuRequest req){
+        log.debug("PC : Cpu create request received:" + req);
         ResponseBase r = new ResponseBase();
 
         try{
             cpuServices.create(req);
             r.setRc(true);
-
+            log.debug("PC: Cpu created");
         } catch (Exception e) {
             r.setRc(false);
             r.setMsg(e.getMessage());
+            log.debug("PC: Error in cpu creation");
         }
 
         return r;
@@ -38,14 +40,17 @@ public class CpuController {
 
     @GetMapping("/list")
     public ResponseList<CpuDTO> list(){
+        log.debug("PC: Cpu list request received");
         ResponseList<CpuDTO> r = new ResponseList<CpuDTO>();
 
         try{
             r.setDati(cpuServices.list());
             r.setRc(true);
+            log.debug("PC: Cpu list done");
         }catch (Exception e) {
             r.setRc(false);
             r.setMsg(e.getMessage());
+            log.debug("PC: Error in cpu list");
         }
 
         return r;
@@ -53,13 +58,17 @@ public class CpuController {
 
     @GetMapping("/get")
     public ResponseObject<CpuDTO> get(@RequestParam Long id ){
+        log.debug("PC: Cpu get request received for id:"+id);
         ResponseObject<CpuDTO> r = new  ResponseObject<CpuDTO>();
 
         try{
             r.setDati(cpuServices.get(id));
+            r.setRc(true);
+            log.debug("PC: Cpu get done for id:"+id);
         }catch(Exception e){
             r.setRc(false);
             r.setMsg(e.getMessage());
+            log.debug("PC: Error in cpu get for id:"+id);
         }
 
         return r;
@@ -67,14 +76,17 @@ public class CpuController {
 
     @PostMapping()
     public ResponseBase update(@RequestBody(required = true)CpuRequest req){
+        log.debug("PC: Cpu update request received:" + req);
         ResponseBase r = new ResponseBase();
 
         try{
             cpuServices.update(req);
             r.setRc(true);
+            log.debug("PC: Cpu updated");
         }catch(Exception e){
             r.setRc(false);
             r.setMsg(e.getMessage());
+            log.debug("PC: Error in cpu update");
         }
 
         return r;

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,10 +19,16 @@ import com.betacom.backend.services.interfaces.products.ProductServices;
 public class ProductImpl implements ProductServices {
 
     @Autowired
+    Logger log;
+
+    @Autowired
     IProductRepository prodRep;
 
     @Override
     public List<ProductDTO> list() {
+        log.debug("PI: list");
+
+
         List<Product> lProd = prodRep.findAll();
 
             return lProd.stream().map(p ->
@@ -31,7 +38,9 @@ public class ProductImpl implements ProductServices {
 
     @Override
     public ProductDTO get(Long id) throws Exception{
+        log.debug("PI: get request with id:"+id);
         if(id == null){
+            log.error("PI: id is null");
             throw new Exception("missing-id");
         }
 
@@ -40,16 +49,21 @@ public class ProductImpl implements ProductServices {
         if(prod.isPresent()){
             return new ProductDTO(prod.get());
         }else{
+            log.error("missing product");
             throw new Exception("not-found");
         }
     }
 
     @Override
     public void create(ProductRequest req) throws Exception {
-        if(mancanoAttributi(req))
-            throw new Exception("missing-attributes");
+        log.debug("PI: create request:"+req);
 
-        Product p = new Product(req );
+        if(mancanoAttributi(req)) {
+            log.error("PI: missing attributes");
+            throw new Exception("missing-attributes");
+        }
+
+        Product p = new Product(req);
          prodRep.save(p);
     }
 
