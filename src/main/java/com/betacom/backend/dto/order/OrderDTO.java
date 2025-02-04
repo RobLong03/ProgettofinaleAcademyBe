@@ -40,4 +40,54 @@ public class OrderDTO {
                 .map(OrderItemDTO::new)
                 .toList();
     }
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public CustomerDTO getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(CustomerDTO customer) {
+		this.customer = customer;
+	}
+
+	public AddressDTO getAddress() {
+		return address;
+	}
+
+	public void setAddress(AddressDTO address) {
+		this.address = address;
+	}
+
+	public Date getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(Date orderDate) {
+		this.orderDate = orderDate;
+	}
+
+	public Double getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(Double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+	public List<OrderItemDTO> getOrderItemsList() {
+		return orderItemsList;
+	}
+
+	public void setOrderItemsList(List<OrderItemDTO> orderItemsList) {
+		this.orderItemsList = orderItemsList;
+	}
+    
+    
 }
