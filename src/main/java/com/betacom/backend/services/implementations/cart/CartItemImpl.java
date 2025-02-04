@@ -8,16 +8,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.betacom.backend.dto.cart.CartItemDTO;
+import com.betacom.backend.model.cart.Cart;
 import com.betacom.backend.model.cart.CartItem;
+import com.betacom.backend.model.products.Product;
+import com.betacom.backend.repositories.cart.ICartRepository;
 import com.betacom.backend.repositories.cart.IcartItemRepository;
+import com.betacom.backend.repositories.products.IProductRepository;
 import com.betacom.backend.request.cart.CartItemRequest;
 import com.betacom.backend.services.interfaces.cart.CartItemServices;
+
+
 
 @Service
 public class CartItemImpl implements CartItemServices{
 
 	@Autowired
 	IcartItemRepository carItR;
+	
+	@Autowired
+	ICartRepository cartR;
+	
+	@Autowired
+	IProductRepository prodR;
 
 	@Override
 	public List<CartItemDTO> list() {
@@ -48,7 +60,20 @@ public class CartItemImpl implements CartItemServices{
 		if(mancanoAttributi(req))
             throw new Exception("missing-attributes");
 
-        CartItem p = new CartItem(req);
+		Optional<Cart> cartOptional = cartR.findById(req.getCartId());
+	    if(cartOptional.isEmpty())
+	    	throw new Exception("cart-not-found");
+	        
+	    Optional<Product> prodOp = prodR.findById(req.getProductId());
+	    if(prodOp.isEmpty())
+	    	throw new Exception("prod-not-found");
+	     
+        CartItem p = new CartItem();
+        
+        p.setCart(cartOptional.get());
+        p.setProduct(prodOp.get());
+        p.setPrice(req.getPrice());
+        p.setQuantity(req.getQuantity());
         carItR.save(p);
 	}
 
@@ -62,9 +87,21 @@ public class CartItemImpl implements CartItemServices{
             throw new Exception("does-not-exists");
         }
 
-        CartItem c = new CartItem(req);
-
-        carItR.save(c);
+        Optional<Cart> cartOptional = cartR.findById(req.getCartId());
+	    if(cartOptional.isEmpty())
+	    	throw new Exception("cart-not-found");
+	        
+	    Optional<Product> prodOp = prodR.findById(req.getProductId());
+	    if(prodOp.isEmpty())
+	    	throw new Exception("prod-not-found");
+	     
+        CartItem p = new CartItem();
+        
+        p.setCart(cartOptional.get());
+        p.setProduct(prodOp.get());
+        p.setPrice(req.getPrice());
+        p.setQuantity(req.getQuantity());
+        carItR.save(p);
 	}
 
 	@Override

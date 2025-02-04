@@ -20,4 +20,8 @@ public interface OrderServices {
 
     void delete(Long id) throws Exception ;
     
+    void addItemToOrder(OrderItemRequest itemReq) throws Exception;
+    
+    void removeItemFromOrder(OrderItemRequest itemReq) throws Exception;
+    
 }

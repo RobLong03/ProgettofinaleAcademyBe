@@ -1,7 +1,6 @@
 package com.betacom.backend.model.cart;
 
 import com.betacom.backend.model.products.Product;
-import com.betacom.backend.request.cart.CartItemRequest;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -79,13 +78,7 @@ public class CartItem {
 		this.quantity = quantity;
 		this.price = price;
 	}
-	public CartItem(CartItemRequest req) {
-		super();
-		this.cart = new Cart(req.getCartId());
-		this.product = new Product(req.getProductId());
-		this.quantity = req.getQuantity();
-		this.price = req.getPrice();
-	}
+	
 	@Override
 	public String toString() {
 		return "CartItem [id=" + id + ", cart=" + cart + ", quantity=" + quantity
