@@ -442,8 +442,8 @@ Caused by: java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-01-30T14:40:49.069+01:00 ERROR 13396 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.Product' due to: null
-2025-01-30T14:40:49.070+01:00  WARN 13396 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.Product' due to: null
+2025-01-30T14:40:49.069+01:00 ERROR 13396 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.products.Product' due to: null
+2025-01-30T14:40:49.070+01:00  WARN 13396 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.products.Product' due to: null
 2025-01-30T14:40:49.070+01:00  INFO 13396 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
 2025-01-30T14:40:49.071+01:00  INFO 13396 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
 2025-01-30T14:40:49.072+01:00  INFO 13396 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
@@ -452,7 +452,7 @@ Caused by: java.lang.RuntimeException: Driver com.mysql.cj.jdbc.Driver claims to
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2025-01-30T14:40:49.119+01:00 ERROR 13396 --- [projectbeta] [restartedMain] o.s.boot.SpringApplication               : Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.Product' due to: null
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.products.Product' due to: null
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1812) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.2.jar:6.2.2]
@@ -472,14 +472,14 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.2.jar:3.4.2]
-Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.Product' due to: null
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.products.Product' due to: null
 	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:431) ~[spring-orm-6.2.2.jar:6.2.2]
 	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.2.jar:6.2.2]
 	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808) ~[spring-beans-6.2.2.jar:6.2.2]
 	... 18 common frames omitted
-Caused by: org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.Product' due to: null
+Caused by: org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.products.Product' due to: null
 	at org.hibernate.metamodel.internal.EntityInstantiatorPojoStandard.instantiate(EntityInstantiatorPojoStandard.java:100) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
 	at org.hibernate.persister.entity.AbstractEntityPersister.lambda$prepareMappingModel$14(AbstractEntityPersister.java:5343) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
 	at org.hibernate.internal.util.LazyValue.getValue(LazyValue.java:30) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
@@ -514,7 +514,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	Return type for the method is missing
 	Return type for the method is missing
 
-	at com.betacom.backend.model.Product.<init>(Prodotto.java:8) ~[classes/:na]
+	at com.betacom.backend.model.products.Product.<init>(Prodotto.java:8) ~[classes/:na]
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[na:na]
 	... 44 common frames omitted
 
@@ -1738,8 +1738,8 @@ Consider defining a bean of type 'com.betacom.backend.repositories.IProdottoRepo
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-01-30T14:46:07.901+01:00 ERROR 13396 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.Product' due to: null
-2025-01-30T14:46:07.901+01:00  WARN 13396 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.Product' due to: null
+2025-01-30T14:46:07.901+01:00 ERROR 13396 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.products.Product' due to: null
+2025-01-30T14:46:07.901+01:00  WARN 13396 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.products.Product' due to: null
 2025-01-30T14:46:07.901+01:00  INFO 13396 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-27 - Shutdown initiated...
 2025-01-30T14:46:07.902+01:00  INFO 13396 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-27 - Shutdown completed.
 2025-01-30T14:46:07.903+01:00  INFO 13396 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
@@ -1748,7 +1748,7 @@ Consider defining a bean of type 'com.betacom.backend.repositories.IProdottoRepo
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2025-01-30T14:46:07.908+01:00 ERROR 13396 --- [projectbeta] [restartedMain] o.s.boot.SpringApplication               : Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.Product' due to: null
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.products.Product' due to: null
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1812) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.2.jar:6.2.2]
@@ -1768,14 +1768,14 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.2.jar:3.4.2]
-Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.Product' due to: null
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.products.Product' due to: null
 	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:431) ~[spring-orm-6.2.2.jar:6.2.2]
 	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.2.jar:6.2.2]
 	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808) ~[spring-beans-6.2.2.jar:6.2.2]
 	... 18 common frames omitted
-Caused by: org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.Product' due to: null
+Caused by: org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.products.Product' due to: null
 	at org.hibernate.metamodel.internal.EntityInstantiatorPojoStandard.instantiate(EntityInstantiatorPojoStandard.java:100) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
 	at org.hibernate.persister.entity.AbstractEntityPersister.lambda$prepareMappingModel$14(AbstractEntityPersister.java:5343) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
 	at org.hibernate.internal.util.LazyValue.getValue(LazyValue.java:30) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
@@ -1808,7 +1808,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	Syntax error, insert "}" to complete Block
 	Syntax error on token "}", delete this token
 
-	at com.betacom.backend.model.Product.<init>(Product.java:27) ~[classes/:na]
+	at com.betacom.backend.model.products.Product.<init>(Product.java:27) ~[classes/:na]
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[na:na]
 	... 44 common frames omitted
 
@@ -1836,8 +1836,8 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-01-30T14:46:12.675+01:00 ERROR 13396 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.Product' due to: null
-2025-01-30T14:46:12.675+01:00  WARN 13396 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.Product' due to: null
+2025-01-30T14:46:12.675+01:00 ERROR 13396 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.products.Product' due to: null
+2025-01-30T14:46:12.675+01:00  WARN 13396 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.products.Product' due to: null
 2025-01-30T14:46:12.676+01:00  INFO 13396 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-28 - Shutdown initiated...
 2025-01-30T14:46:12.676+01:00  INFO 13396 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-28 - Shutdown completed.
 2025-01-30T14:46:12.677+01:00  INFO 13396 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
@@ -1846,7 +1846,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2025-01-30T14:46:12.682+01:00 ERROR 13396 --- [projectbeta] [restartedMain] o.s.boot.SpringApplication               : Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.Product' due to: null
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.products.Product' due to: null
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1812) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.2.jar:6.2.2]
@@ -1866,14 +1866,14 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.2.jar:3.4.2]
-Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.Product' due to: null
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.products.Product' due to: null
 	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:431) ~[spring-orm-6.2.2.jar:6.2.2]
 	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.2.jar:6.2.2]
 	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808) ~[spring-beans-6.2.2.jar:6.2.2]
 	... 18 common frames omitted
-Caused by: org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.Product' due to: null
+Caused by: org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.products.Product' due to: null
 	at org.hibernate.metamodel.internal.EntityInstantiatorPojoStandard.instantiate(EntityInstantiatorPojoStandard.java:100) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
 	at org.hibernate.persister.entity.AbstractEntityPersister.lambda$prepareMappingModel$14(AbstractEntityPersister.java:5343) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
 	at org.hibernate.internal.util.LazyValue.getValue(LazyValue.java:30) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
@@ -1911,7 +1911,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	quantita cannot be resolved or is not a field
 	The method getId() is undefined for the type Product
 
-	at com.betacom.backend.model.Product.<init>(Product.java:27) ~[classes/:na]
+	at com.betacom.backend.model.products.Product.<init>(Product.java:27) ~[classes/:na]
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[na:na]
 	... 44 common frames omitted
 
@@ -1939,8 +1939,8 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-01-30T14:46:17.438+01:00 ERROR 13396 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.Product' due to: null
-2025-01-30T14:46:17.439+01:00  WARN 13396 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.Product' due to: null
+2025-01-30T14:46:17.438+01:00 ERROR 13396 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.products.Product' due to: null
+2025-01-30T14:46:17.439+01:00  WARN 13396 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.products.Product' due to: null
 2025-01-30T14:46:17.439+01:00  INFO 13396 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-29 - Shutdown initiated...
 2025-01-30T14:46:17.440+01:00  INFO 13396 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-29 - Shutdown completed.
 2025-01-30T14:46:17.440+01:00  INFO 13396 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
@@ -1949,7 +1949,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2025-01-30T14:46:17.447+01:00 ERROR 13396 --- [projectbeta] [restartedMain] o.s.boot.SpringApplication               : Application run failed
 
-org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.Product' due to: null
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.products.Product' due to: null
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1812) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.2.jar:6.2.2]
@@ -1969,14 +1969,14 @@ org.springframework.beans.factory.BeanCreationException: Error creating bean wit
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.2.jar:3.4.2]
-Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.Product' due to: null
+Caused by: jakarta.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.products.Product' due to: null
 	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:431) ~[spring-orm-6.2.2.jar:6.2.2]
 	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.2.jar:6.2.2]
 	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808) ~[spring-beans-6.2.2.jar:6.2.2]
 	... 18 common frames omitted
-Caused by: org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.Product' due to: null
+Caused by: org.hibernate.InstantiationException: Could not instantiate entity 'com.betacom.backend.model.products.Product' due to: null
 	at org.hibernate.metamodel.internal.EntityInstantiatorPojoStandard.instantiate(EntityInstantiatorPojoStandard.java:100) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
 	at org.hibernate.persister.entity.AbstractEntityPersister.lambda$prepareMappingModel$14(AbstractEntityPersister.java:5343) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
 	at org.hibernate.internal.util.LazyValue.getValue(LazyValue.java:30) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
@@ -2013,7 +2013,7 @@ Caused by: java.lang.Error: Unresolved compilation problems:
 	quantita cannot be resolved or is not a field
 	The method getId() is undefined for the type Product
 
-	at com.betacom.backend.model.Product.<init>(Product.java:27) ~[classes/:na]
+	at com.betacom.backend.model.products.Product.<init>(Product.java:27) ~[classes/:na]
 	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62) ~[na:na]
 	... 44 common frames omitted
 
@@ -9746,6 +9746,463 @@ Caused by: java.lang.ClassNotFoundException: ProdoRequest
 2025-01-30T15:08:00.882+01:00  INFO 13396 --- [projectbeta] [RMI TCP Connection(37)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-01-30T15:08:00.883+01:00  INFO 13396 --- [projectbeta] [RMI TCP Connection(37)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-111 - Shutdown initiated...
 2025-01-30T15:08:00.885+01:00  INFO 13396 --- [projectbeta] [RMI TCP Connection(37)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-111 - Shutdown completed.
+2025-01-30T20:12:42.306+01:00  INFO 16696 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Starting ProjectbetaApplication using Java 23.0.1 with PID 16696 (C:\0OmniFolder\Project Hardware\project hardware back end\target\classes started by bosta in C:\0OmniFolder\Project Hardware\project hardware back end)
+2025-01-30T20:12:42.307+01:00 DEBUG 16696 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-01-30T20:12:42.308+01:00  INFO 16696 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : The following 1 profile is active: "sviluppo"
+2025-01-30T20:12:42.352+01:00  INFO 16696 --- [projectbeta] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-30T20:12:42.353+01:00  INFO 16696 --- [projectbeta] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-30T20:12:42.914+01:00  INFO 16696 --- [projectbeta] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-30T20:12:42.969+01:00  INFO 16696 --- [projectbeta] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 46 ms. Found 3 JPA repository interfaces.
+2025-01-30T20:12:43.422+01:00  INFO 16696 --- [projectbeta] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-01-30T20:12:43.435+01:00  INFO 16696 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-30T20:12:43.435+01:00  INFO 16696 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-30T20:12:43.479+01:00  INFO 16696 --- [projectbeta] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-30T20:12:43.479+01:00  INFO 16696 --- [projectbeta] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1126 ms
+2025-01-30T20:12:43.582+01:00  INFO 16696 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-30T20:12:43.928+01:00  INFO 16696 --- [projectbeta] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@39b70890
+2025-01-30T20:12:43.929+01:00  INFO 16696 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-30T20:12:43.974+01:00  INFO 16696 --- [projectbeta] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-30T20:12:44.039+01:00  INFO 16696 --- [projectbeta] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-01-30T20:12:44.074+01:00  INFO 16696 --- [projectbeta] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-30T20:12:44.360+01:00  INFO 16696 --- [projectbeta] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-30T20:12:44.466+01:00  INFO 16696 --- [projectbeta] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.4.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-30T20:12:45.165+01:00  INFO 16696 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-30T20:12:45.188+01:00  INFO 16696 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-30T20:12:45.319+01:00  WARN 16696 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cpuImpl': Unsatisfied dependency expressed through field 'cpuRep': Error creating bean with name 'ICpuRepositories' defined in com.betacom.backend.repositories.products.ICpuRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Not a managed type: class com.betacom.backend.model.products.Cpu
+2025-01-30T20:12:45.320+01:00  INFO 16696 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-30T20:12:45.324+01:00  INFO 16696 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-01-30T20:12:45.330+01:00  INFO 16696 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-01-30T20:12:45.332+01:00  INFO 16696 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-01-30T20:12:45.342+01:00  INFO 16696 --- [projectbeta] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-01-30T20:12:45.357+01:00 ERROR 16696 --- [projectbeta] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'cpuImpl': Unsatisfied dependency expressed through field 'cpuRep': Error creating bean with name 'ICpuRepositories' defined in com.betacom.backend.repositories.products.ICpuRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Not a managed type: class com.betacom.backend.model.products.Cpu
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1445) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:307) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1122) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1093) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1030) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.2.jar:6.2.2]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.2.jar:6.2.2]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.2.jar:3.4.2]
+	at com.betacom.backend.ProjectbetaApplication.main(ProjectbetaApplication.java:15) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.2.jar:3.4.2]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'ICpuRepositories' defined in com.betacom.backend.repositories.products.ICpuRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Not a managed type: class com.betacom.backend.model.products.Cpu
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1812) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:307) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1631) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1519) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785) ~[spring-beans-6.2.2.jar:6.2.2]
+	... 25 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Not a managed type: class com.betacom.backend.model.products.Cpu
+	at org.hibernate.metamodel.model.domain.internal.JpaMetamodelImpl.managedType(JpaMetamodelImpl.java:223) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
+	at org.hibernate.metamodel.model.domain.internal.MappingMetamodelImpl.managedType(MappingMetamodelImpl.java:470) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
+	at org.hibernate.metamodel.model.domain.internal.MappingMetamodelImpl.managedType(MappingMetamodelImpl.java:100) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
+	at org.springframework.data.jpa.repository.support.JpaMetamodelEntityInformation.<init>(JpaMetamodelEntityInformation.java:82) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.data.jpa.repository.support.JpaEntityInformationSupport.getEntityInformation(JpaEntityInformationSupport.java:69) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getEntityInformation(JpaRepositoryFactory.java:251) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getTargetRepository(JpaRepositoryFactory.java:215) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getTargetRepository(JpaRepositoryFactory.java:198) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getTargetRepository(JpaRepositoryFactory.java:1) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:386) ~[spring-data-commons-3.4.2.jar:3.4.2]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$4(RepositoryFactoryBeanSupport.java:350) ~[spring-data-commons-3.4.2.jar:3.4.2]
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:135) ~[spring-data-commons-3.4.2.jar:3.4.2]
+	at org.springframework.data.util.Lazy.get(Lazy.java:113) ~[spring-data-commons-3.4.2.jar:3.4.2]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:356) ~[spring-data-commons-3.4.2.jar:3.4.2]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:132) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808) ~[spring-beans-6.2.2.jar:6.2.2]
+	... 35 common frames omitted
+
+2025-01-30T20:19:34.602+01:00  INFO 11844 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Starting ProjectbetaApplication using Java 23.0.1 with PID 11844 (C:\0OmniFolder\Project Hardware\project hardware back end\target\classes started by bosta in C:\0OmniFolder\Project Hardware\project hardware back end)
+2025-01-30T20:19:34.603+01:00 DEBUG 11844 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-01-30T20:19:34.603+01:00  INFO 11844 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : The following 1 profile is active: "sviluppo"
+2025-01-30T20:19:34.648+01:00  INFO 11844 --- [projectbeta] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-30T20:19:34.648+01:00  INFO 11844 --- [projectbeta] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-30T20:19:35.120+01:00  INFO 11844 --- [projectbeta] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-30T20:19:35.170+01:00  INFO 11844 --- [projectbeta] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 44 ms. Found 3 JPA repository interfaces.
+2025-01-30T20:19:35.588+01:00  INFO 11844 --- [projectbeta] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-01-30T20:19:35.599+01:00  INFO 11844 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-30T20:19:35.599+01:00  INFO 11844 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-30T20:19:35.636+01:00  INFO 11844 --- [projectbeta] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-30T20:19:35.636+01:00  INFO 11844 --- [projectbeta] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 987 ms
+2025-01-30T20:19:35.729+01:00  INFO 11844 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-30T20:19:36.029+01:00  INFO 11844 --- [projectbeta] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@63223b9b
+2025-01-30T20:19:36.031+01:00  INFO 11844 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-30T20:19:36.073+01:00  INFO 11844 --- [projectbeta] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-30T20:19:36.111+01:00  INFO 11844 --- [projectbeta] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-01-30T20:19:36.134+01:00  INFO 11844 --- [projectbeta] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-30T20:19:36.357+01:00  INFO 11844 --- [projectbeta] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-30T20:19:36.432+01:00  INFO 11844 --- [projectbeta] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.4.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-30T20:19:37.051+01:00  INFO 11844 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-30T20:19:37.072+01:00  INFO 11844 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-30T20:19:37.293+01:00  WARN 11844 --- [projectbeta] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-30T20:19:37.561+01:00  INFO 11844 --- [projectbeta] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-01-30T20:19:37.596+01:00  INFO 11844 --- [projectbeta] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2025-01-30T20:19:37.602+01:00  INFO 11844 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Started ProjectbetaApplication in 3.366 seconds (process running for 4.057)
+2025-01-30T20:20:00.929+01:00  INFO 11844 --- [projectbeta] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-01-30T20:20:00.934+01:00  INFO 11844 --- [projectbeta] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-01-30T20:20:00.937+01:00  INFO 11844 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-30T20:20:00.939+01:00  INFO 11844 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-01-30T20:20:00.945+01:00  INFO 11844 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-01-30T20:20:04.129+01:00  INFO 18640 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Starting ProjectbetaApplication using Java 23.0.1 with PID 18640 (C:\0OmniFolder\Project Hardware\project hardware back end\target\classes started by bosta in C:\0OmniFolder\Project Hardware\project hardware back end)
+2025-01-30T20:20:04.131+01:00 DEBUG 18640 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-01-30T20:20:04.131+01:00  INFO 18640 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : The following 1 profile is active: "sviluppo"
+2025-01-30T20:20:04.189+01:00  INFO 18640 --- [projectbeta] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-01-30T20:20:04.189+01:00  INFO 18640 --- [projectbeta] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-01-30T20:20:04.653+01:00  INFO 18640 --- [projectbeta] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-01-30T20:20:04.701+01:00  INFO 18640 --- [projectbeta] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 3 JPA repository interfaces.
+2025-01-30T20:20:05.097+01:00  INFO 18640 --- [projectbeta] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-01-30T20:20:05.107+01:00  INFO 18640 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-01-30T20:20:05.108+01:00  INFO 18640 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-01-30T20:20:05.141+01:00  INFO 18640 --- [projectbeta] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-01-30T20:20:05.142+01:00  INFO 18640 --- [projectbeta] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 953 ms
+2025-01-30T20:20:05.226+01:00  INFO 18640 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-01-30T20:20:05.509+01:00  INFO 18640 --- [projectbeta] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5bcbd6c2
+2025-01-30T20:20:05.511+01:00  INFO 18640 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-01-30T20:20:05.550+01:00  INFO 18640 --- [projectbeta] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-01-30T20:20:05.589+01:00  INFO 18640 --- [projectbeta] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-01-30T20:20:05.611+01:00  INFO 18640 --- [projectbeta] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-01-30T20:20:05.838+01:00  INFO 18640 --- [projectbeta] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-01-30T20:20:05.913+01:00  INFO 18640 --- [projectbeta] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.4.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-01-30T20:20:06.548+01:00  INFO 18640 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-01-30T20:20:06.567+01:00  INFO 18640 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-01-30T20:20:06.771+01:00  WARN 18640 --- [projectbeta] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-01-30T20:20:06.998+01:00  INFO 18640 --- [projectbeta] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-01-30T20:20:07.026+01:00  INFO 18640 --- [projectbeta] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2025-01-30T20:20:07.032+01:00  INFO 18640 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Started ProjectbetaApplication in 3.302 seconds (process running for 3.912)
+2025-01-30T20:20:51.188+01:00  INFO 18640 --- [projectbeta] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-01-30T20:20:51.195+01:00  INFO 18640 --- [projectbeta] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-01-30T20:20:51.199+01:00  INFO 18640 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-01-30T20:20:51.202+01:00  INFO 18640 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-01-30T20:20:51.207+01:00  INFO 18640 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-03T17:49:03.034+01:00  INFO 27268 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Starting ProjectbetaApplication using Java 23.0.1 with PID 27268 (C:\0OmniFolder\Project Hardware\project hardware back end\target\classes started by bosta in C:\0OmniFolder\Project Hardware\project hardware back end)
+2025-02-03T17:49:03.036+01:00 DEBUG 27268 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-03T17:49:03.036+01:00  INFO 27268 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : The following 1 profile is active: "sviluppo"
+2025-02-03T17:49:03.076+01:00  INFO 27268 --- [projectbeta] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-03T17:49:03.076+01:00  INFO 27268 --- [projectbeta] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-03T17:49:03.616+01:00  INFO 27268 --- [projectbeta] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-03T17:49:03.702+01:00  INFO 27268 --- [projectbeta] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 80 ms. Found 16 JPA repository interfaces.
+2025-02-03T17:49:04.152+01:00  INFO 27268 --- [projectbeta] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-02-03T17:49:04.165+01:00  INFO 27268 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-03T17:49:04.166+01:00  INFO 27268 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-02-03T17:49:04.207+01:00  INFO 27268 --- [projectbeta] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-03T17:49:04.207+01:00  INFO 27268 --- [projectbeta] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1131 ms
+2025-02-03T17:49:04.300+01:00  INFO 27268 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-03T17:49:04.692+01:00  INFO 27268 --- [projectbeta] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@66eb7fe1
+2025-02-03T17:49:04.694+01:00  INFO 27268 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-03T17:49:04.745+01:00  INFO 27268 --- [projectbeta] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-03T17:49:04.826+01:00  INFO 27268 --- [projectbeta] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-03T17:49:04.868+01:00  INFO 27268 --- [projectbeta] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-03T17:49:05.172+01:00  INFO 27268 --- [projectbeta] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-03T17:49:05.283+01:00  INFO 27268 --- [projectbeta] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.4.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-03T17:49:05.598+01:00  WARN 27268 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T17:49:05.598+01:00  WARN 27268 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-03T17:49:06.296+01:00  INFO 27268 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-03T17:49:06.323+01:00  INFO 27268 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-03T17:49:06.552+01:00  WARN 27268 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'messageImpl': Unsatisfied dependency expressed through field 'msgR': Error creating bean with name 'IMessageRepository' defined in com.betacom.backend.repositories.messages.IMessageRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Not a managed type: class org.aspectj.bridge.Message
+2025-02-03T17:49:06.554+01:00  INFO 27268 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-03T17:49:06.558+01:00  INFO 27268 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-03T17:49:06.564+01:00  INFO 27268 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-03T17:49:06.566+01:00  INFO 27268 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-02-03T17:49:06.575+01:00  INFO 27268 --- [projectbeta] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-02-03T17:49:06.595+01:00 ERROR 27268 --- [projectbeta] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'messageImpl': Unsatisfied dependency expressed through field 'msgR': Error creating bean with name 'IMessageRepository' defined in com.betacom.backend.repositories.messages.IMessageRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Not a managed type: class org.aspectj.bridge.Message
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1445) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:307) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1122) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1093) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1030) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.2.jar:6.2.2]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.2.jar:6.2.2]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.2.jar:3.4.2]
+	at com.betacom.backend.ProjectbetaApplication.main(ProjectbetaApplication.java:15) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.2.jar:3.4.2]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'IMessageRepository' defined in com.betacom.backend.repositories.messages.IMessageRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Not a managed type: class org.aspectj.bridge.Message
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1812) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:307) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1631) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1519) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785) ~[spring-beans-6.2.2.jar:6.2.2]
+	... 25 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Not a managed type: class org.aspectj.bridge.Message
+	at org.hibernate.metamodel.model.domain.internal.JpaMetamodelImpl.managedType(JpaMetamodelImpl.java:223) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
+	at org.hibernate.metamodel.model.domain.internal.MappingMetamodelImpl.managedType(MappingMetamodelImpl.java:470) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
+	at org.hibernate.metamodel.model.domain.internal.MappingMetamodelImpl.managedType(MappingMetamodelImpl.java:100) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
+	at org.springframework.data.jpa.repository.support.JpaMetamodelEntityInformation.<init>(JpaMetamodelEntityInformation.java:82) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.data.jpa.repository.support.JpaEntityInformationSupport.getEntityInformation(JpaEntityInformationSupport.java:69) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getEntityInformation(JpaRepositoryFactory.java:251) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getTargetRepository(JpaRepositoryFactory.java:215) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getTargetRepository(JpaRepositoryFactory.java:198) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getTargetRepository(JpaRepositoryFactory.java:1) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:386) ~[spring-data-commons-3.4.2.jar:3.4.2]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$4(RepositoryFactoryBeanSupport.java:350) ~[spring-data-commons-3.4.2.jar:3.4.2]
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:135) ~[spring-data-commons-3.4.2.jar:3.4.2]
+	at org.springframework.data.util.Lazy.get(Lazy.java:113) ~[spring-data-commons-3.4.2.jar:3.4.2]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:356) ~[spring-data-commons-3.4.2.jar:3.4.2]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:132) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808) ~[spring-beans-6.2.2.jar:6.2.2]
+	... 35 common frames omitted
+
+2025-02-03T17:50:10.832+01:00  INFO 12864 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Starting ProjectbetaApplication using Java 23.0.1 with PID 12864 (C:\0OmniFolder\Project Hardware\project hardware back end\target\classes started by bosta in C:\0OmniFolder\Project Hardware\project hardware back end)
+2025-02-03T17:50:10.836+01:00 DEBUG 12864 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-03T17:50:10.837+01:00  INFO 12864 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : The following 1 profile is active: "sviluppo"
+2025-02-03T17:50:10.891+01:00  INFO 12864 --- [projectbeta] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-03T17:50:10.891+01:00  INFO 12864 --- [projectbeta] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-03T17:50:11.522+01:00  INFO 12864 --- [projectbeta] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-03T17:50:11.603+01:00  INFO 12864 --- [projectbeta] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74 ms. Found 16 JPA repository interfaces.
+2025-02-03T17:50:12.012+01:00  INFO 12864 --- [projectbeta] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-02-03T17:50:12.027+01:00  INFO 12864 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-03T17:50:12.028+01:00  INFO 12864 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-02-03T17:50:12.063+01:00  INFO 12864 --- [projectbeta] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-03T17:50:12.063+01:00  INFO 12864 --- [projectbeta] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1171 ms
+2025-02-03T17:50:12.149+01:00  INFO 12864 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-03T17:50:12.439+01:00  INFO 12864 --- [projectbeta] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@1e805d24
+2025-02-03T17:50:12.441+01:00  INFO 12864 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-03T17:50:12.485+01:00  INFO 12864 --- [projectbeta] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-03T17:50:12.528+01:00  INFO 12864 --- [projectbeta] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-03T17:50:12.552+01:00  INFO 12864 --- [projectbeta] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-03T17:50:12.780+01:00  INFO 12864 --- [projectbeta] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-03T17:50:12.856+01:00  INFO 12864 --- [projectbeta] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.4.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-03T17:50:13.142+01:00  WARN 12864 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T17:50:13.142+01:00  WARN 12864 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-03T17:50:13.754+01:00  INFO 12864 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-03T17:50:13.780+01:00  INFO 12864 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-03T17:50:14.009+01:00  WARN 12864 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'messageImpl': Unsatisfied dependency expressed through field 'msgR': Error creating bean with name 'IMessageRepository' defined in com.betacom.backend.repositories.messages.IMessageRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Not a managed type: class org.aspectj.bridge.Message
+2025-02-03T17:50:14.010+01:00  INFO 12864 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-03T17:50:14.012+01:00  INFO 12864 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-03T17:50:14.018+01:00  INFO 12864 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-03T17:50:14.020+01:00  INFO 12864 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-02-03T17:50:14.028+01:00  INFO 12864 --- [projectbeta] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-02-03T17:50:14.043+01:00 ERROR 12864 --- [projectbeta] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'messageImpl': Unsatisfied dependency expressed through field 'msgR': Error creating bean with name 'IMessageRepository' defined in com.betacom.backend.repositories.messages.IMessageRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Not a managed type: class org.aspectj.bridge.Message
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1445) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:600) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:307) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1122) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1093) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1030) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.2.jar:6.2.2]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.2.jar:6.2.2]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.2.jar:3.4.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.2.jar:3.4.2]
+	at com.betacom.backend.ProjectbetaApplication.main(ProjectbetaApplication.java:15) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.2.jar:3.4.2]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'IMessageRepository' defined in com.betacom.backend.repositories.messages.IMessageRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Not a managed type: class org.aspectj.bridge.Message
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1812) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:307) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1631) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1519) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785) ~[spring-beans-6.2.2.jar:6.2.2]
+	... 25 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Not a managed type: class org.aspectj.bridge.Message
+	at org.hibernate.metamodel.model.domain.internal.JpaMetamodelImpl.managedType(JpaMetamodelImpl.java:223) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
+	at org.hibernate.metamodel.model.domain.internal.MappingMetamodelImpl.managedType(MappingMetamodelImpl.java:470) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
+	at org.hibernate.metamodel.model.domain.internal.MappingMetamodelImpl.managedType(MappingMetamodelImpl.java:100) ~[hibernate-core-6.6.5.Final.jar:6.6.5.Final]
+	at org.springframework.data.jpa.repository.support.JpaMetamodelEntityInformation.<init>(JpaMetamodelEntityInformation.java:82) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.data.jpa.repository.support.JpaEntityInformationSupport.getEntityInformation(JpaEntityInformationSupport.java:69) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getEntityInformation(JpaRepositoryFactory.java:251) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getTargetRepository(JpaRepositoryFactory.java:215) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getTargetRepository(JpaRepositoryFactory.java:198) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getTargetRepository(JpaRepositoryFactory.java:1) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:386) ~[spring-data-commons-3.4.2.jar:3.4.2]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$4(RepositoryFactoryBeanSupport.java:350) ~[spring-data-commons-3.4.2.jar:3.4.2]
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:135) ~[spring-data-commons-3.4.2.jar:3.4.2]
+	at org.springframework.data.util.Lazy.get(Lazy.java:113) ~[spring-data-commons-3.4.2.jar:3.4.2]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:356) ~[spring-data-commons-3.4.2.jar:3.4.2]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:132) ~[spring-data-jpa-3.4.2.jar:3.4.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1859) ~[spring-beans-6.2.2.jar:6.2.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1808) ~[spring-beans-6.2.2.jar:6.2.2]
+	... 35 common frames omitted
+
+2025-02-03T17:51:43.138+01:00  INFO 12560 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Starting ProjectbetaApplication using Java 23.0.1 with PID 12560 (C:\0OmniFolder\Project Hardware\project hardware back end\target\classes started by bosta in C:\0OmniFolder\Project Hardware\project hardware back end)
+2025-02-03T17:51:43.140+01:00 DEBUG 12560 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-03T17:51:43.140+01:00  INFO 12560 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : The following 1 profile is active: "sviluppo"
+2025-02-03T17:51:43.188+01:00  INFO 12560 --- [projectbeta] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-03T17:51:43.189+01:00  INFO 12560 --- [projectbeta] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-03T17:51:43.666+01:00  INFO 12560 --- [projectbeta] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-03T17:51:43.748+01:00  INFO 12560 --- [projectbeta] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 75 ms. Found 16 JPA repository interfaces.
+2025-02-03T17:51:44.152+01:00  INFO 12560 --- [projectbeta] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-02-03T17:51:44.164+01:00  INFO 12560 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-03T17:51:44.164+01:00  INFO 12560 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-02-03T17:51:44.198+01:00  INFO 12560 --- [projectbeta] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-03T17:51:44.198+01:00  INFO 12560 --- [projectbeta] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1009 ms
+2025-02-03T17:51:44.286+01:00  INFO 12560 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-03T17:51:44.587+01:00  INFO 12560 --- [projectbeta] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@72f0fa60
+2025-02-03T17:51:44.589+01:00  INFO 12560 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-03T17:51:44.633+01:00  INFO 12560 --- [projectbeta] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-03T17:51:44.673+01:00  INFO 12560 --- [projectbeta] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-03T17:51:44.699+01:00  INFO 12560 --- [projectbeta] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-03T17:51:44.920+01:00  INFO 12560 --- [projectbeta] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-03T17:51:45.001+01:00  INFO 12560 --- [projectbeta] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.4.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-03T17:51:45.266+01:00  WARN 12560 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T17:51:45.266+01:00  WARN 12560 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-03T17:51:45.878+01:00  INFO 12560 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-03T17:51:45.902+01:00  INFO 12560 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-03T17:51:46.301+01:00  WARN 12560 --- [projectbeta] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-03T17:51:46.568+01:00  INFO 12560 --- [projectbeta] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-02-03T17:51:46.599+01:00  INFO 12560 --- [projectbeta] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2025-02-03T17:51:46.605+01:00  INFO 12560 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Started ProjectbetaApplication in 3.838 seconds (process running for 4.436)
+2025-02-03T17:54:01.605+01:00  INFO 12560 --- [projectbeta] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-02-03T17:54:01.612+01:00  INFO 12560 --- [projectbeta] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-02-03T17:54:01.618+01:00  INFO 12560 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-03T17:54:01.621+01:00  INFO 12560 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-03T17:54:01.627+01:00  INFO 12560 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-03T17:54:48.765+01:00  INFO 24700 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Starting ProjectbetaApplication using Java 23.0.1 with PID 24700 (C:\0OmniFolder\Project Hardware\project hardware back end\target\classes started by bosta in C:\0OmniFolder\Project Hardware\project hardware back end)
+2025-02-03T17:54:48.766+01:00 DEBUG 24700 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-03T17:54:48.767+01:00  INFO 24700 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : The following 1 profile is active: "sviluppo"
+2025-02-03T17:54:48.813+01:00  INFO 24700 --- [projectbeta] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-03T17:54:48.813+01:00  INFO 24700 --- [projectbeta] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-03T17:54:49.286+01:00  INFO 24700 --- [projectbeta] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-03T17:54:49.365+01:00  INFO 24700 --- [projectbeta] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72 ms. Found 16 JPA repository interfaces.
+2025-02-03T17:54:49.762+01:00  INFO 24700 --- [projectbeta] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 9090 (http)
+2025-02-03T17:54:49.773+01:00  INFO 24700 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-03T17:54:49.774+01:00  INFO 24700 --- [projectbeta] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-02-03T17:54:49.809+01:00  INFO 24700 --- [projectbeta] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-03T17:54:49.809+01:00  INFO 24700 --- [projectbeta] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 995 ms
+2025-02-03T17:54:49.900+01:00  INFO 24700 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-03T17:54:50.220+01:00  INFO 24700 --- [projectbeta] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7af6ce45
+2025-02-03T17:54:50.221+01:00  INFO 24700 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-03T17:54:50.264+01:00  INFO 24700 --- [projectbeta] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-03T17:54:50.303+01:00  INFO 24700 --- [projectbeta] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-03T17:54:50.329+01:00  INFO 24700 --- [projectbeta] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-03T17:54:50.550+01:00  INFO 24700 --- [projectbeta] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-03T17:54:50.627+01:00  INFO 24700 --- [projectbeta] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 8.4.3
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-03T17:54:50.892+01:00  WARN 24700 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T17:54:50.892+01:00  WARN 24700 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-03T17:54:51.515+01:00  INFO 24700 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-03T17:54:51.539+01:00  INFO 24700 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-03T17:54:51.930+01:00  WARN 24700 --- [projectbeta] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-03T17:54:52.195+01:00  INFO 24700 --- [projectbeta] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-02-03T17:54:52.227+01:00  INFO 24700 --- [projectbeta] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 9090 (http) with context path '/'
+2025-02-03T17:54:52.233+01:00  INFO 24700 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Started ProjectbetaApplication in 3.842 seconds (process running for 4.461)
+2025-02-03T18:04:09.807+01:00  INFO 24700 --- [projectbeta] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-02-03T18:04:09.813+01:00  INFO 24700 --- [projectbeta] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-02-03T18:04:09.819+01:00  INFO 24700 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-03T18:04:09.822+01:00  INFO 24700 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-03T18:04:09.827+01:00  INFO 24700 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
 2025-02-03T17:48:53.728+01:00  INFO 27928 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Starting ProjectbetaApplication using Java 23.0.2 with PID 27928 (C:\Users\vasan\OneDrive\Desktop\Robertodev\Betacom\progettobetca\target\classes started by vasan in C:\Users\vasan\OneDrive\Desktop\Robertodev\Betacom\progettobetca)
 2025-02-03T17:48:53.730+01:00 DEBUG 27928 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Running with Spring Boot v3.4.2, Spring v6.2.2
 2025-02-03T17:48:53.731+01:00  INFO 27928 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : The following 1 profile is active: "sviluppo"
@@ -9773,11 +10230,11 @@ Caused by: java.lang.ClassNotFoundException: ProdoRequest
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-03T17:48:57.506+01:00  WARN 27928 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.MessageID
-2025-02-03T17:48:57.507+01:00  WARN 27928 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.MessageID
+2025-02-03T17:48:57.506+01:00  WARN 27928 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T17:48:57.507+01:00  WARN 27928 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
 2025-02-03T17:48:58.470+01:00  INFO 27928 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2025-02-03T17:48:58.513+01:00  INFO 27928 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-02-03T17:48:58.892+01:00  WARN 27928 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'messageImpl': Unsatisfied dependency expressed through field 'msgR': Error creating bean with name 'IMessageRepository' defined in com.betacom.backend.repositories.IMessageRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Not a managed type: class org.aspectj.bridge.Message
+2025-02-03T17:48:58.892+01:00  WARN 27928 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'messageImpl': Unsatisfied dependency expressed through field 'msgR': Error creating bean with name 'IMessageRepository' defined in com.betacom.backend.repositories.messages.IMessageRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Not a managed type: class org.aspectj.bridge.Message
 2025-02-03T17:48:58.893+01:00  INFO 27928 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-02-03T17:48:58.899+01:00  INFO 27928 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2025-02-03T17:48:58.910+01:00  INFO 27928 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
@@ -9787,7 +10244,7 @@ Caused by: java.lang.ClassNotFoundException: ProdoRequest
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
 2025-02-03T17:48:58.955+01:00 ERROR 27928 --- [projectbeta] [restartedMain] o.s.boot.SpringApplication               : Application run failed
 
-org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'messageImpl': Unsatisfied dependency expressed through field 'msgR': Error creating bean with name 'IMessageRepository' defined in com.betacom.backend.repositories.IMessageRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Not a managed type: class org.aspectj.bridge.Message
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'messageImpl': Unsatisfied dependency expressed through field 'msgR': Error creating bean with name 'IMessageRepository' defined in com.betacom.backend.repositories.messages.IMessageRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Not a managed type: class org.aspectj.bridge.Message
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146) ~[spring-beans-6.2.2.jar:6.2.2]
@@ -9814,7 +10271,7 @@ org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
 	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.4.2.jar:3.4.2]
-Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'IMessageRepository' defined in com.betacom.backend.repositories.IMessageRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Not a managed type: class org.aspectj.bridge.Message
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'IMessageRepository' defined in com.betacom.backend.repositories.messages.IMessageRepository defined in @EnableJpaRepositories declared on JpaRepositoriesRegistrar.EnableJpaRepositoriesConfiguration: Not a managed type: class org.aspectj.bridge.Message
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1812) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:601) ~[spring-beans-6.2.2.jar:6.2.2]
 	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.2.jar:6.2.2]
@@ -9880,8 +10337,8 @@ Caused by: java.lang.IllegalArgumentException: Not a managed type: class org.asp
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-03T17:54:55.832+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.MessageID
-2025-02-03T17:54:55.833+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.MessageID
+2025-02-03T17:54:55.832+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T17:54:55.833+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
 2025-02-03T17:54:56.797+01:00  INFO 28416 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2025-02-03T17:54:56.828+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 2025-02-03T17:54:57.391+01:00  WARN 28416 --- [projectbeta] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
@@ -9918,8 +10375,8 @@ Caused by: java.lang.IllegalArgumentException: Not a managed type: class org.asp
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-03T18:04:43.321+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.MessageID
-2025-02-03T18:04:43.322+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.MessageID
+2025-02-03T18:04:43.321+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T18:04:43.322+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
 2025-02-03T18:04:43.582+01:00  INFO 28416 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2025-02-03T18:04:43.591+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 2025-02-03T18:04:43.931+01:00  WARN 28416 --- [projectbeta] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
@@ -9957,8 +10414,8 @@ Caused by: java.lang.IllegalArgumentException: Not a managed type: class org.asp
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-03T18:05:12.908+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.MessageID
-2025-02-03T18:05:12.908+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.MessageID
+2025-02-03T18:05:12.908+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T18:05:12.908+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
 2025-02-03T18:05:13.069+01:00  INFO 28416 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2025-02-03T18:05:13.074+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 2025-02-03T18:05:13.292+01:00  WARN 28416 --- [projectbeta] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
@@ -9996,8 +10453,8 @@ Caused by: java.lang.IllegalArgumentException: Not a managed type: class org.asp
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-03T18:05:21.584+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.MessageID
-2025-02-03T18:05:21.584+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.MessageID
+2025-02-03T18:05:21.584+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T18:05:21.584+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
 2025-02-03T18:05:21.740+01:00  INFO 28416 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2025-02-03T18:05:21.746+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 2025-02-03T18:05:21.983+01:00  WARN 28416 --- [projectbeta] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
@@ -10035,11 +10492,11 @@ Caused by: java.lang.IllegalArgumentException: Not a managed type: class org.asp
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-03T18:05:24.637+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.MessageID
-2025-02-03T18:05:24.637+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.MessageID
+2025-02-03T18:05:24.637+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T18:05:24.637+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
 2025-02-03T18:05:24.794+01:00  INFO 28416 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2025-02-03T18:05:24.800+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-02-03T18:05:24.890+01:00  WARN 28416 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'caseImpl': Unsatisfied dependency expressed through field 'caseRep': No qualifying bean of type 'com.betacom.backend.repositories.ICaseRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2025-02-03T18:05:24.890+01:00  WARN 28416 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'caseImpl': Unsatisfied dependency expressed through field 'caseRep': No qualifying bean of type 'com.betacom.backend.repositories.products.ICaseRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 2025-02-03T18:05:24.891+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-02-03T18:05:24.891+01:00  INFO 28416 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
 2025-02-03T18:05:24.892+01:00  INFO 28416 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
@@ -10055,7 +10512,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Field caseRep in com.betacom.backend.services.implementations.CaseImpl required a bean of type 'com.betacom.backend.repositories.ICaseRepository' that could not be found.
+Field caseRep in com.betacom.backend.services.implementations.products.CaseImpl required a bean of type 'com.betacom.backend.repositories.products.ICaseRepository' that could not be found.
 
 The injection point has the following annotations:
 	- @org.springframework.beans.factory.annotation.Autowired(required=true)
@@ -10063,7 +10520,7 @@ The injection point has the following annotations:
 
 Action:
 
-Consider defining a bean of type 'com.betacom.backend.repositories.ICaseRepository' in your configuration.
+Consider defining a bean of type 'com.betacom.backend.repositories.products.ICaseRepository' in your configuration.
 
 2025-02-03T18:05:32.585+01:00  INFO 28416 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Starting ProjectbetaApplication using Java 23.0.2 with PID 28416 (C:\Users\vasan\OneDrive\Desktop\Robertodev\Betacom\progettobetca\target\classes started by vasan in C:\Users\vasan\OneDrive\Desktop\Robertodev\Betacom\progettobetca)
 2025-02-03T18:05:32.586+01:00 DEBUG 28416 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Running with Spring Boot v3.4.2, Spring v6.2.2
@@ -10089,11 +10546,11 @@ Consider defining a bean of type 'com.betacom.backend.repositories.ICaseReposito
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-03T18:05:33.140+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.MessageID
-2025-02-03T18:05:33.140+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.MessageID
+2025-02-03T18:05:33.140+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T18:05:33.140+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
 2025-02-03T18:05:33.279+01:00  INFO 28416 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2025-02-03T18:05:33.283+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-02-03T18:05:33.377+01:00  WARN 28416 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'caseImpl': Unsatisfied dependency expressed through field 'caseRep': No qualifying bean of type 'com.betacom.backend.repositories.ICaseRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2025-02-03T18:05:33.377+01:00  WARN 28416 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'caseImpl': Unsatisfied dependency expressed through field 'caseRep': No qualifying bean of type 'com.betacom.backend.repositories.products.ICaseRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 2025-02-03T18:05:33.377+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-02-03T18:05:33.377+01:00  INFO 28416 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
 2025-02-03T18:05:33.401+01:00  INFO 28416 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
@@ -10109,7 +10566,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Field caseRep in com.betacom.backend.services.implementations.CaseImpl required a bean of type 'com.betacom.backend.repositories.ICaseRepository' that could not be found.
+Field caseRep in com.betacom.backend.services.implementations.products.CaseImpl required a bean of type 'com.betacom.backend.repositories.products.ICaseRepository' that could not be found.
 
 The injection point has the following annotations:
 	- @org.springframework.beans.factory.annotation.Autowired(required=true)
@@ -10117,7 +10574,7 @@ The injection point has the following annotations:
 
 Action:
 
-Consider defining a bean of type 'com.betacom.backend.repositories.ICaseRepository' in your configuration.
+Consider defining a bean of type 'com.betacom.backend.repositories.products.ICaseRepository' in your configuration.
 
 2025-02-03T18:05:34.894+01:00  INFO 28416 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Starting ProjectbetaApplication using Java 23.0.2 with PID 28416 (C:\Users\vasan\OneDrive\Desktop\Robertodev\Betacom\progettobetca\target\classes started by vasan in C:\Users\vasan\OneDrive\Desktop\Robertodev\Betacom\progettobetca)
 2025-02-03T18:05:34.894+01:00 DEBUG 28416 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Running with Spring Boot v3.4.2, Spring v6.2.2
@@ -10143,11 +10600,11 @@ Consider defining a bean of type 'com.betacom.backend.repositories.ICaseReposito
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-03T18:05:35.416+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.MessageID
-2025-02-03T18:05:35.416+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.MessageID
+2025-02-03T18:05:35.416+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T18:05:35.416+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
 2025-02-03T18:05:35.576+01:00  INFO 28416 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2025-02-03T18:05:35.580+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-02-03T18:05:35.654+01:00  WARN 28416 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'caseImpl': Unsatisfied dependency expressed through field 'caseRep': No qualifying bean of type 'com.betacom.backend.repositories.ICaseRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2025-02-03T18:05:35.654+01:00  WARN 28416 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'caseImpl': Unsatisfied dependency expressed through field 'caseRep': No qualifying bean of type 'com.betacom.backend.repositories.products.ICaseRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 2025-02-03T18:05:35.654+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-02-03T18:05:35.654+01:00  INFO 28416 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
 2025-02-03T18:05:35.692+01:00  INFO 28416 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
@@ -10163,7 +10620,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Field caseRep in com.betacom.backend.services.implementations.CaseImpl required a bean of type 'com.betacom.backend.repositories.ICaseRepository' that could not be found.
+Field caseRep in com.betacom.backend.services.implementations.products.CaseImpl required a bean of type 'com.betacom.backend.repositories.products.ICaseRepository' that could not be found.
 
 The injection point has the following annotations:
 	- @org.springframework.beans.factory.annotation.Autowired(required=true)
@@ -10171,7 +10628,7 @@ The injection point has the following annotations:
 
 Action:
 
-Consider defining a bean of type 'com.betacom.backend.repositories.ICaseRepository' in your configuration.
+Consider defining a bean of type 'com.betacom.backend.repositories.products.ICaseRepository' in your configuration.
 
 2025-02-03T18:05:46.462+01:00  INFO 28416 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Starting ProjectbetaApplication using Java 23.0.2 with PID 28416 (C:\Users\vasan\OneDrive\Desktop\Robertodev\Betacom\progettobetca\target\classes started by vasan in C:\Users\vasan\OneDrive\Desktop\Robertodev\Betacom\progettobetca)
 2025-02-03T18:05:46.463+01:00 DEBUG 28416 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Running with Spring Boot v3.4.2, Spring v6.2.2
@@ -10197,11 +10654,11 @@ Consider defining a bean of type 'com.betacom.backend.repositories.ICaseReposito
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-03T18:05:47.041+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.MessageID
-2025-02-03T18:05:47.041+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.MessageID
+2025-02-03T18:05:47.041+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T18:05:47.041+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
 2025-02-03T18:05:47.219+01:00  INFO 28416 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2025-02-03T18:05:47.224+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-02-03T18:05:47.309+01:00  WARN 28416 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'caseImpl': Unsatisfied dependency expressed through field 'caseRep': No qualifying bean of type 'com.betacom.backend.repositories.ICaseRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2025-02-03T18:05:47.309+01:00  WARN 28416 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'caseImpl': Unsatisfied dependency expressed through field 'caseRep': No qualifying bean of type 'com.betacom.backend.repositories.products.ICaseRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 2025-02-03T18:05:47.310+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-02-03T18:05:47.310+01:00  INFO 28416 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
 2025-02-03T18:05:47.348+01:00  INFO 28416 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.
@@ -10217,7 +10674,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Field caseRep in com.betacom.backend.services.implementations.CaseImpl required a bean of type 'com.betacom.backend.repositories.ICaseRepository' that could not be found.
+Field caseRep in com.betacom.backend.services.implementations.products.CaseImpl required a bean of type 'com.betacom.backend.repositories.products.ICaseRepository' that could not be found.
 
 The injection point has the following annotations:
 	- @org.springframework.beans.factory.annotation.Autowired(required=true)
@@ -10225,7 +10682,7 @@ The injection point has the following annotations:
 
 Action:
 
-Consider defining a bean of type 'com.betacom.backend.repositories.ICaseRepository' in your configuration.
+Consider defining a bean of type 'com.betacom.backend.repositories.products.ICaseRepository' in your configuration.
 
 2025-02-03T18:05:49.256+01:00  INFO 28416 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Starting ProjectbetaApplication using Java 23.0.2 with PID 28416 (C:\Users\vasan\OneDrive\Desktop\Robertodev\Betacom\progettobetca\target\classes started by vasan in C:\Users\vasan\OneDrive\Desktop\Robertodev\Betacom\progettobetca)
 2025-02-03T18:05:49.256+01:00 DEBUG 28416 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Running with Spring Boot v3.4.2, Spring v6.2.2
@@ -10251,11 +10708,11 @@ Consider defining a bean of type 'com.betacom.backend.repositories.ICaseReposito
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-03T18:05:49.862+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.MessageID
-2025-02-03T18:05:49.862+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.MessageID
+2025-02-03T18:05:49.862+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T18:05:49.862+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
 2025-02-03T18:05:50.023+01:00  INFO 28416 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2025-02-03T18:05:50.028+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-02-03T18:05:50.122+01:00  WARN 28416 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'caseImpl': Unsatisfied dependency expressed through field 'caseRep': No qualifying bean of type 'com.betacom.backend.repositories.ICaseRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2025-02-03T18:05:50.122+01:00  WARN 28416 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'caseImpl': Unsatisfied dependency expressed through field 'caseRep': No qualifying bean of type 'com.betacom.backend.repositories.products.ICaseRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 2025-02-03T18:05:50.122+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-02-03T18:05:50.123+01:00  INFO 28416 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown initiated...
 2025-02-03T18:05:50.165+01:00  INFO 28416 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-9 - Shutdown completed.
@@ -10271,7 +10728,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Field caseRep in com.betacom.backend.services.implementations.CaseImpl required a bean of type 'com.betacom.backend.repositories.ICaseRepository' that could not be found.
+Field caseRep in com.betacom.backend.services.implementations.products.CaseImpl required a bean of type 'com.betacom.backend.repositories.products.ICaseRepository' that could not be found.
 
 The injection point has the following annotations:
 	- @org.springframework.beans.factory.annotation.Autowired(required=true)
@@ -10279,7 +10736,7 @@ The injection point has the following annotations:
 
 Action:
 
-Consider defining a bean of type 'com.betacom.backend.repositories.ICaseRepository' in your configuration.
+Consider defining a bean of type 'com.betacom.backend.repositories.products.ICaseRepository' in your configuration.
 
 2025-02-03T18:06:01.951+01:00  INFO 28416 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Starting ProjectbetaApplication using Java 23.0.2 with PID 28416 (C:\Users\vasan\OneDrive\Desktop\Robertodev\Betacom\progettobetca\target\classes started by vasan in C:\Users\vasan\OneDrive\Desktop\Robertodev\Betacom\progettobetca)
 2025-02-03T18:06:01.951+01:00 DEBUG 28416 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Running with Spring Boot v3.4.2, Spring v6.2.2
@@ -10305,11 +10762,11 @@ Consider defining a bean of type 'com.betacom.backend.repositories.ICaseReposito
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-03T18:06:02.482+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.MessageID
-2025-02-03T18:06:02.482+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.MessageID
+2025-02-03T18:06:02.482+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T18:06:02.482+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
 2025-02-03T18:06:02.615+01:00  INFO 28416 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2025-02-03T18:06:02.618+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-02-03T18:06:02.700+01:00  WARN 28416 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'caseImpl': Unsatisfied dependency expressed through field 'caseRep': No qualifying bean of type 'com.betacom.backend.repositories.ICaseRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2025-02-03T18:06:02.700+01:00  WARN 28416 --- [projectbeta] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'caseImpl': Unsatisfied dependency expressed through field 'caseRep': No qualifying bean of type 'com.betacom.backend.repositories.products.ICaseRepository' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 2025-02-03T18:06:02.700+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-02-03T18:06:02.701+01:00  INFO 28416 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown initiated...
 2025-02-03T18:06:02.705+01:00  INFO 28416 --- [projectbeta] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-10 - Shutdown completed.
@@ -10325,7 +10782,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Field caseRep in com.betacom.backend.services.implementations.CaseImpl required a bean of type 'com.betacom.backend.repositories.ICaseRepository' that could not be found.
+Field caseRep in com.betacom.backend.services.implementations.products.CaseImpl required a bean of type 'com.betacom.backend.repositories.products.ICaseRepository' that could not be found.
 
 The injection point has the following annotations:
 	- @org.springframework.beans.factory.annotation.Autowired(required=true)
@@ -10333,7 +10790,7 @@ The injection point has the following annotations:
 
 Action:
 
-Consider defining a bean of type 'com.betacom.backend.repositories.ICaseRepository' in your configuration.
+Consider defining a bean of type 'com.betacom.backend.repositories.products.ICaseRepository' in your configuration.
 
 2025-02-03T18:06:04.194+01:00  INFO 28416 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Starting ProjectbetaApplication using Java 23.0.2 with PID 28416 (C:\Users\vasan\OneDrive\Desktop\Robertodev\Betacom\progettobetca\target\classes started by vasan in C:\Users\vasan\OneDrive\Desktop\Robertodev\Betacom\progettobetca)
 2025-02-03T18:06:04.195+01:00 DEBUG 28416 --- [projectbeta] [restartedMain] c.b.backend.ProjectbetaApplication       : Running with Spring Boot v3.4.2, Spring v6.2.2
@@ -10359,8 +10816,8 @@ Consider defining a bean of type 'com.betacom.backend.repositories.ICaseReposito
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-03T18:06:04.722+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.MessageID
-2025-02-03T18:06:04.723+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.MessageID
+2025-02-03T18:06:04.722+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T18:06:04.723+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
 2025-02-03T18:06:04.862+01:00  INFO 28416 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2025-02-03T18:06:04.865+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 2025-02-03T18:06:05.070+01:00  WARN 28416 --- [projectbeta] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
@@ -10398,8 +10855,8 @@ Consider defining a bean of type 'com.betacom.backend.repositories.ICaseReposito
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-03T18:06:12.345+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.MessageID
-2025-02-03T18:06:12.345+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.MessageID
+2025-02-03T18:06:12.345+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T18:06:12.345+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
 2025-02-03T18:06:12.496+01:00  INFO 28416 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2025-02-03T18:06:12.501+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 2025-02-03T18:06:12.705+01:00  WARN 28416 --- [projectbeta] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
@@ -10437,8 +10894,8 @@ Consider defining a bean of type 'com.betacom.backend.repositories.ICaseReposito
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-03T18:06:14.838+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.MessageID
-2025-02-03T18:06:14.838+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.MessageID
+2025-02-03T18:06:14.838+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T18:06:14.838+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
 2025-02-03T18:06:14.983+01:00  INFO 28416 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2025-02-03T18:06:14.986+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 2025-02-03T18:06:15.184+01:00  WARN 28416 --- [projectbeta] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
@@ -10476,8 +10933,8 @@ Consider defining a bean of type 'com.betacom.backend.repositories.ICaseReposito
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-03T18:06:18.322+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.MessageID
-2025-02-03T18:06:18.323+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.MessageID
+2025-02-03T18:06:18.322+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T18:06:18.323+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
 2025-02-03T18:06:18.463+01:00  INFO 28416 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2025-02-03T18:06:18.467+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 2025-02-03T18:06:18.659+01:00  WARN 28416 --- [projectbeta] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
@@ -10515,8 +10972,8 @@ Consider defining a bean of type 'com.betacom.backend.repositories.ICaseReposito
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-03T18:06:22.934+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.MessageID
-2025-02-03T18:06:22.934+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.MessageID
+2025-02-03T18:06:22.934+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T18:06:22.934+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
 2025-02-03T18:06:23.077+01:00  INFO 28416 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2025-02-03T18:06:23.080+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 2025-02-03T18:06:23.282+01:00  WARN 28416 --- [projectbeta] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
@@ -10554,8 +11011,8 @@ Consider defining a bean of type 'com.betacom.backend.repositories.ICaseReposito
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-03T18:06:27.448+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.MessageID
-2025-02-03T18:06:27.448+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.MessageID
+2025-02-03T18:06:27.448+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T18:06:27.448+01:00  WARN 28416 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
 2025-02-03T18:06:27.592+01:00  INFO 28416 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2025-02-03T18:06:27.597+01:00  INFO 28416 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 2025-02-03T18:06:27.781+01:00  WARN 28416 --- [projectbeta] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
@@ -10596,8 +11053,8 @@ Consider defining a bean of type 'com.betacom.backend.repositories.ICaseReposito
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-03T18:07:05.273+01:00  WARN 25208 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.MessageID
-2025-02-03T18:07:05.274+01:00  WARN 25208 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.MessageID
+2025-02-03T18:07:05.273+01:00  WARN 25208 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-03T18:07:05.274+01:00  WARN 25208 --- [projectbeta] [restartedMain] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
 2025-02-03T18:07:06.229+01:00  INFO 25208 --- [projectbeta] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 2025-02-03T18:07:06.268+01:00  INFO 25208 --- [projectbeta] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
 2025-02-03T18:07:06.862+01:00  WARN 25208 --- [projectbeta] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
