@@ -76,6 +76,18 @@ public class Product {
 		this.stock = stock;
 	}
 
+	public void addStock(Integer qnt) {
+		this.stock += qnt;
+	}
+
+	public Boolean removeStock(Integer qnt) {
+		if(this.stock - qnt < 0) {
+			return false;
+		}
+		this.stock -= qnt;
+		return true;
+	}
+
 	public Double getPrice() {
 		return price;
 	}

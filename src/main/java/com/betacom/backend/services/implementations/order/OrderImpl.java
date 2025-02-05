@@ -46,6 +46,7 @@ public class OrderImpl implements OrderServices {
     @Autowired
     IProductRepository prodRep;
 
+
     @Override
     public List<OrderDTO> list() {
         List<Order> orderList = orderRep.findAll();
@@ -105,13 +106,39 @@ public class OrderImpl implements OrderServices {
 
         List<OrderItem> orderItems = new ArrayList<>();
 
+
+        //prendo prodotto, controllo stock, avviso se non abbastanza, rimmovo se abbastanza
+        Optional<Product> productOpt;
+        Product prod;
+        List<Product> toSaveAfterOrder = new ArrayList<Product>();
        for(CartItem cartItem : cartItems){
+           productOpt = prodRep.findById(cartItem.getProduct().getId());
+           if(productOpt.isEmpty())
+               throw new Exception("product-not-found");
+
+           prod = productOpt.get();
+
+           if(cartItem.getQuantity()>prod.getStock())
+               throw new Exception("not enough stock");
+
+           if(!prod.removeStock(cartItem.getQuantity()))
+               throw new Exception("not enough stock");
+
+           toSaveAfterOrder.add(prod);
+
             orderItems.add( new OrderItem(cartItem,order) );
+
+
        }
 
        order.setOrderItems(orderItems);
 
        orderRep.save(order);
+
+       prodRep.saveAll(toSaveAfterOrder);
+
+
+
     }
 
     private boolean missingparams(OrderRequest req) {
@@ -148,93 +175,28 @@ public class OrderImpl implements OrderServices {
 
     }
 
-//    @Override
-//    public void addItemToOrder(OrderItemRequest itemReq) throws Exception {
-//        //assumo che se in questa request viene indicato "x numero di item" sono "x numro di item da aggiungere",
-//        //quindi se gia presenti "3 cpu ryzen 200" e arriva addItemToOrder con quantity 2 diventano 5,
-//
-//        if(itemReq == null || itemReq.getOrderId() == null || itemReq.getProductId() == null  )
-//            throw new Exception("request problem");
-//
-//        Optional<Order> orderOptional = orderRep.findById(itemReq.getOrderId());
-//        if(orderOptional.isEmpty()){
-//            throw new Exception("not-found");
-//        }
-//        Order order = orderOptional.get();
-//
-//        Optional<Product> productOptional = prodRep.findById(itemReq.getProductId());
-//        if(productOptional.isEmpty()){
-//            throw new Exception("product-not-found");
-//        }
-//        Product product = productOptional.get();
-//
-//
-//        List<OrderItem> orderItems = order.getOrderItems();
-//
-//        order.getOrderItems().stream()
-//                .filter(item -> item.getProduct().getId().equals(product.getId()))
-//                .findFirst()
-//                .ifPresentOrElse(
-//                        existingItem -> existingItem.setQuantity(
-//                                existingItem.getQuantity() + itemReq.getQuantity()
-//                        ),
-//                        () -> order.getOrderItems().add(
-//                                new OrderItem(product, order, itemReq.getQuantity(), itemReq.getUnitPrice())
-//                        )
-//                );
-//
-//        orderRep.save(order);
-//
-//
-//    }
-//
-//    @Override
-//    public void removeItemFromOrder(OrderItemRequest itemReq) throws Exception{
-//        //se viene chiesto di togliere piu di quanti sono presenti defaulto a togliere tutto
-//
-//        if(itemReq == null || itemReq.getOrderId() == null || itemReq.getProductId() == null  )
-//            throw new Exception("request problem");
-//
-//        Optional<Order> orderOptional = orderRep.findById(itemReq.getOrderId());
-//        if(orderOptional.isEmpty()){
-//            throw new Exception("not-found");
-//        }
-//        Order order = orderOptional.get();
-//
-//        Optional<Product> productOptional = prodRep.findById(itemReq.getProductId());
-//        if(productOptional.isEmpty()){
-//            throw new Exception("product-not-found");
-//        }
-//        Product product = productOptional.get();
-//
-//        List<OrderItem> orderItems = order.getOrderItems();
-//
-//        Boolean foundItem = false;
-//
-//        for(OrderItem item : orderItems){
-//
-//            if(item.getProduct().getId().equals(product.getId())){
-//                if(item.getQuantity() > itemReq.getQuantity()){
-//                    item.setQuantity(item.getQuantity() - itemReq.getQuantity());
-//                }else{
-//                    orderItems.remove(item);
-//                }
-//                foundItem = true;
-//                break;
-//            }
-//        }
-//        if(!foundItem)
-//            throw new Exception("item-not-found");
-//
-//        orderRep.save(order);
-//    }
-
-
     @Override
     public void delete(Long id) throws Exception {
         if(id == null){
             throw new Exception("missing-id");
         }
-        orderRep.deleteById(id);
+
+        Optional<Order> orderOpt = orderRep.findById(id);
+        if(orderOpt.isEmpty())
+            throw new Exception("not-found");
+        Order order = orderOpt.get();
+        List<Product> lp = new ArrayList<Product>();
+
+        Product product;
+        Optional<Product> productOptional;
+        for(OrderItem orderItem : order.getOrderItems()){
+            product = prodRep.findById(orderItem.getProduct().getId()).get();
+            product.addStock(orderItem.getQuantity());
+        }
+
+        orderRep.delete(order);
+        prodRep.saveAll(lp);
+
+
     }
 }

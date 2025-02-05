@@ -82,6 +82,10 @@ public class OrderItemimpl implements OrderItemsServices {
 		}
 		Product product = productOptional.get();
 
+		//controllo sullo stock se ce ne sono abbastanza, lo faccio qua perche in teoria dal salvataggio del ordine sono gia stati tolti i stock
+		if(!product.removeStock(itemReq.getQuantity()))
+			throw new Exception("not enough products in stock");
+
 
 		List<OrderItem> orderItems = order.getOrderItems();
 
@@ -98,6 +102,7 @@ public class OrderItemimpl implements OrderItemsServices {
 				);
 
 		orderRep.save(order);
+		prodRep.save(product);
 
 	}
 	
@@ -123,6 +128,8 @@ public class OrderItemimpl implements OrderItemsServices {
 	    List<OrderItem> orderItems = order.getOrderItems();
 	
 	    Boolean foundItem = false;
+
+		 product.addStock(itemReq.getQuantity());
 	
 	    for(OrderItem item : orderItems){
 	
@@ -140,6 +147,7 @@ public class OrderItemimpl implements OrderItemsServices {
 	        throw new Exception("item-not-found");
 	
 	    orderRep.save(order);
+		prodRep.save(product);
 	}
 
 	@Override
@@ -152,8 +160,11 @@ public class OrderItemimpl implements OrderItemsServices {
 		if(orderItem.isEmpty())
 			throw new Exception("not-found");
 
+		Product prod = prodRep.findById(orderItem.get().getProduct().getId()).get();
+		prod.addStock(orderItem.get().getQuantity());
 
 		orderItemRep.deleteById(id);
+		prodRep.save(prod);
 		
 	}
 
