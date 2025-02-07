@@ -127,6 +127,7 @@ public class CustomerDTO {
 		this.name = req.getName();
 		this.surname = req.getSurname();
 		this.taxId = req.getTaxId();
+		this.email=req.getEmail();
 		this.password = req.getPassword();
 		this.addresses= req.getAddresses().stream()
 				.map(x->new AddressDTO(x)).toList();

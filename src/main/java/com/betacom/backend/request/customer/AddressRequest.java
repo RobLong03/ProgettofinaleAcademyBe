@@ -29,13 +29,14 @@ public class AddressRequest {
 		this.id = id;
 	}
 
-	public Long getCustomerId() {
+	public Long getCustomerID() {
 		return customerID;
 	}
 
-	public void setCustomerId(Long customerID) {
+	public void setCustomerID(Long customerID) {
 		this.customerID = customerID;
 	}
+
 
 	public String getCountry() {
 		return country;
@@ -104,24 +105,6 @@ public class AddressRequest {
 		this.houseNumber = houseNumber;
 	}
 
-	public AddressRequest(Long id, CustomerRequest customer, String country, String city, String postalCode,
-			String street, Integer houseNumber) {
-		super();
-		this.id = id;
-		this.country = country;
-		this.city = city;
-		this.postalCode = postalCode;
-		this.street = street;
-		this.houseNumber = houseNumber;
-	}
-	public AddressRequest(CustomerRequest customer, String country, String city, String postalCode,
-			String street, Integer houseNumber) {
-		super();
-		this.country = country;
-		this.city = city;
-		this.postalCode = postalCode;
-		this.street = street;
-		this.houseNumber = houseNumber;
-	}
-
+	
+	
 }

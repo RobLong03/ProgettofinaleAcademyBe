@@ -2,6 +2,8 @@ package com.betacom.backend.services.implementations.customer;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +52,10 @@ public class CustomerImpl implements CustomerSevices {
         if (mancanoAttributi(req)) {
             throw new Exception("missing-attributes");
         }
+       
+        if (flagSameEmail(req)) {
+        	 throw new Exception("error-on-email");
+		}
         
     
         Customer customer = new Customer(req);
@@ -66,7 +72,8 @@ public class CustomerImpl implements CustomerSevices {
         if (customerOpt.isEmpty()) {
             throw new Exception("does-not-exists");
         }
-        
+       
+       
      
         Customer customer = new Customer(req);
         CustRep.save(customer);
@@ -80,6 +87,24 @@ public class CustomerImpl implements CustomerSevices {
         CustRep.deleteById(id);
     }
     
+    
+    private boolean flagSameEmail(CustomerRequest req) {
+    	
+    	 String regex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+         Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
+    	 Matcher matcher = pattern.matcher(req.getEmail());
+    	    boolean matchFound = matcher.find();
+    	 
+    	 boolean flagSameEmail =CustRep.findAll().stream().anyMatch((x)->{
+    	    	if ((x.getEmail().equalsIgnoreCase(req.getEmail()))||!(matchFound)) {
+    				return true;
+    			}
+    			return false;
+    	    });
+    	 
+    	 
+    	 return flagSameEmail;
+    }
     
     private boolean mancanoAttributi(CustomerRequest req) {
         return req.getName() == null || req.getName().isBlank()

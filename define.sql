@@ -10,6 +10,14 @@
         primary key (id)
     ) engine=InnoDB;
 
+    create table administrator (
+        id bigint not null auto_increment,
+        email varchar(255),
+        password varchar(255),
+        username varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
     create table cart (
         total_price float(53),
         customer_id bigint,
@@ -124,6 +132,19 @@
         primary key (code, lang)
     ) engine=InnoDB;
 
+    create table wishlist (
+        customer_id bigint,
+        id bigint not null auto_increment,
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table wishlist_item (
+        id bigint not null auto_increment,
+        product_id bigint,
+        wishlist_id bigint,
+        primary key (id)
+    ) engine=InnoDB;
+
     alter table cart 
        add constraint UK867x3yysb1f3jk41cv3vsoejj unique (customer_id);
 
@@ -133,8 +154,8 @@
     alter table customer 
        add constraint UKdwk6cx0afu8bs9o4t536v1j5v unique (email);
 
-    alter table customer 
-       add constraint UK79gjqa1ivdihdqvv2x7dv36nw unique (password);
+    alter table wishlist 
+       add constraint UKi62hn96gwmmykqrbf8j2heo6b unique (customer_id);
 
     alter table address 
        add constraint FK93c3js0e22ll1xlu21nvrhqgg 
@@ -215,3 +236,18 @@
        add constraint FK3mtiskwkqmppgesxyft7r2kqg 
        foreign key (id) 
        references product (id);
+
+    alter table wishlist 
+       add constraint FKb6xak0rjui1rsok8ll7ln59cs 
+       foreign key (customer_id) 
+       references customer (id);
+
+    alter table wishlist_item 
+       add constraint FK5s5jxai41c8tqklyy111ngqh7 
+       foreign key (product_id) 
+       references product (id);
+
+    alter table wishlist_item 
+       add constraint FK5iw5sajivrxnt4qjxqlgo8yb1 
+       foreign key (wishlist_id) 
+       references wishlist (id);

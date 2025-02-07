@@ -49,7 +49,7 @@ public class OrderDTO {
 		addto.setPostalCode(order.getAddress().getPostalCode());
 		addto.setHouseNumber(order.getAddress().getHouseNumber());
 
-		addto.setCustomer(cdto);
+		addto.setCustomerID(cdto.getId());
 		cdto.setAddresses(List.of(addto));
 
         this.customer = cdto;

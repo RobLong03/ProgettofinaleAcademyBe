@@ -7,7 +7,9 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.betacom.backend.dto.products.CpuDTO;
 import com.betacom.backend.dto.products.GpuDTO;
+import com.betacom.backend.model.products.Cpu;
 import com.betacom.backend.model.products.Gpu;
 import com.betacom.backend.repositories.products.IGpuRepository;
 import com.betacom.backend.request.products.GpuRequest;
@@ -21,8 +23,11 @@ public class GpuImpl implements GpuServices {
 
 	@Override
 	public List<GpuDTO> list() {
-		List<Gpu> lgpu = gpuRep.findAll();
-		return lgpu.stream().map(p -> new GpuDTO(p)).collect(Collectors.toList());
+		 List<Gpu> lGpu = gpuRep.findAll();
+
+	        return lGpu.stream().map(p ->
+	                new GpuDTO(p)
+	        ).collect(Collectors.toList());
 	}
 
 	@Override

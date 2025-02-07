@@ -48,24 +48,20 @@ public class AddressImpl implements AddressServices {
 
 	@Override
 	public void create(AddressRequest req) throws Exception {
-		if (mancanoAttributi(req))
-			throw new Exception("missing-attributes");
-		//possibile modifiche per problema con l' id del costumer al momento con 
-		//oggetto costumer di classe CostumerRequest		
-		//, da testare
-		
-		//dopo new address il controlllo sul customer e poi assegnazione8
-	
-		
-		Optional<Customer> customer=CustRep.findById(req.getCustomerId());
-		if (customer.isEmpty()) {
-			throw new Exception("missing-id");
+		if (mancanoAttributi(req)) {
+		    throw new Exception("missing-attributes");
 		}
-		
 
+
+		Customer customer = CustRep.findById(req.getCustomerID())
+		                           .orElseThrow(() -> new Exception("missing-id"));
+
+		
 		Address addr = new Address(req);
-		addr.setCustomer(customer.get());
+		addr.setCustomer(customer);
+
 		AddrRep.save(addr);
+
 
 	}
 
@@ -96,8 +92,8 @@ public class AddressImpl implements AddressServices {
 	}
 
 	private boolean mancanoAttributi(AddressRequest req) {
-		return req.getCustomerId() == null || req.getCountry() == null || req.getCountry().isBlank()
-				|| req.getCity().isBlank() || req.getCity().isBlank() || req.getPostalCode() == null
+		return req.getCustomerID() == null || req.getCountry() == null || req.getCountry().isBlank()
+				|| req.getCity().isBlank() || req.getPostalCode() == null
 				|| req.getPostalCode().isBlank() || req.getStreet() == null || req.getStreet().isBlank()
 				|| req.getHouseNumber() == null;
 	}

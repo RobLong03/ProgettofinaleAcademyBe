@@ -7,7 +7,8 @@ public class AddressDTO {
 	
 	    private Long id;
 
-	    private CustomerDTO customer;
+	    //mettere l' id addresss per il customer 
+	    private Long customerID;
 
 	    private String country;
 
@@ -29,12 +30,13 @@ public class AddressDTO {
 			this.id = id;
 		}
 
-		public CustomerDTO getCustomer() {
-			return customer;
+
+		public Long getCustomerID() {
+			return customerID;
 		}
 
-		public void setCustomer(CustomerDTO customer) {
-			this.customer = customer;
+		public void setCustomerID(Long customerID) {
+			this.customerID = customerID;
 		}
 
 		public String getCountry() {
@@ -77,16 +79,18 @@ public class AddressDTO {
 			this.houseNumber = houseNumber;
 		}
 
+		
 	    
 	    public AddressDTO() {
 			super();
 		}
 	    
-		public AddressDTO(Long id, CustomerDTO customer, String country, String city, String postalCode, String street,
+	    
+		public AddressDTO(Long id, Long customerID, String country, String city, String postalCode, String street,
 				Integer houseNumber) {
 			super();
 			this.id = id;
-			this.customer = customer;
+			this.customerID = customerID;
 			this.country = country;
 			this.city = city;
 			this.postalCode = postalCode;
@@ -94,10 +98,10 @@ public class AddressDTO {
 			this.houseNumber = houseNumber;
 		}
 
-		public AddressDTO(CustomerDTO customer, String country, String city, String postalCode, String street,
+		public AddressDTO(Long customerID, String country, String city, String postalCode, String street,
 				Integer houseNumber) {
 			super();
-			this.customer = customer;
+			this.customerID = customerID;
 			this.country = country;
 			this.city = city;
 			this.postalCode = postalCode;
@@ -108,7 +112,7 @@ public class AddressDTO {
 		
 		   public AddressDTO(Address req) {
 				this.id=req.getId();
-				this.customer=new CustomerDTO(req.getCustomer());
+				this.customerID=req.getCustomer().getId();
 				this.country=req.getCountry();
 				this.city=req.getCity();
 				this.postalCode=req.getPostalCode();
@@ -118,9 +122,12 @@ public class AddressDTO {
 
 		@Override
 		public String toString() {
-			return "AddressDTO {id=" + id + ", customer=" + customer + ", country=" + country + ", city=" + city
+			return "AddressDTO {id=" + id + ", customerID=" + customerID + ", country=" + country + ", city=" + city
 					+ ", postalCode=" + postalCode + ", street=" + street + ", houseNumber=" + houseNumber + "}";
 		}
+
+
+		
 
 		
 
