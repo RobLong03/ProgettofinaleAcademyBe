@@ -17,9 +17,17 @@ public class ProductDTO { //ciao belliiiiiiii
 
     private Integer stock;
 
-    
+    private Double price;
 
-	public Long getId() {
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Long getId() {
 		return id;
 	}
 
@@ -63,20 +71,22 @@ public class ProductDTO { //ciao belliiiiiiii
     public ProductDTO() {
     }
 
-    public ProductDTO(String brand, String model, String description, Integer stock) {
+    public ProductDTO(String brand, String model, String description, Integer stock,Double price) {
         this.brand = brand;
         this.model = model;
         this.description = description;
         this.stock = stock;
+        this.price = price;
     }
 
-    public ProductDTO(Long id,String brand, String model, String description, Integer stock) {
+    public ProductDTO(Long id,String brand, String model, String description, Integer stock,Double price) {
         this.id = id;
         this.brand = brand;
         this.model = model;
         this.description = description;
         //commento
         this.stock = stock;
+        this.price = price;
     }
 
     public ProductDTO(Product product) {
@@ -85,6 +95,7 @@ public class ProductDTO { //ciao belliiiiiiii
         this.model = product.getModel();
         this.description = product.getDescription();
         this.stock = product.getStock();
+        this.price = product.getPrice();
     }
 
     @Override
@@ -95,6 +106,7 @@ public class ProductDTO { //ciao belliiiiiiii
                 ", modello='" + model + '\'' +
                 ", descrizione='" + description + '\'' +
                 ", quantita=" + stock +
+                ", price=" + price +
                 '}';
     }
 
