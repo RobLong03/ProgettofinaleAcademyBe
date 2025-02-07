@@ -76,7 +76,7 @@ public class ProductController {
         return r;
     }
 
-    @PostMapping()
+    @PostMapping("/update")
     public ResponseBase update(@RequestBody(required = true)ProductRequest req){
         log.debug("PC: Product update request received:" + req);
         ResponseBase r = new ResponseBase();

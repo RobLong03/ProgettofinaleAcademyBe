@@ -32,8 +32,28 @@ public class OrderDTO {
 
     public OrderDTO(Order order) {
         this.id = order.getId();
-        this.customer = new CustomerDTO(order.getCustomer());
-        this.address = new AddressDTO(order.getAddress());
+		CustomerDTO cdto = new CustomerDTO();
+
+		cdto.setId(order.getCustomer().getId());
+		cdto.setName(order.getCustomer().getName());
+		cdto.setSurname(order.getCustomer().getSurname());
+		cdto.setTaxId(order.getCustomer().getTaxId());
+		cdto.setEmail(order.getCustomer().getEmail());
+		cdto.setPassword("eh volevi");
+
+		AddressDTO addto = new AddressDTO();
+		addto.setId(order.getAddress().getId());
+		addto.setCountry(order.getAddress().getCountry());
+		addto.setCity(order.getAddress().getCity());
+		addto.setStreet(order.getAddress().getStreet());
+		addto.setPostalCode(order.getAddress().getPostalCode());
+		addto.setHouseNumber(order.getAddress().getHouseNumber());
+
+		addto.setCustomer(cdto);
+		cdto.setAddresses(List.of(addto));
+
+        this.customer = cdto;
+        this.address = addto;
         this.orderDate = order.getOrderDate();
         this.totalPrice = order.getTotalPrice();
         this.orderItemsList = order.getOrderItems().stream()

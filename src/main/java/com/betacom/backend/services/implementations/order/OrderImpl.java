@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,6 +31,9 @@ import com.betacom.backend.services.interfaces.order.OrderServices;
 
 @Service
 public class OrderImpl implements OrderServices {
+
+    @Autowired
+    Logger log;
 
     @Autowired
     IOrderRepository  orderRep;
@@ -75,6 +79,7 @@ public class OrderImpl implements OrderServices {
 
     @Override
     public void create(OrderRequest req) throws Exception {
+        log.debug("OI: Order request:"+req);
         if(missingparams(req))
             throw new Exception("missing-parameters");
 
@@ -142,7 +147,7 @@ public class OrderImpl implements OrderServices {
     }
 
     private boolean missingparams(OrderRequest req) {
-        return req.getAddressId() == null
+        return     req.getAddressId() == null
                 || req.getCartId() == null
                 || req.getCustomerId() == null
                 ;

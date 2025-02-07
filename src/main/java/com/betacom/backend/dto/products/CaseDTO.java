@@ -7,8 +7,8 @@ public class CaseDTO extends ProductDTO{
 	private String size;
 	private ColorDTO color;
 	
-	public CaseDTO(Long id, String brand, String model, String description, Integer stock, String size, ColorDTO color) {
-		super(id, brand, model, description, stock);
+	public CaseDTO(Long id, String brand, String model, String description, Integer stock,Double price, String size, ColorDTO color) {
+		super(id, brand, model, description, stock, price);
 		this.size = size;
 		this.color = color;
 	}

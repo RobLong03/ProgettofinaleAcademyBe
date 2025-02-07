@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.betacom.backend.repositories.order.IOrderItemRepository;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.betacom.backend.dto.order.OrderDTO;
@@ -33,6 +34,9 @@ public class OrderItemimpl implements OrderItemsServices {
 
     @Autowired
     IProductRepository prodRep;
+
+	@Autowired
+	Logger log;
 	
 	@Override
 	public List<OrderItemDTO> listByOrder(Long orderId) throws Exception {

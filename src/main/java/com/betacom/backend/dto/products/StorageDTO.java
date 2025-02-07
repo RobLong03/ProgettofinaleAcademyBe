@@ -7,8 +7,8 @@ public class StorageDTO extends ProductDTO{
 	private String type;
 	private Integer size;
 	
-	public StorageDTO(Long id, String brand, String model, String description, Integer stock, String type, Integer size) {
-		super(id, brand, model, description, stock);
+	public StorageDTO(Long id, String brand, String model, String description, Integer stock,Double price, String type, Integer size) {
+		super(id, brand, model, description, stock, price);
 		this.type = type;
 		this.size = size;
 	}

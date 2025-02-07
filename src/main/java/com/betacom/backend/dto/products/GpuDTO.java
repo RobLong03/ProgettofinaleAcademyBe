@@ -19,14 +19,14 @@ public class GpuDTO extends ProductDTO {
 		super();
 	}
 
-	public GpuDTO(String brand, String model, String description, Integer stock, Integer vram,Double ghz) {
-		super(brand, model, description, stock);
+	public GpuDTO(String brand, String model, String description, Integer stock,Double price, Integer vram,Double ghz) {
+		super(brand, model, description, stock, price);
 		this.vram = vram;
 		this.ghz=ghz;
 	}
 
-	public GpuDTO(Long id, String brand, String model, String description, Integer stock, Integer vram,Double ghz) {
-		super(id, brand, model, description, stock);
+	public GpuDTO(Long id, String brand, String model, String description, Integer stock,Double price, Integer vram,Double ghz) {
+		super(id, brand, model, description, stock, price);
 		this.vram = vram;
 		this.ghz=ghz;
 	}
