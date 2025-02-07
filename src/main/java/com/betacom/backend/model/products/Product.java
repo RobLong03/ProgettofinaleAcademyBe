@@ -130,7 +130,7 @@ public class Product {
 		this.description = req.getDescription();
 		this.stock = req.getStock();
 		this.price=req.getPrice();
-		if (this.getId() != null)
+		if (req.getId() != null)
 			this.id = req.getId();
 
 	}
