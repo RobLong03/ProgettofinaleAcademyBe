@@ -5,6 +5,7 @@ import java.util.List;
 //import com.betacom.backend.request.wishlist.WishlistRequest;
 
 import com.betacom.backend.model.customer.Customer;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -31,6 +32,7 @@ public class Wishlist {
 	@OneToMany(
 			mappedBy="wishlist", //relationship managed by wishlist attribute in model wishlistItem
 			cascade=CascadeType.ALL, //useful for propagating operations on associated entities
+			orphanRemoval=true,
 			fetch=FetchType.LAZY)
 	private List<WishlistItem> wishlistItems;
 

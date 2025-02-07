@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.betacom.backend.dto.wishlist.WishlistDTO;
 import com.betacom.backend.model.wishlist.Wishlist;
 import com.betacom.backend.repositories.wishlist.IWishlistRepository;
-//import com.betacom.backend.request.wishlist.WishlistRequest;
 import com.betacom.backend.services.interfaces.wishlist.WishlistServices;
 
 @Service
@@ -54,9 +53,9 @@ public class WishlistImpl implements WishlistServices {
 		Optional<Wishlist> w=wishlRep.findById(wishlistId);
 		if(w.isEmpty())
 			throw new Exception("not-found");
-		
+				
 		w.get().getWishlistItems().clear();
-		
+				
 		wishlRep.save(w.get());
 	}
 }
