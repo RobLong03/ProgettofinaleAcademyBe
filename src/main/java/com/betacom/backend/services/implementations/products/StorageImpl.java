@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.betacom.backend.services.interfaces.messages.MessageServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,9 @@ public class StorageImpl implements StorageServices{
 	@Autowired
 	StorageRepository stoRep;
 
+	@Autowired
+	MessageServices msgS;
+
 	@Override
 	public List<StorageDTO> list() {
 		List<Storage> lStor = stoRep.findAll();
@@ -31,7 +35,7 @@ public class StorageImpl implements StorageServices{
 	@Override
 	public StorageDTO get(Long id) throws Exception {
 		if(id == null){
-            throw new Exception("missing-id");
+			throw new Exception(msgS.getMessage("missing-id-get"));
         }
 
         Optional<Storage> storage = stoRep.findById(id);
@@ -39,14 +43,14 @@ public class StorageImpl implements StorageServices{
         if(storage.isPresent()){
             return new StorageDTO(storage.get());
         }else{
-            throw new Exception("not-found");
+			throw new Exception(msgS.getMessage("does-not-exist-get"));
         }
 	}
 
 	@Override
 	public void create(StorageRequest req) throws Exception {
 		 if(mancanoAttributi(req))
-	            throw new Exception("missing-attributes");
+			 throw new Exception(msgS.getMessage("missing-attributes-create"));
 
 	        Storage s = new Storage(req);
 	         stoRep.save(s);
@@ -55,11 +59,11 @@ public class StorageImpl implements StorageServices{
 	@Override
 	public void update(StorageRequest req) throws Exception {
 		if(req.getId() == null){
-            throw new Exception("missing-id");
+			throw new Exception(msgS.getMessage("missing-id-update"));
         }
 
         if( stoRep.findById(req.getId()).isEmpty()){
-            throw new Exception("does-not-exists");
+			throw new Exception(msgS.getMessage("does-not-exist-update"));
         }
 
         Storage s = new Storage(req);
@@ -70,7 +74,7 @@ public class StorageImpl implements StorageServices{
 	@Override
 	public void delete(Long id) throws Exception {
 		if(id == null){
-            throw new Exception("missing-id");
+			throw new Exception(msgS.getMessage("missing-id-delete"));
         }
 
         stoRep.deleteById(id);

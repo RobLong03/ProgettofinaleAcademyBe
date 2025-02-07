@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.betacom.backend.services.interfaces.messages.MessageServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,10 @@ public class PsuImpl implements PsuServices {
 
 	 @Autowired
      IProductRepository prodRep;
-	 
+
+	@Autowired
+	MessageServices msgS;
+
 	 @Autowired
 	 IPsuRepository psuRep;
 
@@ -35,7 +39,7 @@ public class PsuImpl implements PsuServices {
 	@Override
 	public PsuDTO get(Long id) throws Exception {
 		if(id == null){
-            throw new Exception("missing-id");
+			throw new Exception(msgS.getMessage("missing-id-get"));
         }
 
         Optional<Psu> prod = psuRep.findById(id);
@@ -43,14 +47,14 @@ public class PsuImpl implements PsuServices {
         if(prod.isPresent()){
             return new PsuDTO(prod.get());
         }else{
-            throw new Exception("not-found");
+			throw new Exception(msgS.getMessage("does-not-exist-get"));
         }
 	}
 
 	@Override
 	public void create(PsuRequest req) throws Exception {
 		if(mancanoAttributi(req))
-            throw new Exception("missing-attributes");
+			throw new Exception(msgS.getMessage("missing-attributes-create"));
 
 		Psu p = new Psu(req );
          prodRep.save(p);
@@ -60,12 +64,13 @@ public class PsuImpl implements PsuServices {
 	@Override
 	public void update(PsuRequest req) throws Exception {
 		 if(req.getId() == null){
-	            throw new Exception("missing-id");
+			 throw new Exception(msgS.getMessage("missing-id-update"));
 	        }
 
 	        if( prodRep.findById(req.getId()).isEmpty()){
-	            throw new Exception("does-not-exists");
-	        }
+				throw new Exception(msgS.getMessage("does-not-exist-update"));
+
+			}
 
 	        Psu p = new Psu(req);
 
@@ -76,7 +81,7 @@ public class PsuImpl implements PsuServices {
 	@Override
 	public void delete(Long id) throws Exception {
 		if(id == null){
-	        throw new Exception("missing-id");
+			throw new Exception(msgS.getMessage("missing-id-delete"));
 	    }
 
 	    prodRep.deleteById(id);

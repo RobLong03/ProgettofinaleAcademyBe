@@ -6,6 +6,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import com.betacom.backend.services.interfaces.messages.MessageServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,9 @@ public class CustomerImpl implements CustomerSevices {
 
 	@Autowired
 	IAddressRepository AddrRep;
+
+    @Autowired
+    MessageServices msgS;
 	
 	@Autowired
 	ICustomerRepository CustRep;
@@ -36,21 +40,20 @@ public class CustomerImpl implements CustomerSevices {
     @Override
     public CustomerDTO get(Long id) throws Exception {
         if (id == null) {
-            throw new Exception("missing-id");
+            throw new Exception(msgS.getMessage("missing-id-get"));
         }
         
         Optional<Customer> customerOpt = CustRep.findById(id);
         if (customerOpt.isPresent()) {
             return new CustomerDTO(customerOpt.get());
         } else {
-            throw new Exception("not-found");
-        }
+            throw new Exception(msgS.getMessage("does-not-exist-get"));        }
     }
 
     @Override
     public void create(CustomerRequest req) throws Exception {
         if (mancanoAttributi(req)) {
-            throw new Exception("missing-attributes");
+            throw new Exception(msgS.getMessage("missing-attributes-create"));
         }
        
         if (flagSameEmail(req)) {

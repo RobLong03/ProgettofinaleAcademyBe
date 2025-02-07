@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.betacom.backend.services.interfaces.messages.MessageServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,9 @@ public class ColorImpl implements ColorServices{
 	@Autowired
 	IColorRepository colRep;
 
+	@Autowired
+	MessageServices msgS;
+
 	@Override
 	public List<ColorDTO> list() {
 		 List<Color> lCol = colRep.findAll();
@@ -31,7 +35,7 @@ public class ColorImpl implements ColorServices{
 	@Override
 	public ColorDTO get(Long id) throws Exception {
 		if(id == null){
-            throw new Exception("missing-id");
+            throw new Exception(msgS.getMessage("missing-id-get"));
         }
 
         Optional<Color> col = colRep.findById(id);
@@ -40,14 +44,14 @@ public class ColorImpl implements ColorServices{
             return new ColorDTO(
             		col.get());
         }else{
-            throw new Exception("not-found");
+            throw new Exception(msgS.getMessage("does-not-exist-get"));
         }
 	}
 
 	@Override
 	public void create(ColorRequest req) throws Exception {
 		if(mancanoAttributi(req))
-            throw new Exception("missing-attributes");
+            throw new Exception(msgS.getMessage("missing-attributes-create"));
 
         Color c = new Color(req);
         colRep.save(c);
@@ -56,11 +60,11 @@ public class ColorImpl implements ColorServices{
 	@Override
 	public void update(ColorRequest req) throws Exception {
 		 if(req.getId() == null){
-	            throw new Exception("missing-id");
+	            throw new Exception(msgS.getMessage("missing-id-update"));
 	        }
 
 	        if( colRep.findById(req.getId()).isEmpty()){
-	            throw new Exception("does-not-exists");
+	            throw new Exception(msgS.getMessage("missing-id-update"));
 	        }
 
 	        Color c = new Color(req);
@@ -71,7 +75,7 @@ public class ColorImpl implements ColorServices{
 	@Override
 	public void delete(Long id) throws Exception {
 		if(id == null){
-            throw new Exception("missing-id");
+			throw new Exception(msgS.getMessage("missing-id-delete"));
         }
 
         colRep.deleteById(id);

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.betacom.backend.services.interfaces.messages.MessageServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,9 @@ public class CartItemImpl implements CartItemServices{
 
 	@Autowired
 	IcartItemRepository carItR;
+
+	@Autowired
+	MessageServices msgS;
 	
 	@Autowired
 	ICartRepository cartR;
@@ -43,30 +47,30 @@ public class CartItemImpl implements CartItemServices{
 	@Override
 	public CartItemDTO get(Long id) throws Exception {
 		if(id == null){
-            throw new Exception("missing-id");
-        }
+			throw new Exception(msgS.getMessage("missing-id-get"));
+		}
 
         Optional<CartItem> cas = carItR.findById(id);
 
         if(cas.isPresent()){
             return new CartItemDTO(cas.get());
         }else{
-            throw new Exception("not-found");
+			throw new Exception(msgS.getMessage("does-not-exist-get"));
         }
 	}
 
 	@Override
 	public void create(CartItemRequest req) throws Exception {
 		if(mancanoAttributi(req))
-            throw new Exception("missing-attributes");
+			throw new Exception(msgS.getMessage("missing-attributes-create"));
 
 		Optional<Cart> cartOptional = cartR.findById(req.getCartId());
 	    if(cartOptional.isEmpty())
-	    	throw new Exception("cart-not-found");
+			throw new Exception(msgS.getMessage("no-cart-found-cartitem-create"));
 	        
 	    Optional<Product> prodOp = prodR.findById(req.getProductId());
 	    if(prodOp.isEmpty())
-	    	throw new Exception("prod-not-found");
+			throw new Exception(msgS.getMessage("product-not-found-cartitem-create"));
 	     
         CartItem p = new CartItem();
         
@@ -80,22 +84,22 @@ public class CartItemImpl implements CartItemServices{
 	@Override
 	public void update(CartItemRequest req) throws Exception {
 		if(req.getId() == null){
-            throw new Exception("missing-id");
-        }
+			throw new Exception(msgS.getMessage("missing-id-update"));        }
 
-        if( carItR.findById(req.getId()).isEmpty()){
-            throw new Exception("does-not-exists");
-        }
+        if( carItR.findById(req.getId()).isEmpty()) {
+			throw new Exception(msgS.getMessage("does-not-exist-update"));
+		}
 
         Optional<Cart> cartOptional = cartR.findById(req.getCartId());
 	    if(cartOptional.isEmpty())
-	    	throw new Exception("cart-not-found");
+			throw new Exception(msgS.getMessage("no-cart-found-cartitem-update"));
 	        
 	    Optional<Product> prodOp = prodR.findById(req.getProductId());
 	    if(prodOp.isEmpty())
-	    	throw new Exception("prod-not-found");
-	     
-        CartItem p = new CartItem();
+			throw new Exception(msgS.getMessage("product-not-found-cartitem-update"));
+
+
+		CartItem p = new CartItem();
         
         p.setCart(cartOptional.get());
         p.setProduct(prodOp.get());
@@ -107,8 +111,7 @@ public class CartItemImpl implements CartItemServices{
 	@Override
 	public void delete(Long id) throws Exception {
 		if(id == null){
-            throw new Exception("missing-id");
-        }
+			throw new Exception(msgS.getMessage("missing-id-delete"));        }
 
 		carItR.deleteById(id);
 	}

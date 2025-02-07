@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.betacom.backend.services.interfaces.messages.MessageServices;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,9 @@ public class ProductImpl implements ProductServices {
 
     @Autowired
     Logger log;
+
+    @Autowired
+    MessageServices msgS;
 
     @Autowired
     IProductRepository prodRep;
@@ -41,7 +45,7 @@ public class ProductImpl implements ProductServices {
         log.debug("PI: get request with id:"+id);
         if(id == null){
             log.error("PI: id is null");
-            throw new Exception("missing-id");
+            throw new Exception(msgS.getMessage("missing-id-get"));
         }
 
         Optional<Product> prod = prodRep.findById(id);
@@ -50,7 +54,7 @@ public class ProductImpl implements ProductServices {
             return new ProductDTO(prod.get());
         }else{
             log.error("missing product");
-            throw new Exception("not-found");
+            throw new Exception(msgS.getMessage("does-not-exist-get"));
         }
     }
 
@@ -60,7 +64,7 @@ public class ProductImpl implements ProductServices {
 
         if(mancanoAttributi(req)) {
             log.error("PI: missing attributes");
-            throw new Exception("missing-attributes");
+            throw new Exception(msgS.getMessage("missing-attributes-create"));
         }
 
         Product p = new Product(req);
@@ -72,11 +76,11 @@ public class ProductImpl implements ProductServices {
     @Override
     public void update(ProductRequest req) throws Exception {
         if(req.getId() == null){
-            throw new Exception("missing-id");
+            throw new Exception(msgS.getMessage("missing-id-update"));
         }
 
         if( prodRep.findById(req.getId()).isEmpty()){
-            throw new Exception("does-not-exists");
+            throw new Exception(msgS.getMessage("does-not-exist-update"));
         }
 
         Product p = new Product(req);
@@ -87,7 +91,7 @@ public class ProductImpl implements ProductServices {
     @Override
     public void delete(Long id) throws Exception {
         if(id == null){
-            throw new Exception("missing-id");
+            throw new Exception(msgS.getMessage("missing-id-delete"));
         }
 
         prodRep.deleteById(id);

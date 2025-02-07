@@ -4,6 +4,7 @@ import com.betacom.backend.dto.products.CpuDTO;
 import com.betacom.backend.model.products.Cpu;
 import com.betacom.backend.repositories.products.ICpuRepository;
 import com.betacom.backend.request.products.CpuRequest;
+import com.betacom.backend.services.interfaces.messages.MessageServices;
 import com.betacom.backend.services.interfaces.products.CpuServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,8 @@ import java.util.stream.Collectors;
 @Service
 public class CpuImpl implements CpuServices {
 
+    @Autowired
+    MessageServices msgS;
 
     @Autowired
     ICpuRepository cpuRep;
@@ -32,7 +35,7 @@ public class CpuImpl implements CpuServices {
     @Override
     public CpuDTO get(Long id) throws Exception {
         if(id == null){
-            throw new Exception("missing-id");
+            throw new Exception(msgS.getMessage("missing-id-get"));
         }
 
         Optional<Cpu> cpu = cpuRep.findById(id);
@@ -40,14 +43,14 @@ public class CpuImpl implements CpuServices {
         if(cpu.isPresent()){
             return new CpuDTO(cpu.get());
         }else{
-            throw new Exception("not-found");
+            throw new Exception(msgS.getMessage("does-not-exist-get"));
         }
     }
 
     @Override
     public void create(CpuRequest req) throws Exception {
         if(mancanoAttributi(req))
-            throw new Exception("missing-attributes");
+            throw new Exception(msgS.getMessage("missing-attributes-create"));
 
         Cpu p = new Cpu(req );
         cpuRep.save(p);
@@ -66,11 +69,11 @@ public class CpuImpl implements CpuServices {
     @Override
     public void update(CpuRequest req) throws Exception {
         if(req.getId() == null){
-            throw new Exception("missing-id");
+            throw new Exception(msgS.getMessage("missing-id-update"));
         }
 
         if( cpuRep.findById(req.getId()).isEmpty()){
-            throw new Exception("does-not-exists");
+            throw new Exception(msgS.getMessage("does-not-exist-update"));
         }
 
         Cpu p = new Cpu(req);

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.betacom.backend.services.interfaces.messages.MessageServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,9 @@ public class AddressImpl implements AddressServices {
 	IAddressRepository AddrRep;
 
 	@Autowired
+	MessageServices msgS;
+
+	@Autowired
 	ICustomerRepository CustRep;
 
 	@Override
@@ -34,7 +38,8 @@ public class AddressImpl implements AddressServices {
 	@Override
 	public AddressDTO get(Long id) throws Exception {
 		if (id == null) {
-			throw new Exception("missing-id");
+			throw new Exception(msgS.getMessage("missing-id-get"));
+
 		}
 
 		Optional<Address> prod = AddrRep.findById(id);
@@ -42,19 +47,18 @@ public class AddressImpl implements AddressServices {
 		if (prod.isPresent()) {
 			return new AddressDTO(prod.get());
 		} else {
-			throw new Exception("not-found");
+			throw new Exception(msgS.getMessage("does-not-exist-get"));
 		}
 	}
 
 	@Override
 	public void create(AddressRequest req) throws Exception {
 		if (mancanoAttributi(req)) {
-		    throw new Exception("missing-attributes");
-		}
+			throw new Exception(msgS.getMessage("missing-attributes-create"));		}
 
 
 		Customer customer = CustRep.findById(req.getCustomerID())
-		                           .orElseThrow(() -> new Exception("missing-id"));
+		                           .orElseThrow(() -> new Exception(msgS.getMessage("missing-customer-address-create")));
 
 		
 		Address addr = new Address(req);
@@ -68,11 +72,11 @@ public class AddressImpl implements AddressServices {
 	@Override
 	public void update(AddressRequest req) throws Exception {
 		if (req.getId() == null) {
-			throw new Exception("missing-id");
+			throw new Exception(msgS.getMessage("missing-id-update"));
 		}
 
 		if (AddrRep.findById(req.getId()).isEmpty()) {
-			throw new Exception("does-not-exists");
+			throw new Exception(msgS.getMessage("does-not-exist-update"));
 		}
 
 		Address p = new Address(req);
@@ -84,7 +88,7 @@ public class AddressImpl implements AddressServices {
 	@Override
 	public void delete(Long id) throws Exception {
 		if (id == null) {
-			throw new Exception("missing-id");
+			throw new Exception(msgS.getMessage("missing-id-delete"));
 		}
 
 		AddrRep.deleteById(id);

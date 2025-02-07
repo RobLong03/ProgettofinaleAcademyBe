@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.betacom.backend.services.interfaces.messages.MessageServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,9 @@ import com.betacom.backend.services.interfaces.products.GpuServices;
 
 @Service
 public class GpuImpl implements GpuServices {
+
+	@Autowired
+	MessageServices msgS;
 
 	@Autowired
 	IGpuRepository gpuRep;
@@ -33,7 +37,7 @@ public class GpuImpl implements GpuServices {
 	@Override
 	public GpuDTO get(Long id) throws Exception {
 		if (id == null) {
-			throw new Exception("missing-id");
+			throw new Exception(msgS.getMessage("missing-id-get"));
 		}
 
 		Optional<Gpu> prod = gpuRep.findById(id);
@@ -41,14 +45,14 @@ public class GpuImpl implements GpuServices {
 		if (prod.isPresent()) {
 			return new GpuDTO(prod.get());
 		} else {
-			throw new Exception("not-found");
+			throw new Exception(msgS.getMessage("does-not-exist-get"));
 		}
 	}
 
 	@Override
 	public void create(GpuRequest req) throws Exception {
 		if (mancanoAttributi(req))
-			throw new Exception("missing-attributes");
+			throw new Exception(msgS.getMessage("missing-attributes-create"));
 
 		Gpu p = new Gpu(req);
 		gpuRep.save(p);
@@ -58,13 +62,12 @@ public class GpuImpl implements GpuServices {
 	@Override
 	public void update(GpuRequest req) throws Exception {
 		 if(req.getId() == null){
-	            throw new Exception("missing-id");
+			 throw new Exception(msgS.getMessage("missing-id-update"));
 	        }
 
 	        if(  gpuRep.findById(req.getId()).isEmpty()){
-	            throw new Exception("does-not-exists");
+				throw new Exception(msgS.getMessage("does-not-exist-update"));
 	        }
-
 	        Gpu p = new Gpu(req);
 
 	        gpuRep.save(p);

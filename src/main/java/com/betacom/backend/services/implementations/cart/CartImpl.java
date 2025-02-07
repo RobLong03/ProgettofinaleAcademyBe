@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.betacom.backend.services.interfaces.messages.MessageServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,9 @@ public class CartImpl implements CartServices{
 
 	@Autowired
 	ICartRepository cartR;
+
+	@Autowired
+	MessageServices msgS;
 	
 	@Autowired
 	ICustomerRepository cusR;
@@ -40,7 +44,7 @@ public class CartImpl implements CartServices{
 	@Override
 	public CartDTO get(Long id) throws Exception {
 		if(id == null){
-            throw new Exception("missing-id");
+			throw new Exception(msgS.getMessage("missing-id-get"));
         }
 
         Optional<Cart> cas = cartR.findById(id);
@@ -48,18 +52,19 @@ public class CartImpl implements CartServices{
         if(cas.isPresent()){
             return new CartDTO(cas.get());
         }else{
-            throw new Exception("not-found");
+			throw new Exception(msgS.getMessage("does-not-exist-get"));
         }
 	}
 
 	@Override
 	public void create(CartRequest req) throws Exception {
 		if(mancanoAttributi(req))
-            throw new Exception("missing-attributes");
+			throw new Exception(msgS.getMessage("missing-attributes-create"));
+
 
 		Optional<Customer> custOp = cusR.findById(req.getCustomerId());
 		if(custOp.isEmpty())
-			throw new Exception("customer-not-found");
+			throw new Exception(msgS.getMessage("cart-missing-customer"));
 		
 		List<CartItem> cartIt = req.getItems().stream()
 				.map(c -> new CartItem(
@@ -72,7 +77,7 @@ public class CartImpl implements CartServices{
 				.collect(Collectors.toList());
 		
 		if(cartIt.isEmpty())
-			throw new Exception("Empty cartitems.");
+			throw new Exception(msgS.getMessage("cart-no-items"));
 		
         Cart p = new Cart();
         p.setCustomer(custOp.get());
@@ -85,16 +90,16 @@ public class CartImpl implements CartServices{
 	@Override
 	public void update(CartRequest req) throws Exception {
 		if(req.getId() == null){
-            throw new Exception("missing-id");
+			throw new Exception(msgS.getMessage("missing-id-update"));
         }
 
         if( cartR.findById(req.getId()).isEmpty()){
-            throw new Exception("does-not-exists");
+			throw new Exception(msgS.getMessage("does-not-exist-update"));
         }
 
         Optional<Customer> custOp = cusR.findById(req.getCustomerId());
 		if(custOp.isEmpty())
-			throw new Exception("customer-not-found");
+			throw new Exception(msgS.getMessage("cart-missing-customer"));
 		
 		List<CartItem> cartIt = req.getItems().stream()
 				.map(c -> new CartItem(
@@ -107,8 +112,8 @@ public class CartImpl implements CartServices{
 				.collect(Collectors.toList());
 		
 		if(cartIt.isEmpty())
-			throw new Exception("Empty cartitems.");
-		
+			throw new Exception(msgS.getMessage("cart-no-items"));
+
         Cart p = new Cart();
         p.setCustomer(custOp.get());
         p.setItems(cartIt);
@@ -120,7 +125,7 @@ public class CartImpl implements CartServices{
 	@Override
 	public void delete(Long id) throws Exception {
 		if(id == null){
-            throw new Exception("missing-id");
+			throw new Exception(msgS.getMessage("missing-id-delete"));
         }
 
 		cartR.deleteById(id);

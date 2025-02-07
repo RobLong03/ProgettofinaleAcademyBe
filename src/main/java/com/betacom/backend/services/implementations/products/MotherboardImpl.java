@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.betacom.backend.services.interfaces.messages.MessageServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +20,12 @@ public class MotherboardImpl implements MotherboardServices {
 	@Autowired
 	IMotherboardRepository motherbRep;
 
+	@Autowired
+	MessageServices msgS;
+
 	@Override
 	public List<MotherboardDTO> list() {
+
 		
 		List<Motherboard> lM=motherbRep.findAll();
 		
@@ -33,11 +38,12 @@ public class MotherboardImpl implements MotherboardServices {
 	public MotherboardDTO get(Long id) throws Exception {
 		
 		if(id==null)
-			throw new Exception("missing-id");
-			
+			throw new Exception(msgS.getMessage("missing-id-get"));
+
+
 		Optional<Motherboard> m=motherbRep.findById(id);
 		if(m.isEmpty())
-			throw new Exception("not-found");
+			throw new Exception(msgS.getMessage("does-not-exist-get"));
 		
 		return new MotherboardDTO(m.get());
 	}
@@ -46,7 +52,7 @@ public class MotherboardImpl implements MotherboardServices {
 	public void create(MotherboardRequest req) throws Exception {
 		
 		if(missingAttributes(req))
-			throw new Exception("missing-attributes");
+			throw new Exception(msgS.getMessage("missing-attributes-create"));
 		
 		Motherboard m=new Motherboard(req);
 		motherbRep.save(m);
@@ -56,11 +62,11 @@ public class MotherboardImpl implements MotherboardServices {
 	public void update(MotherboardRequest req) throws Exception {
 		
 		if(req.getId()==null)
-			throw new Exception("missing-id");
+			throw new Exception(msgS.getMessage("missing-id-update"));
 		
 		if(motherbRep.findById(req.getId()).isEmpty())
-			throw new Exception("does-not-exist");
-		
+			throw new Exception(msgS.getMessage("missing-id-update"));
+
 		Motherboard m=new Motherboard(req);
 		motherbRep.save(m);
 	}
@@ -70,7 +76,7 @@ public class MotherboardImpl implements MotherboardServices {
 		
 		Optional<Motherboard> m=motherbRep.findById(id);
 		if(m.isEmpty())
-			throw new Exception("not-found");
+			throw new Exception(msgS.getMessage("does-not-exist-delete"));
 		
 		motherbRep.delete(m.get());
 	}
