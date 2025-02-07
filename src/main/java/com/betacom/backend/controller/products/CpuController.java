@@ -22,17 +22,17 @@ public class CpuController {
 
     @PostMapping("/create")
     public ResponseBase create(@RequestBody(required = true)CpuRequest req){
-        log.debug("PC : Cpu create request received:" + req);
+        log.debug("CC : Cpu create request received:" + req);
         ResponseBase r = new ResponseBase();
 
         try{
             cpuServices.create(req);
             r.setRc(true);
-            log.debug("PC: Cpu created");
+            log.debug("CC: Cpu created");
         } catch (Exception e) {
             r.setRc(false);
             r.setMsg(e.getMessage());
-            log.debug("PC: Error in cpu creation");
+            log.debug("CC: Error in cpu creation");
         }
 
         return r;
@@ -40,17 +40,17 @@ public class CpuController {
 
     @GetMapping("/list")
     public ResponseList<CpuDTO> list(){
-        log.debug("PC: Cpu list request received");
+        log.debug("CC: Cpu list request received");
         ResponseList<CpuDTO> r = new ResponseList<CpuDTO>();
 
         try{
             r.setDati(cpuServices.list());
             r.setRc(true);
-            log.debug("PC: Cpu list done");
+            log.debug("CC: Cpu list done");
         }catch (Exception e) {
             r.setRc(false);
             r.setMsg(e.getMessage());
-            log.debug("PC: Error in cpu list");
+            log.debug("CC: Error in cpu list");
         }
 
         return r;
@@ -58,17 +58,17 @@ public class CpuController {
 
     @GetMapping("/get")
     public ResponseObject<CpuDTO> get(@RequestParam Long id ){
-        log.debug("PC: Cpu get request received for id:"+id);
+        log.debug("CC: Cpu get request received for id:"+id);
         ResponseObject<CpuDTO> r = new  ResponseObject<CpuDTO>();
 
         try{
             r.setDati(cpuServices.get(id));
             r.setRc(true);
-            log.debug("PC: Cpu get done for id:"+id);
+            log.debug("CC: Cpu get done for id:"+id);
         }catch(Exception e){
             r.setRc(false);
             r.setMsg(e.getMessage());
-            log.debug("PC: Error in cpu get for id:"+id);
+            log.debug("CC: Error in cpu get for id:"+id);
         }
 
         return r;
@@ -76,17 +76,17 @@ public class CpuController {
 
     @PostMapping()
     public ResponseBase update(@RequestBody(required = true)CpuRequest req){
-        log.debug("PC: Cpu update request received:" + req);
+        log.debug("CC: Cpu update request received:" + req);
         ResponseBase r = new ResponseBase();
 
         try{
             cpuServices.update(req);
             r.setRc(true);
-            log.debug("PC: Cpu updated");
+            log.debug("CC: Cpu updated");
         }catch(Exception e){
             r.setRc(false);
             r.setMsg(e.getMessage());
-            log.debug("PC: Error in cpu update");
+            log.debug("CC: Error in cpu update");
         }
 
         return r;
