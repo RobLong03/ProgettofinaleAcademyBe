@@ -105,7 +105,7 @@ public class MotherboardController {
 	}
 	
 	@PostMapping("/delete")
-	public ResponseBase create(@RequestParam Long id) {
+	public ResponseBase delete(@RequestParam Long id) {
 		
 		log.debug("delete");
 		
