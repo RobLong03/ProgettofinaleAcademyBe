@@ -57,7 +57,7 @@ public class CustomerImpl implements CustomerSevices {
         }
        
         if (flagSameEmail(req)) {
-        	 throw new Exception("error-on-email");
+        	 throw new Exception(msgS.getMessage("email-already-in-use"));
 		}
         
     
@@ -68,12 +68,12 @@ public class CustomerImpl implements CustomerSevices {
     @Override
     public void update(CustomerRequest req) throws Exception {
         if (req.getId() == null) {
-            throw new Exception("missing-id");
+            throw new Exception(msgS.getMessage("missing-id-update"));
         }
         
         Optional<Customer> customerOpt = CustRep.findById(req.getId());
         if (customerOpt.isEmpty()) {
-            throw new Exception("does-not-exists");
+            throw new Exception(msgS.getMessage("does-not-exist-update"));
         }
        
        
@@ -85,7 +85,7 @@ public class CustomerImpl implements CustomerSevices {
     @Override
     public void delete(Long id) throws Exception {
         if (id == null) {
-            throw new Exception("missing-id");
+            throw new Exception(msgS.getMessage("missing-id-delete"));
         }
         CustRep.deleteById(id);
     }
