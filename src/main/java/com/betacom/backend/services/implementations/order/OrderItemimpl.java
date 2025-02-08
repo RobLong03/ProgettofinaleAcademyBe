@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.betacom.backend.repositories.order.IOrderItemRepository;
+import com.betacom.backend.services.interfaces.messages.MessageServices;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -30,6 +31,9 @@ public class OrderItemimpl implements OrderItemsServices {
     IOrderRepository orderRep;
 
 	@Autowired
+	MessageServices msgS;
+
+	@Autowired
 	IOrderItemRepository orderItemRep;
 
     @Autowired
@@ -40,13 +44,16 @@ public class OrderItemimpl implements OrderItemsServices {
 	
 	@Override
 	public List<OrderItemDTO> listByOrder(Long orderId) throws Exception {
+		log.debug("OII.listByOrder: list req received");
+
 		if(orderId == null){
-			throw new Exception("missing-id");
+			log.debug("OII.listByOrder: orderId is null");
+			throw new Exception(msgS.getMessage("missing-id-get-orderiItem-by-orderId"));
 		}
 
 		List<OrderItem> orderItemss = orderItemRep.findByOrder_id(orderId);
 		if(orderItemss.isEmpty()){
-			throw new Exception("not-found");
+			throw new Exception(msgS.getMessage("does-not-exist-get-orderiItem-by-orderId"));
 		}
 
 		return orderItemss.stream().map( oi->
@@ -57,11 +64,11 @@ public class OrderItemimpl implements OrderItemsServices {
 	@Override
 	public OrderItemDTO get(Long id) throws Exception {
 		if(id == null){
-			throw new Exception("missing-id");
+			throw new Exception(msgS.getMessage("missing-id-get"));
 		}
 		Optional<OrderItem> orderItem = orderItemRep.findById(id);
 		if(orderItem.isEmpty())
-			throw new Exception("not-found");
+			throw new Exception(msgS.getMessage("does-not-exist-get"));
 
         return new OrderItemDTO(orderItem.get());
 	}
@@ -71,25 +78,29 @@ public class OrderItemimpl implements OrderItemsServices {
 		//assumo che se in questa request viene indicato "x numero di item" sono "x numro di item da aggiungere",
 		//quindi se gia presenti "3 cpu ryzen 200" e arriva addItemToOrder con quantity 2 diventano 5,
 
-		if(itemReq == null || itemReq.getOrderId() == null || itemReq.getProductId() == null  )
-			throw new Exception("request problem");
+		log.debug("OII.addItemToOrder: add req received");
 
+		if(itemReq == null || itemReq.getOrderId() == null || itemReq.getProductId() == null  )
+			throw new Exception(msgS.getMessage("bad-orderitem-add-request"));
+
+		log.debug("OII.addItemToOrder: fetching order");
 		Optional<Order> orderOptional = orderRep.findById(itemReq.getOrderId());
 		if(orderOptional.isEmpty()){
-			throw new Exception("not-found");
+			throw new Exception(msgS.getMessage("order-not-found-for-orderItem-add"));
 		}
 		Order order = orderOptional.get();
 
+		log.debug("OII.addItemToOrder: fetching product");
 		Optional<Product> productOptional = prodRep.findById(itemReq.getProductId());
 		if(productOptional.isEmpty()){
-			throw new Exception("product-not-found");
+			throw new Exception(msgS.getMessage("product-not-found-for-orderItem-add"));
 		}
 		Product product = productOptional.get();
 
 		//controllo sullo stock se ce ne sono abbastanza, lo faccio qua perche in teoria dal salvataggio del ordine sono gia stati tolti i stock
+		log.debug("OII.addItemToOrder: checking stock");
 		if(!product.removeStock(itemReq.getQuantity()))
-			throw new Exception("not enough products in stock");
-
+			throw new Exception(msgS.getMessage("quantity-exceeds-stock-order-orderItems-add"));
 
 		List<OrderItem> orderItems = order.getOrderItems();
 
@@ -104,37 +115,43 @@ public class OrderItemimpl implements OrderItemsServices {
 						new OrderItem(product, order, itemReq.getQuantity(), itemReq.getUnitPrice())
 						)
 				);
-
+		log.debug("OII.addItemToOrder: finalizing....");
 		orderRep.save(order);
 		prodRep.save(product);
+		log.debug("OII.addItemToOrder: saved order");
 
 	}
 	
 	 @Override
 	public void removeItemFromOrder(OrderItemRequest itemReq) throws Exception{
+		log.debug("OII.removeItemFromOrder: remove req received");
 	    //se viene chiesto di togliere piu di quanti sono presenti defaulto a togliere tutto
-	
+
+		 log.debug("OII.removeItemFromOrder: checking req");
 	    if(itemReq == null || itemReq.getOrderId() == null || itemReq.getProductId() == null  )
-	        throw new Exception("request problem");
-	
+			throw new Exception(msgS.getMessage("bad-orderitem-remove-request"));
+
+		log.debug("OII.removeItemFromOrder: checking order");
 	    Optional<Order> orderOptional = orderRep.findById(itemReq.getOrderId());
 	    if(orderOptional.isEmpty()){
-	        throw new Exception("not-found");
+			throw new Exception(msgS.getMessage("order-not-found-for-orderItem-remove"));
 	    }
 	    Order order = orderOptional.get();
-	
+
+		log.debug("OII.removeItemFromOrder: checking product");
 	    Optional<Product> productOptional = prodRep.findById(itemReq.getProductId());
 	    if(productOptional.isEmpty()){
-	        throw new Exception("product-not-found");
+			throw new Exception(msgS.getMessage("product-not-found-for-orderItem-remove"));
 	    }
 	    Product product = productOptional.get();
 	
 	    List<OrderItem> orderItems = order.getOrderItems();
 	
-	    Boolean foundItem = false;
+	    boolean foundItem = false;
 
 		 product.addStock(itemReq.getQuantity());
-	
+
+		 log.debug("OII.removeItemFromOrder: updating order and stock");
 	    for(OrderItem item : orderItems){
 	
 	        if(item.getProduct().getId().equals(product.getId())){
@@ -148,27 +165,34 @@ public class OrderItemimpl implements OrderItemsServices {
 	        }
 	    }
 	    if(!foundItem)
-	        throw new Exception("item-not-found");
-	
+			throw new Exception(msgS.getMessage("product-not-found-in-orderItem-remove"));
+
+		log.debug("OII.removeItemFromOrder: updating order and stock");
 	    orderRep.save(order);
 		prodRep.save(product);
+		log.debug("OII.removeItemFromOrder: saved order");
 	}
 
 	@Override
 	public void delete(Long id) throws Exception {
+		log.debug("OII.delete: deleting req received");
 		if(id == null){
-			throw new Exception("missing-id");
+			throw new Exception(msgS.getMessage("missing-id-delete"));
 		}
 		Optional<OrderItem> orderItem = orderItemRep.findById(id);
 
+		log.debug("OII.delete: checking orderItem");
 		if(orderItem.isEmpty())
-			throw new Exception("not-found");
+			throw new Exception(msgS.getMessage("does-not-exist-delete"));
 
+		log.debug("OII.delete: updating stock");
 		Product prod = prodRep.findById(orderItem.get().getProduct().getId()).get();
 		prod.addStock(orderItem.get().getQuantity());
 
+		log.debug("OII.delete: updating order and stock");
 		orderItemRep.deleteById(id);
 		prodRep.save(prod);
+		log.debug("OII.delete: deleted order");
 		
 	}
 

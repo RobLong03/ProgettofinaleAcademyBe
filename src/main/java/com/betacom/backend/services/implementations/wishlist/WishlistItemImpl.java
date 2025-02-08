@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.betacom.backend.services.interfaces.messages.MessageServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,9 @@ import com.betacom.backend.services.interfaces.wishlist.WishlistItemServices;
 
 @Service
 public class WishlistItemImpl implements WishlistItemServices {
-	
+	@Autowired
+	MessageServices msgS;
+
 	@Autowired
 	IWishlistRepository wishlRep;
 	
@@ -43,11 +46,11 @@ public class WishlistItemImpl implements WishlistItemServices {
 	public WishlistItemDTO get(Long id) throws Exception {
 		
 		if(id==null)
-			throw new Exception("missing-id");
+			throw new Exception(msgS.getMessage("missing-id-get"));
 		
 		Optional<WishlistItem> w=wishlistIRep.findById(id);
 		if(w.isEmpty())
-			throw new Exception("not-found");
+			throw new Exception(msgS.getMessage("does-not-exist-get"));
 		
 		return new WishlistItemDTO(w.get());
 	}
@@ -56,18 +59,18 @@ public class WishlistItemImpl implements WishlistItemServices {
 	public void create(WishlistItemRequest req, Long customerId) throws Exception {
 		
 		if(missingAttributes(req))
-			throw new Exception("missing-attributes");
+			throw new Exception(msgS.getMessage("missing-attributes-create"));
 		
 		if(customerId==null)
-			throw new Exception("missing-id");
+			throw new Exception(msgS.getMessage("missing-customer-id-wishlistItem-create"));
 		
 		Optional<Product> p=prodRep.findById(req.getProductId());
 		if(p.isEmpty())
-			throw new Exception("not-found");
+			throw new Exception(msgS.getMessage("missing-product-wishlistItem-create"));
 		
 		Optional<Wishlist> wCustomer=wishlRep.findByCustomer_Id(customerId);
 		if(wCustomer.isEmpty())
-			throw new Exception("not-found");
+			throw new Exception(msgS.getMessage("missing-customer-wishlistItem-create"));
 		
 		WishlistItem w=new WishlistItem(p.get(), wCustomer.get());
 		wishlistIRep.save(w);
@@ -77,11 +80,11 @@ public class WishlistItemImpl implements WishlistItemServices {
 	public void delete(Long id) throws Exception {
 		
 		if(id==null)
-			throw new Exception("missing-id");
+			throw new Exception(msgS.getMessage("missing-id-delete"));
 		
 		Optional<WishlistItem> w=wishlistIRep.findById(id);
 		if(w.isEmpty())
-			throw new Exception("not-found");
+			throw new Exception(msgS.getMessage("does-not-exist-delete"));
 
 		wishlistIRep.delete(w.get());
 	}
