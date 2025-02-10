@@ -98,6 +98,14 @@ public class CustomerImpl implements CustomerSevices {
         if (id == null) {
             throw new Exception(msgS.getMessage("missing-id-delete"));
         }
+        
+        //delete wishlist for customer by id
+        Optional<Wishlist> w=wishR.findByCustomer_Id(id);
+        if(w.isEmpty())
+            throw new Exception("wishlist associata a customer con id non trovata");
+           
+        wishR.delete(w.get());
+        
         CustRep.deleteById(id);
     }
     
