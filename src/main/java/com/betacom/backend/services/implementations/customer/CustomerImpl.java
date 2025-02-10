@@ -6,16 +6,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import com.betacom.backend.services.interfaces.messages.MessageServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.betacom.backend.dto.customer.CustomerDTO;
 import com.betacom.backend.model.customer.Customer;
+import com.betacom.backend.model.wishlist.Wishlist;
 import com.betacom.backend.repositories.customer.IAddressRepository;
 import com.betacom.backend.repositories.customer.ICustomerRepository;
+import com.betacom.backend.repositories.wishlist.IWishlistRepository;
 import com.betacom.backend.request.customer.CustomerRequest;
 import com.betacom.backend.services.interfaces.customer.CustomerSevices;
+import com.betacom.backend.services.interfaces.messages.MessageServices;
 
 @Service
 public class CustomerImpl implements CustomerSevices {
@@ -28,6 +30,9 @@ public class CustomerImpl implements CustomerSevices {
 	
 	@Autowired
 	ICustomerRepository CustRep;
+	
+	@Autowired
+	IWishlistRepository wishR;
 
     @Override
     public List<CustomerDTO> list() {
@@ -62,7 +67,13 @@ public class CustomerImpl implements CustomerSevices {
         
     
         Customer customer = new Customer(req);
-        CustRep.save(customer);
+   
+      //creation Wishlist in customer
+        customer = CustRep.saveAndFlush(customer);
+
+        Wishlist wis=new Wishlist();
+        wis.setCustomer(customer);
+        wishR.save(wis);
     }
 
     @Override

@@ -6,4 +6,5 @@ import com.betacom.backend.model.customer.Customer;
 
 public interface ICustomerRepository extends JpaRepository<Customer, Long> {
 
+	
 }

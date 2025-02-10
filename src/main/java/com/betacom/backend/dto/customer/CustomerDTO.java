@@ -1,7 +1,13 @@
 package com.betacom.backend.dto.customer;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
+import com.betacom.backend.dto.cart.CartItemDTO;
 import com.betacom.backend.model.customer.Customer;
 
 public class CustomerDTO {
@@ -129,9 +135,37 @@ public class CustomerDTO {
 		this.taxId = req.getTaxId();
 		this.email=req.getEmail();
 		this.password = req.getPassword();
-		this.addresses= req.getAddresses().stream()
-				.map(x->new AddressDTO(x)).toList();
+		
+		try {
+			if (req.getAddresses()!=null) {
+				this.addresses = req.getAddresses()
+					    .stream()
+					    .map(x -> new AddressDTO(
+					    	    x.getId(),
+					    	    x.getCustomer() != null ? x.getCustomer().getId() : null,
+					    	    x.getCountry(),
+					    	    x.getCity(),
+					    	    x.getPostalCode(),
+					    	    x.getStreet(),
+					    	    x.getHouseNumber()
+					    	)).collect(Collectors.toList());
+			}
+		} catch (Exception e) {
+			this.addresses=new ArrayList<AddressDTO>();
+		}
+		
+		//può uscire un errore perchè puo uscire nullo il valore altrimenti va in null pointer exception
+		
 
+
+
+/*	this.id = id;
+			this.customerID = customerID;
+			this.country = country;
+			this.city = city;
+			this.postalCode = postalCode;
+			this.street = street;
+			this.houseNumber = houseNumber;*/
 	}
 
 

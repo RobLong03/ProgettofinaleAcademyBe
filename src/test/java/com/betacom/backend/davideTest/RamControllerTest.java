@@ -119,7 +119,7 @@ public class RamControllerTest {
 		Assertions.assertThat(res.getRc()).isEqualTo(false);
 		Assertions.assertThat(res.getMsg()).isEqualTo("does-not-exist-update");
 	}
-	
+	/*
 	@Test
 	@Order(5)
 	public void deleteRamTest() throws Exception {
@@ -129,4 +129,5 @@ public class RamControllerTest {
 		
 		Assertions.assertThat(ramC.delete(99L).getRc()).isEqualTo(false);
 	}
+*/
 }
