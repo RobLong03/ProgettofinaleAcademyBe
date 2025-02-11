@@ -90,6 +90,12 @@ public class CustomerRequest {
 	
 	}
 
+	@Override
+	public String toString() {
+		return "CustomerRequest [id=" + id + ", name=" + name + ", surname=" + surname + ", taxId=" + taxId + ", email="
+				+ email + ", password=" + password + "]";
+	}
+
 	
 	
 	

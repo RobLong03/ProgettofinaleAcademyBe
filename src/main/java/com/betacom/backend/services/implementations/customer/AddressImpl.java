@@ -78,9 +78,11 @@ public class AddressImpl implements AddressServices {
 		if (AddrRep.findById(req.getId()).isEmpty()) {
 			throw new Exception(msgS.getMessage("does-not-exist-update"));
 		}
+		Customer customer = CustRep.findById(req.getCustomerID())
+                .orElseThrow(() -> new Exception(msgS.getMessage("missing-customer-address-create")));
 
 		Address p = new Address(req);
-
+		p.setCustomer(customer);
 		AddrRep.save(p);
 
 	}

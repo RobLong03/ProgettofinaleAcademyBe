@@ -129,4 +129,5 @@ public class RamControllerTest {
 		
 		Assertions.assertThat(ramC.delete(99L).getRc()).isEqualTo(false);
 	}
+
 }

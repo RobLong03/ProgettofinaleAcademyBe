@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.betacom.backend.dto.customer.AddressDTO;
+import com.betacom.backend.dto.customer.CustomerDTO;
 import com.betacom.backend.request.customer.AddressRequest;
 import com.betacom.backend.response.ResponseBase;
 import com.betacom.backend.response.ResponseList;
+import com.betacom.backend.response.ResponseObject;
 import com.betacom.backend.services.interfaces.customer.AddressServices;
 
 @RestController
@@ -73,6 +75,21 @@ public class AddressController {
 		}
 		return r;
 	}
+	
+	@GetMapping("/get")
+	public ResponseObject<AddressDTO>get(Long id){
+		ResponseObject<AddressDTO> r = new ResponseObject<AddressDTO>();
+		r.setRc(true);
+		try {
+
+			r.setDati(addrS.get(id));
+		} catch (Exception e) {
+			r.setMsg(e.getMessage());
+			r.setRc(false);
+		}
+		return r;
+	}
+	
 	@PostMapping("/update")
 	public ResponseBase update (@RequestBody(required=true) AddressRequest req) {
 		log.debug("update :" + req);

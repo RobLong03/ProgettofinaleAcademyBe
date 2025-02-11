@@ -4,16 +4,14 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import com.betacom.backend.services.interfaces.messages.MessageServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.betacom.backend.dto.products.CpuDTO;
 import com.betacom.backend.dto.products.GpuDTO;
-import com.betacom.backend.model.products.Cpu;
 import com.betacom.backend.model.products.Gpu;
 import com.betacom.backend.repositories.products.IGpuRepository;
 import com.betacom.backend.request.products.GpuRequest;
+import com.betacom.backend.services.interfaces.messages.MessageServices;
 import com.betacom.backend.services.interfaces.products.GpuServices;
 
 @Service

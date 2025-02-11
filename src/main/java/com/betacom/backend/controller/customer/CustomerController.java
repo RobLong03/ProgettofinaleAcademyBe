@@ -11,6 +11,7 @@ import com.betacom.backend.dto.customer.CustomerDTO;
 import com.betacom.backend.request.customer.CustomerRequest;
 import com.betacom.backend.response.ResponseBase;
 import com.betacom.backend.response.ResponseList;
+import com.betacom.backend.response.ResponseObject;
 import com.betacom.backend.services.interfaces.customer.CustomerSevices;
 
 @RestController
@@ -73,6 +74,21 @@ public class CustomerController {
 		}
 		return r;
 	}
+	@GetMapping("/get")
+	public ResponseObject<CustomerDTO>get(Long id){
+		ResponseObject<CustomerDTO> r = new ResponseObject<CustomerDTO>();
+		r.setRc(true);
+		try {
+
+			r.setDati(custS.get(id));
+		} catch (Exception e) {
+			r.setMsg(e.getMessage());
+			r.setRc(false);
+		}
+		return r;
+	}
+	
+	
 	@PostMapping("/update")
 	public ResponseBase update (@RequestBody(required=true) CustomerRequest req) {
 		log.debug("update :" + req);

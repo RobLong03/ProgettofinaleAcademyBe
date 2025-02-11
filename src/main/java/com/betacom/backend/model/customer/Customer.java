@@ -38,7 +38,7 @@ public class Customer {
     private String password;
     
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany( mappedBy = "customer",cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Address> addresses;
     
     public Long getId() {
@@ -135,7 +135,7 @@ public class Customer {
 		//da aggiungere poi in seguito per gli indirizzi
 		//si aggiunge dopo 
 		//da verificare il giro di Addrss per Customer
-		if (this.getId() != null)
+		if (req.getId() != null)
 			this.id = req.getId();
 
 	}
