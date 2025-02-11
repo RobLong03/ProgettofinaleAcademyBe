@@ -14,6 +14,7 @@ import com.betacom.backend.model.cart.CartItem;
 import com.betacom.backend.model.customer.Customer;
 import com.betacom.backend.model.products.Product;
 import com.betacom.backend.repositories.cart.ICartRepository;
+import com.betacom.backend.repositories.cart.IcartItemRepository;
 import com.betacom.backend.repositories.customer.ICustomerRepository;
 import com.betacom.backend.request.cart.CartRequest;
 import com.betacom.backend.services.interfaces.cart.CartServices;
@@ -31,6 +32,9 @@ public class CartImpl implements CartServices{
 	
 	@Autowired
 	ICustomerRepository cusR;
+	
+	@Autowired
+	IcartItemRepository cartItemR;
 	
 	@Override
 	public List<CartDTO> list() {
@@ -87,40 +91,40 @@ public class CartImpl implements CartServices{
         cartR.save(p);
 	}
 
-	@Override
-	public void update(CartRequest req) throws Exception {
-		if(req.getId() == null){
-			throw new Exception(msgS.getMessage("missing-id-update"));
-        }
-
-        if( cartR.findById(req.getId()).isEmpty()){
-			throw new Exception(msgS.getMessage("does-not-exist-update"));
-        }
-
-        Optional<Customer> custOp = cusR.findById(req.getCustomerId());
-		if(custOp.isEmpty())
-			throw new Exception(msgS.getMessage("cart-missing-customer"));
-		
-		List<CartItem> cartIt = req.getItems().stream()
-				.map(c -> new CartItem(
-						c.getId(),
-						new Cart(c.getCartId()),
-						new Product(c.getProductId()),
-						c.getQuantity(),
-						c.getPrice()
-						))
-				.collect(Collectors.toList());
-		
-		if(cartIt.isEmpty())
-			throw new Exception(msgS.getMessage("cart-no-items"));
-
-        Cart p = new Cart();
-        p.setCustomer(custOp.get());
-        p.setItems(cartIt);
-        p.setTotalPrice(req.getTotalPrice());
-        
-        cartR.save(p);
-	}
+//	@Override
+//	public void update(CartRequest req) throws Exception {
+//		if(req.getId() == null){
+//			throw new Exception(msgS.getMessage("missing-id-update"));
+//        }
+//
+//        if( cartR.findById(req.getId()).isEmpty()){
+//			throw new Exception(msgS.getMessage("does-not-exist-update"));
+//        }
+//
+//        Optional<Customer> custOp = cusR.findById(req.getCustomerId());
+//		if(custOp.isEmpty())
+//			throw new Exception(msgS.getMessage("cart-missing-customer"));
+//		
+//		List<CartItem> cartIt = req.getItems().stream()
+//				.map(c -> new CartItem(
+//						c.getId(),
+//						new Cart(c.getCartId()),
+//						new Product(c.getProductId()),
+//						c.getQuantity(),
+//						c.getPrice()
+//						))
+//				.collect(Collectors.toList());
+//		
+//		if(cartIt.isEmpty())
+//			throw new Exception(msgS.getMessage("cart-no-items"));
+//
+//        Cart p = new Cart();
+//        p.setCustomer(custOp.get());
+//        p.setItems(cartIt);
+//        p.setTotalPrice(req.getTotalPrice());
+//        
+//        cartR.save(p);
+//	}
 
 	@Override
 	public void delete(Long id) throws Exception {
@@ -135,4 +139,36 @@ public class CartImpl implements CartServices{
 	        return req.getItems() == null
 	                || req.getTotalPrice() == null;
 	    }
+
+	 @Override
+		public void clear(CartRequest req) throws Exception {
+			if(req.getId() == null){
+	            throw new Exception("missing-id");
+	        }
+			Optional<Cart> ca = cartR.findById(req.getId());
+			if(ca.isEmpty())
+				throw new Exception("missing-cart");
+			
+			Cart c = ca.get();
+			c.getItems().clear();
+			cartR.save(c);
+			
+		}
+
+		@Override
+		public void removeItem(Long cartId, Long itemId) throws Exception {
+			Optional<Cart> ca = cartR.findById(cartId);
+			if(ca.isEmpty())
+				throw new Exception("missing-cart");
+			
+			Optional<CartItem> ci = cartItemR.findById(itemId);
+			if(ci.isEmpty())
+				throw new Exception("missing-cart-item");
+			
+			Cart c = ca.get();
+			
+			c.getItems().removeIf(i -> i.getId().equals(itemId));
+			cartR.save(c);
+		}
+
 }
