@@ -61,6 +61,7 @@ public class CpuImpl implements CpuServices {
         return req.getDescription() == null || req.getDescription().isBlank()
                 || req.getBrand() == null || req.getBrand().isBlank()
                 || req.getModel() == null || req.getModel().isBlank()
+                || req.getPrice() == null
                 || req.getStock() == null
                 || req.getCore() == null
                 || req.getGhz() == null;

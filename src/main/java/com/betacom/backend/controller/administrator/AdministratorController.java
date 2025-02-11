@@ -1,7 +1,9 @@
 package com.betacom.backend.controller.administrator;
 
 
+import com.betacom.backend.dto.SignInDTO;
 import com.betacom.backend.dto.administrator.AdministratorDTO;
+import com.betacom.backend.request.SignInRequest;
 import com.betacom.backend.request.administrator.AdministratorRequest;
 import com.betacom.backend.response.ResponseBase;
 import com.betacom.backend.response.ResponseList;
@@ -30,7 +32,6 @@ public class AdministratorController {
             administratorServices.create(req);
             r.setRc(true);
             log.debug("AC: Administrator created");
-
         } catch (Exception e) {
             r.setRc(false);
             r.setMsg(e.getMessage());
@@ -64,6 +65,7 @@ public class AdministratorController {
         ResponseObject<AdministratorDTO> r = new  ResponseObject<AdministratorDTO>();
 
         try{
+            r.setRc(true);
             r.setDati(administratorServices.get(id));
             log.debug("AC: Administrator get done for id:"+id);
         }catch(Exception e){
@@ -75,7 +77,7 @@ public class AdministratorController {
         return r;
     }
 
-    @PostMapping()
+    @PostMapping("/update")
     public ResponseBase update(@RequestBody(required = true)AdministratorRequest req){
         log.debug("AC: Administrator update request received:" + req);
         ResponseBase r = new ResponseBase();
@@ -109,6 +111,12 @@ public class AdministratorController {
         }
 
         return r;
+    }
+
+    @PostMapping("/signIn")
+    public SignInDTO signIn(@RequestBody SignInRequest req){
+        log.debug("SignIn Request");
+        return administratorServices.signIn(req);
     }
 
 
