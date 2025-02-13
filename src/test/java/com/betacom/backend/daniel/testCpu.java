@@ -2,7 +2,7 @@ package com.betacom.backend.daniel;
 
 import com.betacom.backend.controller.products.CpuController;
 import com.betacom.backend.dto.products.CpuDTO;
-import com.betacom.backend.dto.products.CpuDTO;
+import com.betacom.backend.model.products.Cpu;
 import com.betacom.backend.request.products.CpuRequest;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer;
@@ -73,7 +73,7 @@ public class testCpu {
         creq.setGhz(3.5);
         Assertions.assertThat(cpuC.create(creq).getRc()).isEqualTo(true);
 
-        creq = new CpuRequest("aa","bb","cc",14,2.2,2.9,8);
+        creq = new CpuRequest(null,"aa","bb","cc",14,2.2,2.9,8);
         Assertions.assertThat(cpuC.create(creq).getRc()).isEqualTo(true);
 
     }
@@ -127,5 +127,44 @@ public class testCpu {
         Assertions.assertThat(p1.getCore()).isEqualTo(10);
 
     }
+    
+    @Test
+    @Order(5)
+    public void testVariModel() {
+    	Cpu c1 = new Cpu();
+    	c1.setId(15000L);
+    	c1.setBrand("test metodi del model");
+    	c1.setModel("test metodi del model");
+    	c1.setDescription("test metodi del model");
+    	c1.setStock(15);
+    	c1.addStock(15);
+    	c1.removeStock(29);
+    	c1.removeStock(15); //dovrebbe rimanere a 1
+    	Assertions.assertThat(c1.getStock()).isEqualTo(1);
+    	c1.setPrice(15000.25);
+    	c1.setGhz(2.5);
+    	c1.setCore(3);
+    	
+    	String ciao = c1.toString();
 
+    	c1 = new Cpu("aa","bb","cc",14,2.2,2.5,25);
+    	c1 = new Cpu(15L,"aa","bb","cc",14,2.2,2.5,25);
+    }
+
+    @Test
+    @Order(6)
+    public void testVariDTO() {
+    	CpuDTO dto = new CpuDTO();
+    	dto = new CpuDTO(15L,"test", "test", "test",25,12.5,8,3.5);
+    	dto.setId(15L);
+    	dto.setBrand("test");
+    	dto.setDescription("test");
+    	dto.setModel("test");
+    	dto.setPrice(150.32);
+    	dto.setStock(15);
+    	dto.setGhz(3.5);
+    	dto.setCore(120);
+    	
+    	dto.toString();
+    }
 }

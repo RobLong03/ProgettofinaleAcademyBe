@@ -20,7 +20,7 @@ public class Cpu extends Product {
     }
 
     //with id
-    public Cpu(Long id, String brand, String model, String description, Integer stock,Double price, Integer core, Double ghz) {
+    public Cpu(Long id, String brand, String model, String description, Integer stock,Double price, Double ghz, Integer core) {
         super(id, brand, model, description, stock,price);
         this.core = core;
         this.ghz = ghz;
