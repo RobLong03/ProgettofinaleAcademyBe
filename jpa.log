@@ -1,17 +1,16 @@
-2025-02-11T11:59:02.054+01:00  INFO 23272 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Starting CartImplTest using Java 23.0.1 with PID 23272 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
-2025-02-11T11:59:02.072+01:00 DEBUG 23272 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Running with Spring Boot v3.4.2, Spring v6.2.2
-2025-02-11T11:59:02.074+01:00  INFO 23272 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : No active profile set, falling back to 1 default profile: "default"
-2025-02-11T11:59:03.766+01:00  INFO 23272 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-11T11:59:04.023+01:00  INFO 23272 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 230 ms. Found 19 JPA repository interfaces.
-2025-02-11T11:59:04.980+01:00  INFO 23272 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-02-11T11:59:05.129+01:00  INFO 23272 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
-2025-02-11T11:59:05.196+01:00  INFO 23272 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-02-11T11:59:05.966+01:00  INFO 23272 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-02-11T11:59:06.032+01:00  INFO 23272 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-02-11T11:59:06.607+01:00  INFO 23272 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
-2025-02-11T11:59:06.613+01:00  INFO 23272 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-02-11T11:59:06.666+01:00  WARN 23272 --- [projectbeta] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-02-11T11:59:06.708+01:00  INFO 23272 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-02-13T09:51:09.305+01:00  INFO 21852 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Starting CartImplTest using Java 23.0.1 with PID 21852 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
+2025-02-13T09:51:09.335+01:00 DEBUG 21852 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-13T09:51:09.336+01:00  INFO 21852 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : The following 1 profile is active: "${ambiente}"
+2025-02-13T09:51:11.004+01:00  INFO 21852 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-13T09:51:11.331+01:00  INFO 21852 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 296 ms. Found 19 JPA repository interfaces.
+2025-02-13T09:51:12.263+01:00  INFO 21852 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-13T09:51:12.911+01:00  INFO 21852 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
+2025-02-13T09:51:12.920+01:00  INFO 21852 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-13T09:51:13.147+01:00  INFO 21852 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-13T09:51:13.313+01:00  INFO 21852 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-13T09:51:13.417+01:00  INFO 21852 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-13T09:51:14.389+01:00  INFO 21852 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-13T09:51:14.581+01:00  INFO 21852 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
@@ -19,47 +18,13 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-11T11:59:07.402+01:00  WARN 23272 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
-2025-02-11T11:59:07.403+01:00  WARN 23272 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
-2025-02-11T11:59:09.025+01:00  INFO 23272 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-02-11T11:59:09.280+01:00  INFO 23272 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-02-11T11:59:10.599+01:00  WARN 23272 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-02-11T11:59:11.587+01:00  INFO 23272 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Started CartImplTest in 10.424 seconds (process running for 13.772)
-2025-02-11T11:59:12.778+01:00 DEBUG 23272 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Cart created
-2025-02-11T11:59:12.794+01:00 DEBUG 23272 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : CartDTO [id=1, items=null, totalPrice=0.0]
-2025-02-11T11:59:12.911+01:00 DEBUG 23272 --- [projectbeta] [main] c.b.b.s.implementations.cart.CartImpl    : Carrello trovato: Cart [id=1, items=[], totalPrice=0.0]
-2025-02-11T11:59:12.912+01:00 DEBUG 23272 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : CartDTO [id=1, items=[], totalPrice=0.0]
-2025-02-11T11:59:13.568+01:00  INFO 23272 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-02-11T11:59:13.578+01:00  INFO 23272 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-02-11T11:59:13.610+01:00  INFO 23272 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-02-11T12:08:02.757+01:00  INFO 22756 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Starting CartImplTest using Java 23.0.1 with PID 22756 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
-2025-02-11T12:08:02.762+01:00 DEBUG 22756 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Running with Spring Boot v3.4.2, Spring v6.2.2
-2025-02-11T12:08:02.763+01:00  INFO 22756 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : No active profile set, falling back to 1 default profile: "default"
-2025-02-11T12:08:04.189+01:00  INFO 22756 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-11T12:08:04.436+01:00  INFO 22756 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 224 ms. Found 19 JPA repository interfaces.
-2025-02-11T12:08:05.366+01:00  INFO 22756 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-02-11T12:08:05.486+01:00  INFO 22756 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
-2025-02-11T12:08:05.542+01:00  INFO 22756 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-02-11T12:08:06.277+01:00  INFO 22756 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-02-11T12:08:06.363+01:00  INFO 22756 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-02-11T12:08:06.846+01:00  INFO 22756 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
-2025-02-11T12:08:06.850+01:00  INFO 22756 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-02-11T12:08:06.902+01:00  WARN 22756 --- [projectbeta] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-02-11T12:08:06.949+01:00  INFO 22756 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
-	Database driver: undefined/unknown
-	Database version: 2.3.232
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-02-11T12:08:07.642+01:00  WARN 22756 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
-2025-02-11T12:08:07.643+01:00  WARN 22756 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
-2025-02-11T12:08:09.345+01:00  INFO 22756 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-02-11T12:08:09.581+01:00  INFO 22756 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-02-11T12:08:10.823+01:00  WARN 22756 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-02-11T12:08:11.596+01:00  INFO 22756 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Started CartImplTest in 9.617 seconds (process running for 12.191)
-2025-02-11T12:08:12.588+01:00  WARN 22756 --- [projectbeta] [main] o.s.test.context.TestContextManager      : Caught exception while invoking 'afterTestMethod' callback on TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] for test method [public void com.betacom.backend.damiano.impl.CartImplTest.createCustomerAndItem() throws java.lang.Exception] and test instance [com.betacom.backend.damiano.impl.CartImplTest@7d48998]
+2025-02-13T09:51:15.521+01:00  WARN 21852 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-13T09:51:15.521+01:00  WARN 21852 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-13T09:51:17.606+01:00  INFO 21852 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-13T09:51:17.797+01:00  INFO 21852 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T09:51:19.323+01:00  WARN 21852 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-13T09:51:20.435+01:00  INFO 21852 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Started CartImplTest in 11.929 seconds (process running for 15.139)
+2025-02-13T09:51:21.679+01:00  WARN 21852 --- [projectbeta] [main] o.s.test.context.TestContextManager      : Caught exception while invoking 'afterTestMethod' callback on TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] for test method [public void com.betacom.backend.damiano.impl.CartImplTest.createCart() throws java.lang.Exception] and test instance [com.betacom.backend.damiano.impl.CartImplTest@788381b]
 
 org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only
 	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:804) ~[spring-tx-6.2.2.jar:6.2.2]
@@ -125,22 +90,22 @@ org.springframework.transaction.UnexpectedRollbackException: Transaction silentl
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:453) ~[.cp/:na]
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:211) ~[.cp/:na]
 
-2025-02-11T12:08:13.427+01:00  INFO 22756 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-02-11T12:08:13.432+01:00  INFO 22756 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-02-11T12:08:13.519+01:00  INFO 22756 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-02-11T12:21:15.719+01:00  INFO 1716 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Starting CartImplTest using Java 23.0.1 with PID 1716 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
-2025-02-11T12:21:15.723+01:00 DEBUG 1716 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Running with Spring Boot v3.4.2, Spring v6.2.2
-2025-02-11T12:21:15.724+01:00  INFO 1716 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : The following 1 profile is active: "${ambiente}"
-2025-02-11T12:21:16.783+01:00  INFO 1716 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-11T12:21:16.973+01:00  INFO 1716 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 172 ms. Found 19 JPA repository interfaces.
-2025-02-11T12:21:17.693+01:00  INFO 1716 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-02-11T12:21:17.959+01:00  INFO 1716 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
-2025-02-11T12:21:17.963+01:00  INFO 1716 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-02-11T12:21:18.097+01:00  INFO 1716 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-02-11T12:21:18.185+01:00  INFO 1716 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
-2025-02-11T12:21:18.227+01:00  INFO 1716 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-02-11T12:21:18.706+01:00  INFO 1716 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-02-11T12:21:18.843+01:00  INFO 1716 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-02-13T09:51:21.762+01:00  INFO 21852 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T09:51:22.467+01:00  INFO 21852 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-13T09:51:22.492+01:00  INFO 21852 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-13T09:55:10.800+01:00  INFO 13212 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Starting CartImplTest using Java 23.0.1 with PID 13212 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
+2025-02-13T09:55:10.807+01:00 DEBUG 13212 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-13T09:55:10.811+01:00  INFO 13212 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : The following 1 profile is active: "${ambiente}"
+2025-02-13T09:55:12.179+01:00  INFO 13212 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-13T09:55:12.466+01:00  INFO 13212 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 267 ms. Found 19 JPA repository interfaces.
+2025-02-13T09:55:13.368+01:00  INFO 13212 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-13T09:55:13.934+01:00  INFO 13212 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
+2025-02-13T09:55:13.941+01:00  INFO 13212 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-13T09:55:14.159+01:00  INFO 13212 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-13T09:55:14.370+01:00  INFO 13212 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-13T09:55:14.467+01:00  INFO 13212 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-13T09:55:15.380+01:00  INFO 13212 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-13T09:55:15.558+01:00  INFO 13212 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
@@ -148,13 +113,341 @@ org.springframework.transaction.UnexpectedRollbackException: Transaction silentl
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-11T12:21:19.261+01:00  WARN 1716 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
-2025-02-11T12:21:19.261+01:00  WARN 1716 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
-2025-02-11T12:21:20.234+01:00  INFO 1716 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-02-11T12:21:20.319+01:00  INFO 1716 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-02-11T12:21:21.468+01:00  WARN 1716 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-02-11T12:21:22.094+01:00  INFO 1716 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Started CartImplTest in 6.97 seconds (process running for 8.436)
-2025-02-11T12:21:22.842+01:00  WARN 1716 --- [projectbeta] [main] o.s.test.context.TestContextManager      : Caught exception while invoking 'afterTestMethod' callback on TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] for test method [public void com.betacom.backend.damiano.impl.CartImplTest.createCustomerAndItem() throws java.lang.Exception] and test instance [com.betacom.backend.damiano.impl.CartImplTest@13056efe]
+2025-02-13T09:55:16.246+01:00  WARN 13212 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-13T09:55:16.246+01:00  WARN 13212 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-13T09:55:18.058+01:00  INFO 13212 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-13T09:55:18.238+01:00  INFO 13212 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T09:55:19.678+01:00  WARN 13212 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-13T09:55:20.498+01:00  INFO 13212 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Started CartImplTest in 10.378 seconds (process running for 13.018)
+2025-02-13T09:55:21.137+01:00 DEBUG 13212 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Daniel, surname=bostan, taxId=bstvld01d02z129s, email=daniel@bostan.it, password=password]
+2025-02-13T09:55:21.430+01:00 DEBUG 13212 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Roberto, surname=Longo, taxId=rblng01d02z012s, email=roberto@longo.it, password=password]
+2025-02-13T09:55:21.438+01:00 DEBUG 13212 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Davide, surname=Lodedo, taxId=dvdldo01z02z02, email=davide@lodedo.it, password=password]
+2025-02-13T09:55:21.445+01:00 DEBUG 13212 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Damiano, surname=Serini, taxId=dmsrn01d02z012a, email=damiano@serini.it, password=password]
+2025-02-13T09:55:22.057+01:00  INFO 13212 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T09:55:22.130+01:00  INFO 13212 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-13T09:55:22.152+01:00  INFO 13212 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-13T09:55:42.257+01:00  INFO 5836 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Starting CartImplTest using Java 23.0.1 with PID 5836 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
+2025-02-13T09:55:42.259+01:00 DEBUG 5836 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-13T09:55:42.260+01:00  INFO 5836 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : The following 1 profile is active: "${ambiente}"
+2025-02-13T09:55:43.397+01:00  INFO 5836 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-13T09:55:43.605+01:00  INFO 5836 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 190 ms. Found 19 JPA repository interfaces.
+2025-02-13T09:55:44.379+01:00  INFO 5836 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-13T09:55:44.589+01:00  INFO 5836 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
+2025-02-13T09:55:44.595+01:00  INFO 5836 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-13T09:55:44.765+01:00  INFO 5836 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-13T09:55:44.863+01:00  INFO 5836 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-13T09:55:44.901+01:00  INFO 5836 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-13T09:55:45.387+01:00  INFO 5836 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-13T09:55:45.477+01:00  INFO 5836 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-13T09:55:46.011+01:00  WARN 5836 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-13T09:55:46.012+01:00  WARN 5836 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-13T09:55:47.182+01:00  INFO 5836 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-13T09:55:47.311+01:00  INFO 5836 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T09:55:48.676+01:00  WARN 5836 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-13T09:55:49.329+01:00  INFO 5836 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Started CartImplTest in 7.567 seconds (process running for 8.929)
+2025-02-13T09:55:49.953+01:00 DEBUG 5836 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Daniel, surname=bostan, taxId=bstvld01d02z129s, email=daniel@bostan.it, password=password]
+2025-02-13T09:55:50.138+01:00 DEBUG 5836 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Roberto, surname=Longo, taxId=rblng01d02z012s, email=roberto@longo.it, password=password]
+2025-02-13T09:55:50.145+01:00 DEBUG 5836 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Davide, surname=Lodedo, taxId=dvdldo01z02z02, email=davide@lodedo.it, password=password]
+2025-02-13T09:55:50.151+01:00 DEBUG 5836 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Damiano, surname=Serini, taxId=dmsrn01d02z012a, email=damiano@serini.it, password=password]
+2025-02-13T09:55:50.226+01:00  INFO 5836 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T09:55:50.258+01:00  INFO 5836 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-13T09:55:50.269+01:00  INFO 5836 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-13T09:56:40.645+01:00  INFO 14284 --- [projectbeta] [main] com.betacom.backend.daniel.orderTest     : Starting orderTest using Java 23.0.1 with PID 14284 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
+2025-02-13T09:56:40.650+01:00 DEBUG 14284 --- [projectbeta] [main] com.betacom.backend.daniel.orderTest     : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-13T09:56:40.651+01:00  INFO 14284 --- [projectbeta] [main] com.betacom.backend.daniel.orderTest     : The following 1 profile is active: "${ambiente}"
+2025-02-13T09:56:42.119+01:00  INFO 14284 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-13T09:56:42.415+01:00  INFO 14284 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 271 ms. Found 19 JPA repository interfaces.
+2025-02-13T09:56:43.330+01:00  INFO 14284 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-13T09:56:43.932+01:00  INFO 14284 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
+2025-02-13T09:56:43.938+01:00  INFO 14284 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-13T09:56:44.121+01:00  INFO 14284 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-13T09:56:44.300+01:00  INFO 14284 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-13T09:56:44.378+01:00  INFO 14284 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-13T09:56:45.156+01:00  INFO 14284 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-13T09:56:45.298+01:00  INFO 14284 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-13T09:56:45.995+01:00  WARN 14284 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-13T09:56:45.998+01:00  WARN 14284 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-13T09:56:47.823+01:00  INFO 14284 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-13T09:56:48.029+01:00  INFO 14284 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T09:56:49.627+01:00  WARN 14284 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-13T09:56:50.407+01:00  INFO 14284 --- [projectbeta] [main] com.betacom.backend.daniel.orderTest     : Started orderTest in 10.546 seconds (process running for 13.03)
+2025-02-13T09:56:50.990+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b1', model='model m1', description='descrizione d1', stock=25}
+2025-02-13T09:56:50.992+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b1', model='model m1', description='descrizione d1', stock=25}
+2025-02-13T09:56:51.131+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T09:56:51.132+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b2', model='model m2', description='descrizione d2', stock=25}
+2025-02-13T09:56:51.133+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b2', model='model m2', description='descrizione d2', stock=25}
+2025-02-13T09:56:51.137+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T09:56:51.137+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b3', model='model m3', description='descrizione d3', stock=15}
+2025-02-13T09:56:51.137+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b3', model='model m3', description='descrizione d3', stock=15}
+2025-02-13T09:56:51.140+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T09:56:51.140+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b4', model='model m4', description='descrizione d4', stock=215}
+2025-02-13T09:56:51.140+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b4', model='model m4', description='descrizione d4', stock=215}
+2025-02-13T09:56:51.143+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T09:56:51.143+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b5', model='model m5', description='descrizione d5', stock=120}
+2025-02-13T09:56:51.144+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b5', model='model m5', description='descrizione d5', stock=120}
+2025-02-13T09:56:51.147+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T09:56:51.147+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b6', model='model m6', description='descrizione d6', stock=300}
+2025-02-13T09:56:51.148+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b6', model='model m6', description='descrizione d6', stock=300}
+2025-02-13T09:56:51.150+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T09:56:51.151+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b7', model='model m7', description='descrizione d7', stock=150}
+2025-02-13T09:56:51.151+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b7', model='model m7', description='descrizione d7', stock=150}
+2025-02-13T09:56:51.155+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T09:56:51.155+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b8', model='model m8', description='descrizione d8', stock=85}
+2025-02-13T09:56:51.155+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b8', model='model m8', description='descrizione d8', stock=85}
+2025-02-13T09:56:51.158+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T09:56:51.158+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b9', model='model m9', description='descrizione d9', stock=500}
+2025-02-13T09:56:51.158+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b9', model='model m9', description='descrizione d9', stock=500}
+2025-02-13T09:56:51.160+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T09:56:51.161+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b10', model='model m10', description='descrizione d10', stock=220}
+2025-02-13T09:56:51.161+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b10', model='model m10', description='descrizione d10', stock=220}
+2025-02-13T09:56:51.165+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T09:56:51.166+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b11', model='model m11', description='descrizione d11', stock=90}
+2025-02-13T09:56:51.166+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b11', model='model m11', description='descrizione d11', stock=90}
+2025-02-13T09:56:51.167+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T09:56:51.168+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b12', model='model m12', description='descrizione d12', stock=275}
+2025-02-13T09:56:51.168+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b12', model='model m12', description='descrizione d12', stock=275}
+2025-02-13T09:56:51.170+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T09:56:51.172+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b13', model='model m13', description='descrizione d13', stock=320}
+2025-02-13T09:56:51.172+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b13', model='model m13', description='descrizione d13', stock=320}
+2025-02-13T09:56:51.177+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T09:56:51.177+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b14', model='model m14', description='descrizione d14', stock=60}
+2025-02-13T09:56:51.178+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b14', model='model m14', description='descrizione d14', stock=60}
+2025-02-13T09:56:51.179+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T09:56:51.180+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Daniel, surname=bostan, taxId=bstvld01d02z129s, email=daniel@bostan.it, password=password]
+2025-02-13T09:56:51.360+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Roberto, surname=Longo, taxId=rblng01d02z012s, email=roberto@longo.it, password=password]
+2025-02-13T09:56:51.388+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Davide, surname=Lodedo, taxId=dvdldo01z02z02, email=davide@lodedo.it, password=password]
+2025-02-13T09:56:51.398+01:00 DEBUG 14284 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Damiano, surname=Serini, taxId=dmsrn01d02z012a, email=damiano@serini.it, password=password]
+2025-02-13T09:56:52.079+01:00  INFO 14284 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T09:56:52.138+01:00  INFO 14284 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-13T09:56:52.150+01:00  INFO 14284 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-13T10:00:45.379+01:00  INFO 8724 --- [projectbeta] [main] com.betacom.backend.daniel.orderTest     : Starting orderTest using Java 23.0.1 with PID 8724 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
+2025-02-13T10:00:45.383+01:00 DEBUG 8724 --- [projectbeta] [main] com.betacom.backend.daniel.orderTest     : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-13T10:00:45.386+01:00  INFO 8724 --- [projectbeta] [main] com.betacom.backend.daniel.orderTest     : The following 1 profile is active: "${ambiente}"
+2025-02-13T10:00:46.749+01:00  INFO 8724 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-13T10:00:46.976+01:00  INFO 8724 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 209 ms. Found 19 JPA repository interfaces.
+2025-02-13T10:00:47.820+01:00  INFO 8724 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-13T10:00:48.353+01:00  INFO 8724 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
+2025-02-13T10:00:48.358+01:00  INFO 8724 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-13T10:00:48.543+01:00  INFO 8724 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-13T10:00:48.685+01:00  INFO 8724 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-13T10:00:48.773+01:00  INFO 8724 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-13T10:00:49.624+01:00  INFO 8724 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-13T10:00:49.834+01:00  INFO 8724 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-13T10:00:50.682+01:00  WARN 8724 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-13T10:00:50.684+01:00  WARN 8724 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-13T10:00:52.627+01:00  INFO 8724 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-13T10:00:52.823+01:00  INFO 8724 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T10:00:54.317+01:00  WARN 8724 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-13T10:00:55.202+01:00  INFO 8724 --- [projectbeta] [main] com.betacom.backend.daniel.orderTest     : Started orderTest in 10.489 seconds (process running for 13.083)
+2025-02-13T10:00:55.943+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b1', model='model m1', description='descrizione d1', stock=25}
+2025-02-13T10:00:55.948+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b1', model='model m1', description='descrizione d1', stock=25}
+2025-02-13T10:00:56.136+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:00:56.137+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b2', model='model m2', description='descrizione d2', stock=25}
+2025-02-13T10:00:56.138+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b2', model='model m2', description='descrizione d2', stock=25}
+2025-02-13T10:00:56.141+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:00:56.142+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b3', model='model m3', description='descrizione d3', stock=15}
+2025-02-13T10:00:56.142+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b3', model='model m3', description='descrizione d3', stock=15}
+2025-02-13T10:00:56.146+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:00:56.146+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b4', model='model m4', description='descrizione d4', stock=215}
+2025-02-13T10:00:56.146+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b4', model='model m4', description='descrizione d4', stock=215}
+2025-02-13T10:00:56.149+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:00:56.151+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b5', model='model m5', description='descrizione d5', stock=120}
+2025-02-13T10:00:56.151+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b5', model='model m5', description='descrizione d5', stock=120}
+2025-02-13T10:00:56.157+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:00:56.158+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b6', model='model m6', description='descrizione d6', stock=300}
+2025-02-13T10:00:56.158+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b6', model='model m6', description='descrizione d6', stock=300}
+2025-02-13T10:00:56.161+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:00:56.161+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b7', model='model m7', description='descrizione d7', stock=150}
+2025-02-13T10:00:56.162+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b7', model='model m7', description='descrizione d7', stock=150}
+2025-02-13T10:00:56.167+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:00:56.168+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b8', model='model m8', description='descrizione d8', stock=85}
+2025-02-13T10:00:56.168+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b8', model='model m8', description='descrizione d8', stock=85}
+2025-02-13T10:00:56.171+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:00:56.171+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b9', model='model m9', description='descrizione d9', stock=500}
+2025-02-13T10:00:56.173+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b9', model='model m9', description='descrizione d9', stock=500}
+2025-02-13T10:00:56.176+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:00:56.176+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b10', model='model m10', description='descrizione d10', stock=220}
+2025-02-13T10:00:56.176+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b10', model='model m10', description='descrizione d10', stock=220}
+2025-02-13T10:00:56.179+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:00:56.180+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b11', model='model m11', description='descrizione d11', stock=90}
+2025-02-13T10:00:56.182+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b11', model='model m11', description='descrizione d11', stock=90}
+2025-02-13T10:00:56.184+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:00:56.186+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b12', model='model m12', description='descrizione d12', stock=275}
+2025-02-13T10:00:56.186+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b12', model='model m12', description='descrizione d12', stock=275}
+2025-02-13T10:00:56.189+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:00:56.189+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b13', model='model m13', description='descrizione d13', stock=320}
+2025-02-13T10:00:56.189+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b13', model='model m13', description='descrizione d13', stock=320}
+2025-02-13T10:00:56.195+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:00:56.196+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b14', model='model m14', description='descrizione d14', stock=60}
+2025-02-13T10:00:56.196+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b14', model='model m14', description='descrizione d14', stock=60}
+2025-02-13T10:00:56.200+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:00:56.201+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Daniel, surname=bostan, taxId=bstvld01d02z129s, email=daniel@bostan.it, password=password]
+2025-02-13T10:00:56.397+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Roberto, surname=Longo, taxId=rblng01d02z012s, email=roberto@longo.it, password=password]
+2025-02-13T10:00:56.418+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Davide, surname=Lodedo, taxId=dvdldo01z02z02, email=davide@lodedo.it, password=password]
+2025-02-13T10:00:56.427+01:00 DEBUG 8724 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Damiano, surname=Serini, taxId=dmsrn01d02z012a, email=damiano@serini.it, password=password]
+2025-02-13T10:00:57.212+01:00  INFO 8724 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T10:00:57.267+01:00  INFO 8724 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-13T10:00:57.279+01:00  INFO 8724 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-13T10:02:11.826+01:00  INFO 11080 --- [projectbeta] [main] com.betacom.backend.daniel.orderTest     : Starting orderTest using Java 23.0.1 with PID 11080 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
+2025-02-13T10:02:11.832+01:00 DEBUG 11080 --- [projectbeta] [main] com.betacom.backend.daniel.orderTest     : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-13T10:02:11.833+01:00  INFO 11080 --- [projectbeta] [main] com.betacom.backend.daniel.orderTest     : The following 1 profile is active: "${ambiente}"
+2025-02-13T10:02:13.321+01:00  INFO 11080 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-13T10:02:13.538+01:00  INFO 11080 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 204 ms. Found 19 JPA repository interfaces.
+2025-02-13T10:02:14.279+01:00  INFO 11080 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-13T10:02:14.789+01:00  INFO 11080 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
+2025-02-13T10:02:14.793+01:00  INFO 11080 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-13T10:02:14.947+01:00  INFO 11080 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-13T10:02:15.045+01:00  INFO 11080 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-13T10:02:15.105+01:00  INFO 11080 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-13T10:02:15.829+01:00  INFO 11080 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-13T10:02:15.996+01:00  INFO 11080 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-13T10:02:16.774+01:00  WARN 11080 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-13T10:02:16.776+01:00  WARN 11080 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-13T10:02:18.737+01:00  INFO 11080 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-13T10:02:18.908+01:00  INFO 11080 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T10:02:20.346+01:00  WARN 11080 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-13T10:02:21.245+01:00  INFO 11080 --- [projectbeta] [main] com.betacom.backend.daniel.orderTest     : Started orderTest in 10.268 seconds (process running for 12.905)
+2025-02-13T10:02:21.978+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b1', model='model m1', description='descrizione d1', stock=25}
+2025-02-13T10:02:21.979+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b1', model='model m1', description='descrizione d1', stock=25}
+2025-02-13T10:02:22.144+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:02:22.144+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b2', model='model m2', description='descrizione d2', stock=25}
+2025-02-13T10:02:22.145+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b2', model='model m2', description='descrizione d2', stock=25}
+2025-02-13T10:02:22.148+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:02:22.149+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b3', model='model m3', description='descrizione d3', stock=15}
+2025-02-13T10:02:22.149+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b3', model='model m3', description='descrizione d3', stock=15}
+2025-02-13T10:02:22.151+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:02:22.152+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b4', model='model m4', description='descrizione d4', stock=215}
+2025-02-13T10:02:22.153+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b4', model='model m4', description='descrizione d4', stock=215}
+2025-02-13T10:02:22.156+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:02:22.157+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b5', model='model m5', description='descrizione d5', stock=120}
+2025-02-13T10:02:22.157+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b5', model='model m5', description='descrizione d5', stock=120}
+2025-02-13T10:02:22.160+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:02:22.162+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b6', model='model m6', description='descrizione d6', stock=300}
+2025-02-13T10:02:22.162+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b6', model='model m6', description='descrizione d6', stock=300}
+2025-02-13T10:02:22.164+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:02:22.166+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b7', model='model m7', description='descrizione d7', stock=150}
+2025-02-13T10:02:22.166+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b7', model='model m7', description='descrizione d7', stock=150}
+2025-02-13T10:02:22.170+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:02:22.171+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b8', model='model m8', description='descrizione d8', stock=85}
+2025-02-13T10:02:22.171+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b8', model='model m8', description='descrizione d8', stock=85}
+2025-02-13T10:02:22.173+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:02:22.174+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b9', model='model m9', description='descrizione d9', stock=500}
+2025-02-13T10:02:22.175+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b9', model='model m9', description='descrizione d9', stock=500}
+2025-02-13T10:02:22.177+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:02:22.178+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b10', model='model m10', description='descrizione d10', stock=220}
+2025-02-13T10:02:22.178+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b10', model='model m10', description='descrizione d10', stock=220}
+2025-02-13T10:02:22.181+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:02:22.181+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b11', model='model m11', description='descrizione d11', stock=90}
+2025-02-13T10:02:22.181+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b11', model='model m11', description='descrizione d11', stock=90}
+2025-02-13T10:02:22.184+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:02:22.184+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b12', model='model m12', description='descrizione d12', stock=275}
+2025-02-13T10:02:22.184+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b12', model='model m12', description='descrizione d12', stock=275}
+2025-02-13T10:02:22.188+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:02:22.189+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b13', model='model m13', description='descrizione d13', stock=320}
+2025-02-13T10:02:22.189+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b13', model='model m13', description='descrizione d13', stock=320}
+2025-02-13T10:02:22.192+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:02:22.192+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b14', model='model m14', description='descrizione d14', stock=60}
+2025-02-13T10:02:22.192+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b14', model='model m14', description='descrizione d14', stock=60}
+2025-02-13T10:02:22.194+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T10:02:22.196+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Daniel, surname=bostan, taxId=bstvld01d02z129s, email=daniel@bostan.it, password=password]
+2025-02-13T10:02:22.377+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Roberto, surname=Longo, taxId=rblng01d02z012s, email=roberto@longo.it, password=password]
+2025-02-13T10:02:22.407+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Davide, surname=Lodedo, taxId=dvdldo01z02z02, email=davide@lodedo.it, password=password]
+2025-02-13T10:02:22.414+01:00 DEBUG 11080 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Damiano, surname=Serini, taxId=dmsrn01d02z012a, email=damiano@serini.it, password=password]
+2025-02-13T10:02:23.021+01:00  INFO 11080 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T10:02:23.084+01:00  INFO 11080 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-13T10:02:23.106+01:00  INFO 11080 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-13T10:05:10.458+01:00  INFO 14168 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Starting CartImplTest using Java 23.0.1 with PID 14168 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
+2025-02-13T10:05:10.461+01:00 DEBUG 14168 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-13T10:05:10.468+01:00  INFO 14168 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : The following 1 profile is active: "${ambiente}"
+2025-02-13T10:05:11.906+01:00  INFO 14168 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-13T10:05:12.204+01:00  INFO 14168 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 282 ms. Found 19 JPA repository interfaces.
+2025-02-13T10:05:13.130+01:00  INFO 14168 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-13T10:05:13.717+01:00  INFO 14168 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
+2025-02-13T10:05:13.721+01:00  INFO 14168 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-13T10:05:13.927+01:00  INFO 14168 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-13T10:05:14.108+01:00  INFO 14168 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-13T10:05:14.193+01:00  INFO 14168 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-13T10:05:14.983+01:00  INFO 14168 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-13T10:05:15.138+01:00  INFO 14168 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-13T10:05:15.972+01:00  WARN 14168 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-13T10:05:15.973+01:00  WARN 14168 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-13T10:05:17.721+01:00  INFO 14168 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-13T10:05:17.916+01:00  INFO 14168 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T10:05:19.358+01:00  WARN 14168 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-13T10:05:20.340+01:00  INFO 14168 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Started CartImplTest in 10.597 seconds (process running for 13.051)
+2025-02-13T10:05:21.320+01:00 DEBUG 14168 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Daniel, surname=bostan, taxId=bstvld01d02z129s, email=daniel@bostan.it, password=password]
+2025-02-13T10:05:21.712+01:00 DEBUG 14168 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Roberto, surname=Longo, taxId=rblng01d02z012s, email=roberto@longo.it, password=password]
+2025-02-13T10:05:21.721+01:00 DEBUG 14168 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Davide, surname=Lodedo, taxId=dvdldo01z02z02, email=davide@lodedo.it, password=password]
+2025-02-13T10:05:21.729+01:00 DEBUG 14168 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Damiano, surname=Serini, taxId=dmsrn01d02z012a, email=damiano@serini.it, password=password]
+2025-02-13T10:05:22.559+01:00  INFO 14168 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T10:05:22.606+01:00  INFO 14168 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-13T10:05:22.616+01:00  INFO 14168 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-13T10:08:45.919+01:00  INFO 21380 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Starting CartImplTest using Java 23.0.1 with PID 21380 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
+2025-02-13T10:08:45.923+01:00 DEBUG 21380 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-13T10:08:45.924+01:00  INFO 21380 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : The following 1 profile is active: "${ambiente}"
+2025-02-13T10:08:47.468+01:00  INFO 21380 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-13T10:08:47.716+01:00  INFO 21380 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 228 ms. Found 19 JPA repository interfaces.
+2025-02-13T10:08:48.549+01:00  INFO 21380 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-13T10:08:49.159+01:00  INFO 21380 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
+2025-02-13T10:08:49.165+01:00  INFO 21380 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-13T10:08:49.324+01:00  INFO 21380 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-13T10:08:49.453+01:00  INFO 21380 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-13T10:08:49.537+01:00  INFO 21380 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-13T10:08:50.236+01:00  INFO 21380 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-13T10:08:50.398+01:00  INFO 21380 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-13T10:08:51.172+01:00  WARN 21380 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-13T10:08:51.173+01:00  WARN 21380 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-13T10:08:53.140+01:00  INFO 21380 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-13T10:08:53.363+01:00  INFO 21380 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T10:08:54.877+01:00  WARN 21380 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-13T10:08:55.741+01:00  INFO 21380 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Started CartImplTest in 10.534 seconds (process running for 13.313)
+2025-02-13T10:08:56.583+01:00 DEBUG 21380 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Daniel, surname=bostan, taxId=bstvld01d02z129s, email=daniel@bostan.it, password=password]
+2025-02-13T10:08:56.930+01:00 DEBUG 21380 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Roberto, surname=Longo, taxId=rblng01d02z012s, email=roberto@longo.it, password=password]
+2025-02-13T10:08:56.944+01:00 DEBUG 21380 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Davide, surname=Lodedo, taxId=dvdldo01z02z02, email=davide@lodedo.it, password=password]
+2025-02-13T10:08:56.961+01:00 DEBUG 21380 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Damiano, surname=Serini, taxId=dmsrn01d02z012a, email=damiano@serini.it, password=password]
+2025-02-13T10:08:57.191+01:00  WARN 21380 --- [projectbeta] [main] o.s.test.context.TestContextManager      : Caught exception while invoking 'afterTestMethod' callback on TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] for test method [public void com.betacom.backend.damiano.impl.CartImplTest.createCart() throws java.lang.Exception] and test instance [com.betacom.backend.damiano.impl.CartImplTest@1eff7bdb]
 
 org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only
 	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:804) ~[spring-tx-6.2.2.jar:6.2.2]
@@ -220,22 +513,22 @@ org.springframework.transaction.UnexpectedRollbackException: Transaction silentl
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:453) ~[.cp/:na]
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:211) ~[.cp/:na]
 
-2025-02-11T12:21:23.004+01:00  INFO 1716 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-02-11T12:21:23.058+01:00  INFO 1716 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-02-11T12:21:23.063+01:00  INFO 1716 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-02-11T12:28:57.115+01:00  INFO 7988 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Starting CartImplTest using Java 23.0.1 with PID 7988 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
-2025-02-11T12:28:57.116+01:00 DEBUG 7988 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Running with Spring Boot v3.4.2, Spring v6.2.2
-2025-02-11T12:28:57.118+01:00  INFO 7988 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : The following 1 profile is active: "${ambiente}"
-2025-02-11T12:28:58.238+01:00  INFO 7988 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-11T12:28:58.425+01:00  INFO 7988 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 173 ms. Found 19 JPA repository interfaces.
-2025-02-11T12:28:59.118+01:00  INFO 7988 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-02-11T12:28:59.337+01:00  INFO 7988 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
-2025-02-11T12:28:59.338+01:00  INFO 7988 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-02-11T12:28:59.491+01:00  INFO 7988 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-02-11T12:28:59.600+01:00  INFO 7988 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
-2025-02-11T12:28:59.643+01:00  INFO 7988 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-02-11T12:29:00.113+01:00  INFO 7988 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-02-11T12:29:00.193+01:00  INFO 7988 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-02-13T10:08:57.842+01:00  INFO 21380 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T10:08:57.919+01:00  INFO 21380 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-13T10:08:57.927+01:00  INFO 21380 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-13T10:10:38.139+01:00  INFO 23796 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Starting CartImplTest using Java 23.0.1 with PID 23796 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
+2025-02-13T10:10:38.143+01:00 DEBUG 23796 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-13T10:10:38.145+01:00  INFO 23796 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : The following 1 profile is active: "${ambiente}"
+2025-02-13T10:10:39.537+01:00  INFO 23796 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-13T10:10:39.850+01:00  INFO 23796 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 289 ms. Found 19 JPA repository interfaces.
+2025-02-13T10:10:40.897+01:00  INFO 23796 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-13T10:10:41.518+01:00  INFO 23796 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
+2025-02-13T10:10:41.525+01:00  INFO 23796 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-13T10:10:41.720+01:00  INFO 23796 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-13T10:10:41.914+01:00  INFO 23796 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-13T10:10:42.015+01:00  INFO 23796 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-13T10:10:42.805+01:00  INFO 23796 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-13T10:10:42.991+01:00  INFO 23796 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
@@ -243,13 +536,17 @@ org.springframework.transaction.UnexpectedRollbackException: Transaction silentl
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-11T12:29:00.572+01:00  WARN 7988 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
-2025-02-11T12:29:00.573+01:00  WARN 7988 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
-2025-02-11T12:29:01.486+01:00  INFO 7988 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-02-11T12:29:01.565+01:00  INFO 7988 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-02-11T12:29:02.628+01:00  WARN 7988 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-02-11T12:29:03.210+01:00  INFO 7988 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Started CartImplTest in 6.608 seconds (process running for 7.936)
-2025-02-11T12:29:04.048+01:00  WARN 7988 --- [projectbeta] [main] o.s.test.context.TestContextManager      : Caught exception while invoking 'afterTestMethod' callback on TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] for test method [public void com.betacom.backend.damiano.impl.CartImplTest.createCart() throws java.lang.Exception] and test instance [com.betacom.backend.damiano.impl.CartImplTest@121ec5c2]
+2025-02-13T10:10:43.730+01:00  WARN 23796 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-13T10:10:43.731+01:00  WARN 23796 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-13T10:10:45.678+01:00  INFO 23796 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-13T10:10:45.894+01:00  INFO 23796 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T10:10:47.496+01:00  WARN 23796 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-13T10:10:48.509+01:00  INFO 23796 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Started CartImplTest in 11.167 seconds (process running for 13.677)
+2025-02-13T10:10:49.248+01:00 DEBUG 23796 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Daniel, surname=bostan, taxId=bstvld01d02z129s, email=daniel@bostan.it, password=password]
+2025-02-13T10:10:49.626+01:00 DEBUG 23796 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Roberto, surname=Longo, taxId=rblng01d02z012s, email=roberto@longo.it, password=password]
+2025-02-13T10:10:49.637+01:00 DEBUG 23796 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Davide, surname=Lodedo, taxId=dvdldo01z02z02, email=davide@lodedo.it, password=password]
+2025-02-13T10:10:49.648+01:00 DEBUG 23796 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Damiano, surname=Serini, taxId=dmsrn01d02z012a, email=damiano@serini.it, password=password]
+2025-02-13T10:10:49.882+01:00  WARN 23796 --- [projectbeta] [main] o.s.test.context.TestContextManager      : Caught exception while invoking 'afterTestMethod' callback on TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] for test method [public void com.betacom.backend.damiano.impl.CartImplTest.createCart() throws java.lang.Exception] and test instance [com.betacom.backend.damiano.impl.CartImplTest@64287d95]
 
 org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only
 	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:804) ~[spring-tx-6.2.2.jar:6.2.2]
@@ -315,6 +612,630 @@ org.springframework.transaction.UnexpectedRollbackException: Transaction silentl
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:453) ~[.cp/:na]
 	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:211) ~[.cp/:na]
 
-2025-02-11T12:29:04.081+01:00  INFO 7988 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-02-11T12:29:04.113+01:00  INFO 7988 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-02-11T12:29:04.118+01:00  INFO 7988 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-13T10:10:50.592+01:00  INFO 23796 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T10:10:50.688+01:00  INFO 23796 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-13T10:10:50.698+01:00  INFO 23796 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-13T10:14:17.754+01:00  INFO 15012 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Starting CartImplTest using Java 23.0.1 with PID 15012 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
+2025-02-13T10:14:17.757+01:00 DEBUG 15012 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-13T10:14:17.759+01:00  INFO 15012 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : The following 1 profile is active: "${ambiente}"
+2025-02-13T10:14:19.347+01:00  INFO 15012 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-13T10:14:19.650+01:00  INFO 15012 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 277 ms. Found 19 JPA repository interfaces.
+2025-02-13T10:14:20.530+01:00  INFO 15012 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-13T10:14:21.159+01:00  INFO 15012 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
+2025-02-13T10:14:21.163+01:00  INFO 15012 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-13T10:14:21.357+01:00  INFO 15012 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-13T10:14:21.529+01:00  INFO 15012 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-13T10:14:21.630+01:00  INFO 15012 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-13T10:14:22.335+01:00  INFO 15012 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-13T10:14:22.470+01:00  INFO 15012 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-13T10:14:23.155+01:00  WARN 15012 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-13T10:14:23.156+01:00  WARN 15012 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-13T10:14:24.825+01:00  INFO 15012 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-13T10:14:25.060+01:00  INFO 15012 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T10:14:26.434+01:00  WARN 15012 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-13T10:14:27.227+01:00  INFO 15012 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Started CartImplTest in 10.233 seconds (process running for 12.717)
+2025-02-13T10:14:27.947+01:00 DEBUG 15012 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Daniel, surname=bostan, taxId=bstvld01d02z129s, email=daniel@bostan.it, password=password]
+2025-02-13T10:14:28.272+01:00 DEBUG 15012 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Roberto, surname=Longo, taxId=rblng01d02z012s, email=roberto@longo.it, password=password]
+2025-02-13T10:14:28.281+01:00 DEBUG 15012 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Davide, surname=Lodedo, taxId=dvdldo01z02z02, email=davide@lodedo.it, password=password]
+2025-02-13T10:14:28.287+01:00 DEBUG 15012 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Damiano, surname=Serini, taxId=dmsrn01d02z012a, email=damiano@serini.it, password=password]
+2025-02-13T10:14:28.530+01:00  WARN 15012 --- [projectbeta] [main] o.s.test.context.TestContextManager      : Caught exception while invoking 'afterTestMethod' callback on TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] for test method [public void com.betacom.backend.damiano.impl.CartImplTest.createListGetCart() throws java.lang.Exception] and test instance [com.betacom.backend.damiano.impl.CartImplTest@11f5b544]
+
+org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:804) ~[spring-tx-6.2.2.jar:6.2.2]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:758) ~[spring-tx-6.2.2.jar:6.2.2]
+	at org.springframework.test.context.transaction.TransactionContext.endTransaction(TransactionContext.java:135) ~[spring-test-6.2.2.jar:6.2.2]
+	at org.springframework.test.context.transaction.TransactionalTestExecutionListener.afterTestMethod(TransactionalTestExecutionListener.java:261) ~[spring-test-6.2.2.jar:6.2.2]
+	at org.springframework.test.context.TestContextManager.afterTestMethod(TestContextManager.java:487) ~[spring-test-6.2.2.jar:6.2.2]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.afterEach(SpringExtension.java:275) ~[spring-test-6.2.2.jar:6.2.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeAfterEachCallbacks$13(TestMethodTestDescriptor.java:260) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeAllAfterMethodsOrCallbacks$14(TestMethodTestDescriptor.java:276) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeAllAfterMethodsOrCallbacks$15(TestMethodTestDescriptor.java:276) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.commons.util.CollectionUtils.forEachInReverseOrder(CollectionUtils.java:240) ~[junit-platform-commons-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeAllAfterMethodsOrCallbacks(TestMethodTestDescriptor.java:275) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeAfterEachCallbacks(TestMethodTestDescriptor.java:259) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:144) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:94) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:52) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:70) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:100) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:530) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:758) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:453) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:211) ~[.cp/:na]
+
+2025-02-13T10:14:29.276+01:00  INFO 15012 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T10:14:29.327+01:00  INFO 15012 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-13T10:14:29.343+01:00  INFO 15012 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-13T10:32:05.606+01:00  INFO 16840 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Starting CartImplTest using Java 23.0.1 with PID 16840 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
+2025-02-13T10:32:05.613+01:00 DEBUG 16840 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-13T10:32:05.615+01:00  INFO 16840 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : The following 1 profile is active: "${ambiente}"
+2025-02-13T10:32:07.308+01:00  INFO 16840 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-13T10:32:07.599+01:00  INFO 16840 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 266 ms. Found 19 JPA repository interfaces.
+2025-02-13T10:32:08.567+01:00  INFO 16840 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-13T10:32:09.263+01:00  INFO 16840 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
+2025-02-13T10:32:09.269+01:00  INFO 16840 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-13T10:32:09.472+01:00  INFO 16840 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-13T10:32:09.598+01:00  INFO 16840 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-13T10:32:09.675+01:00  INFO 16840 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-13T10:32:10.524+01:00  INFO 16840 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-13T10:32:10.700+01:00  INFO 16840 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-13T10:32:11.489+01:00  WARN 16840 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-13T10:32:11.490+01:00  WARN 16840 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-13T10:32:13.575+01:00  INFO 16840 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-13T10:32:13.775+01:00  INFO 16840 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T10:32:15.315+01:00  WARN 16840 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-13T10:32:16.184+01:00  INFO 16840 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Started CartImplTest in 11.388 seconds (process running for 13.833)
+2025-02-13T10:32:16.908+01:00 DEBUG 16840 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Daniel, surname=bostan, taxId=bstvld01d02z129s, email=daniel@bostan.it, password=password]
+2025-02-13T10:32:17.184+01:00 DEBUG 16840 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Roberto, surname=Longo, taxId=rblng01d02z012s, email=roberto@longo.it, password=password]
+2025-02-13T10:32:17.190+01:00 DEBUG 16840 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Davide, surname=Lodedo, taxId=dvdldo01z02z02, email=davide@lodedo.it, password=password]
+2025-02-13T10:32:17.198+01:00 DEBUG 16840 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Damiano, surname=Serini, taxId=dmsrn01d02z012a, email=damiano@serini.it, password=password]
+2025-02-13T10:32:17.390+01:00  WARN 16840 --- [projectbeta] [main] o.s.test.context.TestContextManager      : Caught exception while invoking 'afterTestMethod' callback on TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] for test method [public void com.betacom.backend.damiano.impl.CartImplTest.createListGetCart() throws java.lang.Exception] and test instance [com.betacom.backend.damiano.impl.CartImplTest@415f2c7e]
+
+org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:804) ~[spring-tx-6.2.2.jar:6.2.2]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:758) ~[spring-tx-6.2.2.jar:6.2.2]
+	at org.springframework.test.context.transaction.TransactionContext.endTransaction(TransactionContext.java:135) ~[spring-test-6.2.2.jar:6.2.2]
+	at org.springframework.test.context.transaction.TransactionalTestExecutionListener.afterTestMethod(TransactionalTestExecutionListener.java:261) ~[spring-test-6.2.2.jar:6.2.2]
+	at org.springframework.test.context.TestContextManager.afterTestMethod(TestContextManager.java:487) ~[spring-test-6.2.2.jar:6.2.2]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.afterEach(SpringExtension.java:275) ~[spring-test-6.2.2.jar:6.2.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeAfterEachCallbacks$13(TestMethodTestDescriptor.java:260) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeAllAfterMethodsOrCallbacks$14(TestMethodTestDescriptor.java:276) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeAllAfterMethodsOrCallbacks$15(TestMethodTestDescriptor.java:276) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.commons.util.CollectionUtils.forEachInReverseOrder(CollectionUtils.java:240) ~[junit-platform-commons-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeAllAfterMethodsOrCallbacks(TestMethodTestDescriptor.java:275) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeAfterEachCallbacks(TestMethodTestDescriptor.java:259) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:144) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:94) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:52) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:70) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:100) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:530) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:758) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:453) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:211) ~[.cp/:na]
+
+2025-02-13T10:32:17.437+01:00  INFO 16840 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T10:32:18.107+01:00  INFO 16840 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-13T10:32:18.116+01:00  INFO 16840 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-13T11:06:21.465+01:00  INFO 3400 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Starting CartImplTest using Java 23.0.1 with PID 3400 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
+2025-02-13T11:06:21.473+01:00 DEBUG 3400 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-13T11:06:21.475+01:00  INFO 3400 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : The following 1 profile is active: "${ambiente}"
+2025-02-13T11:06:22.868+01:00  INFO 3400 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-13T11:06:23.163+01:00  INFO 3400 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 271 ms. Found 19 JPA repository interfaces.
+2025-02-13T11:06:24.083+01:00  INFO 3400 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-13T11:06:24.720+01:00  INFO 3400 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
+2025-02-13T11:06:24.726+01:00  INFO 3400 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-13T11:06:24.920+01:00  INFO 3400 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-13T11:06:25.060+01:00  INFO 3400 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-13T11:06:25.145+01:00  INFO 3400 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-13T11:06:25.982+01:00  INFO 3400 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-13T11:06:26.220+01:00  INFO 3400 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-13T11:06:27.010+01:00  WARN 3400 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-13T11:06:27.010+01:00  WARN 3400 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-13T11:06:28.862+01:00  INFO 3400 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-13T11:06:29.098+01:00  INFO 3400 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T11:06:30.488+01:00  WARN 3400 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-13T11:06:31.421+01:00  INFO 3400 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Started CartImplTest in 10.633 seconds (process running for 13.083)
+2025-02-13T11:06:32.265+01:00 DEBUG 3400 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Daniel, surname=bostan, taxId=bstvld01d02z129s, email=daniel@bostan.it, password=password]
+2025-02-13T11:06:32.650+01:00 DEBUG 3400 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Roberto, surname=Longo, taxId=rblng01d02z012s, email=roberto@longo.it, password=password]
+2025-02-13T11:06:32.659+01:00 DEBUG 3400 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Davide, surname=Lodedo, taxId=dvdldo01z02z02, email=davide@lodedo.it, password=password]
+2025-02-13T11:06:32.667+01:00 DEBUG 3400 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Damiano, surname=Serini, taxId=dmsrn01d02z012a, email=damiano@serini.it, password=password]
+2025-02-13T11:06:32.678+01:00 DEBUG 3400 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b1', model='model m1', description='descrizione d1', stock=25}
+2025-02-13T11:06:32.680+01:00 DEBUG 3400 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b1', model='model m1', description='descrizione d1', stock=25}
+2025-02-13T11:06:32.686+01:00 DEBUG 3400 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:06:32.687+01:00 DEBUG 3400 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b2', model='model m2', description='descrizione d2', stock=25}
+2025-02-13T11:06:32.688+01:00 DEBUG 3400 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b2', model='model m2', description='descrizione d2', stock=25}
+2025-02-13T11:06:32.692+01:00 DEBUG 3400 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:06:32.694+01:00 DEBUG 3400 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b3', model='model m3', description='descrizione d3', stock=15}
+2025-02-13T11:06:32.697+01:00 DEBUG 3400 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b3', model='model m3', description='descrizione d3', stock=15}
+2025-02-13T11:06:32.700+01:00 DEBUG 3400 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:06:32.935+01:00  WARN 3400 --- [projectbeta] [main] o.s.test.context.TestContextManager      : Caught exception while invoking 'afterTestMethod' callback on TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] for test method [public void com.betacom.backend.damiano.impl.CartImplTest.createListGetCart() throws java.lang.Exception] and test instance [com.betacom.backend.damiano.impl.CartImplTest@55db7027]
+
+org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:804) ~[spring-tx-6.2.2.jar:6.2.2]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:758) ~[spring-tx-6.2.2.jar:6.2.2]
+	at org.springframework.test.context.transaction.TransactionContext.endTransaction(TransactionContext.java:135) ~[spring-test-6.2.2.jar:6.2.2]
+	at org.springframework.test.context.transaction.TransactionalTestExecutionListener.afterTestMethod(TransactionalTestExecutionListener.java:261) ~[spring-test-6.2.2.jar:6.2.2]
+	at org.springframework.test.context.TestContextManager.afterTestMethod(TestContextManager.java:487) ~[spring-test-6.2.2.jar:6.2.2]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.afterEach(SpringExtension.java:275) ~[spring-test-6.2.2.jar:6.2.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeAfterEachCallbacks$13(TestMethodTestDescriptor.java:260) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeAllAfterMethodsOrCallbacks$14(TestMethodTestDescriptor.java:276) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeAllAfterMethodsOrCallbacks$15(TestMethodTestDescriptor.java:276) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.commons.util.CollectionUtils.forEachInReverseOrder(CollectionUtils.java:240) ~[junit-platform-commons-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeAllAfterMethodsOrCallbacks(TestMethodTestDescriptor.java:275) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeAfterEachCallbacks(TestMethodTestDescriptor.java:259) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:144) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:94) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:52) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:70) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:100) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:530) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:758) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:453) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:211) ~[.cp/:na]
+
+2025-02-13T11:06:33.030+01:00  INFO 3400 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T11:06:33.636+01:00  INFO 3400 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-13T11:06:33.643+01:00  INFO 3400 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-13T11:10:23.256+01:00  INFO 12932 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Starting CartImplTest using Java 23.0.1 with PID 12932 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
+2025-02-13T11:10:23.260+01:00 DEBUG 12932 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-13T11:10:23.262+01:00  INFO 12932 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : The following 1 profile is active: "${ambiente}"
+2025-02-13T11:10:24.917+01:00  INFO 12932 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-13T11:10:25.267+01:00  INFO 12932 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 324 ms. Found 19 JPA repository interfaces.
+2025-02-13T11:10:26.217+01:00  INFO 12932 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-13T11:10:26.898+01:00  INFO 12932 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
+2025-02-13T11:10:26.903+01:00  INFO 12932 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-13T11:10:27.076+01:00  INFO 12932 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-13T11:10:27.210+01:00  INFO 12932 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-13T11:10:27.284+01:00  INFO 12932 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-13T11:10:28.035+01:00  INFO 12932 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-13T11:10:28.191+01:00  INFO 12932 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-13T11:10:28.967+01:00  WARN 12932 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-13T11:10:28.968+01:00  WARN 12932 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-13T11:10:30.884+01:00  INFO 12932 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-13T11:10:31.109+01:00  INFO 12932 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T11:10:32.581+01:00  WARN 12932 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-13T11:10:33.505+01:00  INFO 12932 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Started CartImplTest in 11.033 seconds (process running for 13.481)
+2025-02-13T11:10:34.164+01:00 DEBUG 12932 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Daniel, surname=bostan, taxId=bstvld01d02z129s, email=daniel@bostan.it, password=password]
+2025-02-13T11:10:34.422+01:00 DEBUG 12932 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Roberto, surname=Longo, taxId=rblng01d02z012s, email=roberto@longo.it, password=password]
+2025-02-13T11:10:34.429+01:00 DEBUG 12932 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Davide, surname=Lodedo, taxId=dvdldo01z02z02, email=davide@lodedo.it, password=password]
+2025-02-13T11:10:34.444+01:00 DEBUG 12932 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Damiano, surname=Serini, taxId=dmsrn01d02z012a, email=damiano@serini.it, password=password]
+2025-02-13T11:10:34.455+01:00 DEBUG 12932 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b1', model='model m1', description='descrizione d1', stock=25}
+2025-02-13T11:10:34.455+01:00 DEBUG 12932 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b1', model='model m1', description='descrizione d1', stock=25}
+2025-02-13T11:10:34.461+01:00 DEBUG 12932 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:10:34.462+01:00 DEBUG 12932 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b2', model='model m2', description='descrizione d2', stock=25}
+2025-02-13T11:10:34.463+01:00 DEBUG 12932 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b2', model='model m2', description='descrizione d2', stock=25}
+2025-02-13T11:10:34.465+01:00 DEBUG 12932 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:10:34.467+01:00 DEBUG 12932 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b3', model='model m3', description='descrizione d3', stock=15}
+2025-02-13T11:10:34.468+01:00 DEBUG 12932 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b3', model='model m3', description='descrizione d3', stock=15}
+2025-02-13T11:10:34.470+01:00 DEBUG 12932 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:10:34.767+01:00  INFO 12932 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T11:10:35.340+01:00  INFO 12932 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-13T11:10:35.350+01:00  INFO 12932 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-13T11:12:36.359+01:00  INFO 10888 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Starting CartImplTest using Java 23.0.1 with PID 10888 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
+2025-02-13T11:12:36.363+01:00 DEBUG 10888 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-13T11:12:36.366+01:00  INFO 10888 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : The following 1 profile is active: "${ambiente}"
+2025-02-13T11:12:37.853+01:00  INFO 10888 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-13T11:12:38.106+01:00  INFO 10888 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 227 ms. Found 19 JPA repository interfaces.
+2025-02-13T11:12:38.914+01:00  INFO 10888 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-13T11:12:39.490+01:00  INFO 10888 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
+2025-02-13T11:12:39.496+01:00  INFO 10888 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-13T11:12:39.685+01:00  INFO 10888 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-13T11:12:39.835+01:00  INFO 10888 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-13T11:12:39.928+01:00  INFO 10888 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-13T11:12:40.785+01:00  INFO 10888 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-13T11:12:40.959+01:00  INFO 10888 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-13T11:12:41.790+01:00  WARN 10888 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-13T11:12:41.792+01:00  WARN 10888 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-13T11:12:43.716+01:00  INFO 10888 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-13T11:12:43.905+01:00  INFO 10888 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T11:12:45.183+01:00  WARN 10888 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-13T11:12:45.912+01:00  INFO 10888 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Started CartImplTest in 10.283 seconds (process running for 12.837)
+2025-02-13T11:12:46.536+01:00 DEBUG 10888 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Daniel, surname=bostan, taxId=bstvld01d02z129s, email=daniel@bostan.it, password=password]
+2025-02-13T11:12:46.845+01:00 DEBUG 10888 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Roberto, surname=Longo, taxId=rblng01d02z012s, email=roberto@longo.it, password=password]
+2025-02-13T11:12:46.852+01:00 DEBUG 10888 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Davide, surname=Lodedo, taxId=dvdldo01z02z02, email=davide@lodedo.it, password=password]
+2025-02-13T11:12:46.859+01:00 DEBUG 10888 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Damiano, surname=Serini, taxId=dmsrn01d02z012a, email=damiano@serini.it, password=password]
+2025-02-13T11:12:46.867+01:00 DEBUG 10888 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b1', model='model m1', description='descrizione d1', stock=25}
+2025-02-13T11:12:46.868+01:00 DEBUG 10888 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b1', model='model m1', description='descrizione d1', stock=25}
+2025-02-13T11:12:46.874+01:00 DEBUG 10888 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:12:46.875+01:00 DEBUG 10888 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b2', model='model m2', description='descrizione d2', stock=25}
+2025-02-13T11:12:46.875+01:00 DEBUG 10888 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b2', model='model m2', description='descrizione d2', stock=25}
+2025-02-13T11:12:46.877+01:00 DEBUG 10888 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:12:46.877+01:00 DEBUG 10888 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b3', model='model m3', description='descrizione d3', stock=15}
+2025-02-13T11:12:46.879+01:00 DEBUG 10888 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b3', model='model m3', description='descrizione d3', stock=15}
+2025-02-13T11:12:46.880+01:00 DEBUG 10888 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:12:47.721+01:00  INFO 10888 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T11:12:47.770+01:00  INFO 10888 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-13T11:12:47.776+01:00  INFO 10888 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-13T11:14:24.387+01:00  INFO 992 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Starting CartImplTest using Java 23.0.1 with PID 992 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
+2025-02-13T11:14:24.390+01:00 DEBUG 992 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-13T11:14:24.392+01:00  INFO 992 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : The following 1 profile is active: "${ambiente}"
+2025-02-13T11:14:25.783+01:00  INFO 992 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-13T11:14:26.049+01:00  INFO 992 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 238 ms. Found 19 JPA repository interfaces.
+2025-02-13T11:14:26.940+01:00  INFO 992 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-13T11:14:27.510+01:00  INFO 992 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
+2025-02-13T11:14:27.520+01:00  INFO 992 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-13T11:14:27.711+01:00  INFO 992 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-13T11:14:27.862+01:00  INFO 992 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-13T11:14:27.946+01:00  INFO 992 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-13T11:14:28.717+01:00  INFO 992 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-13T11:14:28.893+01:00  INFO 992 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-13T11:14:29.549+01:00  WARN 992 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-13T11:14:29.550+01:00  WARN 992 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-13T11:14:31.303+01:00  INFO 992 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-13T11:14:31.466+01:00  INFO 992 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T11:14:32.897+01:00  WARN 992 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-13T11:14:33.772+01:00  INFO 992 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Started CartImplTest in 10.189 seconds (process running for 12.761)
+2025-02-13T11:14:34.486+01:00 DEBUG 992 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Daniel, surname=bostan, taxId=bstvld01d02z129s, email=daniel@bostan.it, password=password]
+2025-02-13T11:14:34.793+01:00 DEBUG 992 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Roberto, surname=Longo, taxId=rblng01d02z012s, email=roberto@longo.it, password=password]
+2025-02-13T11:14:34.802+01:00 DEBUG 992 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Davide, surname=Lodedo, taxId=dvdldo01z02z02, email=davide@lodedo.it, password=password]
+2025-02-13T11:14:34.808+01:00 DEBUG 992 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Damiano, surname=Serini, taxId=dmsrn01d02z012a, email=damiano@serini.it, password=password]
+2025-02-13T11:14:34.819+01:00 DEBUG 992 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b1', model='model m1', description='descrizione d1', stock=25}
+2025-02-13T11:14:34.820+01:00 DEBUG 992 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b1', model='model m1', description='descrizione d1', stock=25}
+2025-02-13T11:14:34.826+01:00 DEBUG 992 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:14:34.827+01:00 DEBUG 992 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b2', model='model m2', description='descrizione d2', stock=25}
+2025-02-13T11:14:34.827+01:00 DEBUG 992 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b2', model='model m2', description='descrizione d2', stock=25}
+2025-02-13T11:14:34.831+01:00 DEBUG 992 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:14:34.831+01:00 DEBUG 992 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b3', model='model m3', description='descrizione d3', stock=15}
+2025-02-13T11:14:34.834+01:00 DEBUG 992 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b3', model='model m3', description='descrizione d3', stock=15}
+2025-02-13T11:14:34.838+01:00 DEBUG 992 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:14:35.135+01:00  WARN 992 --- [projectbeta] [main] o.s.test.context.TestContextManager      : Caught exception while invoking 'afterTestMethod' callback on TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] for test method [public void com.betacom.backend.damiano.impl.CartImplTest.removeAndClearItemsTest() throws java.lang.Exception] and test instance [com.betacom.backend.damiano.impl.CartImplTest@3d5c5bd1]
+
+org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:804) ~[spring-tx-6.2.2.jar:6.2.2]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:758) ~[spring-tx-6.2.2.jar:6.2.2]
+	at org.springframework.test.context.transaction.TransactionContext.endTransaction(TransactionContext.java:135) ~[spring-test-6.2.2.jar:6.2.2]
+	at org.springframework.test.context.transaction.TransactionalTestExecutionListener.afterTestMethod(TransactionalTestExecutionListener.java:261) ~[spring-test-6.2.2.jar:6.2.2]
+	at org.springframework.test.context.TestContextManager.afterTestMethod(TestContextManager.java:487) ~[spring-test-6.2.2.jar:6.2.2]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.afterEach(SpringExtension.java:275) ~[spring-test-6.2.2.jar:6.2.2]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeAfterEachCallbacks$13(TestMethodTestDescriptor.java:260) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeAllAfterMethodsOrCallbacks$14(TestMethodTestDescriptor.java:276) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeAllAfterMethodsOrCallbacks$15(TestMethodTestDescriptor.java:276) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.commons.util.CollectionUtils.forEachInReverseOrder(CollectionUtils.java:240) ~[junit-platform-commons-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeAllAfterMethodsOrCallbacks(TestMethodTestDescriptor.java:275) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeAfterEachCallbacks(TestMethodTestDescriptor.java:259) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:144) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1597) ~[na:na]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:94) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:52) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:70) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.eclipse.jdt.internal.junit5.runner.JUnit5TestReference.run(JUnit5TestReference.java:100) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:40) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:530) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:758) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:453) ~[.cp/:na]
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:211) ~[.cp/:na]
+
+2025-02-13T11:14:35.743+01:00  INFO 992 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T11:14:35.778+01:00  INFO 992 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-13T11:14:35.788+01:00  INFO 992 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-13T11:18:11.358+01:00  INFO 12256 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Starting CartImplTest using Java 23.0.1 with PID 12256 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
+2025-02-13T11:18:11.364+01:00 DEBUG 12256 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-13T11:18:11.365+01:00  INFO 12256 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : The following 1 profile is active: "${ambiente}"
+2025-02-13T11:18:12.799+01:00  INFO 12256 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-13T11:18:13.062+01:00  INFO 12256 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 241 ms. Found 19 JPA repository interfaces.
+2025-02-13T11:18:13.954+01:00  INFO 12256 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-13T11:18:14.530+01:00  INFO 12256 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
+2025-02-13T11:18:14.539+01:00  INFO 12256 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-13T11:18:14.739+01:00  INFO 12256 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-13T11:18:14.880+01:00  INFO 12256 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-13T11:18:14.980+01:00  INFO 12256 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-13T11:18:15.899+01:00  INFO 12256 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-13T11:18:16.118+01:00  INFO 12256 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-13T11:18:16.995+01:00  WARN 12256 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-13T11:18:16.996+01:00  WARN 12256 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-13T11:18:18.824+01:00  INFO 12256 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-13T11:18:19.028+01:00  INFO 12256 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T11:18:20.410+01:00  WARN 12256 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-13T11:18:21.322+01:00  INFO 12256 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Started CartImplTest in 10.687 seconds (process running for 13.295)
+2025-02-13T11:18:22.075+01:00 DEBUG 12256 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Daniel, surname=bostan, taxId=bstvld01d02z129s, email=daniel@bostan.it, password=password]
+2025-02-13T11:18:22.388+01:00 DEBUG 12256 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Roberto, surname=Longo, taxId=rblng01d02z012s, email=roberto@longo.it, password=password]
+2025-02-13T11:18:22.396+01:00 DEBUG 12256 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Davide, surname=Lodedo, taxId=dvdldo01z02z02, email=davide@lodedo.it, password=password]
+2025-02-13T11:18:22.405+01:00 DEBUG 12256 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Damiano, surname=Serini, taxId=dmsrn01d02z012a, email=damiano@serini.it, password=password]
+2025-02-13T11:18:22.415+01:00 DEBUG 12256 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b1', model='model m1', description='descrizione d1', stock=25}
+2025-02-13T11:18:22.417+01:00 DEBUG 12256 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b1', model='model m1', description='descrizione d1', stock=25}
+2025-02-13T11:18:22.422+01:00 DEBUG 12256 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:18:22.423+01:00 DEBUG 12256 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b2', model='model m2', description='descrizione d2', stock=25}
+2025-02-13T11:18:22.425+01:00 DEBUG 12256 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b2', model='model m2', description='descrizione d2', stock=25}
+2025-02-13T11:18:22.445+01:00 DEBUG 12256 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:18:22.446+01:00 DEBUG 12256 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b3', model='model m3', description='descrizione d3', stock=15}
+2025-02-13T11:18:22.446+01:00 DEBUG 12256 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b3', model='model m3', description='descrizione d3', stock=15}
+2025-02-13T11:18:22.448+01:00 DEBUG 12256 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:18:23.431+01:00  INFO 12256 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T11:18:23.461+01:00  INFO 12256 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-13T11:18:23.468+01:00  INFO 12256 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-13T11:19:16.873+01:00  INFO 18572 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Starting CartImplTest using Java 23.0.1 with PID 18572 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
+2025-02-13T11:19:16.876+01:00 DEBUG 18572 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-13T11:19:16.877+01:00  INFO 18572 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : The following 1 profile is active: "${ambiente}"
+2025-02-13T11:19:18.261+01:00  INFO 18572 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-13T11:19:18.577+01:00  INFO 18572 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 287 ms. Found 19 JPA repository interfaces.
+2025-02-13T11:19:19.460+01:00  INFO 18572 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-13T11:19:20.152+01:00  INFO 18572 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
+2025-02-13T11:19:20.158+01:00  INFO 18572 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-13T11:19:20.344+01:00  INFO 18572 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-13T11:19:20.521+01:00  INFO 18572 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-13T11:19:20.607+01:00  INFO 18572 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-13T11:19:21.366+01:00  INFO 18572 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-13T11:19:21.527+01:00  INFO 18572 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-13T11:19:22.305+01:00  WARN 18572 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-13T11:19:22.306+01:00  WARN 18572 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-13T11:19:24.268+01:00  INFO 18572 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-13T11:19:24.457+01:00  INFO 18572 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T11:19:25.825+01:00  WARN 18572 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-13T11:19:26.540+01:00  INFO 18572 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Started CartImplTest in 10.286 seconds (process running for 12.951)
+2025-02-13T11:19:27.251+01:00 DEBUG 18572 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Daniel, surname=bostan, taxId=bstvld01d02z129s, email=daniel@bostan.it, password=password]
+2025-02-13T11:19:27.588+01:00 DEBUG 18572 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Roberto, surname=Longo, taxId=rblng01d02z012s, email=roberto@longo.it, password=password]
+2025-02-13T11:19:27.597+01:00 DEBUG 18572 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Davide, surname=Lodedo, taxId=dvdldo01z02z02, email=davide@lodedo.it, password=password]
+2025-02-13T11:19:27.602+01:00 DEBUG 18572 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Damiano, surname=Serini, taxId=dmsrn01d02z012a, email=damiano@serini.it, password=password]
+2025-02-13T11:19:27.611+01:00 DEBUG 18572 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b1', model='model m1', description='descrizione d1', stock=25}
+2025-02-13T11:19:27.613+01:00 DEBUG 18572 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b1', model='model m1', description='descrizione d1', stock=25}
+2025-02-13T11:19:27.617+01:00 DEBUG 18572 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:19:27.617+01:00 DEBUG 18572 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b2', model='model m2', description='descrizione d2', stock=25}
+2025-02-13T11:19:27.618+01:00 DEBUG 18572 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b2', model='model m2', description='descrizione d2', stock=25}
+2025-02-13T11:19:27.620+01:00 DEBUG 18572 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:19:27.620+01:00 DEBUG 18572 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b3', model='model m3', description='descrizione d3', stock=15}
+2025-02-13T11:19:27.620+01:00 DEBUG 18572 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b3', model='model m3', description='descrizione d3', stock=15}
+2025-02-13T11:19:27.622+01:00 DEBUG 18572 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:19:28.437+01:00  INFO 18572 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T11:19:28.498+01:00  INFO 18572 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-13T11:19:28.507+01:00  INFO 18572 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-02-13T11:20:42.674+01:00  INFO 21308 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Starting CartImplTest using Java 23.0.1 with PID 21308 (started by serin in C:\Users\serin\Documents\Lavoro\Progetti Eclipse\Accademy Betacom\ProgettofinaleAcademyBe)
+2025-02-13T11:20:42.680+01:00 DEBUG 21308 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Running with Spring Boot v3.4.2, Spring v6.2.2
+2025-02-13T11:20:42.683+01:00  INFO 21308 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : The following 1 profile is active: "${ambiente}"
+2025-02-13T11:20:44.252+01:00  INFO 21308 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-13T11:20:44.557+01:00  INFO 21308 --- [projectbeta] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 284 ms. Found 19 JPA repository interfaces.
+2025-02-13T11:20:45.464+01:00  INFO 21308 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-13T11:20:46.060+01:00  INFO 21308 --- [projectbeta] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:db_jpa user=SA
+2025-02-13T11:20:46.066+01:00  INFO 21308 --- [projectbeta] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-13T11:20:46.228+01:00  INFO 21308 --- [projectbeta] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-13T11:20:46.368+01:00  INFO 21308 --- [projectbeta] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-13T11:20:46.451+01:00  INFO 21308 --- [projectbeta] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-13T11:20:47.176+01:00  INFO 21308 --- [projectbeta] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-13T11:20:47.330+01:00  INFO 21308 --- [projectbeta] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-02-13T11:20:48.062+01:00  WARN 21308 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000038: Composite-id class does not override equals(): com.betacom.backend.model.messages.MessageID
+2025-02-13T11:20:48.063+01:00  WARN 21308 --- [projectbeta] [main] org.hibernate.mapping.RootClass          : HHH000039: Composite-id class does not override hashCode(): com.betacom.backend.model.messages.MessageID
+2025-02-13T11:20:49.968+01:00  INFO 21308 --- [projectbeta] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-13T11:20:50.168+01:00  INFO 21308 --- [projectbeta] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T11:20:51.565+01:00  WARN 21308 --- [projectbeta] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-13T11:20:52.482+01:00  INFO 21308 --- [projectbeta] [main] c.b.backend.damiano.impl.CartImplTest    : Started CartImplTest in 10.51 seconds (process running for 13.201)
+2025-02-13T11:20:53.157+01:00 DEBUG 21308 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Daniel, surname=bostan, taxId=bstvld01d02z129s, email=daniel@bostan.it, password=password]
+2025-02-13T11:20:53.480+01:00 DEBUG 21308 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Roberto, surname=Longo, taxId=rblng01d02z012s, email=roberto@longo.it, password=password]
+2025-02-13T11:20:53.490+01:00 DEBUG 21308 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Davide, surname=Lodedo, taxId=dvdldo01z02z02, email=davide@lodedo.it, password=password]
+2025-02-13T11:20:53.502+01:00 DEBUG 21308 --- [projectbeta] [main] c.b.b.c.customer.CustomerController      : create :CustomerRequest [id=null, name=Damiano, surname=Serini, taxId=dmsrn01d02z012a, email=damiano@serini.it, password=password]
+2025-02-13T11:20:53.513+01:00 DEBUG 21308 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b1', model='model m1', description='descrizione d1', stock=25}
+2025-02-13T11:20:53.514+01:00 DEBUG 21308 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b1', model='model m1', description='descrizione d1', stock=25}
+2025-02-13T11:20:53.518+01:00 DEBUG 21308 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:20:53.518+01:00 DEBUG 21308 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b2', model='model m2', description='descrizione d2', stock=25}
+2025-02-13T11:20:53.519+01:00 DEBUG 21308 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b2', model='model m2', description='descrizione d2', stock=25}
+2025-02-13T11:20:53.520+01:00 DEBUG 21308 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:20:53.521+01:00 DEBUG 21308 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC : Product create request received:prodottoRequest{id=null, brand='brand b3', model='model m3', description='descrizione d3', stock=15}
+2025-02-13T11:20:53.521+01:00 DEBUG 21308 --- [projectbeta] [main] c.b.b.s.i.products.ProductImpl           : PI: create request:prodottoRequest{id=null, brand='brand b3', model='model m3', description='descrizione d3', stock=15}
+2025-02-13T11:20:53.525+01:00 DEBUG 21308 --- [projectbeta] [main] c.b.b.c.products.ProductController       : PC: Product created
+2025-02-13T11:20:54.569+01:00  INFO 21308 --- [projectbeta] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-02-13T11:20:54.641+01:00  INFO 21308 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-02-13T11:20:54.655+01:00  INFO 21308 --- [projectbeta] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
