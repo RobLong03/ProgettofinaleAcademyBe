@@ -56,4 +56,15 @@ public class CartRequest {
 		this.totalPrice = totalPrice;
 		this.customerId = customerId;
 	}
+	public CartRequest(Double totalPrice, Long customerId) {
+		super();
+		this.totalPrice = totalPrice;
+		this.customerId = customerId;
+	}
+	public CartRequest(Long id, Double totalPrice, Long customerId) {
+		super();
+		this.id = id;
+		this.totalPrice = totalPrice;
+		this.customerId = customerId;
+	}
 }

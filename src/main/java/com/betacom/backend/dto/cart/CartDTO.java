@@ -1,6 +1,8 @@
 package com.betacom.backend.dto.cart;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.betacom.backend.dto.customer.CustomerDTO;
@@ -38,13 +40,16 @@ public class CartDTO {
 		this.customer = customer;
 	}
 	public CartDTO(Cart cart) {
-		this.items = cart.getItems().stream()
+		this.id = cart.getId();
+		this.items = Optional.ofNullable(cart.getItems())
+	            .orElse(Collections.emptyList()) // Se null, restituisce una lista vuota
+	            .stream()
 	            .map(c -> new CartItemDTO(
 	                    c.getProduct().getId(),
 	                    c.getCart().getId(),
 	                    c.getQuantity(),
 	                    c.getPrice()
-	            		))
+	            ))
 	            .collect(Collectors.toList());
 		this.customer = new CustomerDTO(cart.getCustomer());
 		this.totalPrice = cart.getTotalPrice();
