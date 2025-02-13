@@ -63,6 +63,9 @@ public class AmministratoreTest {
 
         req = new AdministratorRequest("admin","admin@admin.it","adminpassword");
         Assertions.assertThat(adminC.create(req).getRc()).isEqualTo(true);
+
+        req = new AdministratorRequest("cancellami","adminopoli@admin.it","deleteme");
+        Assertions.assertThat(adminC.create(req).getRc()).isEqualTo(true);
     }
 
     @Test
@@ -70,7 +73,7 @@ public class AmministratoreTest {
     public void testList(){
         List<AdministratorDTO> adminList = adminC.list().getDati();
         Assertions.assertThat(adminList).isNotNull();
-        Assertions.assertThat(adminList.size()).isEqualTo(2);
+        Assertions.assertThat(adminList.size()).isEqualTo(3);
 
         Assertions.assertThat(adminC.get(1L).getRc()).isEqualTo(true);
 
@@ -95,6 +98,77 @@ public class AmministratoreTest {
         Assertions.assertThat(resp).isNotNull();
         Assertions.assertThat(resp.getLogged()).isEqualTo(true);
         Assertions.assertThat(resp.getRole()).isEqualTo("ADMIN");
+
+
+        req = new SignInRequest("admin","adminpasswooord");
+        resp = adminC.signIn(req);
+        Assertions.assertThat(resp).isNotNull();
+        Assertions.assertThat(resp.getLogged()).isEqualTo(false);
+
+        req = new SignInRequest("aaaadmin","adminpassword");
+        resp = adminC.signIn(req);
+        Assertions.assertThat(resp).isNotNull();
+        Assertions.assertThat(resp.getLogged()).isEqualTo(false);
+
+        req = new SignInRequest(null,"adminpassword");
+        resp = adminC.signIn(req);
+        Assertions.assertThat(resp).isNotNull();
+        Assertions.assertThat(resp.getLogged()).isEqualTo(false);
+    }
+
+    @Test
+    @Order(5)
+    public void updateTest(){
+        /*
+                Assertions.assertThat(first.getUsername()).isEqualTo("username");
+        Assertions.assertThat(first.getEmail()).isEqualTo("email@email.com");
+        Assertions.assertThat(first.getPassword()).isEqualTo("password");
+         */
+
+        AdministratorDTO admDTO = adminC.list().getDati().getFirst();
+        AdministratorRequest admReq = new AdministratorRequest(admDTO.getId(),admDTO.getUsername(),admDTO.getEmail(),admDTO.getPassword());
+
+        admReq.setUsername("operatore");
+
+        adminC.update(admReq);
+
+        AdministratorDTO updated = adminC.list().getDati().getFirst();
+        Assertions.assertThat(updated.getUsername()).isNotEqualTo("username");
+        Assertions.assertThat(updated.getUsername()).isEqualTo("operatore");
+        Assertions.assertThat(updated.getEmail()).isEqualTo("email@email.com");
+        Assertions.assertThat(updated.getPassword()).isEqualTo("password");
+
+        SignInRequest req = new SignInRequest("operatore","password");
+        SignInDTO resp = adminC.signIn(req);
+        Assertions.assertThat(resp).isNotNull();
+        Assertions.assertThat(resp.getLogged()).isEqualTo(true);
+        Assertions.assertThat(resp.getRole()).isEqualTo("ADMIN");
+
+        admReq = new AdministratorRequest(null,admDTO.getUsername(),admDTO.getEmail(),admDTO.getPassword());
+
+        admReq.setUsername("operatore");
+
+        Assertions.assertThat(adminC.update(admReq)).isNotNull();
+        Assertions.assertThat(adminC.update(admReq).getRc()).isEqualTo(false);
+
+        admReq = new AdministratorRequest(2500L,admDTO.getUsername(),admDTO.getEmail(),admDTO.getPassword());
+
+        admReq.setUsername("operatore");
+
+        Assertions.assertThat(adminC.update(admReq)).isNotNull();
+        Assertions.assertThat(adminC.update(admReq).getRc()).isEqualTo(false);
+    }
+
+    @Test
+    @Order(5)
+    public void deleteTest(){
+        Assertions.assertThat(adminC.delete(null).getRc()).isEqualTo(false);
+
+        List<AdministratorDTO> adminList = adminC.list().getDati();
+
+        adminList.stream()
+                .filter(admin -> admin.getUsername().equals("cancellami"))
+                .forEach(deleteMe -> { Assertions.assertThat(adminC.delete(deleteMe.getId()).getRc()).isEqualTo(true);  });
     }
 
 
