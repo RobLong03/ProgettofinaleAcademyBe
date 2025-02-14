@@ -22,8 +22,6 @@ public class CustomerDTO {
     private String taxId;
   
     private String email;
-
-    private String password;
     
     private List<AddressDTO> addresses;
 
@@ -77,17 +75,6 @@ public class CustomerDTO {
 		this.email = email;
 	}
 
-
-	public String getPassword() {
-		return password;
-	}
-
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-
 	public List<AddressDTO> getAddresses() {
 		return addresses;
 	}
@@ -103,7 +90,7 @@ public class CustomerDTO {
 	}
 
 
-	public CustomerDTO(Long id, String name, String surname, String taxId, String email, String password,
+	public CustomerDTO(Long id, String name, String surname, String taxId, String email,
 			List<AddressDTO> addresses) {
 		super();
 		this.id = id;
@@ -111,19 +98,17 @@ public class CustomerDTO {
 		this.surname = surname;
 		this.taxId = taxId;
 		this.email = email;
-		this.password = password;
 		this.addresses = addresses;
 	}
 
 
-	public CustomerDTO(String name, String surname, String taxId, String email, String password,
+	public CustomerDTO(String name, String surname, String taxId, String email,
 			List<AddressDTO> addresses) {
 		super();
 		this.name = name;
 		this.surname = surname;
 		this.taxId = taxId;
 		this.email = email;
-		this.password = password;
 		this.addresses = addresses;
 	}
 	
@@ -134,7 +119,6 @@ public class CustomerDTO {
 		this.surname = req.getSurname();
 		this.taxId = req.getTaxId();
 		this.email=req.getEmail();
-		this.password = req.getPassword();
 		
 		try {
 			if (req.getAddresses()!=null) {
@@ -172,7 +156,7 @@ public class CustomerDTO {
 	@Override
 	public String toString() {
 		return "CustomerDTO {id=" + id + ", name=" + name + ", surname=" + surname + ", taxId=" + taxId + ", email="
-				+ email + ", password=" + password + ", addresses=" + addresses + "}";
+				+ email  + ", addresses=" + addresses + "}";
 	}
 
 	

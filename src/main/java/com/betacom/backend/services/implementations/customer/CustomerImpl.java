@@ -163,7 +163,7 @@ public class CustomerImpl implements CustomerSevices {
         if(customer.isPresent()){
             if(passwordService.checkPassword(req.getPwd(), customer.get().getPassword())){
                 resp.setLogged(true);
-                resp.setRole(Roles.valueOf("USER").toString());
+                resp.setRole(Roles.valueOf("CUSTOMER").toString());
             }
         }
 

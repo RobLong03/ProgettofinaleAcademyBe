@@ -82,12 +82,10 @@ public class AmministratoreTest {
 
         Assertions.assertThat(first.getId()).isEqualTo(adminList.getFirst().getId());
         Assertions.assertThat(first.getEmail()).isEqualTo(adminList.getFirst().getEmail());
-        Assertions.assertThat(first.getPassword()).isEqualTo(adminList.getFirst().getPassword());
         Assertions.assertThat(first.getUsername()).isEqualTo(adminList.getFirst().getUsername());
 
         Assertions.assertThat(first.getUsername()).isEqualTo("username");
         Assertions.assertThat(first.getEmail()).isEqualTo("email@email.com");
-        Assertions.assertThat(first.getPassword()).isEqualTo("password");
     }
 
     @Test
@@ -126,7 +124,7 @@ public class AmministratoreTest {
          */
 
         AdministratorDTO admDTO = adminC.list().getDati().getFirst();
-        AdministratorRequest admReq = new AdministratorRequest(admDTO.getId(),admDTO.getUsername(),admDTO.getEmail(),admDTO.getPassword());
+        AdministratorRequest admReq = new AdministratorRequest(admDTO.getId(),admDTO.getUsername(),admDTO.getEmail(),"genericPassword");
 
         admReq.setUsername("operatore");
 
@@ -136,22 +134,20 @@ public class AmministratoreTest {
         Assertions.assertThat(updated.getUsername()).isNotEqualTo("username");
         Assertions.assertThat(updated.getUsername()).isEqualTo("operatore");
         Assertions.assertThat(updated.getEmail()).isEqualTo("email@email.com");
-        Assertions.assertThat(updated.getPassword()).isEqualTo("password");
 
-        SignInRequest req = new SignInRequest("operatore","password");
+        SignInRequest req = new SignInRequest("operatore","genericPassword");
         SignInDTO resp = adminC.signIn(req);
         Assertions.assertThat(resp).isNotNull();
         Assertions.assertThat(resp.getLogged()).isEqualTo(true);
         Assertions.assertThat(resp.getRole()).isEqualTo("ADMIN");
 
-        admReq = new AdministratorRequest(null,admDTO.getUsername(),admDTO.getEmail(),admDTO.getPassword());
 
         admReq.setUsername("operatore");
 
         Assertions.assertThat(adminC.update(admReq)).isNotNull();
         Assertions.assertThat(adminC.update(admReq).getRc()).isEqualTo(false);
 
-        admReq = new AdministratorRequest(2500L,admDTO.getUsername(),admDTO.getEmail(),admDTO.getPassword());
+        admReq = new AdministratorRequest(2500L,admDTO.getUsername(),admDTO.getEmail(),"genericPassword");
 
         admReq.setUsername("operatore");
 
