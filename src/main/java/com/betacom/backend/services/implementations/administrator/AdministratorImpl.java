@@ -6,6 +6,7 @@ import com.betacom.backend.model.administrator.Administrator;
 import com.betacom.backend.repositories.administrator.IAdministratorRepository;
 import com.betacom.backend.request.SignInRequest;
 import com.betacom.backend.request.administrator.AdministratorRequest;
+import com.betacom.backend.services.PasswordService;
 import com.betacom.backend.services.interfaces.administrator.AdministratorServices;
 import com.betacom.backend.services.interfaces.messages.MessageServices;
 import com.betacom.backend.utils.Roles;
@@ -28,6 +29,9 @@ public class AdministratorImpl implements AdministratorServices {
 
     @Autowired
     Logger log;
+
+    @Autowired
+    private PasswordService passwordService;
 
     @Override
     public List<AdministratorDTO> list() {
@@ -64,6 +68,7 @@ public class AdministratorImpl implements AdministratorServices {
             throw new Exception(msgS.getMessage("missing-attributes-create"));
 
         Administrator adm = new Administrator(req);
+        adm.setPassword(passwordService.hashPassword(req.getPassword()));
         admRep.save(adm);
 
     }
@@ -81,11 +86,27 @@ public class AdministratorImpl implements AdministratorServices {
         if(req.getId() == null){
             throw new Exception(msgS.getMessage("missing-id-update"));
         }
-        if(admRep.findById(req.getId()).isEmpty()){
+
+        Optional<Administrator> admOpt = admRep.findById(req.getId());
+        if(admOpt.isEmpty()){
             throw new Exception(msgS.getMessage("does-not-exist-update"));
         }
+        Administrator adm = admOpt.get();
+
         log.debug("AI:  upating ....");
-        Administrator adm = new Administrator(req);
+
+        if(req.getUsername() != null && !req.getUsername().isBlank()){
+            adm.setUsername(req.getUsername());
+        }
+
+        if(req.getEmail() != null && !req.getEmail().isBlank()){
+            adm.setEmail(req.getEmail());
+        }
+
+        if(req.getPassword() != null && !req.getPassword().isBlank()){
+            adm.setPassword(passwordService.hashPassword(req.getPassword()));
+        }
+
         admRep.save(adm);
         log.debug("AI:  updating complete");
     }
@@ -112,12 +133,13 @@ public class AdministratorImpl implements AdministratorServices {
             return resp;
         }
 
-        Optional<Administrator> amm = admRep.findByUsernameAndPassword(req.getUsername(),req.getPwd());
-        if(amm.isEmpty()){
-            resp.setLogged(false);
-        }else{
-            resp.setLogged(true);
-            resp.setRole(Roles.valueOf("ADMIN").toString());
+        Optional<Administrator> amm = admRep.findByUsername(req.getUsername());
+        resp.setLogged(false);
+        if(amm.isPresent()){
+            if(passwordService.checkPassword(req.getPwd(), amm.get().getPassword())){
+                resp.setLogged(true);
+                resp.setRole(Roles.valueOf("ADMIN").toString());
+            }
         }
         log.debug("AI:  signIn processed");
         return resp;

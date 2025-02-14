@@ -191,7 +191,6 @@ public class orderTestSetup {
         cir.setCartId(cartDTO.getId());
         for(ProductDTO prod : prodList){
             cir.setProductId(prod.getId());
-            cir.setPrice(prod.getPrice());
             cir.setQuantity((int) (Math.random() * 6) + 1);
             cartItemC.create(cir);
         }

@@ -6,6 +6,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+import com.betacom.backend.dto.SignInDTO;
+import com.betacom.backend.model.administrator.Administrator;
+import com.betacom.backend.request.SignInRequest;
+import com.betacom.backend.services.PasswordService;
+import com.betacom.backend.utils.Roles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,6 +38,9 @@ public class CustomerImpl implements CustomerSevices {
 	
 	@Autowired
 	IWishlistRepository wishR;
+
+    @Autowired
+    private PasswordService passwordService;
 
     @Override
     public List<CustomerDTO> list() {
@@ -67,6 +75,7 @@ public class CustomerImpl implements CustomerSevices {
         
     
         Customer customer = new Customer(req);
+        customer.setPassword(passwordService.hashPassword(req.getPassword()));
    
       //creation Wishlist in customer
         customer = CustRep.saveAndFlush(customer);
@@ -86,10 +95,12 @@ public class CustomerImpl implements CustomerSevices {
         if (customerOpt.isEmpty()) {
             throw new Exception(msgS.getMessage("does-not-exist-update"));
         }
-       
-       
-     
+
         Customer customer = new Customer(req);
+        if(req.getPassword()!=null && !req.getPassword().isBlank()){
+            customer.setPassword(passwordService.hashPassword(req.getPassword()));
+        }
+
         CustRep.save(customer);
     }
 
@@ -134,6 +145,30 @@ public class CustomerImpl implements CustomerSevices {
                 || req.getTaxId() == null || req.getTaxId().isBlank()
                 || req.getEmail() == null || req.getEmail().isBlank()
                 || req.getPassword() == null || req.getPassword().isBlank();
+    }
+
+    @Override
+    public SignInDTO signIn(SignInRequest req) {
+
+        SignInDTO  resp = new SignInDTO();
+
+        if(req.getUsername() == null || req.getUsername().isBlank() || req.getPwd() == null || req.getPwd().isBlank()){
+            resp.setLogged(false);
+            return resp;
+        }
+
+        Optional<Customer> customer = CustRep.findByEmail(req.getUsername()) ;
+
+        resp.setLogged(false);
+        if(customer.isPresent()){
+            if(passwordService.checkPassword(req.getPwd(), customer.get().getPassword())){
+                resp.setLogged(true);
+                resp.setRole(Roles.valueOf("USER").toString());
+            }
+        }
+
+
+        return resp;
     }
 
 

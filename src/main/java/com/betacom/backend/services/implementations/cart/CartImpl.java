@@ -42,6 +42,15 @@ public class CartImpl implements CartServices{
 	@Override
 	public List<CartDTO> list() {
 		List<Cart> lcart = cartR.findAll();
+
+		/*
+		aggiunto questo per essere sicuri che il prezzo totale dei carelli sia giusto quando gli prendiamo
+		 */
+		lcart.forEach(cart -> {
+			if (cart.getItems() != null) { // Evita possibili NullPointerException
+				cart.updateTotalPrice();
+			}
+		});
 		
 		return lcart.stream().map(c ->
 				new CartDTO(c)
@@ -57,7 +66,13 @@ public class CartImpl implements CartServices{
         Optional<Cart> cas = cartR.findById(id);
 
         if(cas.isPresent()){
-            return new CartDTO(cas.get());
+			/*
+			nel get mi assicurerei che il carello abbia il prezzo totale gisuto, in quanto immagino sara il metodo usato quando il cliente clichhera sul icona,
+			quindi lo carica e si dovrebbe vedere il prezzo  -Daniel
+			 */
+			Cart cart = cas.get();
+			cart.updateTotalPrice();
+            return new CartDTO(cart);
         }else{
 			throw new Exception(msgS.getMessage("does-not-exist-get"));
         }
@@ -74,6 +89,7 @@ public class CartImpl implements CartServices{
         Cart p = new Cart();
         p.setItems(lC);
         p.setCustomer(custOp.get());
+
         p.setTotalPrice(req.getTotalPrice());
         
         cartR.save(p);
@@ -120,55 +136,5 @@ public class CartImpl implements CartServices{
 			cartR.save(c);
 		}
 
-		@Override
-		public void update(CartRequest req) throws Exception {
-			if (req.getId() == null) {
-		        throw new Exception(msgS.getMessage("missing-id-update"));
-		    }
 
-		    Optional<Cart> existingCartOp = cartR.findById(req.getId());
-		    if (existingCartOp.isEmpty()) {
-		        throw new Exception(msgS.getMessage("does-not-exist-update"));
-		    }
-		    
-		    Cart existingCart = existingCartOp.get();
-
-		    Optional<Customer> custOp = cusR.findById(req.getCustomerId());
-		    if (custOp.isEmpty()) {
-		        throw new Exception(msgS.getMessage("cart-missing-customer"));
-		    }
-
-		    existingCart.setCustomer(custOp.get());
-		    existingCart.setTotalPrice(req.getTotalPrice());
-
-		    if (req.getItems() != null && !req.getItems().isEmpty()) {
-		        List<CartItem> existingItems = existingCart.getItems(); // Recupera i prodotti già presenti nel carrello
-
-		        for (CartItemDTO newItemReq : req.getItems()) {
-		            // Controlla se il prodotto è già nel carrello
-		            Optional<CartItem> existingItem = existingItems.stream()
-		                .filter(ci -> ci.getProduct().getId().equals(newItemReq.getProductId()))
-		                .findFirst();
-
-		            if (existingItem.isPresent()) {
-		                // Se il prodotto è già presente, aggiorna la quantità
-		                existingItem.get().setQuantity(existingItem.get().getQuantity() + newItemReq.getQuantity());
-		            } else {
-		                // Se non è presente, lo aggiunge
-		                CartItem newItem = new CartItem(
-		                    newItemReq.getId(),
-		                    existingCart, 
-		                    new Product(newItemReq.getProductId()), 
-		                    newItemReq.getQuantity(),
-		                    newItemReq.getPrice()
-		                );
-		                existingItems.add(newItem);
-		            }
-		        }
-
-		        existingCart.setItems(existingItems); // Aggiorna il carrello con la nuova lista
-		    }
-
-		    cartR.save(existingCart); // Salva il carrello aggiornato
-		}
 }

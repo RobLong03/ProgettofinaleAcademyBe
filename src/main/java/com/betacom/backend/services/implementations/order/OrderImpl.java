@@ -156,7 +156,7 @@ public class OrderImpl implements OrderServices {
 
 
             toSaveAfterOrder.add(prod);
-            order.setTotalPrice(order.getTotalPrice() + cartItem.getPrice() * cartItem.getQuantity());
+            order.setTotalPrice(order.getTotalPrice() + cartItem.getProduct().getPrice() * cartItem.getQuantity());
             orderItems.add(new OrderItem(cartItem, order));
 
 

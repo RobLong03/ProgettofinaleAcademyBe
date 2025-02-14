@@ -1,5 +1,7 @@
 package com.betacom.backend.controller.customer;
 
+import com.betacom.backend.dto.SignInDTO;
+import com.betacom.backend.request.SignInRequest;
 import org.slf4j.Logger;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -102,8 +104,12 @@ public class CustomerController {
 		}
 		return r;
 	}
-	
-	
+
+	@PostMapping("/signIn")
+	public SignInDTO signIn(@RequestBody SignInRequest req){
+		log.debug("SignIn Request");
+		return custS.signIn(req);
+	}
 	
 	
 	

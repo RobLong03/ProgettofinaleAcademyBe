@@ -48,4 +48,32 @@ public class CartItemController {
 		}
 		return r;
 	}
+
+	@PostMapping("/add")
+	public ResponseBase add(@RequestBody(required = true) CartItemRequest req) {
+		log.debug("add: " + req);
+		ResponseBase r = new ResponseBase();
+		r.setRc(true);
+		try {
+			carS.add(req);
+		} catch (Exception e) {
+			r.setMsg(e.getMessage());
+			r.setRc(false);
+		}
+		return r;
+	}
+
+	@PostMapping("/removeItems")
+	public ResponseBase removeItems(@RequestBody(required = true) CartItemRequest req) {
+		log.debug("add: " + req);
+		ResponseBase r = new ResponseBase();
+		r.setRc(true);
+		try {
+			carS.remove(req);
+		} catch (Exception e) {
+			r.setMsg(e.getMessage());
+			r.setRc(false);
+		}
+		return r;
+	}
 }

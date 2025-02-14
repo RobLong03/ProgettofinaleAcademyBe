@@ -168,7 +168,7 @@ public class AmministratoreTest {
 
         adminList.stream()
                 .filter(admin -> admin.getUsername().equals("cancellami"))
-                .forEach(deleteMe -> { Assertions.assertThat(adminC.delete(deleteMe.getId()).getRc()).isEqualTo(true);  });
+                .forEach(deleteMe -> { Assertions.assertThat(adminC.delete(deleteMe.getId()).getRc()).isEqualTo(true); Assertions.assertThat(adminC.get(deleteMe.getId()).getRc()).isEqualTo(false);  });
     }
 
 

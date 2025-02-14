@@ -28,20 +28,20 @@ public class CartItemImpl implements CartItemServices{
 
 	@Autowired
 	MessageServices msgS;
-	
+
 	@Autowired
 	ICartRepository cartR;
-	
+
 	@Autowired
 	IProductRepository prodR;
 
 	@Override
 	public List<CartItemDTO> list() {
 		List<CartItem> lCarIt = carItR.findAll();
-		
-		return lCarIt.stream().map(c -> 
-					new CartItemDTO(c)
-				).collect(Collectors.toList());
+
+		return lCarIt.stream().map(c ->
+				new CartItemDTO(c)
+		).collect(Collectors.toList());
 	}
 
 	@Override
@@ -50,13 +50,13 @@ public class CartItemImpl implements CartItemServices{
 			throw new Exception(msgS.getMessage("missing-id-get"));
 		}
 
-        Optional<CartItem> cas = carItR.findById(id);
+		Optional<CartItem> cas = carItR.findById(id);
 
-        if(cas.isPresent()){
-            return new CartItemDTO(cas.get());
-        }else{
+		if(cas.isPresent()){
+			return new CartItemDTO(cas.get());
+		}else{
 			throw new Exception(msgS.getMessage("does-not-exist-get"));
-        }
+		}
 	}
 
 	@Override
@@ -65,20 +65,89 @@ public class CartItemImpl implements CartItemServices{
 			throw new Exception(msgS.getMessage("missing-attributes-create"));
 
 		Optional<Cart> cartOptional = cartR.findById(req.getCartId());
-	    if(cartOptional.isEmpty())
+		if(cartOptional.isEmpty())
 			throw new Exception(msgS.getMessage("no-cart-found-cartitem-create"));
-	        
-	    Optional<Product> prodOp = prodR.findById(req.getProductId());
-	    if(prodOp.isEmpty())
+
+		Optional<Product> prodOp = prodR.findById(req.getProductId());
+		if(prodOp.isEmpty())
 			throw new Exception(msgS.getMessage("product-not-found-cartitem-create"));
-	     
-        CartItem p = new CartItem();
-        
-        p.setCart(cartOptional.get());
-        p.setProduct(prodOp.get());
-        p.setPrice(req.getPrice());
-        p.setQuantity(req.getQuantity());
-        carItR.save(p);
+
+		CartItem p = new CartItem();
+
+
+
+		p.setCart(cartOptional.get());
+		p.setProduct(prodOp.get());
+		p.setQuantity(req.getQuantity());
+
+		carItR.save(p);
+
+	}
+
+	/*
+	implemento add in modo che possa solo aggiungere quantita a oggetti gia presenti nel carello, per aggiungerli da 0 c'è create
+	 */
+	@Override
+	public void add(CartItemRequest req) throws Exception {
+
+		if(req.getId() == null) {
+			throw new Exception(msgS.getMessage("missing-id-update"));
+		}
+
+		Optional<CartItem> cartItemOptional = carItR.findById(req.getId());
+		if( cartItemOptional.isEmpty()) {
+			throw new Exception(msgS.getMessage("does-not-exist-update"));
+		}
+		CartItem cartItem = cartItemOptional.get();
+
+		/*
+		questo check si potrebbe anche non fare? in teoria stiamo modificando un oggetto nel carello, se c'era fino al aggiungerne uno ci sara anche dopo probabilmente?
+		nel dubbio better safe than sorry e lasciarlo
+		 */
+		Optional<Product> prodOp = prodR.findById(req.getProductId());
+		if(prodOp.isEmpty())
+			throw new Exception(msgS.getMessage("product-not-found-cartitem-update"));
+		Product prod = prodOp.get();
+
+		if(cartItem.getProduct().getId() != prod.getId())
+			throw new Exception(msgS.getMessage("product-not-found-cartitem-update"));
+
+		cartItem.setQuantity( cartItem.getQuantity() + req.getQuantity() );
+		carItR.save(cartItem);
+
+
+
+	}
+
+	@Override
+	public void remove(CartItemRequest req) throws Exception {
+		if(req.getId() == null) {
+			throw new Exception(msgS.getMessage("missing-id-update"));
+		}
+
+		Optional<CartItem> cartItemOptional = carItR.findById(req.getId());
+		if( cartItemOptional.isEmpty()) {
+			throw new Exception(msgS.getMessage("does-not-exist-update"));
+		}
+		CartItem cartItem = cartItemOptional.get();
+
+//		Optional<Cart> cartOptional = cartR.findById(req.getCartId());
+//		if(cartOptional.isEmpty())
+//			throw new Exception(msgS.getMessage("no-cart-found-cartitem-update"));
+
+		Optional<Product> prodOp = prodR.findById(req.getProductId());
+		if(prodOp.isEmpty())
+			throw new Exception(msgS.getMessage("product-not-found-cartitem-update"));
+		Product prod = prodOp.get();
+
+		if(cartItem.getProduct().getId() != prod.getId())
+			throw new Exception(msgS.getMessage("product-not-found-cartitem-update"));
+
+		cartItem.setQuantity( cartItem.getQuantity() - req.getQuantity() );
+		if(cartItem.getQuantity() < 0){
+			throw new Exception(msgS.getMessage("product-quantity-remaining-less-than-zero"));
+		}
+		carItR.save(cartItem);
 	}
 
 	@Override
@@ -86,26 +155,25 @@ public class CartItemImpl implements CartItemServices{
 		if(req.getId() == null){
 			throw new Exception(msgS.getMessage("missing-id-update"));        }
 
-        if( carItR.findById(req.getId()).isEmpty()) {
+		Optional<CartItem> cartItemOptional = carItR.findById(req.getId());
+        if( cartItemOptional.isEmpty()) {
 			throw new Exception(msgS.getMessage("does-not-exist-update"));
 		}
+		CartItem cartItem = cartItemOptional.get();
 
-        Optional<Cart> cartOptional = cartR.findById(req.getCartId());
-	    if(cartOptional.isEmpty())
-			throw new Exception(msgS.getMessage("no-cart-found-cartitem-update"));
-	        
+//        Optional<Cart> cartOptional = cartR.findById(req.getCartId());
+//	    if(cartOptional.isEmpty())
+//			throw new Exception(msgS.getMessage("no-cart-found-cartitem-update"));
+
 	    Optional<Product> prodOp = prodR.findById(req.getProductId());
 	    if(prodOp.isEmpty())
 			throw new Exception(msgS.getMessage("product-not-found-cartitem-update"));
 
+		if(cartItem.getProduct().getId() != prodOp.get().getId())
+			throw new Exception(msgS.getMessage("product-not-found-cartitem-update"));
 
-		CartItem p = new CartItem();
-        
-        p.setCart(cartOptional.get());
-        p.setProduct(prodOp.get());
-        p.setPrice(req.getPrice());
-        p.setQuantity(req.getQuantity());
-        carItR.save(p);
+		cartItem.setQuantity( req.getQuantity() );
+        carItR.save(cartItem);
 	}
 
 	@Override
@@ -115,12 +183,11 @@ public class CartItemImpl implements CartItemServices{
 
 		carItR.deleteById(id);
 	}
-	
+
 	private boolean mancanoAttributi(CartItemRequest req) {
-        return req.getCartId() == null ||
-        		req.getPrice() == null ||
-        		req.getProductId() == null || 
-        		req.getQuantity() == null;
-    }
+		return req.getCartId() == null ||
+				req.getProductId() == null ||
+				req.getQuantity() == null;
+	}
 
 }

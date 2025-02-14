@@ -195,7 +195,7 @@ public class testOrder {
         log.debug(orderC.get(1L).getDati().toString());
 
 
-        oir.setQuantity(null);
+        oir.setQuantity(p.getStock()-1);
         Assertions.assertThat(orderItemC.addItemToOrder(oir).getRc()).isEqualTo(true);
 
     }
@@ -205,25 +205,32 @@ public class testOrder {
     public void orderitemRemove(){
         ProductDTO p = productC.list().getDati().stream().filter(o->o.getBrand().equals("brandAdd") && o.getModel().equals("modelAdd")).findFirst().get();
 
-        Assertions.assertThat(orderItemC.addItemToOrder(null).getRc()).isEqualTo(false);
+        Assertions.assertThat(orderItemC.removeItemFromOrder(null).getRc()).isEqualTo(false);
 
         OrderItemRequest oir = new OrderItemRequest();
-        Assertions.assertThat(orderItemC.addItemToOrder(oir).getRc()).isEqualTo(false);
+        Assertions.assertThat(orderItemC.removeItemFromOrder(oir).getRc()).isEqualTo(false);
 
 
         oir.setOrderId(11111111111L);
-        Assertions.assertThat(orderItemC.addItemToOrder(oir).getRc()).isEqualTo(false);
+        Assertions.assertThat(orderItemC.removeItemFromOrder(oir).getRc()).isEqualTo(false);
 
 
         oir.setProductId(111111111111111L);
-        Assertions.assertThat(orderItemC.addItemToOrder(oir).getRc()).isEqualTo(false);
+        Assertions.assertThat(orderItemC.removeItemFromOrder(oir).getRc()).isEqualTo(false);
 
         oir.setOrderId(1L);
-        Assertions.assertThat(orderItemC.addItemToOrder(oir).getRc()).isEqualTo(false);
+        Assertions.assertThat(orderItemC.removeItemFromOrder(oir).getRc()).isEqualTo(false);
 
         oir.setProductId(p.getId());
         oir.setQuantity(0);
-        Assertions.assertThat(orderItemC.addItemToOrder(oir).getRc()).isEqualTo(false);
+        Assertions.assertThat(orderItemC.removeItemFromOrder(oir).getRc()).isEqualTo(true);
+
+        oir.setQuantity(p.getStock()-2);
+        Assertions.assertThat(orderItemC.removeItemFromOrder(oir).getRc()).isEqualTo(true);
+
+        oir.setQuantity(250);
+        Assertions.assertThat(orderItemC.removeItemFromOrder(oir).getRc()).isEqualTo(true);
+
     }
 
 }
