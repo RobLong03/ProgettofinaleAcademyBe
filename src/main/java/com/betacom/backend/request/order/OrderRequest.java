@@ -3,7 +3,8 @@ package com.betacom.backend.request.order;
 public class OrderRequest {
     private Long id;
     private Long customerId;
-    private Long cartId;
+//    private Long cartId;
+    //TODO remove cart id, fetch it by customer id....
     private Long addressId;
     private String orderDate;
     private Double totalPrice;
@@ -11,18 +12,18 @@ public class OrderRequest {
     public OrderRequest() {
     }
 
-    public OrderRequest(Long customerId, Long cartId, Long addressId, String orderDate, Double totalPrice) {
+    public OrderRequest(Long customerId, /*Long cartId,*/ Long addressId, String orderDate, Double totalPrice) {
         this.customerId = customerId;
-        this.cartId = cartId;
+//        this.cartId = cartId;
         this.addressId = addressId;
         this.orderDate = orderDate;
         this.totalPrice = totalPrice;
     }
 
-    public OrderRequest(Long id, Long customerId, Long cartId, Long addressId, String orderDate, Double totalPrice) {
+    public OrderRequest(Long id, Long customerId,  /*Long cartId,*/ Long addressId, String orderDate, Double totalPrice) {
         this.id = id;
         this.customerId = customerId;
-        this.cartId = cartId;
+//        this.cartId = cartId;
         this.addressId = addressId;
         this.orderDate = orderDate;
         this.totalPrice = totalPrice;
@@ -44,13 +45,13 @@ public class OrderRequest {
         this.customerId = customerId;
     }
 
-    public Long getCartId() {
-        return cartId;
-    }
+//    public Long getCartId() {
+//        return cartId;
+//    }
 
-    public void setCartId(Long cartId) {
-        this.cartId = cartId;
-    }
+//    public void setCartId(Long cartId) {
+//        this.cartId = cartId;
+//    }
 
     public Long getAddressId() {
         return addressId;
@@ -81,7 +82,7 @@ public class OrderRequest {
         return "OrderRequest{" +
                 "id=" + id +
                 ", customerId=" + customerId +
-                ", cartId=" + cartId +
+//                ", cartId=" + cartId +
                 ", addressId=" + addressId +
                 ", orderDate='" + orderDate + '\'' +
                 ", totalPrice=" + totalPrice +

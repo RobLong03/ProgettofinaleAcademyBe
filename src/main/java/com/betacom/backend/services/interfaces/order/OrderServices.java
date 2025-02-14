@@ -14,8 +14,12 @@ public interface OrderServices {
     OrderDTO get(Long id) throws Exception;         //get per prendere con id,
     //poi altri get o list con specifiche diverse si decide dopo
 
-    List<OrderDTO> listByCustomer(Long customerId);
+    List<OrderDTO> listByCustomer(Long customerId) throws Exception;
 
+
+    /**
+    Create a order, customerId and addressId are mandatory parameters
+    **/
     void create(OrderRequest req ) throws Exception;
 
     void update(OrderRequest req) throws Exception;

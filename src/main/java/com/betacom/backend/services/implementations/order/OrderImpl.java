@@ -80,8 +80,11 @@ public class OrderImpl implements OrderServices {
     }
 
     @Override
-    public List<OrderDTO> listByCustomer(Long customerId) {
+    public List<OrderDTO> listByCustomer(Long customerId) throws Exception {
         log.debug("OI.listByCustomer: listByCustomer request received");
+        if(customerId == null) {
+            throw new Exception(msgS.getMessage("missing-id-get"));
+        }
         List<Order> orders = orderRep.findByCustomer_Id(customerId);
         return orders.stream().map(o -> new OrderDTO(o)).collect(Collectors.toList());
     }
@@ -109,7 +112,7 @@ public class OrderImpl implements OrderServices {
         }
         Address address = addressOptional.get();
 
-        Optional<Cart> cartOptional = cartRep.findById(req.getCartId());
+        Optional<Cart> cartOptional = cartRep.findByCustomer_id(req.getCustomerId());
         if (cartOptional.isEmpty()) {
             log.debug("OI.create: cart not found");
             throw new Exception(msgS.getMessage("cart-not-found-order-create"));
@@ -172,7 +175,6 @@ public class OrderImpl implements OrderServices {
 
     private boolean missingparams(OrderRequest req) {
         return req.getAddressId() == null
-                || req.getCartId() == null
                 || req.getCustomerId() == null
                 ;
     }
@@ -189,6 +191,7 @@ public class OrderImpl implements OrderServices {
         if (req.getAddressId() == null) {
             throw new Exception(msgS.getMessage("missing-addressId-in-update-order"));
         }
+
         log.debug("OI.update: fetching order details");
         Optional<Order> orderOptional = orderRep.findById(req.getId());
         if (orderOptional.isEmpty()) {
@@ -201,6 +204,11 @@ public class OrderImpl implements OrderServices {
             throw new Exception(msgS.getMessage("address-not-found-update-order"));
         }
         Address address = addressOptional.get();
+
+        if(order.getAddress().getCustomer() != address.getCustomer()){
+            throw new Exception(msgS.getMessage("order-update-different-customer-address"));
+        }
+
         log.debug("OI.update: setting request address");
         order.setAddress(address);
         orderRep.save(order);

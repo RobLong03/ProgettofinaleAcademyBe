@@ -97,12 +97,22 @@ public class OrderItemimpl implements OrderItemsServices {
 		}
 		Product product = productOptional.get();
 
+		if(itemReq.getUnitPrice() == null){
+			itemReq.setUnitPrice(product.getPrice());
+		}
+
+		if(itemReq.getQuantity() == null){
+			itemReq.setQuantity(1);
+		}
+
 		//controllo sullo stock se ce ne sono abbastanza, lo faccio qua perche in teoria dal salvataggio del ordine sono gia stati tolti i stock
 		log.debug("OII.addItemToOrder: checking stock");
 		if(!product.removeStock(itemReq.getQuantity()))
 			throw new Exception(msgS.getMessage("quantity-exceeds-stock-order-orderItems-add"));
 
 		List<OrderItem> orderItems = order.getOrderItems();
+
+
 
 		order.getOrderItems().stream()
 		.filter(item -> item.getProduct().getId().equals(product.getId()))
@@ -116,6 +126,7 @@ public class OrderItemimpl implements OrderItemsServices {
 						)
 				);
 		log.debug("OII.addItemToOrder: finalizing....");
+		order.setTotalPrice(order.getTotalPrice() + (itemReq.getQuantity()*itemReq.getUnitPrice()));
 		orderRep.save(order);
 		prodRep.save(product);
 		log.debug("OII.addItemToOrder: saved order");
@@ -148,6 +159,10 @@ public class OrderItemimpl implements OrderItemsServices {
 	    List<OrderItem> orderItems = order.getOrderItems();
 	
 	    boolean foundItem = false;
+
+		if(itemReq.getQuantity() == null){
+			itemReq.setQuantity(1);
+		}
 
 		 product.addStock(itemReq.getQuantity());
 
