@@ -117,8 +117,32 @@ public class FinalCustomersTest {
 
          request = new CustomerRequest(deleteMe.getId(), "delete","me","DVN11D01E012E","delete@meme.it","passwordOfDelete");
          Assertions.assertThat(customerC.update(request).getRc()).isEqualTo(true);
+
+         deleteMe = customerC.get(deleteMe.getId()).getDati();
+
+         Assertions.assertThat(deleteMe.getName()).isEqualTo("delete");
+         Assertions.assertThat(deleteMe.getSurname()).isEqualTo("me");
+         Assertions.assertThat(deleteMe.getEmail()).isEqualTo("delete@meme.it");
+
+         /*
+        TODO delete customer deleteMe, add cart in customerImpl create, create products
+          */
+
      }
 
+     @Test
+    @Order(3)
+    public void customerDelete(){
+         CustomerDTO deleteMe = customerC.list().getDati().stream().filter(c->c.getName().equals("delete")&&c.getSurname().equals("me")).findFirst().get();
+         Assertions.assertThat(deleteMe.getName()).isEqualTo("delete");
+         Assertions.assertThat(deleteMe.getSurname()).isEqualTo("me");
+         Assertions.assertThat(deleteMe.getEmail()).isEqualTo("delete@meme.it");
+
+         Assertions.assertThat(customerC.delete(null).getRc()).isEqualTo(false);
+         Assertions.assertThat(customerC.delete(deleteMe.getId()).getRc()).isEqualTo(true);
+         deleteMe = customerC.list().getDati().stream().filter(c->c.getName().equals("delete")&&c.getSurname().equals("me")).findFirst().orElse(null);
+         Assertions.assertThat(deleteMe).isEqualTo(null);
+     }
 
 
 }
