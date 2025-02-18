@@ -17,7 +17,7 @@ import com.betacom.backend.response.ResponseObject;
 import com.betacom.backend.services.interfaces.products.CaseServices;
 
 @RestController
-@RequestMapping("/app/case")
+@RequestMapping("/app/product/case")
 public class CaseController {
 
 	@Autowired

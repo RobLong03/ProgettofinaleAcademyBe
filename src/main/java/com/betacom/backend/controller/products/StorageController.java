@@ -17,7 +17,7 @@ import com.betacom.backend.response.ResponseObject;
 import com.betacom.backend.services.interfaces.products.StorageServices;
 
 @RestController
-@RequestMapping("/app/storage")
+@RequestMapping("/app/product/storage")
 public class StorageController {
 
 	@Autowired
