@@ -26,7 +26,6 @@
     ) engine=InnoDB;
 
     create table cart_item (
-        price float(53),
         quantity integer,
         cart_id bigint not null,
         id bigint not null auto_increment,
@@ -101,6 +100,7 @@
         id bigint not null auto_increment,
         brand varchar(255) not null,
         description varchar(255) not null,
+        image_url varchar(255) not null,
         model varchar(255) not null,
         primary key (id)
     ) engine=InnoDB;

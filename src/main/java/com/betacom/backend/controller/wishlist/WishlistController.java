@@ -2,11 +2,7 @@ package com.betacom.backend.controller.wishlist;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.betacom.backend.dto.wishlist.WishlistDTO;
 import com.betacom.backend.response.ResponseBase;
@@ -16,6 +12,7 @@ import com.betacom.backend.services.interfaces.wishlist.WishlistServices;
 
 @RestController
 @RequestMapping("app/product/wishlist")
+@CrossOrigin(origins = "*")
 public class WishlistController {
 
 	@Autowired

@@ -1,11 +1,7 @@
 package com.betacom.backend.controller.customer;
 
 import org.slf4j.Logger;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.betacom.backend.dto.customer.AddressDTO;
 import com.betacom.backend.dto.customer.CustomerDTO;
@@ -17,6 +13,7 @@ import com.betacom.backend.services.interfaces.customer.AddressServices;
 
 @RestController
 @RequestMapping(path="/app/address")
+@CrossOrigin(origins = "*")
 public class AddressController {
 
 

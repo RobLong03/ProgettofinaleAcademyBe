@@ -2,10 +2,7 @@ package com.betacom.backend.controller.cart;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.betacom.backend.request.cart.CartRequest;
 import com.betacom.backend.response.ResponseBase;
@@ -13,6 +10,7 @@ import com.betacom.backend.services.interfaces.cart.CartServices;
 
 @RestController
 @RequestMapping("/rest/cart")
+@CrossOrigin(origins = "*")
 public class CartController {
 
 	@Autowired

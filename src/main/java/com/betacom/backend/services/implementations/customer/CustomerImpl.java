@@ -8,6 +8,8 @@ import java.util.stream.Collectors;
 
 import com.betacom.backend.dto.SignInDTO;
 import com.betacom.backend.model.administrator.Administrator;
+import com.betacom.backend.model.cart.Cart;
+import com.betacom.backend.repositories.cart.ICartRepository;
 import com.betacom.backend.request.SignInRequest;
 import com.betacom.backend.services.PasswordService;
 import com.betacom.backend.utils.Roles;
@@ -41,6 +43,9 @@ public class CustomerImpl implements CustomerSevices {
 
     @Autowired
     private PasswordService passwordService;
+
+    @Autowired
+    private ICartRepository cartR;
 
     @Override
     public List<CustomerDTO> list() {
@@ -83,6 +88,13 @@ public class CustomerImpl implements CustomerSevices {
         Wishlist wis=new Wishlist();
         wis.setCustomer(customer);
         wishR.save(wis);
+
+        Cart cart = new Cart();
+        cart.setCustomer(customer);
+        cart.setTotalPrice(0d);
+        cartR.save(cart);
+
+
     }
 
     @Override
@@ -116,6 +128,11 @@ public class CustomerImpl implements CustomerSevices {
             throw new Exception("wishlist associata a customer con id non trovata");
            
         wishR.delete(w.get());
+
+        Optional<Cart> c=cartR.findByCustomer_Id(id);
+        if(c.isEmpty())
+            throw new Exception("Cart associata a customer con id non trovata");
+        cartR.delete(c.get());
         
         CustRep.deleteById(id);
     }

@@ -2,12 +2,7 @@ package com.betacom.backend.controller.products;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.betacom.backend.dto.products.CaseDTO;
 import com.betacom.backend.request.products.CaseRequest;
@@ -18,6 +13,7 @@ import com.betacom.backend.services.interfaces.products.CaseServices;
 
 @RestController
 @RequestMapping("/app/case")
+@CrossOrigin(origins = "*")
 public class CaseController {
 
 	@Autowired
