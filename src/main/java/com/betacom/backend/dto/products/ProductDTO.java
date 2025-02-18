@@ -19,6 +19,16 @@ public class ProductDTO { //ciao belliiiiiiii
 
     private Double price;
 
+    private String imageUrl;
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     public Double getPrice() {
         return price;
     }
@@ -71,15 +81,16 @@ public class ProductDTO { //ciao belliiiiiiii
     public ProductDTO() {
     }
 
-    public ProductDTO(String brand, String model, String description, Integer stock,Double price) {
+    public ProductDTO(String brand, String model, String description, Integer stock,Double price,String imageUrl) {
         this.brand = brand;
         this.model = model;
         this.description = description;
         this.stock = stock;
         this.price = price;
+        this.imageUrl = imageUrl;
     }
 
-    public ProductDTO(Long id,String brand, String model, String description, Integer stock,Double price) {
+    public ProductDTO(Long id,String brand, String model, String description, Integer stock,Double price,String imageUrl) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -87,6 +98,7 @@ public class ProductDTO { //ciao belliiiiiiii
         //commento
         this.stock = stock;
         this.price = price;
+        this.imageUrl = imageUrl;
     }
 
     public ProductDTO(Product product) {
@@ -96,6 +108,7 @@ public class ProductDTO { //ciao belliiiiiiii
         this.description = product.getDescription();
         this.stock = product.getStock();
         this.price = product.getPrice();
+        this.imageUrl = product.getImageUrl();
     }
 
     @Override
@@ -107,6 +120,7 @@ public class ProductDTO { //ciao belliiiiiiii
                 ", descrizione='" + description + '\'' +
                 ", quantita=" + stock +
                 ", price=" + price +
+                ", imageUrl='" + imageUrl + '\'' +
                 '}';
     }
 

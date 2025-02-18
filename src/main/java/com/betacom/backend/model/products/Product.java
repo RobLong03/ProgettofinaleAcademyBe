@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Table;
+import org.springframework.beans.factory.annotation.Value;
 
 @Entity
 @Table(name = "product")
@@ -35,7 +36,17 @@ public class Product {
 	@Column(nullable=false)
 	private Double price;
 
-	
+	@Column(nullable=false)
+	private String imageUrl = "https://i.ibb.co/dJkZ9BRK/products.jpg";
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -105,7 +116,7 @@ public class Product {
 	}
 
 	
-	public Product(Long id ,String brand, String model, String description, Integer stock,Double price) {
+	public Product(Long id ,String brand, String model, String description, Integer stock,Double price,String imageUrl) {
 		super();
 		this.id=id;
 		this.brand = brand;
@@ -113,15 +124,17 @@ public class Product {
 		this.description = description;
 		this.stock = stock;
 		this.price=price;
+		this.imageUrl=imageUrl;
 		
 	}
-	public Product(String brand, String model, String description, Integer stock,Double price) {
+	public Product(String brand, String model, String description, Integer stock,Double price,String imageUrl) {
 		super();
 		this.brand = brand;
 		this.model = model;
 		this.description = description;
 		this.stock = stock;
 		this.price=price;
+		this.imageUrl=imageUrl;
 		}
 
 	public Product(ProductRequest req) {
@@ -130,6 +143,7 @@ public class Product {
 		this.description = req.getDescription();
 		this.stock = req.getStock();
 		this.price=req.getPrice();
+		this.imageUrl=req.getImageUrl();
 		if (req.getId() != null)
 			this.id = req.getId();
 
@@ -138,7 +152,7 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product {id=" + id + ", brand=" + brand + ", model=" + model + ", description=" + description
-				+ ", stock=" + stock + ", price=" + price + "}";
+				+ ", stock=" + stock + ", price=" + price + ", imageUrl=" + imageUrl + "}";
 	}
 
 	

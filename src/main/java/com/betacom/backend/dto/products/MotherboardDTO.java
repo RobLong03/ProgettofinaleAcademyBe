@@ -11,13 +11,13 @@ public class MotherboardDTO extends ProductDTO {
 		super();
 	}
 
-	public MotherboardDTO(Long id, String brand, String model, String description, Integer stock,Double price, String cpuCompatibility) {
-		super(id, brand, model, description, stock, price);
+	public MotherboardDTO(Long id, String brand, String model, String description, Integer stock,Double price, String cpuCompatibility,String imageUrl) {
+		super(id, brand, model, description, stock, price, imageUrl);
 		this.cpuCompatibility = cpuCompatibility;
 	}
 	
-	public MotherboardDTO(String brand, String model, String description, Integer stock,Double price, String cpuCompatibility) {
-		super(brand, model, description, stock,price);
+	public MotherboardDTO(String brand, String model, String description, Integer stock,Double price, String cpuCompatibility,String imageUrl) {
+		super(brand, model, description, stock,price, imageUrl);
 		this.cpuCompatibility = cpuCompatibility;
 	}
 	

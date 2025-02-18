@@ -20,15 +20,15 @@ public class Cpu extends Product {
     }
 
     //with id
-    public Cpu(Long id, String brand, String model, String description, Integer stock,Double price, Double ghz, Integer core) {
-        super(id, brand, model, description, stock,price);
+    public Cpu(Long id, String brand, String model, String description, Integer stock,Double price, Double ghz, Integer core,String imageUrl) {
+        super(id, brand, model, description, stock,price, imageUrl);
         this.core = core;
         this.ghz = ghz;
     }
 
     //no id
-    public Cpu(String brand, String model, String description, Integer stock,Double price, Double ghz, Integer core) {
-        super(brand, model, description, stock,price);
+    public Cpu(String brand, String model, String description, Integer stock,Double price, Double ghz, Integer core, String imageUrl) {
+        super(brand, model, description, stock,price, imageUrl);
         this.ghz = ghz;
         this.core = core;
     }

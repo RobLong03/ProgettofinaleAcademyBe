@@ -24,12 +24,12 @@ public class PsuRequest extends ProductRequest{
 		super();
 	}
 
-	public PsuRequest(String brand, String model, String description,Double price, Integer stock,Integer watt) {
-		super(brand, model, description, stock,price);
+	public PsuRequest(String brand, String model, String description,Double price, Integer stock,Integer watt, String imageUrl) {
+		super(brand, model, description, stock,price, imageUrl);
 		this.watt = watt;
 	}
-	public PsuRequest(Long id, String brand, String model, String description,Double price, Integer stock ,Integer watt) {
-		super(id,brand,model,description,stock , price);
+	public PsuRequest(Long id, String brand, String model, String description,Double price, Integer stock ,Integer watt, String imageUrl) {
+		super(id,brand,model,description,stock , price, imageUrl);
 		this.watt = watt;
 	}
 

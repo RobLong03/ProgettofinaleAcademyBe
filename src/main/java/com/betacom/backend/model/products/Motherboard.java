@@ -18,13 +18,13 @@ public class Motherboard extends Product {
 		super();
 	}
 	
-	public Motherboard(Long id, String brand, String model, String description, Integer stock,Double price, String cpuCompatibility) {
-		super(id, brand, model, description, stock,price);
+	public Motherboard(Long id, String brand, String model, String description, Integer stock,Double price, String cpuCompatibility, String imageUrl) {
+		super(id, brand, model, description, stock,price , imageUrl);
 		this.cpuCompatibility = cpuCompatibility;
 	}
 
-	public Motherboard(String brand, String model, String description, Integer stock,Double price,  String cpuCompatibility) {
-		super(brand, model, description, stock,price);
+	public Motherboard(String brand, String model, String description, Integer stock,Double price,  String cpuCompatibility, String imageUrl) {
+		super(brand, model, description, stock,price, imageUrl);
 		this.cpuCompatibility = cpuCompatibility;
 	}
 	

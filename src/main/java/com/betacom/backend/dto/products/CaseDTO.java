@@ -7,8 +7,8 @@ public class CaseDTO extends ProductDTO{
 	private String size;
 	private ColorDTO color;
 	
-	public CaseDTO(Long id, String brand, String model, String description, Integer stock,Double price, String size, ColorDTO color) {
-		super(id, brand, model, description, stock, price);
+	public CaseDTO(Long id, String brand, String model, String description, Integer stock,Double price, String size, ColorDTO color, String imageUrl) {
+		super(id, brand, model, description, stock, price, imageUrl);
 		this.size = size;
 		this.color = color;
 	}
@@ -24,6 +24,7 @@ public class CaseDTO extends ProductDTO{
 	}
 	
 	public CaseDTO(Cases caseObj) {
+		super(caseObj);
 		this.size = caseObj.getSize().toString();
 		this.color = new ColorDTO(caseObj.getColor().getId(), caseObj.getColor().getColor());
 	}

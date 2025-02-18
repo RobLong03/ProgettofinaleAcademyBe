@@ -8,8 +8,8 @@ public class CpuDTO extends ProductDTO {
 
     public CpuDTO() {}
 
-    public CpuDTO(Long id, String brand, String model, String description, Integer stock, Double price, Integer core, Double ghz) {
-        super(id, brand, model, description, stock, price);
+    public CpuDTO(Long id, String brand, String model, String description, Integer stock, Double price, Integer core, Double ghz, String imageUrl) {
+        super(id, brand, model, description, stock, price, imageUrl);
         this.core = core;
         this.ghz = ghz;
     }
