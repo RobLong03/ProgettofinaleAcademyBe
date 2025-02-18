@@ -46,7 +46,7 @@ public class OrderItem {
         this.product = cartItem.getProduct();
         this.order = order;
         this.quantity = cartItem.getQuantity();
-        this.unitPrice = cartItem.getPrice();
+        this.unitPrice = cartItem.getProduct().getPrice();
     }
 
 

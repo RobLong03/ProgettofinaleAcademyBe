@@ -6,7 +6,6 @@ public class CartItemRequest {
 	private Long productId;
 	private Long cartId;
 	private Integer quantity;
-	private Double price;
 
 	public Long getId() {
 		return id;
@@ -32,30 +31,22 @@ public class CartItemRequest {
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
-	public Double getPrice() {
-		return price;
-	}
-	public void setPrice(Double price) {
-		this.price = price;
-	}
 
-	public CartItemRequest(Long id, Long productId, Long cartId, Integer quantity, Double price) {
+	public CartItemRequest(Long id, Long productId, Long cartId, Integer quantity) {
 		super();
 		this.id = id;
 		this.productId = productId;
 		this.cartId = cartId;
 		this.quantity = quantity;
-		this.price = price;
 	}
 	public CartItemRequest() {
 		super();
 	}
 
-	public CartItemRequest(Long productId, Long cartId, Integer quantity, Double price) {
+	public CartItemRequest(Long productId, Long cartId, Integer quantity) {
 		super();
 		this.productId = productId;
 		this.cartId = cartId;
 		this.quantity = quantity;
-		this.price = price;
 	}
 }

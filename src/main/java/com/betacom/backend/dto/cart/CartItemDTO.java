@@ -59,7 +59,7 @@ public class CartItemDTO {
 		this.productId = cartItem.getProduct().getId();
 		this.cartId = cartItem.getCart().getId();
 		this.quantity = cartItem.getQuantity();
-		this.price = cartItem.getPrice();
+		this.price = cartItem.getProduct().getPrice();
 	}
 	public CartItemDTO() {
 		super();

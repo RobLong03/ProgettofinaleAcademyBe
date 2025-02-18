@@ -123,7 +123,7 @@ public class CartImplTest {
 	    CartDTO cart = cartS.get(1L);
 
 	    // Creiamo un prodotto e lo aggiungiamo al carrello
-	    CartItemRequest cir = new CartItemRequest(1L, 1L, 1L, 1, 20.0); // cartId aggiunto
+	    CartItemRequest cir = new CartItemRequest(1L, 1L, 1L, 1); // cartId aggiunto
 	    ciS.create(cir);
 
 	    // Verifichiamo che l'elemento sia stato aggiunto
@@ -137,7 +137,7 @@ public class CartImplTest {
 	              .isInstanceOf(Exception.class);
 
 	    // Ora testiamo la pulizia completa del carrello
-	    CartItemRequest cir2 = new CartItemRequest(null, cart.getId(), 1L, 1, 20.0); // cartId aggiunto
+	    CartItemRequest cir2 = new CartItemRequest(null, cart.getId(), 1L, 1); // cartId aggiunto
 	    ciS.create(cir2);
 	    CartRequest creq = new CartRequest();
 	    creq.setId(1L);

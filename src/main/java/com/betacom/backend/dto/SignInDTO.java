@@ -8,10 +8,6 @@ public class SignInDTO {
 
     public SignInDTO() {}
 
-    public SignInDTO(Boolean logged, String role) {
-        this.logged = logged;
-        this.role = role;
-    }
 
     public Boolean getLogged() {
         return logged;
@@ -23,14 +19,6 @@ public class SignInDTO {
 
     public String getRole() {
         return role;
-    }
-
-    @Override
-    public String toString() {
-        return "AmministratoreSIgnInDTO{" +
-                "logged=" + logged +
-                ", role=" + role +
-                '}';
     }
 
     public void setRole(String role) {

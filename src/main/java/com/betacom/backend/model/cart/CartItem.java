@@ -27,7 +27,6 @@ public class CartItem {
     private Product product;
 	
 	private Integer quantity;
-	private Double price;
 	
 	public Long getId() {
 		return id;
@@ -54,35 +53,28 @@ public class CartItem {
 	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
-	public Double getPrice() {
-		return price;
-	}
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-	public CartItem(Long id, Cart cart, Product product, Integer quantity, Double price) {
+
+	public CartItem(Long id, Cart cart, Product product, Integer quantity) {
 		super();
 		this.id = id;
 		this.cart = cart;
 		this.product = product;
 		this.quantity = quantity;
-		this.price = price;
 	}
 	public CartItem() {
 		super();
 	}
-	public CartItem(Cart cart, Product product, Integer quantity, Double price) {
+	public CartItem(Cart cart, Product product, Integer quantity) {
 		super();
 		this.cart = cart;
 		this.product = product;
 		this.quantity = quantity;
-		this.price = price;
 	}
 	
 	@Override
 	public String toString() {
 		return "CartItem [id=" + id + ", cart=" + cart + ", quantity=" + quantity
-				+ ", price=" + price + "]";
+				 + "]";
 	}
 	public CartItem(Long id) {
 		super();

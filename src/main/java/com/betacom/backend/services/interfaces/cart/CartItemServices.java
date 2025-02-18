@@ -17,6 +17,10 @@ public interface CartItemServices {
 
     void update(CartItemRequest req) throws Exception;
 
+    void add(CartItemRequest req) throws Exception;
+
+    void remove(CartItemRequest req) throws Exception;
+
     void delete(Long id) throws Exception ;
     
 }

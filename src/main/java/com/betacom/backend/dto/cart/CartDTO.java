@@ -48,7 +48,7 @@ public class CartDTO {
 	                    c.getProduct().getId(),
 	                    c.getCart().getId(),
 	                    c.getQuantity(),
-	                    c.getPrice()
+	                    c.getProduct().getPrice()
 	            ))
 	            .collect(Collectors.toList());
 		this.customer = new CustomerDTO(cart.getCustomer());

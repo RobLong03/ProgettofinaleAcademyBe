@@ -1,6 +1,7 @@
 package com.betacom.backend.services.implementations.order;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -41,7 +42,7 @@ public class OrderItemimpl implements OrderItemsServices {
 
 	@Autowired
 	Logger log;
-	
+
 	@Override
 	public List<OrderItemDTO> listByOrder(Long orderId) throws Exception {
 		log.debug("OII.listByOrder: list req received");
@@ -97,12 +98,22 @@ public class OrderItemimpl implements OrderItemsServices {
 		}
 		Product product = productOptional.get();
 
+		if(itemReq.getUnitPrice() == null){
+			itemReq.setUnitPrice(product.getPrice());
+		}
+
+		if(itemReq.getQuantity() == null){
+			itemReq.setQuantity(1);
+		}
+
 		//controllo sullo stock se ce ne sono abbastanza, lo faccio qua perche in teoria dal salvataggio del ordine sono gia stati tolti i stock
 		log.debug("OII.addItemToOrder: checking stock");
 		if(!product.removeStock(itemReq.getQuantity()))
 			throw new Exception(msgS.getMessage("quantity-exceeds-stock-order-orderItems-add"));
 
 		List<OrderItem> orderItems = order.getOrderItems();
+
+
 
 		order.getOrderItems().stream()
 		.filter(item -> item.getProduct().getId().equals(product.getId()))
@@ -116,12 +127,13 @@ public class OrderItemimpl implements OrderItemsServices {
 						)
 				);
 		log.debug("OII.addItemToOrder: finalizing....");
+		order.setTotalPrice(order.getTotalPrice() + (itemReq.getQuantity()*itemReq.getUnitPrice()));
 		orderRep.save(order);
 		prodRep.save(product);
 		log.debug("OII.addItemToOrder: saved order");
 
 	}
-	
+
 	 @Override
 	public void removeItemFromOrder(OrderItemRequest itemReq) throws Exception{
 		log.debug("OII.removeItemFromOrder: remove req received");
@@ -144,28 +156,30 @@ public class OrderItemimpl implements OrderItemsServices {
 			throw new Exception(msgS.getMessage("product-not-found-for-orderItem-remove"));
 	    }
 	    Product product = productOptional.get();
-	
+
 	    List<OrderItem> orderItems = order.getOrderItems();
-	
-	    boolean foundItem = false;
+
+		if(itemReq.getQuantity() == null){
+			itemReq.setQuantity(1);
+		}
 
 		 product.addStock(itemReq.getQuantity());
 
 		 log.debug("OII.removeItemFromOrder: updating order and stock");
-	    for(OrderItem item : orderItems){
-	
-	        if(item.getProduct().getId().equals(product.getId())){
-	            if(item.getQuantity() > itemReq.getQuantity()){
-	                item.setQuantity(item.getQuantity() - itemReq.getQuantity());
-	            }else{
-	                orderItems.remove(item);
-	            }
-	            foundItem = true;
-	            break;
-	        }
-	    }
-	    if(!foundItem)
-			throw new Exception(msgS.getMessage("product-not-found-in-orderItem-remove"));
+
+		 OrderItem updateMe = orderItems.stream().filter(
+				 o->
+                         Objects.equals(o.getProduct().getId(), product.getId())).findFirst().orElse(null);
+
+		 if(updateMe == null)
+			 throw new Exception(msgS.getMessage("product-not-found-in-orderItem-remove"));
+
+
+		if(updateMe.getQuantity() > itemReq.getQuantity()){
+			updateMe.setQuantity(updateMe.getQuantity() - itemReq.getQuantity());
+		}else{
+			orderItems.remove(updateMe);
+		}
 
 		log.debug("OII.removeItemFromOrder: updating order and stock");
 	    orderRep.save(order);
@@ -193,7 +207,7 @@ public class OrderItemimpl implements OrderItemsServices {
 		orderItemRep.deleteById(id);
 		prodRep.save(prod);
 		log.debug("OII.delete: deleted order");
-		
+
 	}
 
 }

@@ -2,6 +2,7 @@ package com.betacom.backend.daniel;
 
 import com.betacom.backend.controller.products.ProductController;
 import com.betacom.backend.dto.products.ProductDTO;
+import com.betacom.backend.model.products.Product;
 import com.betacom.backend.request.products.ProductRequest;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer;
@@ -67,7 +68,7 @@ public class testProduct {
         preq.setStock(15);
         Assertions.assertThat(prodC.create(preq).getRc()).isEqualTo(true);
 
-        preq = new ProductRequest("aa","bb","cc",14,2.2);
+        preq = new ProductRequest(null,"aa","bb","cc",14,2.2);
         Assertions.assertThat(prodC.create(preq).getRc()).isEqualTo(true);
 
     }
@@ -126,6 +127,46 @@ public class testProduct {
 
         Assertions.assertThat(prodC.list().getDati().size()).isEqualTo(1);
     }
-
+    
+    @Test
+    @Order(6)
+    public void testVariModel() {
+    	Product p1 = new Product();
+    	p1.setId(15000L);
+    	p1.setBrand("test metodi del model");
+    	p1.setModel("test metodi del model");
+    	p1.setDescription("test metodi del model");
+    	p1.setStock(15);
+    	p1.addStock(15);
+    	p1.removeStock(29);
+    	p1.removeStock(15); //dovrebbe rimanere a 1
+    	Assertions.assertThat(p1.getStock()).isEqualTo(1);
+    	p1.setPrice(15000.25);
+    	
+    	String ciao = p1.toString();
+    	
+    	p1 = new Product(1L);
+    	p1 = new Product("aa","bb","cc",14,2.2);
+    	p1 = new Product(15L,"aa","bb","cc",14,2.2);
+    	
+    	
+    }
+    
+    @Test
+    @Order(7)
+    public void testVariDTO() {
+    	ProductDTO dto = new ProductDTO("test", "test", "test", 25, 44.1);
+    	dto = new ProductDTO(15L,"test", "test", "test", 25, 44.1);
+    	dto = new ProductDTO();
+    	
+    	dto.setId(15L);
+    	dto.setBrand("test");
+    	dto.setDescription("test");
+    	dto.setModel("test");
+    	dto.setPrice(150.32);
+    	dto.setStock(15);
+    	
+    	dto.toString();
+    }
 
 }

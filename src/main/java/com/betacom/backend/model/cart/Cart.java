@@ -94,24 +94,24 @@ public class Cart {
 		super();
 	}
 
-	public Cart(List<CartItem> items, Double totalPrice) {
-		super();
-		this.items = items;
-		this.totalPrice = totalPrice;
-	}
+//	public Cart(List<CartItem> items, Double totalPrice) {
+//		super();
+//		this.items = items;
+//		this.totalPrice = totalPrice;
+//	}
 
-	public Cart(List<CartItem> items) {
-		super();
-		this.items = items;
-		this.totalPrice = 0.0;
-		for(CartItem item : items)
-			this.totalPrice += item.getPrice() * item.getQuantity();
-	}
+//	public Cart(List<CartItem> items) {
+//		super();
+//		this.items = items;
+//		this.totalPrice = 0.0;
+//		for(CartItem item : items)
+//			this.totalPrice += item.getPrice() * item.getQuantity();
+//	}
 
 	public void updateTotalPrice() {
 		this.totalPrice = 0.0;
 		for(CartItem item : items)
-			this.totalPrice += item.getPrice() * item.getQuantity();
+			this.totalPrice += item.getProduct().getPrice() * item.getQuantity();
 	}
 
 	@Override

@@ -10,29 +10,24 @@ public class AdministratorDTO {
 
     String email;
 
-    String password;
-
     public AdministratorDTO() {
     }
 
-    public AdministratorDTO(Long id, String username, String email, String password) {
+    public AdministratorDTO(Long id, String username, String email) {
         this.id = id;
         this.username = username;
         this.email = email;
-        this.password = password;
     }
 
-    public AdministratorDTO(String username, String email, String password) {
+    public AdministratorDTO(String username, String email) {
         this.username = username;
         this.email = email;
-        this.password = password;
     }
 
     public AdministratorDTO(Administrator adm) {
         this.id=adm.getId();
         this.username = adm.getUsername();
         this.email = adm.getEmail();
-        this.password = adm.getPassword();
     }
 
     public Long getId() {
@@ -59,21 +54,12 @@ public class AdministratorDTO {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     @Override
     public String toString() {
         return "AdministratorDTO{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
                 '}';
     }
 

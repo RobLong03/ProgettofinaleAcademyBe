@@ -1,7 +1,7 @@
 package com.betacom.backend.request;
 
 public class SignInRequest {
-    private String username;
+    private String username; //effettivamente username per admin, per cliente sara l'email
     private String pwd;
 
 
