@@ -82,17 +82,4 @@ public class StorageController {
 		return r;
 	}
 	
-	@GetMapping("/delete")
-	public ResponseBase delete(@RequestParam(required = true) Long id){
-		log.debug("Delete storage with id: " + id);
-		ResponseBase r = new ResponseBase();
-		try {
-			stoS.delete(id);
-			r.setRc(true);
-		} catch (Exception e) {
-			r.setRc(false);
-			r.setMsg(e.getMessage());
-		}
-		return r;
-	}
 }
