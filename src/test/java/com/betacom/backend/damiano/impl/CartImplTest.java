@@ -1,6 +1,5 @@
 package com.betacom.backend.damiano.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.assertj.core.api.Assertions;
@@ -17,9 +16,6 @@ import com.betacom.backend.controller.customer.CustomerController;
 import com.betacom.backend.controller.products.ProductController;
 import com.betacom.backend.dto.cart.CartDTO;
 import com.betacom.backend.dto.cart.CartItemDTO;
-import com.betacom.backend.model.cart.Cart;
-import com.betacom.backend.model.cart.CartItem;
-import com.betacom.backend.model.products.Product;
 import com.betacom.backend.request.cart.CartItemRequest;
 import com.betacom.backend.request.cart.CartRequest;
 import com.betacom.backend.request.customer.CustomerRequest;
