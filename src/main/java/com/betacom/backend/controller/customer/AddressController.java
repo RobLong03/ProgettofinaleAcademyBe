@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.betacom.backend.dto.customer.AddressDTO;
-import com.betacom.backend.dto.customer.CustomerDTO;
 import com.betacom.backend.request.customer.AddressRequest;
 import com.betacom.backend.response.ResponseBase;
 import com.betacom.backend.response.ResponseList;
@@ -48,7 +47,7 @@ public class AddressController {
 		
 	}
 	
-	@PostMapping("/delete")
+	@GetMapping("/delete")
 	public ResponseBase delete(Long id ) {
 
 		log.debug("delete  :" + id);

@@ -12,7 +12,7 @@ import com.betacom.backend.response.ResponseBase;
 import com.betacom.backend.services.interfaces.cart.CartServices;
 
 @RestController
-@RequestMapping("/rest/cart")
+@RequestMapping("/app/cart")
 public class CartController {
 
 	@Autowired
