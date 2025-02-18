@@ -5,12 +5,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.betacom.backend.dto.products.GpuDTO;
 import com.betacom.backend.request.products.GpuRequest;
 import com.betacom.backend.response.ResponseBase;
 import com.betacom.backend.response.ResponseList;
+import com.betacom.backend.response.ResponseObject;
 import com.betacom.backend.services.interfaces.products.GpuServices;
 
 @RestController
@@ -76,7 +78,23 @@ public class GpuController {
 			return r;
 		}
 
-		
+		 @GetMapping("/get")
+		    public ResponseObject<GpuDTO> get(@RequestParam Long id ){
+		        log.debug("CC: Gpu get request received for id:"+id);
+		        ResponseObject<GpuDTO> r = new  ResponseObject<GpuDTO>();
+
+		        try{
+		            r.setDati(gpuS.get(id));
+		            r.setRc(true);
+		            log.debug("CC: Cpu get done for id:"+id);
+		        }catch(Exception e){
+		            r.setRc(false);
+		            r.setMsg(e.getMessage());
+		            log.debug("CC: Error in cpu get for id:"+id);
+		        }
+
+		        return r;
+		    }
 		
 	
 }
