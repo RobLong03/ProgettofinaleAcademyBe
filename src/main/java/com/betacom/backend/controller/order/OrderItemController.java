@@ -86,7 +86,7 @@ public class OrderItemController {
         return r;
     }
 
-    @GetMapping("/delete")
+    @PostMapping("/delete")
     public ResponseBase delete(@RequestParam Long id ){
         ResponseBase r = new  ResponseBase();
 

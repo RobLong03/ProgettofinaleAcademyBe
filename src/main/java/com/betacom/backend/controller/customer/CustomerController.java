@@ -49,7 +49,7 @@ public class CustomerController {
 		
 	}
 	
-	@GetMapping("/delete")
+	@PostMapping("/delete")
 	public ResponseBase delete(Long id ) {
 
 		log.debug("delete  :" + id);

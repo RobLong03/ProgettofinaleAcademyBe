@@ -82,7 +82,7 @@ public class WishlistItemController {
 		return res;
 	}
 	
-	@GetMapping("/delete")
+	@PostMapping("/delete")
 	public ResponseBase delete(@RequestParam Long id) {
 		
 		log.debug("delete");

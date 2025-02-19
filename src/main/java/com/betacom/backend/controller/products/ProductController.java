@@ -94,7 +94,7 @@ public class ProductController {
         return r;
     }
 
-    @GetMapping("/delete")
+    @PostMapping("/delete")
     public ResponseBase delete(@RequestParam Long id ){
         log.debug("PC: Product delete request received for id:"+id);
         ResponseBase r = new  ResponseBase();

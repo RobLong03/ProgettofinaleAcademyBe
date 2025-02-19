@@ -47,7 +47,7 @@ public class AddressController {
 		
 	}
 	
-	@GetMapping("/delete")
+	@PostMapping("/delete")
 	public ResponseBase delete(Long id ) {
 
 		log.debug("delete  :" + id);

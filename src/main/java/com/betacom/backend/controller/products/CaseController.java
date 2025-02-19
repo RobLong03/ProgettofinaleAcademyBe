@@ -82,17 +82,4 @@ public class CaseController {
 		return r;
 	}
 	
-	@GetMapping("/delete")
-	public ResponseBase delete(@RequestParam(required = true) Long id){
-		log.debug("Delete case with id: " + id);
-		ResponseBase r = new ResponseBase();
-		try {
-			caseS.delete(id);
-			r.setRc(true);
-		} catch (Exception e) {
-			r.setRc(false);
-			r.setMsg(e.getMessage());
-		}
-		return r;
-	}
 }

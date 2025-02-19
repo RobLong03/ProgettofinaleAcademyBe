@@ -95,7 +95,7 @@ public class AdministratorController {
         return r;
     }
 
-    @GetMapping("/delete")
+    @PostMapping("/delete")
     public ResponseBase delete(@RequestParam Long id ){
         log.debug("AC: Administrator delete request received for id:"+id);
         ResponseBase r = new  ResponseBase();

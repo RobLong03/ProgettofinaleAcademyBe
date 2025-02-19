@@ -104,25 +104,4 @@ public class MotherboardController {
 		return res;
 	}
 	
-	@PostMapping("/delete")
-	public ResponseBase delete(@RequestParam Long id) {
-		
-		log.debug("delete");
-		
-		ResponseBase res=new ResponseBase();
-		res.setRc(true);
-		
-		try {
-			
-			motherbS.delete(id);
-		} catch (Exception e) {
-			
-			log.error(e.getMessage());
-			
-			res.setRc(false);
-			res.setMsg(e.getMessage());
-		}
-		
-		return res;
-	}
 }
