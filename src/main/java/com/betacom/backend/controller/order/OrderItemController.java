@@ -87,11 +87,11 @@ public class OrderItemController {
     }
 
     @PostMapping("/delete")
-    public ResponseBase delete(@RequestParam Long id ){
+    public ResponseBase delete(@RequestBody OrderItemRequest req ){
         ResponseBase r = new  ResponseBase();
 
         try{
-            orderItemServices.delete(id);
+            orderItemServices.delete(req.getId());
         }catch(Exception e){
             r.setRc(false);
             r.setMsg(e.getMessage());

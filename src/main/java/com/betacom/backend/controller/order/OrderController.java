@@ -99,11 +99,11 @@ public class OrderController {
     }
 
     @PostMapping("/delete")
-    public ResponseBase delete(@RequestParam Long id ){
+    public ResponseBase delete(@RequestBody(required = true) OrderRequest req){
         ResponseBase r = new  ResponseBase();
 
         try{
-            orderServices.delete(id);
+            orderServices.delete(req.getId());
         }catch(Exception e){
             r.setRc(false);
             r.setMsg(e.getMessage());

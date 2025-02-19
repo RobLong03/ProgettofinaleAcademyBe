@@ -50,13 +50,13 @@ public class CustomerController {
 	}
 	
 	@PostMapping("/delete")
-	public ResponseBase delete(Long id ) {
+	public ResponseBase delete(@RequestBody(required = true) CustomerRequest req) {
 
-		log.debug("delete  :" + id);
+		log.debug("delete  :" + req.getId());
 		ResponseBase r = new ResponseBase();
 		r.setRc(true);
 		try {
-			custS.delete(id);
+			custS.delete(req.getId());
 		} catch (Exception e) {
 			r.setMsg(e.getMessage());
 			r.setRc(false);

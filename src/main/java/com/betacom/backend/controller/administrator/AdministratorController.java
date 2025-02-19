@@ -96,18 +96,18 @@ public class AdministratorController {
     }
 
     @PostMapping("/delete")
-    public ResponseBase delete(@RequestParam Long id ){
-        log.debug("AC: Administrator delete request received for id:"+id);
+    public ResponseBase delete(@RequestBody AdministratorRequest req ){
+        log.debug("AC: Administrator delete request received for id:"+ req.getId());
         ResponseBase r = new  ResponseBase();
 
         try{
-            administratorServices.delete(id);
+            administratorServices.delete(req.getId());
             r.setRc(true);
-            log.debug("AC: Administrator deleted for id:"+id);
+            log.debug("AC: Administrator deleted for id:"+ req.getId());
         }catch(Exception e){
             r.setRc(false);
             r.setMsg(e.getMessage());
-            log.debug("AC: Error in administrator delete for id:"+id);
+            log.debug("AC: Error in administrator delete for id:"+ req.getId());
         }
 
         return r;

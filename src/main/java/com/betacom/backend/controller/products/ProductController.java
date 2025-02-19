@@ -95,18 +95,18 @@ public class ProductController {
     }
 
     @PostMapping("/delete")
-    public ResponseBase delete(@RequestParam Long id ){
-        log.debug("PC: Product delete request received for id:"+id);
+    public ResponseBase delete(@RequestBody ProductRequest req){
+        log.debug("PC: Product delete request received for id:"+ req.getId());
         ResponseBase r = new  ResponseBase();
 
         try{
-            productServices.delete(id);
+            productServices.delete(req.getId());
             r.setRc(true);
-            log.debug("PC: Product deleted for id:"+id);
+            log.debug("PC: Product deleted for id:"+ req.getId());
         }catch(Exception e){
             r.setRc(false);
             r.setMsg(e.getMessage());
-            log.debug("PC: Error in product delete for id:"+id);
+            log.debug("PC: Error in product delete for id:"+ req.getId());
         }
 
         return r;

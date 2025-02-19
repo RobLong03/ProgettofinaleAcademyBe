@@ -48,13 +48,13 @@ public class AddressController {
 	}
 	
 	@PostMapping("/delete")
-	public ResponseBase delete(Long id ) {
+	public ResponseBase delete(@RequestBody(required = true) AddressRequest req) {
 
-		log.debug("delete  :" + id);
+		log.debug("delete  :" + req.getId());
 		ResponseBase r = new ResponseBase();
 		r.setRc(true);
 		try {
-			addrS.delete(id);
+			addrS.delete(req.getId());
 		} catch (Exception e) {
 			r.setMsg(e.getMessage());
 			r.setRc(false);

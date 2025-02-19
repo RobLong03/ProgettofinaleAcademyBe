@@ -83,7 +83,7 @@ public class WishlistItemController {
 	}
 	
 	@PostMapping("/delete")
-	public ResponseBase delete(@RequestParam Long id) {
+	public ResponseBase delete(@RequestBody WishlistItemRequest req) {
 		
 		log.debug("delete");
 		
@@ -92,7 +92,7 @@ public class WishlistItemController {
 		
 		try {
 			
-			wishlIS.delete(id);
+			wishlIS.delete(req.getId());
 		} catch (Exception e) {
 			
 			log.error(e.getMessage());
