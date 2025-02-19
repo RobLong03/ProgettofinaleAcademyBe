@@ -157,6 +157,9 @@
     alter table wishlist 
        add constraint UKi62hn96gwmmykqrbf8j2heo6b unique (customer_id);
 
+    alter table wishlist_item 
+       add constraint UKn6hlqrjkldp8nvqe6t90k2sxm unique (product_id);
+
     alter table address 
        add constraint FK93c3js0e22ll1xlu21nvrhqgg 
        foreign key (customer_id) 

@@ -19,7 +19,7 @@ public class WishlistItem {
 	private Long id;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn
+	@JoinColumn(unique=true)
 	private Product product;
 	
 	@ManyToOne
