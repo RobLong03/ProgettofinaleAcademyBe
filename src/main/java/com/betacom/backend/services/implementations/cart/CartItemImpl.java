@@ -36,8 +36,8 @@ public class CartItemImpl implements CartItemServices{
 	IProductRepository prodR;
 
 	@Override
-	public List<CartItemDTO> list() {
-		List<CartItem> lCarIt = carItR.findAll();
+	public List<CartItemDTO> listByCart(Long cartId) {
+		List<CartItem> lCarIt = carItR.findByCartId(cartId);
 
 		return lCarIt.stream().map(c ->
 				new CartItemDTO(c)

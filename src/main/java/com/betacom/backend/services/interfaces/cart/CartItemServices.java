@@ -7,7 +7,7 @@ import com.betacom.backend.request.cart.CartItemRequest;
 
 public interface CartItemServices {
 
-	List<CartItemDTO> list();        //list per fare list di tutto
+	List<CartItemDTO> listByCart(Long cartId);        //list per fare list di tutto
 
 	CartItemDTO get(Long id) throws Exception;         //get per prendere con id,
 

@@ -4,8 +4,10 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.betacom.backend.dto.cart.CartItemDTO;
 import com.betacom.backend.request.cart.CartItemRequest;
 import com.betacom.backend.response.ResponseBase;
+import com.betacom.backend.response.ResponseList;
 import com.betacom.backend.services.interfaces.cart.CartItemServices;
 
 @RestController
@@ -71,6 +73,19 @@ public class CartItemController {
 		} catch (Exception e) {
 			r.setMsg(e.getMessage());
 			r.setRc(false);
+		}
+		return r;
+	}
+	
+	@GetMapping("/listByCart")
+	public ResponseList<CartItemDTO> listByCart(@RequestParam(required = true) Long id){
+		ResponseList<CartItemDTO> r = new ResponseList<CartItemDTO>();
+		r.setRc(true);
+		try {
+			carS.listByCart(id);
+		} catch (Exception e) {
+			r.setRc(false);
+			r.setMsg(e.getMessage());
 		}
 		return r;
 	}
