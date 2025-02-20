@@ -1,6 +1,7 @@
 package com.betacom.backend.controller.customer;
 
 import com.betacom.backend.dto.SignInDTO;
+import com.betacom.backend.dto.customer.CustomeridsDTO;
 import com.betacom.backend.request.SignInRequest;
 import org.slf4j.Logger;
 import org.springframework.web.bind.annotation.*;
@@ -106,6 +107,22 @@ public class CustomerController {
 	public SignInDTO signIn(@RequestBody SignInRequest req){
 		log.debug("SignIn Request");
 		return custS.signIn(req);
+	}
+
+	@PostMapping("/getCustomerids")
+	public ResponseObject<CustomeridsDTO> getCustomerids(@RequestBody CustomerRequest req) throws Exception {
+		log.debug("getCustomerids Request");
+		ResponseObject<CustomeridsDTO> r = new ResponseObject<>();
+
+		try{
+			r.setDati(custS.getCustomerIds(req.getEmail()));
+			r.setRc(true);
+		}catch(Exception e){
+			r.setMsg(e.getMessage());
+			r.setRc(false);
+		}
+
+		 return r;
 	}
 	
 	

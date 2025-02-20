@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.betacom.backend.dto.SignInDTO;
 import com.betacom.backend.dto.customer.CustomerDTO;
+import com.betacom.backend.dto.customer.CustomeridsDTO;
 import com.betacom.backend.request.SignInRequest;
 import com.betacom.backend.request.customer.CustomerRequest;
 
@@ -20,4 +21,6 @@ public interface CustomerSevices {
 	void delete(Long id) throws Exception;
 
     SignInDTO signIn(SignInRequest req);
+
+	CustomeridsDTO getCustomerIds(String email) throws Exception;
 }

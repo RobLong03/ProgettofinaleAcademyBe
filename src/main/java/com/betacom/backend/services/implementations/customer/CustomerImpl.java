@@ -7,11 +7,16 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import com.betacom.backend.dto.SignInDTO;
+import com.betacom.backend.dto.customer.CustomeridsDTO;
 import com.betacom.backend.model.cart.Cart;
+import com.betacom.backend.model.customer.Address;
+import com.betacom.backend.model.order.Order;
 import com.betacom.backend.repositories.cart.ICartRepository;
+import com.betacom.backend.repositories.order.IOrderRepository;
 import com.betacom.backend.request.SignInRequest;
 import com.betacom.backend.services.PasswordService;
 import com.betacom.backend.utils.Roles;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -45,6 +50,15 @@ public class CustomerImpl implements CustomerSevices {
 
     @Autowired
     private ICartRepository cartR;
+
+    @Autowired
+    private IOrderRepository  orderR;
+
+    @Autowired
+    private IAddressRepository  addressR;
+
+    @Autowired
+    Logger log;
 
     @Override
     public List<CustomerDTO> list() {
@@ -121,18 +135,30 @@ public class CustomerImpl implements CustomerSevices {
             throw new Exception(msgS.getMessage("missing-id-delete"));
         }
         
-        //delete wishlist for customer by id
+        //delete wishlist for customer by id when deleting a customer
         Optional<Wishlist> w=wishR.findByCustomer_Id(id);
-        if(w.isEmpty())
-            throw new Exception("wishlist associata a customer con id non trovata");
-           
-        wishR.delete(w.get());
+        w.ifPresent(wishlist -> wishR.delete(wishlist));
 
+        //deleting cart for the customer before deleting the customer
         Optional<Cart> c=cartR.findByCustomer_Id(id);
-        if(c.isEmpty())
-            throw new Exception("Cart associata a customer con id non trovata");
-        cartR.delete(c.get());
-        
+        c.ifPresent((cart) -> cartR.delete(cart));
+
+        Optional<Address> defAddressopt = addressR.findFirstByCustomer_id(0L);
+        Address defAddress = defAddressopt.orElse(null);
+
+        // moving the order of the customer to a default customer when deleting the customer
+        Customer defCustomer = CustRep.findById(0L).get();
+        List<Order> listOfOrders = orderR.findByCustomer_Id(id);
+        log.debug(listOfOrders.toString());
+        listOfOrders.forEach(order -> {
+                    log.debug("BEFORE"+ order.toString());
+                    order.setCustomer(defCustomer);
+                    order.setAddress(defAddress);
+                    log.debug("AFTER"+order.toString());
+                    orderR.save(order);
+                }
+        );
+
         CustRep.deleteById(id);
     }
     
@@ -185,6 +211,35 @@ public class CustomerImpl implements CustomerSevices {
 
 
         return resp;
+    }
+
+    @Override
+    public CustomeridsDTO getCustomerIds(String email) throws Exception {
+        if(email == null || email.isBlank()){
+            throw new Exception(msgS.getMessage("missing-email"));
+        }
+        CustomeridsDTO customeridsDTO = new CustomeridsDTO();
+
+        Customer customer = CustRep.findByEmail(email).orElse(null);
+        if(customer == null){
+            throw new Exception(msgS.getMessage("does-not-exist-customer"));
+        }
+
+        customeridsDTO.setCustomerId(customer.getId());
+
+        Wishlist wishlist = wishR.findByCustomer_Id(customer.getId()).orElse(null);
+        if(wishlist == null){
+            throw new Exception(msgS.getMessage("does-not-exist-wishlist"));
+        }
+        customeridsDTO.setWishListId(wishlist.getId());
+
+        Cart cart = cartR.findByCustomer_Id(customer.getId()).orElse(null);
+        if(cart == null){
+            throw new Exception(msgS.getMessage("does-not-exist-cart"));
+        }
+        customeridsDTO.setCartId(cart.getId());
+
+        return customeridsDTO;
     }
 
 
