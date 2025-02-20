@@ -15,7 +15,16 @@ public class ProductRequest {
     private Integer stock;
 
     private Double price;
-    
+
+	private String imageUrl;
+
+	public String getImageUrl() {
+		return imageUrl;
+	}
+
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
 
 	public Long getId() {
 		return id;
@@ -70,15 +79,16 @@ public class ProductRequest {
     public ProductRequest() {
     }
 
-    public ProductRequest(String brand, String model, String description, Integer stock,Double price) {
+    public ProductRequest(String brand, String model, String description, Integer stock,Double price, String imageUrl) {
         this.brand = brand;
         this.model = model;
         this.description = description;
         this.stock = stock;
         this.price=price;
+		this.imageUrl=imageUrl;
     }
 
-    public ProductRequest(Long id,String brand, String model, String description, Integer stock,Double price) {
+    public ProductRequest(Long id,String brand, String model, String description, Integer stock,Double price, String imageUrl) {
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -86,6 +96,7 @@ public class ProductRequest {
         //commento
         this.stock = stock;
         this.price=price;
+		this.imageUrl=imageUrl;
     }
 
     @Override
@@ -96,6 +107,8 @@ public class ProductRequest {
                 ", model='" + model + '\'' +
                 ", description='" + description + '\'' +
                 ", stock=" + stock +
+				", price=" + price +
+				", imageUrl='" + imageUrl + '\'' +
                 '}';
     }
 //    prodottoRequest

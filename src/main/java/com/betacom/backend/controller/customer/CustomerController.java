@@ -3,11 +3,7 @@ package com.betacom.backend.controller.customer;
 import com.betacom.backend.dto.SignInDTO;
 import com.betacom.backend.request.SignInRequest;
 import org.slf4j.Logger;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.betacom.backend.dto.customer.CustomerDTO;
 import com.betacom.backend.request.customer.CustomerRequest;
@@ -18,6 +14,7 @@ import com.betacom.backend.services.interfaces.customer.CustomerSevices;
 
 @RestController
 @RequestMapping(path="/app/customer")
+@CrossOrigin(origins = "*")
 public class CustomerController {
 
 	

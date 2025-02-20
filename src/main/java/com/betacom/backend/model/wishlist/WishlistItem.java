@@ -9,9 +9,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
-@Table(name="wishlist_item")
+@Table(
+		name="wishlist_item",
+		uniqueConstraints=@UniqueConstraint(columnNames= {"product_id", "wishlist_id"})) //constraint that makes the product-wishlist pair unique
 public class WishlistItem {
 
 	@Id
@@ -19,11 +22,11 @@ public class WishlistItem {
 	private Long id;
 	
 	@ManyToOne(fetch=FetchType.EAGER)
-	@JoinColumn
+	@JoinColumn(name="product_id")
 	private Product product;
 	
 	@ManyToOne
-	@JoinColumn
+	@JoinColumn(name="wishlist_id")
 	private Wishlist wishlist;
 	
 	public WishlistItem() {

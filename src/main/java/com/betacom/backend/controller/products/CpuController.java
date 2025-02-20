@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/app/product/cpu")
+@CrossOrigin(origins = "*")
 public class CpuController {
 
     @Autowired

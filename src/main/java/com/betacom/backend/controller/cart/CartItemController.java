@@ -2,17 +2,19 @@ package com.betacom.backend.controller.cart;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.betacom.backend.request.cart.CartItemRequest;
 import com.betacom.backend.response.ResponseBase;
 import com.betacom.backend.services.interfaces.cart.CartItemServices;
 
 @RestController
+<<<<<<< HEAD
 @RequestMapping("/app/cartItem")
+=======
+@RequestMapping("/rest/cartItem")
+@CrossOrigin(origins = "*")
+>>>>>>> branch 'development' of https://github.com/RobLong03/ProgettofinaleAcademyBe.git
 public class CartItemController {
 
 	@Autowired

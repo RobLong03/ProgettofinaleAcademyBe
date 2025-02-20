@@ -26,7 +26,6 @@
     ) engine=InnoDB;
 
     create table cart_item (
-        price float(53),
         quantity integer,
         cart_id bigint not null,
         id bigint not null auto_increment,
@@ -101,6 +100,7 @@
         id bigint not null auto_increment,
         brand varchar(255) not null,
         description varchar(255) not null,
+        image_url varchar(255) not null,
         model varchar(255) not null,
         primary key (id)
     ) engine=InnoDB;
@@ -156,6 +156,9 @@
 
     alter table wishlist 
        add constraint UKi62hn96gwmmykqrbf8j2heo6b unique (customer_id);
+
+    alter table wishlist_item 
+       add constraint UKpolca2lkiuhjp2pc9qkswu5og unique (product_id, wishlist_id);
 
     alter table address 
        add constraint FK93c3js0e22ll1xlu21nvrhqgg 

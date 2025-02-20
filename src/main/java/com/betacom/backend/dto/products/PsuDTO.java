@@ -24,8 +24,8 @@ public class PsuDTO extends ProductDTO{
 		super();
 	}
 
-	public PsuDTO(Long id,String brand, String model, String description, Integer stock,Double price,Integer watt) {
-		super(id, brand, model, description, stock, price);
+	public PsuDTO(Long id,String brand, String model, String description, Integer stock,Double price,Integer watt, String imageUrl) {
+		super(id, brand, model, description, stock, price, imageUrl);
 		this.watt = watt;
 	
 	}

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/app/admin/order/items")
+@CrossOrigin(origins = "*")
 public class OrderItemController {
 
 

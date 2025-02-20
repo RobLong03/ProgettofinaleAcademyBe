@@ -1,11 +1,7 @@
 package com.betacom.backend.controller.products;
 
 import org.slf4j.Logger;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.betacom.backend.dto.products.PsuDTO;
 import com.betacom.backend.request.products.PsuRequest;
@@ -15,6 +11,7 @@ import com.betacom.backend.services.interfaces.products.PsuServices;
 
 @RestController
 @RequestMapping(path="/app/product/psu")
+@CrossOrigin(origins = "*")
 public class PsuController {
 
 	private PsuServices psuS;

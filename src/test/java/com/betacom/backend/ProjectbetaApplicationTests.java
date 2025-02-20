@@ -1,7 +1,5 @@
 package com.betacom.backend;
 
-import com.betacom.backend.daniel.orderTestSetup;
-import com.betacom.backend.daniel.testOrder;
 import com.betacom.backend.megatest.FinalCustomersTest;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.suite.api.SelectClasses;
