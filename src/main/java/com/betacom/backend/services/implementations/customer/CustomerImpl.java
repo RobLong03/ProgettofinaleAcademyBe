@@ -7,7 +7,6 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import com.betacom.backend.dto.SignInDTO;
-import com.betacom.backend.model.administrator.Administrator;
 import com.betacom.backend.model.cart.Cart;
 import com.betacom.backend.repositories.cart.ICartRepository;
 import com.betacom.backend.request.SignInRequest;

@@ -12,12 +12,8 @@ import com.betacom.backend.response.ResponseObject;
 import com.betacom.backend.services.interfaces.products.CaseServices;
 
 @RestController
-<<<<<<< HEAD
 @RequestMapping("/app/product/case")
-=======
-@RequestMapping("/app/case")
 @CrossOrigin(origins = "*")
->>>>>>> branch 'development' of https://github.com/RobLong03/ProgettofinaleAcademyBe.git
 public class CaseController {
 
 	@Autowired

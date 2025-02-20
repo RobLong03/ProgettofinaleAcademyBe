@@ -9,12 +9,8 @@ import com.betacom.backend.response.ResponseBase;
 import com.betacom.backend.services.interfaces.cart.CartServices;
 
 @RestController
-<<<<<<< HEAD
 @RequestMapping("/app/cart")
-=======
-@RequestMapping("/rest/cart")
 @CrossOrigin(origins = "*")
->>>>>>> branch 'development' of https://github.com/RobLong03/ProgettofinaleAcademyBe.git
 public class CartController {
 
 	@Autowired

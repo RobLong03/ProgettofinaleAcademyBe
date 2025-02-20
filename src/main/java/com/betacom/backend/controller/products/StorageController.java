@@ -12,12 +12,8 @@ import com.betacom.backend.response.ResponseObject;
 import com.betacom.backend.services.interfaces.products.StorageServices;
 
 @RestController
-<<<<<<< HEAD
 @RequestMapping("/app/product/storage")
-=======
-@RequestMapping("/app/storage")
 @CrossOrigin(origins = "*")
->>>>>>> branch 'development' of https://github.com/RobLong03/ProgettofinaleAcademyBe.git
 public class StorageController {
 
 	@Autowired

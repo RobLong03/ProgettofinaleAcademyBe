@@ -1,7 +1,6 @@
 package com.betacom.backend.services.interfaces.order;
 
 import com.betacom.backend.dto.order.OrderDTO;
-import com.betacom.backend.request.order.OrderItemRequest;
 import com.betacom.backend.request.order.OrderRequest;
 
 import java.util.List;
