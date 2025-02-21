@@ -4,15 +4,17 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import com.betacom.backend.services.interfaces.messages.MessageServices;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.betacom.backend.dto.products.ProductDTO;
+import com.betacom.backend.dto.products.ProductDescriptionDTO;
 import com.betacom.backend.model.products.Product;
 import com.betacom.backend.repositories.products.IProductRepository;
 import com.betacom.backend.request.products.ProductRequest;
+import com.betacom.backend.services.interfaces.messages.MessageServices;
+import com.betacom.backend.services.interfaces.products.ProductDescriptionServices;
 import com.betacom.backend.services.interfaces.products.ProductServices;
 
 
@@ -27,21 +29,37 @@ public class ProductImpl implements ProductServices {
 
     @Autowired
     IProductRepository prodRep;
+    
+    @Autowired
+    ProductDescriptionServices pdescS;
+    
+    
+    
 
     @Override
-    public List<ProductDTO> list() {
+    public List<ProductDTO> list(String lang) throws Exception {
         log.debug("PI: list");
-
+       
 
         List<Product> lProd = prodRep.findAll();
 
-            return lProd.stream().map(p ->
-                    new ProductDTO(p)
-            ).collect(Collectors.toList());
+        return lProd.stream()
+                .map(p -> {
+                    ProductDTO dto = new ProductDTO(p);
+                   
+                    try {
+                        dto.setDescription(pdescS.getDescription(p.getId(), lang));
+                    } catch (Exception e) {
+                    	return dto;
+                    }
+                    return dto;
+                })
+                .collect(Collectors.toList());
     }
 
+ 
     @Override
-    public ProductDTO get(Long id) throws Exception{
+    public ProductDTO get(Long id,String lang) throws Exception{
         log.debug("PI: get request with id:"+id);
         if(id == null){
             log.error("PI: id is null");
@@ -51,13 +69,23 @@ public class ProductImpl implements ProductServices {
         Optional<Product> prod = prodRep.findById(id);
 
         if(prod.isPresent()){
-            return new ProductDTO(prod.get());
+        	ProductDTO product = new ProductDTO(prod.get());
+        	 ProductDescriptionDTO description = pdescS.getDescription(product.getId(), lang);
+        	if (description != null)  product.setDescription(description);
+        	
+        /*	
+        if () {
+        		product.setDescription();
+			}
+        */
+        
+            return product;
         }else{
             log.error("missing product");
             throw new Exception(msgS.getMessage("does-not-exist-get"));
         }
     }
-
+//creating of description is distincted with other class ProductDescriptionImpl
     @Override
     public void create(ProductRequest req) throws Exception {
         log.debug("PI: create request:"+req);
@@ -99,8 +127,7 @@ public class ProductImpl implements ProductServices {
     }
 
     private boolean mancanoAttributi(ProductRequest req) {
-        return req.getDescription() == null || req.getDescription().isBlank()
-                || req.getBrand() == null || req.getBrand().isBlank()
+        return  req.getBrand() == null || req.getBrand().isBlank()
                 || req.getModel() == null || req.getModel().isBlank()
                 || req.getPrice() == null
                 || req.getStock() == null;

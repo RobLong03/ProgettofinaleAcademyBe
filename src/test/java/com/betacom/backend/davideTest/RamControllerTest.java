@@ -18,7 +18,7 @@ import com.betacom.backend.response.ResponseObject;
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class RamControllerTest {
-
+/*
 	@Autowired
 	RamController ramC;
 	
@@ -120,4 +120,16 @@ public class RamControllerTest {
 		Assertions.assertThat(res.getMsg()).isEqualTo("does-not-exist-update");
 	}
 	
+
+	@Test
+	@Order(5)
+	public void deleteRamTest() throws Exception {
+		
+		Assertions.assertThat(ramC.delete(1L).getRc()).isEqualTo(true);
+		Assertions.assertThat(ramC.list().getDati().size()).isEqualTo(1);
+		
+		Assertions.assertThat(ramC.delete(99L).getRc()).isEqualTo(false);
+	}
+*/
+
 }

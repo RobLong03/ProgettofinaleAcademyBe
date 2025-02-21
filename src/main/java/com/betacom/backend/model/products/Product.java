@@ -10,13 +10,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.Table;
-import org.springframework.beans.factory.annotation.Value;
 
 @Entity
 @Table(name = "product")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Product {
-
+//aggiungrtr dal dto
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -27,16 +26,17 @@ public class Product {
 	@Column(nullable = false)
 	private String model;
 
-	@Column(nullable = false)
-	private String description;
-
+	//aggiungere campo type 
+	@Column(nullable=true)
+	private String type;
+	
 	@Column(nullable = false)
 	private Integer stock;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	private Double price;
 
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String imageUrl = "https://i.ibb.co/dJkZ9BRK/products.jpg";
 
 	public String getImageUrl() {
@@ -71,13 +71,6 @@ public class Product {
 		this.model = model;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
 
 	public Integer getStock() {
 		return stock;
@@ -92,7 +85,7 @@ public class Product {
 	}
 
 	public Boolean removeStock(Integer qnt) {
-		if(this.stock - qnt < 0) {
+		if (this.stock - qnt < 0) {
 			return false;
 		}
 		this.stock -= qnt;
@@ -106,6 +99,13 @@ public class Product {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 
 	public Product() {
 	}
@@ -115,35 +115,34 @@ public class Product {
 		this.id = id;
 	}
 
-	
-	public Product(Long id ,String brand, String model, String description, Integer stock,Double price,String imageUrl) {
+	public Product(Long id, String brand, String model,String type, Integer stock, Double price, String imageUrl) {
 		super();
-		this.id=id;
+		this.id = id;
 		this.brand = brand;
 		this.model = model;
-		this.description = description;
+		this.type=type;
 		this.stock = stock;
-		this.price=price;
-		this.imageUrl=imageUrl;
-		
+		this.price = price;
+		this.imageUrl = imageUrl;
+
 	}
-	public Product(String brand, String model, String description, Integer stock,Double price,String imageUrl) {
+
+	public Product(String brand, String model,String type, Integer stock , Double price, String imageUrl) {
 		super();
 		this.brand = brand;
 		this.model = model;
-		this.description = description;
 		this.stock = stock;
-		this.price=price;
-		this.imageUrl=imageUrl;
-		}
+		this.type=type;
+		this.price = price;
+		this.imageUrl = imageUrl;
+	}
 
 	public Product(ProductRequest req) {
 		this.brand = req.getBrand();
 		this.model = req.getModel();
-		this.description = req.getDescription();
 		this.stock = req.getStock();
-		this.price=req.getPrice();
-		this.imageUrl=req.getImageUrl();
+		this.price = req.getPrice();
+		this.imageUrl = req.getImageUrl();
 		if (req.getId() != null)
 			this.id = req.getId();
 
@@ -151,11 +150,10 @@ public class Product {
 
 	@Override
 	public String toString() {
-		return "Product {id=" + id + ", brand=" + brand + ", model=" + model + ", description=" + description
-				+ ", stock=" + stock + ", price=" + price + ", imageUrl=" + imageUrl + "}";
+		return "Product [id=" + id + ", brand=" + brand + ", model=" + model  + ", stock=" + stock
+				+ ", price=" + price + ", imageUrl=" + imageUrl + "]";
 	}
 
 	
 
-	
 }

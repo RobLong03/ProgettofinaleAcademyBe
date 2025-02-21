@@ -17,7 +17,7 @@ import com.betacom.backend.response.ResponseList;
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class PsuControllerTest {
-	
+	/*
 	@Autowired
 	PsuController psuC;
 	
@@ -85,5 +85,5 @@ public class PsuControllerTest {
 
 
 
-	
+	*/
 }

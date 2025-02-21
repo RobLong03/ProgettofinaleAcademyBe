@@ -5,13 +5,18 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.betacom.backend.services.interfaces.messages.MessageServices;
+
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.betacom.backend.dto.products.ProductDescriptionDTO;
+import com.betacom.backend.dto.products.RamDTO;
 import com.betacom.backend.dto.products.StorageDTO;
 import com.betacom.backend.model.products.Storage;
 import com.betacom.backend.repositories.products.StorageRepository;
 import com.betacom.backend.request.products.StorageRequest;
+import com.betacom.backend.services.interfaces.products.ProductDescriptionServices;
 import com.betacom.backend.services.interfaces.products.StorageServices;
 
 @Service
@@ -22,18 +27,32 @@ public class StorageImpl implements StorageServices{
 
 	@Autowired
 	MessageServices msgS;
+	@Autowired
+	ProductDescriptionServices pdescS;
+
+
+	@Autowired
+	Logger log;
 
 	@Override
-	public List<StorageDTO> list() {
+	public List<StorageDTO> list(String lang) {
 		List<Storage> lStor = stoRep.findAll();
-
-        return lStor.stream().map(s ->
-                new StorageDTO(s)
-        ).collect(Collectors.toList());
+		return lStor.stream()
+                .map(p -> {
+                	StorageDTO dto = new StorageDTO(p);
+                   
+                    try {
+                        dto.setDescription(pdescS.getDescription(p.getId(), lang));
+                    } catch (Exception e) {
+                    	return dto;
+                    }
+                    return dto;
+                })
+                .collect(Collectors.toList());
 	}
 
 	@Override
-	public StorageDTO get(Long id) throws Exception {
+	public StorageDTO get(Long id,String lang) throws Exception {
 		if(id == null){
 			throw new Exception(msgS.getMessage("missing-id-get"));
         }
@@ -41,9 +60,13 @@ public class StorageImpl implements StorageServices{
         Optional<Storage> storage = stoRep.findById(id);
 
         if(storage.isPresent()){
-            return new StorageDTO(storage.get());
+        	StorageDTO product = new StorageDTO(storage.get());
+        	 ProductDescriptionDTO description = pdescS.getDescription(product.getId(), lang);
+        	if (description != null)  product.setDescription(description);
+            return product;
         }else{
-			throw new Exception(msgS.getMessage("does-not-exist-get"));
+            log.error("missing product");
+            throw new Exception(msgS.getMessage("does-not-exist-get"));
         }
 	}
 

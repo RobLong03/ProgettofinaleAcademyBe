@@ -1,19 +1,23 @@
 package com.betacom.backend.dto.products;
 
 import com.betacom.backend.model.products.Product;
-
+import static com.betacom.backend.utils.TypeConverter.whichSubClassIs;
 
 public class ProductDTO { //ciao belliiiiiiii
 
-
+	
 
     private Long id;
 
     private String brand;
 
     private String model;
-
-    private String description;
+    
+   //da aggiungere product
+    private ProductDescriptionDTO description;
+    
+    
+    private String type;
 
     private Integer stock;
 
@@ -61,11 +65,11 @@ public class ProductDTO { //ciao belliiiiiiii
 		this.model = model;
 	}
 
-	public String getDescription() {
+	public ProductDescriptionDTO getDescription() {
 		return description;
 	}
 
-	public void setDescription(String description) {
+	public void setDescription(ProductDescriptionDTO description) {
 		this.description = description;
 	}
 
@@ -77,24 +81,32 @@ public class ProductDTO { //ciao belliiiiiiii
 		this.stock = stock;
 	}
     
-    
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
     public ProductDTO() {
     }
 
-    public ProductDTO(String brand, String model, String description, Integer stock,Double price,String imageUrl) {
+    public ProductDTO(String brand, String model, ProductDescriptionDTO description,String type, Integer stock,Double price,String imageUrl) {
         this.brand = brand;
         this.model = model;
         this.description = description;
+        this.type=type;
         this.stock = stock;
         this.price = price;
         this.imageUrl = imageUrl;
     }
 
-    public ProductDTO(Long id,String brand, String model, String description, Integer stock,Double price,String imageUrl) {
+    public ProductDTO(Long id,String brand, String model, ProductDescriptionDTO description,String type, Integer stock,Double price,String imageUrl) {
         this.id = id;
         this.brand = brand;
         this.model = model;
         this.description = description;
+        this.type=type;
         //commento
         this.stock = stock;
         this.price = price;
@@ -102,26 +114,24 @@ public class ProductDTO { //ciao belliiiiiiii
     }
 
     public ProductDTO(Product product) {
+    	
         this.id = product.getId();
         this.brand = product.getBrand();
         this.model = product.getModel();
-        this.description = product.getDescription();
+        this.type=whichSubClassIs(product);
         this.stock = product.getStock();
         this.price = product.getPrice();
         this.imageUrl = product.getImageUrl();
     }
 
-    @Override
-    public String toString() {
-        return "ProductDTO{" +
-                "id=" + id +
-                ", marca='" + brand + '\'' +
-                ", modello='" + model + '\'' +
-                ", descrizione='" + description + '\'' +
-                ", quantita=" + stock +
-                ", price=" + price +
-                ", imageUrl='" + imageUrl + '\'' +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "ProductDTO [id=" + id + ", brand=" + brand + ", model=" + model + ", description=" + description
+				+ ", type=" + type + ", stock=" + stock + ", price=" + price + ", imageUrl=" + imageUrl + "]";
+	}
+
+
+	
+
 
 }

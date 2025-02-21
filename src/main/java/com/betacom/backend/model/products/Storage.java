@@ -12,20 +12,20 @@ import jakarta.persistence.Table;
 public class Storage extends Product {
 	
 	@Column(nullable = false)
-	private StorageType type;
+	private StorageType stype;
 	
 	@Column(nullable = false)
 	private Integer size;
 
-	public Storage(Long id, String brand, String model, String description, Integer stock,Double price, StorageType type, Integer size, String imageUrl) {
-		super(id, brand, model, description, stock,price, imageUrl);
-		this.type = type;
+	public Storage(Long id, String brand, String model,String type, Integer stock,Double price, StorageType stype, Integer size, String imageUrl) {
+		super(id, brand, model,"Storage",stock,price, imageUrl);
+		this.stype = stype;
 		this.size = size;
 	}
 
-	public Storage(String brand, String model, String description, Integer stock,Double price,StorageType type, Integer size, String imageUrl) {
-		super(brand, model, description, stock,price, imageUrl);
-		this.type = type;
+	public Storage(String brand, String model,String type, Integer stock,Double price,StorageType stype, Integer size, String imageUrl) {
+		super( brand, model,"Storage",stock,price, imageUrl);
+		this.stype = stype;
 		this.size = size;
 	}
 
@@ -35,17 +35,12 @@ public class Storage extends Product {
 	
 	public Storage(StorageRequest req) {
 		super(req);
-		this.type = StorageType.valueOf(req.getType());
+		super.setType("Storage");
+		this.stype = StorageType.valueOf(req.getType());
 		this.size = req.getSize();
 	}
 
-	public StorageType getType() {
-		return type;
-	}
 
-	public void setType(StorageType type) {
-		this.type = type;
-	}
 
 	public Integer getSize() {
 		return size;
@@ -55,8 +50,18 @@ public class Storage extends Product {
 		this.size = size;
 	}
 
+	
 	@Override
 	public String toString() {
-		return "Storage [type=" + type + ", size=" + size + "]";
+		return "Storage [stype=" + stype + ", size=" + size + "]";
 	}
+
+	public StorageType getStype() {
+		return stype;
+	}
+
+	public void setStype(StorageType stype) {
+		this.stype = stype;
+	}
+
 }

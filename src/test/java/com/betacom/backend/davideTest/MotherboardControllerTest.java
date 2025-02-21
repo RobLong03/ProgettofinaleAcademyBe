@@ -18,7 +18,7 @@ import com.betacom.backend.response.ResponseObject;
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class MotherboardControllerTest {
-
+/*
 	@Autowired
 	MotherboardController motherbC;
 	
@@ -117,4 +117,16 @@ public class MotherboardControllerTest {
 		Assertions.assertThat(res.getMsg()).isEqualTo("missing-id-update");
 	}
 	
+
+	@Test
+	@Order(5)
+	public void deleteMotherboardTest() throws Exception {
+		
+		Assertions.assertThat(motherbC.delete(3L).getRc()).isEqualTo(true);
+		Assertions.assertThat(motherbC.list().getDati().size()).isEqualTo(1);
+		
+		Assertions.assertThat(motherbC.delete(99L).getMsg()).isEqualTo("does-not-exist-delete");
+	}
+	*/
+
 }

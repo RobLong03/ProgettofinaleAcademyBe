@@ -7,9 +7,9 @@ import com.betacom.backend.request.products.RamRequest;
 
 public interface RamServices {
 
-	List<RamDTO> list();
+	List<RamDTO> list(String lang) ;
 	
-	RamDTO get(Long id) throws Exception;
+	RamDTO get(Long id,String lang)  throws Exception;
 	
 	void create(RamRequest req) throws Exception;
 	

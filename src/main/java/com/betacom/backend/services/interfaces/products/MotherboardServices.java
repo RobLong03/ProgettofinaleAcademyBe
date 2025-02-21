@@ -7,9 +7,9 @@ import com.betacom.backend.request.products.MotherboardRequest;
 
 public interface MotherboardServices {
 
-	List<MotherboardDTO> list();
+	List<MotherboardDTO> list(String lang) ;
 	
-	MotherboardDTO get(Long id) throws Exception;
+	MotherboardDTO get(Long id,String lang)  throws Exception;
 	
 	void create(MotherboardRequest req) throws Exception;
 	

@@ -9,14 +9,14 @@ public class RamRequest extends ProductRequest {
 		super();
 	}
 
-	public RamRequest(Long id, String brand, String model, String description, Integer stock,Double price, Integer mhz, Integer size,String imageUrl) {
-		super(id, brand, model, description, stock,price,imageUrl);
+	public RamRequest(Long id, String brand, String model, Integer stock,Double price, Integer mhz, Integer size,String imageUrl) {
+		super(id, brand, model, stock,price,imageUrl);
 		this.mhz = mhz;
 		this.size = size;
 	}
 	
-	public RamRequest(String brand, String model, String description, Integer stock,Double price,Integer mhz, Integer size,String imageUrl) {
-		super(brand, model, description, stock,price,imageUrl);
+	public RamRequest(String brand, String model, Integer stock,Double price,Integer mhz, Integer size,String imageUrl) {
+		super(brand, model, stock,price,imageUrl);
 		this.mhz = mhz;
 		this.size = size;
 	}

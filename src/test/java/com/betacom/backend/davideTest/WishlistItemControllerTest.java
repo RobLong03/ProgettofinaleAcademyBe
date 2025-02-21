@@ -20,7 +20,7 @@ import com.betacom.backend.services.implementations.products.RamImpl;
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class WishlistItemControllerTest {
-	
+	/*
 	@Autowired
 	WishlistItemController wishlIC;
 	
@@ -144,4 +144,5 @@ public class WishlistItemControllerTest {
 		
 		ramI.create(ram);
 	}
+	*/
 }

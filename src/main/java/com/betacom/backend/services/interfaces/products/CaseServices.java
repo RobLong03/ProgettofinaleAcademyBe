@@ -7,9 +7,9 @@ import com.betacom.backend.request.products.CaseRequest;
 
 public interface CaseServices {
 
-	List<CaseDTO> list();        //list per fare list di tutto
+	List<CaseDTO> list(String lang);        //list per fare list di tutto
 
-    CaseDTO get(Long id) throws Exception;         //get per prendere con id,
+    CaseDTO get(Long id,String lang) throws Exception;         //get per prendere con id,
 
     //poi altri get o list con specifiche diverse si decide dopo
 

@@ -23,37 +23,32 @@ public class MotherboardController {
 	MotherboardServices motherbS;
 	
 	@GetMapping("/list")
-	public ResponseList<MotherboardDTO> list() {
-		
-		log.debug("list");
-		
-		ResponseList<MotherboardDTO> res=new ResponseList<MotherboardDTO>();
-		res.setRc(true);
-		res.setDati(motherbS.list());
-		
-		return res;
+	public ResponseList<MotherboardDTO> list(@RequestParam(defaultValue = "EN")String lang){
+		log.debug("List motherboard");
+		ResponseList<MotherboardDTO> r = new ResponseList<MotherboardDTO>();
+		try {
+			r.setDati(motherbS.list(lang));
+			r.setRc(true);
+		} catch (Exception e) {
+			r.setRc(false);
+			r.setMsg(e.getMessage());
+		}
+		return r;
 	}
 	
 	@GetMapping("/get")
-	public ResponseObject<MotherboardDTO> get(@RequestParam Long id) {
-		
-		log.debug("get");
-		
-		ResponseObject<MotherboardDTO> res=new ResponseObject<MotherboardDTO>();
-		res.setRc(true);
-		
+	public ResponseObject<MotherboardDTO> get(@RequestParam(required = true) Long id,
+			@RequestParam(defaultValue = "EN")String lang){
+		log.debug("Get motherboard with id: " + id);
+		ResponseObject<MotherboardDTO> r = new ResponseObject<MotherboardDTO>();
 		try {
-			
-			res.setDati(motherbS.get(id));
+			r.setDati(motherbS.get(id,lang));
+			r.setRc(true);
 		} catch (Exception e) {
-			
-			log.error(e.getMessage());
-			
-			res.setRc(false);
-			res.setMsg(e.getMessage());
+			r.setRc(false);
+			r.setMsg(e.getMessage());
 		}
-		
-		return res;
+		return r;
 	}
 	
 	@PostMapping("/create")

@@ -7,9 +7,9 @@ import com.betacom.backend.request.products.StorageRequest;
 
 public interface StorageServices {
 
-	List<StorageDTO> list();        //list per fare list di tutto
+	List<StorageDTO> list(String lang) ;        //list per fare list di tutto
 
-	StorageDTO get(Long id) throws Exception;         //get per prendere con id,
+	StorageDTO get(Long id,String lang)  throws Exception;         //get per prendere con id,
 
     //poi altri get o list con specifiche diverse si decide dopo
 

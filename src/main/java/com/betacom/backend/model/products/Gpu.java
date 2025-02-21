@@ -44,16 +44,17 @@ public class Gpu extends Product {
 		super();
 	}
 
-	public Gpu(Long id, String brand, String model, String description, Integer stock, Double price, Integer vram,
+	public Gpu(Long id, String brand, String model,String type,Integer stock, Double price, Integer vram,
 			Double ghz, String imageUrl) {
-		super(id, brand, model, description, stock, price, imageUrl);
+		super(id, brand, model,"Gpu",stock,price, imageUrl);
+		
 		this.vram = vram;
 		this.ghz = ghz;
 	}
 
 
-	public Gpu(String brand, String model, String description, Integer stock, Double price, Integer vram, Double ghz, String imageUrl) {
-		super(brand, model, description, stock, price, imageUrl);
+	public Gpu(String brand, String model,String type,Integer stock, Double price, Integer vram, Double ghz, String imageUrl) {
+		super( brand, model,"Gpu",stock,price, imageUrl);
 		this.vram = vram;
 		this.ghz = ghz;
 	}
@@ -61,6 +62,7 @@ public class Gpu extends Product {
 
 	public Gpu(GpuRequest req) {
 		super(req);
+		super.setType("Gpu");
 		this.vram = req.getVram();
 		this.ghz = req.getGhz();
 	}

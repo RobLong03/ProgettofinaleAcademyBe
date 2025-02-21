@@ -7,9 +7,9 @@ import com.betacom.backend.request.products.GpuRequest;
 
 public interface GpuServices {
 
-	List<GpuDTO> list();        //list per fare list di tutto
+	List<GpuDTO> list(String lang);        //list per fare list di tutto
 
-	GpuDTO get(Long id) throws Exception;         //get per prendere con id,
+	GpuDTO get(Long id,String lang) throws Exception;         //get per prendere con id,
 
     //poi altri get o list con specifiche diverse si decide dopo
 

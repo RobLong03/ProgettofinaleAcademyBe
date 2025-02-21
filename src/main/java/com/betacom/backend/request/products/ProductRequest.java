@@ -10,7 +10,10 @@ public class ProductRequest {
 
     private String model;
 
-    private String description;
+    private String lang;
+    
+    //type
+    //non aggiungere il type esso serve per il dto settandoli
 
     private Integer stock;
 
@@ -51,13 +54,6 @@ public class ProductRequest {
 		this.model = model;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
 
 	public Integer getStock() {
 		return stock;
@@ -75,24 +71,31 @@ public class ProductRequest {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+	public String getLang() {
+		return lang;
+	}
+
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
+
     
     public ProductRequest() {
     }
 
-    public ProductRequest(String brand, String model, String description, Integer stock,Double price, String imageUrl) {
+    public ProductRequest(String brand, String model,  Integer stock,Double price, String imageUrl) {
         this.brand = brand;
         this.model = model;
-        this.description = description;
+
         this.stock = stock;
         this.price=price;
 		this.imageUrl=imageUrl;
     }
 
-    public ProductRequest(Long id,String brand, String model, String description, Integer stock,Double price, String imageUrl) {
+    public ProductRequest(Long id,String brand, String model,  Integer stock,Double price, String imageUrl) {
         this.id = id;
         this.brand = brand;
         this.model = model;
-        this.description = description;
         //commento
         this.stock = stock;
         this.price=price;
@@ -105,12 +108,12 @@ public class ProductRequest {
                 "id=" + id +
                 ", brand='" + brand + '\'' +
                 ", model='" + model + '\'' +
-                ", description='" + description + '\'' +
                 ", stock=" + stock +
 				", price=" + price +
 				", imageUrl='" + imageUrl + '\'' +
                 '}';
     }
 //    prodottoRequest
+
 
 }

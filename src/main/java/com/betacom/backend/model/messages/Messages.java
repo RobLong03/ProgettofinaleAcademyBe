@@ -10,7 +10,7 @@ public class Messages {
     @EmbeddedId
     private MessageID msgID;
 
-    public String message;
+    private String message;
 
     public MessageID getMsgID() {
         return msgID;

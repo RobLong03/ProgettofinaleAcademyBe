@@ -7,9 +7,9 @@ import com.betacom.backend.request.products.PsuRequest;
 
 public interface PsuServices {
 
-	List<PsuDTO> list();        //list per fare list di tutto
+	List<PsuDTO> list(String lang) ;        //list per fare list di tutto
 
-    PsuDTO get(Long id) throws Exception;         //get per prendere con id,
+    PsuDTO get(Long id,String lang)  throws Exception;         //get per prendere con id,
 
     //poi altri get o list con specifiche diverse si decide dopo
 

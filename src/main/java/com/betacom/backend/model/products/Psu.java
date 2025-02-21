@@ -29,14 +29,15 @@ public class Psu extends Product {
 	}
 	
 	//with id 
-	public Psu(Long id, String brand, String model, String description, Integer stock,Double price, Integer watt,String imageUrl) {
-		super(id, brand, model, description, stock,price, imageUrl);
+	public Psu(Long id, String brand, String model,String type, Integer stock,Double price, Integer watt,String imageUrl) {
+		super(id, brand, model,"Psu",stock,price, imageUrl);
+	
 		this.watt = watt;
 	}
 	
 	//without id 
-	public Psu(String brand, String model, String description, Integer stock,Double price,Integer watt, String imageUrl) {
-		super(brand, model, description, stock,price, imageUrl);
+	public Psu(String brand, String model,String type, Integer stock,Double price,Integer watt, String imageUrl) {
+		super( brand, model,"Psu",stock,price, imageUrl);
 		this.watt = watt;
 		
 	}
@@ -46,6 +47,7 @@ public class Psu extends Product {
 	//from request
 	public Psu(PsuRequest req) {
 		super(req);
+		super.setType("Psu");
 		this.watt=req.getWatt();
 	}
 

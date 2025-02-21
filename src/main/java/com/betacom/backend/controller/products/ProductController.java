@@ -21,6 +21,10 @@ public class ProductController {
 
     @Autowired
     ProductServices productServices;
+    
+    
+    
+    
 
     @PostMapping("/create")
     public ResponseBase create(@RequestBody(required = true) ProductRequest req){
@@ -42,12 +46,12 @@ public class ProductController {
     }
 
     @GetMapping("/list")
-    public ResponseList<ProductDTO> list(){
+    public ResponseList<ProductDTO> list(@RequestParam(defaultValue = "EN")  String lang){
         log.debug("PC: Product list request received");
         ResponseList<ProductDTO> r = new ResponseList<ProductDTO>();
 
         try{
-            r.setDati(productServices.list());
+            r.setDati(productServices.list(lang));
             r.setRc(true);
             log.debug("PC: Product list done");
         }catch (Exception e) {
@@ -60,12 +64,13 @@ public class ProductController {
     }
 
     @GetMapping("/get")
-    public ResponseObject<ProductDTO> get(@RequestParam Long id ){
+    public ResponseObject<ProductDTO> get(@RequestParam Long id ,@RequestParam(defaultValue = "EN") String lang){
         log.debug("PC: Product get request received for id:"+id);
         ResponseObject<ProductDTO> r = new  ResponseObject<ProductDTO>();
 
         try{
-            r.setDati(productServices.get(id));
+        	//da modificare
+            r.setDati(productServices.get(id,lang));
             r.setRc(true);
             log.debug("PC: Product get done for id:"+id);
         }catch(Exception e){
@@ -98,6 +103,7 @@ public class ProductController {
     @PostMapping("/delete")
     public ResponseBase delete(@RequestBody ProductRequest req){
         log.debug("PC: Product delete request received for id:"+ req.getId());
+
         ResponseBase r = new  ResponseBase();
 
         try{

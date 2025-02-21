@@ -4,17 +4,17 @@ import com.betacom.backend.model.products.Storage;
 
 public class StorageDTO extends ProductDTO{
 
-	private String type;
+	private String stype;
 	private Integer size;
 	
-	public StorageDTO(Long id, String brand, String model, String description, Integer stock,Double price, String type, Integer size,String imageUrl) {
-		super(id, brand, model, description, stock, price, imageUrl);
-		this.type = type;
+	public StorageDTO(Long id, String brand, String model, ProductDescriptionDTO description,String type, Integer stock,Double price, String stype, Integer size,String imageUrl) {
+		super(id, brand, model, description,type, stock, price, imageUrl);
+		this.stype = stype;
 		this.size = size;
 	}
-	public StorageDTO(String type, Integer size) {
+	public StorageDTO(String stype, Integer size) {
 		super();
-		this.type = type;
+		this.stype = stype;
 		this.size = size;
 	}
 	public StorageDTO() {
@@ -22,16 +22,16 @@ public class StorageDTO extends ProductDTO{
 	}
 	public StorageDTO(Storage storage) {
 		super(storage);
-		this.type = storage.getType().toString();
+		this.stype = storage.getType().toString();
 		this.size = storage.getSize();
 	}
+	public String getStype() {
+		return stype;
+	}
+	public void setStype(String stype) {
+		this.stype = stype;
+	}
 	
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
 	public Integer getSize() {
 		return size;
 	}
@@ -40,6 +40,7 @@ public class StorageDTO extends ProductDTO{
 	}
 	@Override
 	public String toString() {
-		return "StorageDTO [type=" + type + ", size=" + size + "]";
+		return "StorageDTO [stype=" + stype + ", size=" + size + "]";
 	}
+	
 }

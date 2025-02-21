@@ -6,12 +6,12 @@ public class StorageRequest extends ProductRequest{
 	private Integer size;
 	
 	public StorageRequest(Long id, String brand, String model, String description, Integer stock,Double price, String type, Integer size,String imageUrl) {
-		super(id, brand, model, description, stock, price, imageUrl);
+		super(id, brand, model, stock, price, imageUrl);
 		this.type = type;
 		this.size = size;
 	}
 	public StorageRequest(String brand, String model, String description, Integer stock,Double price, String type, Integer size,String imageUrl) {
-		super(brand, model, description, stock,price, imageUrl);
+		super(brand, model, stock,price, imageUrl);
 		this.type = type;
 		this.size = size;
 	}

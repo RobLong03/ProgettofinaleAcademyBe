@@ -40,12 +40,12 @@ public class CpuController {
     }
 
     @GetMapping("/list")
-    public ResponseList<CpuDTO> list(){
+    public ResponseList<CpuDTO> list(@RequestParam(defaultValue = "EN") String lang){
         log.debug("CC: Cpu list request received");
         ResponseList<CpuDTO> r = new ResponseList<CpuDTO>();
 
         try{
-            r.setDati(cpuServices.list());
+            r.setDati(cpuServices.list(lang));
             r.setRc(true);
             log.debug("CC: Cpu list done");
         }catch (Exception e) {
@@ -58,12 +58,13 @@ public class CpuController {
     }
 
     @GetMapping("/get")
-    public ResponseObject<CpuDTO> get(@RequestParam Long id ){
-        log.debug("CC: Cpu get request received for id:"+id);
+    public ResponseObject<CpuDTO> get(@RequestParam Long id ,
+    		@RequestParam(defaultValue = "EN") String lang){
+        log.debug("CC: Cpu get request received for id:"+id+" lang:"+lang);
         ResponseObject<CpuDTO> r = new  ResponseObject<CpuDTO>();
 
         try{
-            r.setDati(cpuServices.get(id));
+            r.setDati(cpuServices.get(id,lang));
             r.setRc(true);
             log.debug("CC: Cpu get done for id:"+id);
         }catch(Exception e){

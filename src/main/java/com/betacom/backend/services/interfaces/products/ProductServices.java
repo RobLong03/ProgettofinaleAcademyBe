@@ -7,9 +7,9 @@ import com.betacom.backend.dto.products.ProductDTO;
 import com.betacom.backend.request.products.ProductRequest;
 
 public interface ProductServices {
-    List<ProductDTO> list();        //list per fare list di tutto
+    List<ProductDTO> list(String lang) throws Exception;        //list per fare list di tutto
 
-    ProductDTO get(Long id) throws Exception;         //get per prendere con id,
+    ProductDTO get(Long id,String lang) throws Exception;         //get per prendere con id,
 
     //poi altri get o list con specifiche diverse si decide dopo
 

@@ -9,6 +9,7 @@ import com.betacom.backend.request.products.StorageRequest;
 import com.betacom.backend.response.ResponseBase;
 import com.betacom.backend.response.ResponseList;
 import com.betacom.backend.response.ResponseObject;
+import com.betacom.backend.services.interfaces.products.ProductDescriptionServices;
 import com.betacom.backend.services.interfaces.products.StorageServices;
 
 @RestController
@@ -21,6 +22,11 @@ public class StorageController {
 	
 	@Autowired
 	StorageServices stoS;
+	
+	@Autowired
+	ProductDescriptionServices pdescS;
+
+
 	
 	@PostMapping("/create")
 	public ResponseBase create(@RequestBody(required = true) StorageRequest req) {
@@ -37,11 +43,11 @@ public class StorageController {
 	}
 	
 	@GetMapping("/list")
-	public ResponseList<StorageDTO> list(){
+	public ResponseList<StorageDTO> list(@RequestParam(defaultValue = "EN") String lang){
 		log.debug("List storage");
 		ResponseList<StorageDTO> r = new ResponseList<StorageDTO>();
 		try {
-			r.setDati(stoS.list());
+			r.setDati(stoS.list(lang));
 			r.setRc(true);
 		} catch (Exception e) {
 			r.setRc(false);
@@ -51,11 +57,12 @@ public class StorageController {
 	}
 	
 	@GetMapping("/get")
-	public ResponseObject<StorageDTO> get(@RequestParam(required = true) Long id){
+	public ResponseObject<StorageDTO> get(@RequestParam(required = true) Long id,
+			@RequestParam(defaultValue = "EN") String lang){
 		log.debug("Get storage with id: " + id);
 		ResponseObject<StorageDTO> r = new ResponseObject<StorageDTO>();
 		try {
-			r.setDati(stoS.get(id));
+			r.setDati(stoS.get(id,lang));
 			r.setRc(true);
 		} catch (Exception e) {
 			r.setRc(false);

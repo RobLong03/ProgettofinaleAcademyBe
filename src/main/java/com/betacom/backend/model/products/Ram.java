@@ -20,21 +20,23 @@ public class Ram extends Product {
 	public Ram() {
 		super();
 	}
+	//devo pensare meglio sulla 
 
-	public Ram(Long id, String brand, String model, String description, Integer stock,Double price, Integer mhz, Integer size, String imageUrl) {
-		super(id, brand, model, description, stock,price, imageUrl);
+	public Ram(Long id, String brand, String model,String type, Integer stock,Double price, Integer mhz, Integer size, String imageUrl) {
+		super(id, brand, model,"Ram",stock,price, imageUrl);
 		this.mhz = mhz;
 		this.size = size;
 	}
 	
-	public Ram(String brand, String model, String description, Integer stock, Integer mhz,Double price, Integer size, String imageUrl) {
-		super(brand, model, description, stock,price, imageUrl);
+	public Ram(String brand, String model,String type, Integer stock, Integer mhz,Double price, Integer size, String imageUrl) {
+		super(brand, model,"Ram",stock,price, imageUrl);
 		this.mhz = mhz;
 		this.size = size;
 	}
 	
 	public Ram(RamRequest req) {
 		super((ProductRequest)req);
+		super.setType("Ram");
 		this.mhz=req.getMhz();
 		this.size=req.getSize();
 	}

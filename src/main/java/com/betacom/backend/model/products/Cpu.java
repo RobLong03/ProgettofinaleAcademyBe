@@ -19,16 +19,17 @@ public class Cpu extends Product {
         super();
     }
 
+    //super type == "cpu"
     //with id
-    public Cpu(Long id, String brand, String model, String description, Integer stock,Double price, Double ghz, Integer core,String imageUrl) {
-        super(id, brand, model, description, stock,price, imageUrl);
+    public Cpu(Long id, String brand, String model,String type, Integer stock,Double price, Double ghz, Integer core,String imageUrl) {
+    	super(id, brand, model,"Cpu",stock,price, imageUrl);
         this.core = core;
         this.ghz = ghz;
     }
 
     //no id
-    public Cpu(String brand, String model, String description, Integer stock,Double price, Double ghz, Integer core, String imageUrl) {
-        super(brand, model, description, stock,price, imageUrl);
+    public Cpu(String brand, String model,String type,Integer stock,Double price, Double ghz, Integer core, String imageUrl) {
+    	super( brand, model,"Cpu",stock,price, imageUrl);
         this.ghz = ghz;
         this.core = core;
     }
@@ -36,6 +37,7 @@ public class Cpu extends Product {
     //from req
     public Cpu(CpuRequest req) {
         super(req);
+        super.setType("Cpu");
         this.ghz = req.getGhz();
         this.core = req.getCore();
     }

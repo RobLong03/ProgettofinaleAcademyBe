@@ -21,20 +21,21 @@ public class Cases extends Product {
 	@JoinColumn(nullable=false)
 	private Color color;
 
-	public Cases(Long id, String brand, String model, String description, Integer stock,Double price, CaseSize size, Color color,String imageUrl) {
-		super(id, brand, model, description, stock,price, imageUrl);
+	public Cases(Long id, String brand, String model,String type, String description, Integer stock,Double price, CaseSize size, Color color,String imageUrl) {
+		super(id, brand, model,"Cases",stock,price, imageUrl);
 		this.size = size;
 		this.color = color;
 	}
 
-	public Cases(String brand, String model, String description, Integer stock,Double price, CaseSize size, Color color,String imageUrl) {
-		super(brand, model, description, stock,price, imageUrl);
+	public Cases(String brand, String model,String type,String description, Integer stock,Double price, CaseSize size, Color color,String imageUrl) {
+		super(brand, model,"Cases",stock,price, imageUrl);
 		this.size = size;
 		this.color = color;
 	}
 	
 	public Cases(CaseRequest req) {
 		super(req);
+		super.setType("Cases");
 		this.size = CaseSize.valueOf(req.getsize().toUpperCase());
 		this.color = new Color(req.getColor());
 	}

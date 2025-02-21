@@ -12,14 +12,14 @@ public class RamDTO extends ProductDTO{
 		super();
 	}
 
-	public RamDTO(Long id, String brand, String model, String description, Integer stock,Double price, Integer mhz, Integer size,String imageUrl) {
-		super(id, brand, model, description, stock, price, imageUrl);
+	public RamDTO(Long id, String brand, String model, ProductDescriptionDTO description,String type,Integer stock,Double price, Integer mhz, Integer size,String imageUrl) {
+		super(id, brand, model, description,type, stock, price, imageUrl);
 		this.mhz = mhz;
 		this.size = size;
 	}
 	
-	public RamDTO(String brand, String model, String description, Integer stock,Double price, Integer mhz, Integer size, String imageUrl) {
-		super(brand, model, description, stock, price, imageUrl);
+	public RamDTO(String brand, String model, ProductDescriptionDTO description,String type ,Integer stock,Double price, Integer mhz, Integer size, String imageUrl) {
+		super( brand, model, description,type, stock, price, imageUrl);
 		this.mhz = mhz;
 		this.size = size;
 	}

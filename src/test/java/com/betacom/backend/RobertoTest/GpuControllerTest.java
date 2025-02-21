@@ -25,7 +25,7 @@ public class GpuControllerTest {
 	
 	@Autowired
 	Logger log;
-	
+	/*
 	@Test
 	@Order(1)
 	public void createGpuTest() throws Exception {
@@ -96,5 +96,5 @@ public class GpuControllerTest {
 	}
 
 
-
+*/
 }

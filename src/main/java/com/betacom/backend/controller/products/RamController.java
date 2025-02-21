@@ -23,19 +23,20 @@ public class RamController {
 	RamServices ramS;
 	
 	@GetMapping("/list")
-	public ResponseList<RamDTO> list() {
+	public ResponseList<RamDTO> list(@RequestParam(defaultValue = "EN") String lang) {
 		
 		log.debug("list");
 		
 		ResponseList<RamDTO> res=new ResponseList<RamDTO>();
 		res.setRc(true);
-		res.setDati(ramS.list());
+		res.setDati(ramS.list(lang));
 		
 		return res;
 	}
 	
 	@GetMapping("/get")
-	public ResponseObject<RamDTO> get(@RequestParam Long id) {
+	public ResponseObject<RamDTO> get(@RequestParam(required = true) Long id,
+			@RequestParam(defaultValue = "EN") String lang) {
 		
 		log.debug("get");
 		
@@ -44,7 +45,7 @@ public class RamController {
 		
 		try {
 			
-			res.setDati(ramS.get(id));
+			res.setDati(ramS.get(id,lang));
 		} catch (Exception e) {
 			
 			log.error(e.getMessage());

@@ -7,17 +7,18 @@ public class MotherboardDTO extends ProductDTO {
 
 	private String cpuCompatibility;
 	
+	//there is no need to set the type because is already setted by super class
 	public MotherboardDTO() {
 		super();
 	}
 
-	public MotherboardDTO(Long id, String brand, String model, String description, Integer stock,Double price, String cpuCompatibility,String imageUrl) {
-		super(id, brand, model, description, stock, price, imageUrl);
+	public MotherboardDTO(Long id, String brand, String model, ProductDescriptionDTO description,String type , Integer stock,Double price, String cpuCompatibility,String imageUrl) {
+		super(id, brand, model, description,type, stock, price, imageUrl);
 		this.cpuCompatibility = cpuCompatibility;
 	}
 	
-	public MotherboardDTO(String brand, String model, String description, Integer stock,Double price, String cpuCompatibility,String imageUrl) {
-		super(brand, model, description, stock,price, imageUrl);
+	public MotherboardDTO(String brand, String model, ProductDescriptionDTO description,String type , Integer stock,Double price, String cpuCompatibility,String imageUrl) {
+		super( brand, model, description,type, stock, price, imageUrl);
 		this.cpuCompatibility = cpuCompatibility;
 	}
 	
