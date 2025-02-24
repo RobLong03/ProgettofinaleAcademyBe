@@ -65,7 +65,7 @@ public class WishlistController {
 	@PostMapping("/emptyWishlist")
 	public ResponseBase emptyWishlist(@RequestBody WishlistRequest req) {
 		
-		log.debug("emptyWishlist");
+		log.debug("emptyWishlist" + req.getId());
 		
 		ResponseBase res=new ResponseBase();
 		res.setRc(true);

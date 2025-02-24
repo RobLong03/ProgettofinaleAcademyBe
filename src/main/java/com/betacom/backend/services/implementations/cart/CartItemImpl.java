@@ -130,6 +130,7 @@ public class CartItemImpl implements CartItemServices{
 			throw new Exception(msgS.getMessage("does-not-exist-update"));
 		}
 		CartItem cartItem = cartItemOptional.get();
+		System.out.println("********************************************ITEM BEFORE EDITING IT:"+cartItem.getQuantity());
 
 //		Optional<Cart> cartOptional = cartR.findById(req.getCartId());
 //		if(cartOptional.isEmpty())
@@ -147,6 +148,7 @@ public class CartItemImpl implements CartItemServices{
 		if(cartItem.getQuantity() < 0){
 			throw new Exception(msgS.getMessage("product-quantity-remaining-less-than-zero"));
 		}
+		System.out.println("********************************************ITEM AFTER EDITING IT:"+cartItem.getQuantity());
 		carItR.save(cartItem);
 	}
 

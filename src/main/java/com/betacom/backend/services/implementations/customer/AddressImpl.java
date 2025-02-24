@@ -29,8 +29,13 @@ public class AddressImpl implements AddressServices {
 	ICustomerRepository CustRep;
 
 	@Override
-	public List<AddressDTO> list() {
-		List<Address> lAdrs = AddrRep.findAll();
+	public List<AddressDTO> listByCustomer(Long customerId) throws Exception {
+
+		if (customerId == null) {
+			throw new Exception("no id for lsit by customer");
+		}
+
+		List<Address> lAdrs = AddrRep.findAllByCustomer_id(customerId);
 
 		return lAdrs.stream().map(p -> new AddressDTO(p)).collect(Collectors.toList());
 	}

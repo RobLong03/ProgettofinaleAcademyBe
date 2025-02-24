@@ -105,6 +105,7 @@ public class OrderController {
 
         try{
             orderServices.delete(req.getId());
+            r.setRc(true);
         }catch(Exception e){
             r.setRc(false);
             r.setMsg(e.getMessage());

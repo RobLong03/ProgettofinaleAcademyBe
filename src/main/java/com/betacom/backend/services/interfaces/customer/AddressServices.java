@@ -7,7 +7,7 @@ import com.betacom.backend.request.customer.AddressRequest;
 
 public interface AddressServices {
 
-	List<AddressDTO> list();
+	List<AddressDTO> listByCustomer(Long customerId) throws Exception;
 
 	AddressDTO get(Long id) throws Exception;
 

@@ -97,79 +97,61 @@ public class OrderImpl implements OrderServices {
             throw new Exception(msgS.getMessage("missing-attributes-create"));
         }
 
-        Optional<Customer> customerOptional = customerRep.findById(req.getCustomerId());
-        if (customerOptional.isEmpty()) {
-            log.debug("OI.create: customer not found");
-            throw new Exception(msgS.getMessage("customer-not-found-order-create"));
-        }
+        Customer customer = customerRep.findById(req.getCustomerId())
+                .orElseThrow(() -> new Exception(msgS.getMessage("customer-not-found-order-create")));
 
-        Customer customer = customerOptional.get();
 
-        Optional<Address> addressOptional = addresRep.findById(req.getAddressId());
-        if (addressOptional.isEmpty()) {
-            log.debug("OI.create: address not found");
-            throw new Exception(msgS.getMessage("address-not-found-order-create"));
-        }
-        Address address = addressOptional.get();
+        Address address = addresRep.findById(req.getAddressId())
+                .orElseThrow(() -> new Exception(msgS.getMessage("address-not-found-order-create")));
 
-        Optional<Cart> cartOptional = cartRep.findByCustomer_id(req.getCustomerId());
-        if (cartOptional.isEmpty()) {
-            log.debug("OI.create: cart not found");
-            throw new Exception(msgS.getMessage("cart-not-found-order-create"));
-        }
 
-        List<CartItem> cartItems = cartOptional.get().getItems();
+        Cart cart = cartRep.findByCustomer_id(req.getCustomerId())
+                .orElseThrow(() -> new Exception(msgS.getMessage("cart-not-found-order-create")));
+
+        List<CartItem> cartItems = cart.getItems();
         if (cartItems.isEmpty()) {
-            log.debug("OI.create: cartItems not found");
             throw new Exception(msgS.getMessage("no-items-in-cart-order-create"));
         }
 
+        // Creazione ordine senza salvarlo subito
         Order order = new Order();
-        order.setTotalPrice(0.0);
         order.setCustomer(customer);
         order.setAddress(address);
         order.setOrderDate(new Date());
 
-        order = orderRep.save(order);
-
+        // Elaborazione degli elementi dell'ordine
         List<OrderItem> orderItems = new ArrayList<>();
+        List<Product> productsToUpdate = new ArrayList<>();
+        double totalPrice = 0.0;
 
-
-        //prendo prodotto, controllo stock, avviso se non abbastanza, rimmovo se abbastanza
-        Optional<Product> productOpt;
-        Product prod;
-        List<Product> toSaveAfterOrder = new ArrayList<Product>();
         for (CartItem cartItem : cartItems) {
-            log.debug("oi.create: fetching products");
-            productOpt = prodRep.findById(cartItem.getProduct().getId());
+            Product product = prodRep.findById(cartItem.getProduct().getId())
+                    .orElseThrow(() -> new Exception(msgS.getMessage("product-not-found-for-order")));
 
-            if (productOpt.isEmpty())
-                throw new Exception(msgS.getMessage("product-not-found-for-order"));
-
-            prod = productOpt.get();
-
-            if (cartItem.getQuantity() > prod.getStock())
+            if (cartItem.getQuantity() > product.getStock()) {
                 throw new Exception(msgS.getMessage("quantity-exceeds-stock-order"));
+            }
 
-            if (!prod.removeStock(cartItem.getQuantity()))
-                throw new Exception(msgS.getMessage("quantity-exceeds-stock-order"));
+            product.removeStock(cartItem.getQuantity());
+            productsToUpdate.add(product);
 
-
-            toSaveAfterOrder.add(prod);
-            order.setTotalPrice(order.getTotalPrice() + cartItem.getProduct().getPrice() * cartItem.getQuantity());
+            totalPrice += product.getPrice() * cartItem.getQuantity();
             orderItems.add(new OrderItem(cartItem, order));
-
-
         }
-        log.debug("OI.create: fetched products, finishing order");
-        order.setOrderItems(orderItems);
 
+        // Salvataggio ordine completo
+        order.setTotalPrice(totalPrice);
+        order.setOrderItems(orderItems);
         orderRep.save(order);
 
-        prodRep.saveAll(toSaveAfterOrder);
+        // Aggiornamento stock prodotti
+        prodRep.saveAll(productsToUpdate);
 
-        //TODO Empty the cart.....
+        // Svuotamento carrello
+        cart.getItems().clear();
+        cartRep.save(cart);
 
+        log.debug("OI.create: Order saved successfully");
 
     }
 

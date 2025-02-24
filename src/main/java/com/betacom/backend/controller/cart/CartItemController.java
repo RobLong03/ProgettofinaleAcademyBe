@@ -64,8 +64,8 @@ public class CartItemController {
 	}
 
 	@PostMapping("/removeItems")
-	public ResponseBase removeItems(@RequestBody(required = true) CartItemRequest req) {
-		log.debug("add: " + req);
+	public ResponseBase removeItems(@RequestBody CartItemRequest req) {
+		log.debug("************remove: " + req);
 		ResponseBase r = new ResponseBase();
 		r.setRc(true);
 		try {
@@ -82,7 +82,7 @@ public class CartItemController {
 		ResponseList<CartItemDTO> r = new ResponseList<CartItemDTO>();
 		r.setRc(true);
 		try {
-			carS.listByCart(id);
+			r.setDati(carS.listByCart(id));
 		} catch (Exception e) {
 			r.setRc(false);
 			r.setMsg(e.getMessage());

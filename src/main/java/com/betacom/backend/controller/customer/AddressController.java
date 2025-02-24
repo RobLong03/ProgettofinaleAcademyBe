@@ -58,13 +58,13 @@ public class AddressController {
 		}
 		return r;
 	}
-	@GetMapping("/list")
-	public ResponseList<AddressDTO>list(){
+	@GetMapping("/listByCustomer")
+	public ResponseList<AddressDTO>listByCustomer(Long customerId) {
 		ResponseList<AddressDTO> r = new ResponseList<AddressDTO>();
 		r.setRc(true);
 		try {
 
-			r.setDati(addrS.list());
+			r.setDati(addrS.listByCustomer(customerId));
 		} catch (Exception e) {
 			r.setMsg(e.getMessage());
 			r.setRc(false);

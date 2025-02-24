@@ -29,7 +29,7 @@ public class ProductDescription {
 	@JoinColumn(name="product_id",nullable = false)
 	private Product  product;
 	
-	@Column(nullable = false)
+	@Column(nullable = false,columnDefinition = "VARCHAR(2500)")
 	private String description;
 
 	public Long getId() {
