@@ -208,6 +208,14 @@ public class OrderItemimpl implements OrderItemsServices {
 		prodRep.save(prod);
 		log.debug("OII.delete: deleted order");
 
+		//se un ordine rimane senza prodotti lo cancello del tutto
+		Order order = orderRep.findById(orderItem.get().getOrder().getId()).get();
+
+		if(order.getOrderItems().isEmpty()){
+			log.debug("OII.delete: deleting order because no orderitems");
+			orderRep.delete(order);
+		}
+
 	}
 
 }
