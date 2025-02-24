@@ -29,14 +29,16 @@ public class ProductDescriptionImpl implements ProductDescriptionServices {
 	
 	@Override
 	public ProductDescriptionDTO getDescription(Long Idprodotto,String lang)throws Exception {
-		ProductDescription productDes= PrDesRepo.findByProductIdAndLang(Idprodotto ,lang).orElseThrow(
-				()->
-			 new Exception(msgS.getMessage("missing-attributes")
-		)) ;
+		ProductDescription productDes= PrDesRepo.findByProductIdAndLang(Idprodotto ,lang).
+				orElse(null);
+		if (productDes==null) return null;
+			
+	
+		
 		return new ProductDescriptionDTO(productDes.getId(), lang,Idprodotto,productDes.getDescription());
 
 	
-		
+		//da risolvere per molti
 	}
 	@Override
 	public ProductDescriptionDTO getDescription(Long id) throws Exception {
