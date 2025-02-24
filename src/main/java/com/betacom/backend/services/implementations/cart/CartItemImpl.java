@@ -121,35 +121,41 @@ public class CartItemImpl implements CartItemServices{
 
 	@Override
 	public void remove(CartItemRequest req) throws Exception {
-		if(req.getId() == null) {
+		if (req.getId() == null) {
 			throw new Exception(msgS.getMessage("missing-id-update"));
 		}
 
 		Optional<CartItem> cartItemOptional = carItR.findById(req.getId());
-		if( cartItemOptional.isEmpty()) {
+		if (cartItemOptional.isEmpty()) {
 			throw new Exception(msgS.getMessage("does-not-exist-update"));
 		}
 		CartItem cartItem = cartItemOptional.get();
-		System.out.println("********************************************ITEM BEFORE EDITING IT:"+cartItem.getQuantity());
+		System.out.println("********************************************ITEM BEFORE EDITING IT:" + cartItem.getQuantity());
 
 //		Optional<Cart> cartOptional = cartR.findById(req.getCartId());
 //		if(cartOptional.isEmpty())
 //			throw new Exception(msgS.getMessage("no-cart-found-cartitem-update"));
 
 		Optional<Product> prodOp = prodR.findById(req.getProductId());
-		if(prodOp.isEmpty())
+		if (prodOp.isEmpty())
 			throw new Exception(msgS.getMessage("product-not-found-cartitem-update"));
 		Product prod = prodOp.get();
 
-		if(cartItem.getProduct().getId() != prod.getId())
+		if (cartItem.getProduct().getId() != prod.getId())
 			throw new Exception(msgS.getMessage("product-not-found-cartitem-update"));
 
-		cartItem.setQuantity( cartItem.getQuantity() - req.getQuantity() );
-		if(cartItem.getQuantity() < 0){
+		cartItem.setQuantity(cartItem.getQuantity() - req.getQuantity());
+
+		System.out.println("********************************************ITEM AFTER EDITING IT:" + cartItem.getQuantity());
+
+		if (cartItem.getQuantity() > 0) {
+			carItR.save(cartItem);
+		} else if (cartItem.getQuantity() == 0) {
+			carItR.deleteById(cartItem.getId());
+		} else {
 			throw new Exception(msgS.getMessage("product-quantity-remaining-less-than-zero"));
+
 		}
-		System.out.println("********************************************ITEM AFTER EDITING IT:"+cartItem.getQuantity());
-		carItR.save(cartItem);
 	}
 
 	@Override
