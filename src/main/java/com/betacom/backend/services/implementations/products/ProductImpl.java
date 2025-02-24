@@ -56,8 +56,28 @@ public class ProductImpl implements ProductServices {
                 })
                 .collect(Collectors.toList());
     }
+    
+    @Override
+	public List<ProductDTO> filteredList(List<String> types, Double minPrice, Double maxPrice,
+			List<String> brands, String lang) throws Exception {
+		
+    	List<Product> lProd=prodRep.findFilteredProducts(types, minPrice, maxPrice, brands);
+    	
+    	return lProd.stream()
+    			.map(p -> {
+    				ProductDTO dto=new ProductDTO(p);
+    				
+    				try {
+						dto.setDescription(pdescS.getDescription(p.getId(), lang));
+					} catch (Exception e) {
+						return dto;
+					}
+    				
+    				return dto;
+    			})
+    			.collect(Collectors.toList());
+	}
 
- 
     @Override
     public ProductDTO get(Long id,String lang) throws Exception{
         log.debug("PI: get request with id:"+id);

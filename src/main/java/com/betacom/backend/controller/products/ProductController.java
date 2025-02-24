@@ -1,15 +1,24 @@
 package com.betacom.backend.controller.products;
 
 
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.betacom.backend.dto.products.ProductDTO;
 import com.betacom.backend.request.products.ProductRequest;
 import com.betacom.backend.response.ResponseBase;
 import com.betacom.backend.response.ResponseList;
 import com.betacom.backend.response.ResponseObject;
 import com.betacom.backend.services.interfaces.products.ProductServices;
-import org.slf4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/app/product")
@@ -58,6 +67,29 @@ public class ProductController {
             r.setRc(false);
             r.setMsg(e.getMessage());
             log.debug("PC: Error in product list");
+        }
+
+        return r;
+    }
+    
+    @GetMapping("/filteredList")
+    public ResponseList<ProductDTO> filteredList(
+    		@RequestParam(required=false) List<String> types,
+    		@RequestParam(required=false) Double minPrice,
+    		@RequestParam(required=false) Double maxPrice,
+    		@RequestParam(required=false) List<String> brands,
+    		@RequestParam(defaultValue = "EN")  String lang){
+        log.debug("PC: Product filteredList request received");
+        ResponseList<ProductDTO> r = new ResponseList<ProductDTO>();
+
+        try{
+            r.setDati(productServices.filteredList(types, minPrice, maxPrice, brands, lang));
+            r.setRc(true);
+            log.debug("PC: Product filteredList done");
+        }catch (Exception e) {
+            r.setRc(false);
+            r.setMsg(e.getMessage());
+            log.debug("PC: Error in product filteredList");
         }
 
         return r;
