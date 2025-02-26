@@ -4,6 +4,7 @@ import com.betacom.backend.dto.cart.CartDTO;
 import com.betacom.backend.dto.cart.CartItemDTO;
 import com.betacom.backend.model.customer.Address;
 import com.betacom.backend.model.customer.Customer;
+import com.betacom.backend.utils.OrderStatusEnum;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -31,6 +32,16 @@ public class Order {
 
     private Double totalPrice = 0.0;
 
+        private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = OrderStatusEnum.valueOf(status).toString();
+    }
+
     /*
     quando carico gli items
 
@@ -52,7 +63,6 @@ public class Order {
         this.address = address;
         this.orderDate = new Date();
         this.customer = customer;
-
         for(CartItemDTO item : cart.getItems()){
             this.totalPrice += item.getPrice() * item.getQuantity();
         }
