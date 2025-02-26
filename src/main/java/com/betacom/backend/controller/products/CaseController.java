@@ -21,14 +21,16 @@ public class CaseController {
 	
 	@Autowired
 	CaseServices caseS;
-	
+	//da finire per ogni prodotto forse
+	//da definire 
 	@PostMapping("/create")
 	public ResponseBase create(@RequestBody(required = true) CaseRequest req) {
 		log.debug("Create case: " + req);
 		ResponseBase r = new ResponseBase();
 		try {
-			caseS.create(req);
+			
 			r.setRc(true);
+			r.setMsg(r.getMsg());
 		} catch (Exception e) {
 			r.setRc(false);
 			r.setMsg(e.getMessage());
