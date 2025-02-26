@@ -15,19 +15,21 @@ public class OrderDTO {
     private Date orderDate;
 
     private Double totalPrice;
-
     private List<OrderItemDTO> orderItemsList;
+
+	private String status;
 
     public OrderDTO() {
     }
 
-    public OrderDTO(Long id, CustomerDTO customer, AddressDTO address, Date orderDate, Double totalPrice, List<OrderItemDTO> orderItemsList) {
+    public OrderDTO(Long id, CustomerDTO customer, AddressDTO address, Date orderDate, Double totalPrice, List<OrderItemDTO> orderItemsList, String status) {
         this.id = id;
         this.customer = customer;
         this.address = address;
         this.orderDate = orderDate;
         this.totalPrice = totalPrice;
         this.orderItemsList = orderItemsList;
+		this.status = status;
     }
 
     public OrderDTO(Order order) {
@@ -40,6 +42,7 @@ public class OrderDTO {
         this.orderItemsList = order.getOrderItems().stream()
                 .map(OrderItemDTO::new)
                 .toList();
+		this.status = order.getStatus();
     }
 
 	public Long getId() {
@@ -90,6 +93,14 @@ public class OrderDTO {
 		this.orderItemsList = orderItemsList;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	@Override
 	public String toString() {
 		return "OrderDTO{" +
@@ -99,6 +110,7 @@ public class OrderDTO {
 				", orderDate=" + orderDate +
 				", totalPrice=" + totalPrice +
 				", orderItemsList=" + orderItemsList +
+				", status='" + status  +
 				'}';
 	}
 }

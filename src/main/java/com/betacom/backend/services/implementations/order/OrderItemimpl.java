@@ -135,57 +135,55 @@ public class OrderItemimpl implements OrderItemsServices {
 	}
 
 	 @Override
-	public void removeItemFromOrder(OrderItemRequest itemReq) throws Exception{
-		log.debug("OII.removeItemFromOrder: remove req received");
-	    //se viene chiesto di togliere piu di quanti sono presenti defaulto a togliere tutto
+	public void removeItemFromOrder(OrderItemRequest itemReq) throws Exception{log.debug("OII.removeItemFromOrder: remove req received");
 
-		 log.debug("OII.removeItemFromOrder: checking req");
-	    if(itemReq == null || itemReq.getOrderId() == null || itemReq.getProductId() == null  )
-			throw new Exception(msgS.getMessage("bad-orderitem-remove-request"));
+// Validazione input
+		 Objects.requireNonNull(itemReq, "Request cannot be null");
+		 Objects.requireNonNull(itemReq.getOrderId(), "Order ID cannot be null");
+		 Objects.requireNonNull(itemReq.getProductId(), "Product ID cannot be null");
 
-		log.debug("OII.removeItemFromOrder: checking order");
-	    Optional<Order> orderOptional = orderRep.findById(itemReq.getOrderId());
-	    if(orderOptional.isEmpty()){
-			throw new Exception(msgS.getMessage("order-not-found-for-orderItem-remove"));
-	    }
-	    Order order = orderOptional.get();
+// Recupero ordine e prodotto
+		 Order order = orderRep.findById(itemReq.getOrderId())
+				 .orElseThrow(() -> new Exception(msgS.getMessage("order-not-found-for-orderItem-remove")));
 
-		log.debug("OII.removeItemFromOrder: checking product");
-	    Optional<Product> productOptional = prodRep.findById(itemReq.getProductId());
-	    if(productOptional.isEmpty()){
-			throw new Exception(msgS.getMessage("product-not-found-for-orderItem-remove"));
-	    }
-	    Product product = productOptional.get();
+		 Product product = prodRep.findById(itemReq.getProductId())
+				 .orElseThrow(() -> new Exception(msgS.getMessage("product-not-found-for-orderItem-remove")));
 
-	    List<OrderItem> orderItems = order.getOrderItems();
+		 List<OrderItem> orderItems = order.getOrderItems();
 
-		if(itemReq.getQuantity() == null){
-			itemReq.setQuantity(1);
-		}
+// Imposto la quantità di default a 1 se nulla
+		 int quantityToRemove = (itemReq.getQuantity() == null) ? 1 : itemReq.getQuantity();
 
-		 product.addStock(itemReq.getQuantity());
+// Aggiorno stock del prodotto
+		 product.addStock(quantityToRemove);
 
 		 log.debug("OII.removeItemFromOrder: updating order and stock");
 
-		 OrderItem updateMe = orderItems.stream().filter(
-				 o->
-                         Objects.equals(o.getProduct().getId(), product.getId())).findFirst().orElse(null);
+// Trovo l'OrderItem corrispondente al prodotto nell'ordine
+		 OrderItem updateMe = orderItems.stream()
+				 .filter(o -> Objects.equals(o.getProduct().getId(), product.getId()))
+				 .findFirst()
+				 .orElseThrow(() -> new Exception(msgS.getMessage("product-not-found-in-orderItem-remove")));
 
-		 if(updateMe == null)
-			 throw new Exception(msgS.getMessage("product-not-found-in-orderItem-remove"));
+// Rimuovo o aggiorno la quantità
+		 if (updateMe.getQuantity() > quantityToRemove) {
+			 updateMe.setQuantity(updateMe.getQuantity() - quantityToRemove);
+		 } else {
+			 orderItems.remove(updateMe);
+		 }
 
+// Salvataggio ordine e prodotto
+		 orderRep.save(order);
+		 prodRep.save(product);
+		 log.debug("OII.removeItemFromOrder: saved order");
 
-		if(updateMe.getQuantity() > itemReq.getQuantity()){
-			updateMe.setQuantity(updateMe.getQuantity() - itemReq.getQuantity());
-		}else{
-			orderItems.remove(updateMe);
-		}
+// Se l'ordine non ha più elementi, lo elimino
+		 if (order.getOrderItems().isEmpty()) {
+			 log.debug("OII.delete: deleting order because no orderitems");
+			 orderRep.delete(order);
+		 }
 
-		log.debug("OII.removeItemFromOrder: updating order and stock");
-	    orderRep.save(order);
-		prodRep.save(product);
-		log.debug("OII.removeItemFromOrder: saved order");
-	}
+	 }
 
 	@Override
 	public void delete(Long id) throws Exception {
