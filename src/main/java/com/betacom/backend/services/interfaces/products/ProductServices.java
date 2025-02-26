@@ -8,6 +8,8 @@ import com.betacom.backend.request.products.ProductRequest;
 
 public interface ProductServices {
     List<ProductDTO> list(String lang) throws Exception;        //list per fare list di tutto
+    
+    List<ProductDTO> filteredList(List<String> types, Double minPrice, Double maxPrice, List<String> brands, String lang) throws Exception;        //list con filtri su tipo, prezzo(min e max) e marca
 
     ProductDTO get(Long id,String lang) throws Exception;         //get per prendere con id,
 
