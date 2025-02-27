@@ -88,6 +88,7 @@ public class AddressImpl implements AddressServices {
 
 		Address p = new Address(req);
 		p.setCustomer(customer);
+		p.setId(req.getId());
 		AddrRep.save(p);
 
 	}
@@ -98,7 +99,15 @@ public class AddressImpl implements AddressServices {
 			throw new Exception(msgS.getMessage("missing-id-delete"));
 		}
 
-		AddrRep.deleteById(id);
+		Address address = AddrRep.findById(id).orElseThrow(()->new Exception("does-not-exist-delete"));
+
+
+
+		Customer customer = CustRep.findById(0L).orElseThrow(()->new Exception("delete error"));
+
+		address.setCustomer(customer);
+
+		AddrRep.save(address);
 
 	}
 
