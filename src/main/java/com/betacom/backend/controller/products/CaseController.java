@@ -29,8 +29,8 @@ public class CaseController {
 		ResponseBase r = new ResponseBase();
 		try {
 			
+			caseS.create(req);
 			r.setRc(true);
-			r.setMsg(r.getMsg());
 		} catch (Exception e) {
 			r.setRc(false);
 			r.setMsg(e.getMessage());
