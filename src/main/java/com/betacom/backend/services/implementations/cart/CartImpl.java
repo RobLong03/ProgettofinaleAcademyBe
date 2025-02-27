@@ -102,36 +102,37 @@ public class CartImpl implements CartServices{
 		cartR.deleteById(id);
 	}
 
-	 @Override
-		public void clear(CartRequest req) throws Exception {
-			if(req.getId() == null){
-	            throw new Exception("missing-id");
-	        }
-			Optional<Cart> ca = cartR.findById(req.getId());
-			if(ca.isEmpty())
-				throw new Exception("missing-cart");
-			
-			Cart c = ca.get();
-			c.getItems().clear();
-			cartR.save(c);
-			
-		}
+	@Override
+	public void clear(CartRequest req) throws Exception {
+		
+		if(req.getId() == null){
+            throw new Exception("missing-id");
+        }
+		Optional<Cart> ca = cartR.findById(req.getId());
+		if(ca.isEmpty())
+			throw new Exception("missing-cart");
+		
+		Cart c = ca.get();
+		c.getItems().clear();
+		cartR.save(c);
+		
+	}
 
-		@Override
-		public void removeItem(Long cartId, Long itemId) throws Exception {
-			Optional<Cart> ca = cartR.findById(cartId);
-			if(ca.isEmpty())
-				throw new Exception("missing-cart");
-			
-			Optional<CartItem> ci = cartItemR.findById(itemId);
-			if(ci.isEmpty())
-				throw new Exception("missing-cart-item");
-			
-			Cart c = ca.get();
-			
-			c.getItems().removeIf(i -> i.getId().equals(itemId));
-			cartR.save(c);
-		}
+	@Override
+	public void removeItem(Long cartId, Long itemId) throws Exception {
+		Optional<Cart> ca = cartR.findById(cartId);
+		if(ca.isEmpty())
+			throw new Exception("missing-cart");
+		
+		Optional<CartItem> ci = cartItemR.findById(itemId);
+		if(ci.isEmpty())
+			throw new Exception("missing-cart-item");
+		
+		Cart c = ca.get();
+		
+		c.getItems().removeIf(i -> i.getId().equals(itemId));
+		cartR.save(c);
+	}
 
 
 }

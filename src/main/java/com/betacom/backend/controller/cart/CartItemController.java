@@ -43,6 +43,7 @@ public class CartItemController {
 		try {
 			carS.delete(req.getId());
 		} catch (Exception e) {
+			log.debug("Errore");
 			r.setMsg(e.getMessage());
 			r.setRc(false);
 		}
@@ -65,7 +66,7 @@ public class CartItemController {
 
 	@PostMapping("/removeItems")
 	public ResponseBase removeItems(@RequestBody CartItemRequest req) {
-		log.debug("************remove: " + req);
+		log.debug("************removeQuantity: " + req);
 		ResponseBase r = new ResponseBase();
 		r.setRc(true);
 		try {

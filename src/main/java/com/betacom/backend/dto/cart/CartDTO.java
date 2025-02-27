@@ -45,6 +45,7 @@ public class CartDTO {
 	            .orElse(Collections.emptyList()) // Se null, restituisce una lista vuota
 	            .stream()
 	            .map(c -> new CartItemDTO(
+	            		c.getId(),
 	                    c.getProduct().getId(),
 	                    c.getCart().getId(),
 	                    c.getQuantity(),

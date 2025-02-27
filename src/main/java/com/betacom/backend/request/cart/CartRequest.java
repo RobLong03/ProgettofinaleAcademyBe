@@ -45,5 +45,9 @@ public class CartRequest {
 		this.totalPrice = totalPrice;
 		this.customerId = customerId;
 	}
+	@Override
+	public String toString() {
+		return "CartRequest [id=" + id + ", totalPrice=" + totalPrice + ", customerId=" + customerId + "]";
+	}
 
 }

@@ -66,31 +66,35 @@ public class CartItemImpl implements CartItemServices{
 
 	@Override
 	public void create(CartItemRequest req, Long customerId) throws Exception {
+		//Controllo attributi --------------------------------------------------------------------------------------------
 		if(mancanoAttributi(req))
 			throw new Exception(msgS.getMessage("missing-attributes-create"));
-
 		if(customerId==null)
 			throw new Exception(msgS.getMessage("missing-customer-id-cartItem-create"));
-		
 		Optional<Cart> cartOptional = cartR.findByCustomer_id(customerId);
 		if(cartOptional.isEmpty())
 			throw new Exception(msgS.getMessage("no-cart-found-cartitem-create"));
-
+		Cart cart = cartOptional.get();
 		Optional<Product> prodOp = prodR.findById(req.getProductId());
 		if(prodOp.isEmpty())
 			throw new Exception(msgS.getMessage("product-not-found-cartitem-create"));
-
+		
+		//Se è già stato creato aumenta quantità -------------------------------------------------------------------------
+		log.debug("product id:" + req.getProductId().toString());
+		Optional<CartItem> existing = cart.getItems().stream().filter(item -> item.getProduct().getId().equals(req.getProductId()))
+				.findFirst();
 		CartItem p = new CartItem();
-
-
-
+		if(existing.isPresent()) {
+			p.setQuantity(existing.get().getQuantity() + 1);
+			log.debug(p.getQuantity().toString());
+			p.setId(existing.get().getId());
+		}
+		
 		p.setCart(cartOptional.get());
 		p.setProduct(prodOp.get());
-		if(req.getQuantity() == null)
-			req.setQuantity(1);
-		p.setQuantity(req.getQuantity());
+		if(p.getQuantity() == null)
+			p.setQuantity(1);
 		carItR.save(p);
-
 	}
 
 	/*
@@ -98,74 +102,37 @@ public class CartItemImpl implements CartItemServices{
 	 */
 	@Override
 	public void add(CartItemRequest req) throws Exception {
-
-		if(req.getId() == null) {
-			throw new Exception(msgS.getMessage("missing-id-update"));
-		}
-
-		Optional<CartItem> cartItemOptional = carItR.findById(req.getId());
-		if( cartItemOptional.isEmpty()) {
-			throw new Exception(msgS.getMessage("does-not-exist-update"));
-		}
-		CartItem cartItem = cartItemOptional.get();
-
-		/*
-		questo check si potrebbe anche non fare? in teoria stiamo modificando un oggetto nel carello, se c'era fino al aggiungerne uno ci sara anche dopo probabilmente?
-		nel dubbio better safe than sorry e lasciarlo
-		 */
-		Optional<Product> prodOp = prodR.findById(req.getProductId());
-		if(prodOp.isEmpty())
-			throw new Exception(msgS.getMessage("product-not-found-cartitem-update"));
-		Product prod = prodOp.get();
-
-		if(cartItem.getProduct().getId() != prod.getId())
-			throw new Exception(msgS.getMessage("product-not-found-cartitem-update"));
-
-		cartItem.setQuantity( cartItem.getQuantity() + req.getQuantity() );
-		carItR.save(cartItem);
-
-
-
+		if(req.getId() == null)
+			throw new Exception("Id non presente");
+		
+		Optional<CartItem> cartItem = carItR.findById(req.getId());
+		if(cartItem.isEmpty())
+			throw new Exception("Item non presente");
+		
+		CartItem c = cartItem.get();
+		c.setQuantity(c.getQuantity()+1);
+		carItR.save(c);
 	}
 
 	@Override
 	public void remove(CartItemRequest req) throws Exception {
-		if (req.getId() == null) {
-			throw new Exception(msgS.getMessage("missing-id-update"));
-		}
-
-		Optional<CartItem> cartItemOptional = carItR.findById(req.getId());
-		if (cartItemOptional.isEmpty()) {
-			throw new Exception(msgS.getMessage("does-not-exist-update"));
-		}
-		CartItem cartItem = cartItemOptional.get();
-		System.out.println("********************************************ITEM BEFORE EDITING IT:" + cartItem.getQuantity());
-
-//		Optional<Cart> cartOptional = cartR.findById(req.getCartId());
-//		if(cartOptional.isEmpty())
-//			throw new Exception(msgS.getMessage("no-cart-found-cartitem-update"));
-
-		Optional<Product> prodOp = prodR.findById(req.getProductId());
-		if (prodOp.isEmpty())
-			throw new Exception(msgS.getMessage("product-not-found-cartitem-update"));
-		Product prod = prodOp.get();
-
-		if (cartItem.getProduct().getId() != prod.getId())
-			throw new Exception(msgS.getMessage("product-not-found-cartitem-update"));
-
-		cartItem.setQuantity(cartItem.getQuantity() - req.getQuantity());
-
-		System.out.println("********************************************ITEM AFTER EDITING IT:" + cartItem.getQuantity());
-
-		if (cartItem.getQuantity() > 0) {
-			carItR.save(cartItem);
-		} else if (cartItem.getQuantity() == 0) {
-			carItR.deleteById(cartItem.getId());
-		} else {
-			throw new Exception(msgS.getMessage("product-quantity-remaining-less-than-zero"));
-
+		if(req.getId() == null)
+			throw new Exception("Id non presente");
+		
+		Optional<CartItem> cartItem = carItR.findById(req.getId());
+		if(cartItem.isEmpty())
+			throw new Exception("Item non presente");
+		
+		CartItem c = cartItem.get();
+		if(c.getQuantity() > 1) {
+			c.setQuantity(c.getQuantity()-1);
+			carItR.save(c);
+		}else {
+			carItR.deleteById(req.getId());
 		}
 	}
+	
+	
 
 	@Override
 	public void update(CartItemRequest req) throws Exception {
