@@ -1,15 +1,26 @@
 package com.betacom.backend.controller.products;
 
+import java.util.List;
+
+import org.slf4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.betacom.backend.dto.products.ProductDescriptionDTO;
 import com.betacom.backend.request.products.ProductDescriptionRequest;
 import com.betacom.backend.response.ResponseBase;
+import com.betacom.backend.response.ResponseList;
 import com.betacom.backend.response.ResponseObject;
 import com.betacom.backend.services.interfaces.products.ProductDescriptionServices;
-import org.slf4j.Logger;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("/app/product-description")
 public class ProductDescriptionController {
 
@@ -17,7 +28,7 @@ public class ProductDescriptionController {
     Logger log;
 
     @Autowired
-    private ProductDescriptionServices productDescriptionServices;
+    ProductDescriptionServices productDescriptionServices;
 
     // Create
     @PostMapping("/create")
@@ -60,16 +71,16 @@ public class ProductDescriptionController {
 
     // Get by Product ID and Language
     @GetMapping("/get-by-product")
-    public ResponseObject<ProductDescriptionDTO> getByProductAndLang(
+    public ResponseList<ProductDescriptionDTO> getByProductId(
             @RequestParam Long id_prodotto,
             @RequestParam(defaultValue = "EN") String lang) {
 
         log.debug("PDC: Product description get-by-product request received: id_prodotto=" + id_prodotto + ", lang=" + lang);
-        ResponseObject<ProductDescriptionDTO> r = new ResponseObject<>();
+        ResponseList<ProductDescriptionDTO> r = new ResponseList<>();
 
         try {
-            ProductDescriptionDTO dto = productDescriptionServices.getDescription(id_prodotto, lang);
-            r.setDati(dto);
+            List<ProductDescriptionDTO> dtos = productDescriptionServices.getDescriptions(id_prodotto);
+            r.setDati(dtos);
             r.setRc(true);
             log.debug("PDC: Product description retrieved for productId: " + id_prodotto + ", lang: " + lang);
         } catch (Exception e) {
@@ -110,6 +121,24 @@ public class ProductDescriptionController {
             ProductDescriptionRequest Dreq = new ProductDescriptionRequest();
             Dreq.setId(req.getId());
             productDescriptionServices.deleteDescription(req);
+            r.setRc(true);
+            log.debug("PDC: Product description deleted for id: " + req.getId());
+        } catch (Exception e) {
+            r.setRc(false);
+            r.setMsg(e.getMessage());
+            log.error("PDC: Error deleting product description for id: " + req.getId(), e);
+        }
+
+        return r;
+    }
+    @PostMapping("/deleteAll")
+    public ResponseBase deleteAll(@RequestBody ProductDescriptionRequest req) {
+        log.debug("PDC: Product description delete all");
+        ResponseBase r = new ResponseBase();
+
+        try {
+            
+            productDescriptionServices.truncateAllDescription(req);
             r.setRc(true);
             log.debug("PDC: Product description deleted for id: " + req.getId());
         } catch (Exception e) {

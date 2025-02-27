@@ -35,8 +35,10 @@ public class Storage extends Product {
 	
 	public Storage(StorageRequest req) {
 		super(req);
-		super.setType("Storage");
-		this.stype = StorageType.valueOf(req.getType());
+		
+		
+		super.setType(StorageType.valueOf(req.getStype()).toString());
+		this.stype = StorageType.valueOf(req.getStype());
 		this.size = req.getSize();
 	}
 

@@ -11,10 +11,13 @@ import org.springframework.stereotype.Service;
 import com.betacom.backend.dto.products.CaseDTO;
 import com.betacom.backend.dto.products.ProductDescriptionDTO;
 import com.betacom.backend.model.products.Cases;
+import com.betacom.backend.model.products.Color;
 import com.betacom.backend.repositories.products.ICaseRepository;
+import com.betacom.backend.repositories.products.IColorRepository;
 import com.betacom.backend.request.products.CaseRequest;
 import com.betacom.backend.services.interfaces.messages.MessageServices;
 import com.betacom.backend.services.interfaces.products.CaseServices;
+import com.betacom.backend.services.interfaces.products.ColorServices;
 import com.betacom.backend.services.interfaces.products.ProductDescriptionServices;
 
 @Service
@@ -28,6 +31,9 @@ public class CaseImpl implements CaseServices{
 	
 	@Autowired
 	ProductDescriptionServices pdescS;
+	
+	@Autowired
+	IColorRepository colR;
 	
 	@Autowired
     Logger log;
@@ -49,6 +55,7 @@ public class CaseImpl implements CaseServices{
                 })
                 .collect(Collectors.toList());
 	}
+	
 
 	@Override
 	public CaseDTO get(Long id,String lang) throws Exception {
@@ -74,8 +81,16 @@ public class CaseImpl implements CaseServices{
 		if(mancanoAttributi(req))
             throw new Exception(msgS.getMessage("does-not-exist-get"));
 
+		
+		//color section
+		Color color=colR.findByColor(req.getColor().trim()).orElseThrow(()
+				-> new Exception(msgS.getMessage("does-not-exist-get")));
+				
 		Cases p = new Cases(req);
-        caseRep.save(p);
+		p.setColor(color);
+		//da definire se ritornare il valore penso di no faccio fare con 
+		//l' upadte per mancanza di tempo
+         caseRep.save(p);
 	}
 
 	@Override
@@ -87,8 +102,12 @@ public class CaseImpl implements CaseServices{
         if( caseRep.findById(req.getId()).isEmpty()){
 			throw new Exception(msgS.getMessage("does-not-exist-update"));
         }
-
-        Cases c = new Cases(req);
+        Color color=colR.findByColor(req.getColor().trim()).orElseThrow(()
+				-> new Exception(msgS.getMessage("does-not-exist-get")));
+				
+		Cases c = new Cases(req);
+		c.setColor(color);
+       
 
         caseRep.save(c);
 	}

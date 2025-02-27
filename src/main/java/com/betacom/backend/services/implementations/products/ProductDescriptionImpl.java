@@ -1,7 +1,8 @@
 package com.betacom.backend.services.implementations.products;
 
-import java.io.Console;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,6 +49,35 @@ public class ProductDescriptionImpl implements ProductDescriptionServices {
 		)) ;
 		return new ProductDescriptionDTO(id, productDes.getLang(),productDes.getProduct().getId() , productDes.getDescription());
 	}
+	@Override
+	public List<ProductDescriptionDTO> getDescriptions(Long id) throws Exception {
+	    
+	    List<Optional<ProductDescription>> productDescriptionOptionals = PrDesRepo.findByProductId(id);
+	  
+	    if (productDescriptionOptionals.isEmpty()) {
+	        return null; 
+	    }
+
+	    List<ProductDescriptionDTO> dtoList = productDescriptionOptionals.stream()
+	        .filter(Optional::isPresent)
+	        .map(Optional::get)
+	        .map(pd -> new ProductDescriptionDTO(
+	                pd.getId(), 
+	                pd.getLang(), 
+	                pd.getProduct().getId(), 
+	                pd.getDescription()))
+	        .collect(Collectors.toList());
+	    
+	    if (dtoList.isEmpty()) {
+	        throw new Exception(msgS.getMessage("missing-id"));
+	    }
+	    
+	    return dtoList;
+	}
+
+
+
+
 
 
 	@Override
@@ -101,6 +131,11 @@ public class ProductDescriptionImpl implements ProductDescriptionServices {
 		PrDesRepo.delete(description);
 		
 	}
+	@Override
+	public void truncateAllDescription(ProductDescriptionRequest req) throws Exception {
+		
+		PrDesRepo.deleteAllByProductId(req.getIdprodotto());
+	}
 	private boolean mancanoAttributi(ProductDescriptionRequest req) {
         return  req.getDescription() == null || req.getDescription().isBlank()
                 || req.getLang() == null || req.getLang().isBlank()
@@ -109,6 +144,7 @@ public class ProductDescriptionImpl implements ProductDescriptionServices {
                 
 
     }
+	
 
 	
 

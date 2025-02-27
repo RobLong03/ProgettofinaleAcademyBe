@@ -3,30 +3,31 @@ package com.betacom.backend.request.order;
 public class OrderRequest {
     private Long id;
     private Long customerId;
-//    private Long cartId;
-    //TODO remove cart id, fetch it by customer id....
     private Long addressId;
-    private String orderDate;
-    private Double totalPrice;
+    private String status;
+
+    //total price e order date sono gestiti completamente da codice, inutile tenerli come campi
 
     public OrderRequest() {
     }
 
-    public OrderRequest(Long customerId, /*Long cartId,*/ Long addressId, String orderDate, Double totalPrice) {
+    public OrderRequest(Long customerId,  Long addressId) {
         this.customerId = customerId;
-//        this.cartId = cartId;
         this.addressId = addressId;
-        this.orderDate = orderDate;
-        this.totalPrice = totalPrice;
     }
 
-    public OrderRequest(Long id, Long customerId,  /*Long cartId,*/ Long addressId, String orderDate, Double totalPrice) {
+    public OrderRequest(Long id, Long customerId, Long addressId) {
         this.id = id;
         this.customerId = customerId;
-//        this.cartId = cartId;
         this.addressId = addressId;
-        this.orderDate = orderDate;
-        this.totalPrice = totalPrice;
+    }
+
+    public Long getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(Long addressId) {
+        this.addressId = addressId;
     }
 
     public Long getId() {
@@ -45,49 +46,11 @@ public class OrderRequest {
         this.customerId = customerId;
     }
 
-//    public Long getCartId() {
-//        return cartId;
-//    }
-
-//    public void setCartId(Long cartId) {
-//        this.cartId = cartId;
-//    }
-
-    public Long getAddressId() {
-        return addressId;
+    public String getStatus() {
+        return status;
     }
 
-    public void setAddressId(Long addressId) {
-        this.addressId = addressId;
+    public void setStatus(String status) {
+        this.status = status;
     }
-
-    public String getOrderDate() {
-        return orderDate;
-    }
-
-    public void setOrderDate(String orderDate) {
-        this.orderDate = orderDate;
-    }
-
-    public Double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(Double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    @Override
-    public String toString() {
-        return "OrderRequest{" +
-                "id=" + id +
-                ", customerId=" + customerId +
-//                ", cartId=" + cartId +
-                ", addressId=" + addressId +
-                ", orderDate='" + orderDate + '\'' +
-                ", totalPrice=" + totalPrice +
-                '}';
-    }
-
-
 }

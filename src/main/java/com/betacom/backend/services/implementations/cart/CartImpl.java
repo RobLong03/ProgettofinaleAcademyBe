@@ -9,15 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.betacom.backend.dto.cart.CartDTO;
-import com.betacom.backend.dto.cart.CartItemDTO;
 import com.betacom.backend.model.cart.Cart;
 import com.betacom.backend.model.cart.CartItem;
 import com.betacom.backend.model.customer.Customer;
-import com.betacom.backend.model.products.Product;
 import com.betacom.backend.repositories.cart.ICartRepository;
 import com.betacom.backend.repositories.cart.IcartItemRepository;
 import com.betacom.backend.repositories.customer.ICustomerRepository;
-import com.betacom.backend.request.cart.CartItemRequest;
 import com.betacom.backend.request.cart.CartRequest;
 import com.betacom.backend.services.interfaces.cart.CartServices;
 import com.betacom.backend.services.interfaces.messages.MessageServices;
@@ -58,12 +55,12 @@ public class CartImpl implements CartServices{
 	}
 
 	@Override
-	public CartDTO get(Long id) throws Exception {
-		if(id == null){
+	public CartDTO get(Long customerId) throws Exception {
+		if(customerId == null){
 			throw new Exception(msgS.getMessage("missing-id-get"));
         }
 
-        Optional<Cart> cas = cartR.findById(id);
+        Optional<Cart> cas = cartR.findByCustomer_id(customerId);
 
         if(cas.isPresent()){
 			/*

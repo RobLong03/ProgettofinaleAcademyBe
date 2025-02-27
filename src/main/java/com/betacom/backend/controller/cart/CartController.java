@@ -23,10 +23,10 @@ public class CartController {
 
 	@Autowired
 	Logger log;
-	
+
 	@Autowired
 	CartServices carS;
-	
+
 	@PostMapping("/create")
 	public ResponseBase create(@RequestBody(required = true) CartRequest req) {
 		log.debug("create: " + req);
@@ -40,7 +40,7 @@ public class CartController {
 		}
 		return r;
 	}
-	
+
 	@PostMapping("/delete")
 	public ResponseBase delete(@RequestBody(required = true) CartRequest req) {
 		log.debug("create: " + req);
@@ -54,7 +54,7 @@ public class CartController {
 		}
 		return r;
 	}
-	
+
 	@PostMapping("/clear")
 	public ResponseBase clear(@RequestBody(required = true) CartRequest req) {
 		log.debug("clear: " + req);
@@ -68,26 +68,26 @@ public class CartController {
 		}
 		return r;
 	}
-	
+
 	@GetMapping("/get")
-	public ResponseObject<CartDTO> get(@RequestParam Long id) {
-		
+	public ResponseObject<CartDTO> get(@RequestParam Long customerId) {
+
 		log.debug("get");
-		
+
 		ResponseObject<CartDTO>res=new ResponseObject<CartDTO>();
 		res.setRc(true);
-		
+
 		try {
-			
-			res.setDati(carS.get(id));
+
+			res.setDati(carS.get(customerId));
 		} catch (Exception e) {
-			
+
 			log.error(e.getMessage());
-			
+
 			res.setRc(false);
 			res.setMsg(e.getMessage());
 		}
-		
+
 		return res;
 	}
 }

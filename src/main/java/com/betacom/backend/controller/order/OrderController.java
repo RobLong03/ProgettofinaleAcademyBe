@@ -84,6 +84,20 @@ public class OrderController {
         return r;
     }
 
+    @PostMapping("/updateStatus")
+    public ResponseBase updateStatus(@RequestBody(required = true)OrderRequest req) {
+        ResponseBase r = new ResponseBase();
+
+        try {
+            orderServices.updateStatus(req);
+            r.setRc(true);
+        } catch (Exception e) {
+            r.setRc(false);
+            r.setMsg(e.getMessage());
+        }
+        return r;
+    }
+
     @PostMapping("/update")
     public ResponseBase update(@RequestBody(required = true)OrderRequest req){
         ResponseBase r = new ResponseBase();

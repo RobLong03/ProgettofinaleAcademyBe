@@ -1,12 +1,10 @@
 package com.betacom.backend.services.implementations.order;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import com.betacom.backend.services.interfaces.messages.MessageServices;
+import com.betacom.backend.utils.OrderStatusEnum;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +22,6 @@ import com.betacom.backend.repositories.customer.IAddressRepository;
 import com.betacom.backend.repositories.customer.ICustomerRepository;
 import com.betacom.backend.repositories.order.IOrderRepository;
 import com.betacom.backend.repositories.products.IProductRepository;
-import com.betacom.backend.request.order.OrderItemRequest;
 import com.betacom.backend.request.order.OrderRequest;
 import com.betacom.backend.services.interfaces.order.OrderServices;
 
@@ -91,6 +88,7 @@ public class OrderImpl implements OrderServices {
 
     @Override
     public void create(OrderRequest req) throws Exception {
+
         log.debug("OI.create: Order request:" + req);
         if (missingparams(req)) {
             log.debug("OI.create: missing params");
@@ -115,6 +113,7 @@ public class OrderImpl implements OrderServices {
 
         // Creazione ordine senza salvarlo subito
         Order order = new Order();
+        order.setStatus(OrderStatusEnum.PENDING.toString());
         order.setCustomer(customer);
         order.setAddress(address);
         order.setOrderDate(new Date());
@@ -175,11 +174,11 @@ public class OrderImpl implements OrderServices {
         }
 
         log.debug("OI.update: fetching order details");
-        Optional<Order> orderOptional = orderRep.findById(req.getId());
-        if (orderOptional.isEmpty()) {
-            throw new Exception(msgS.getMessage("does-not-exist-update"));
+        Order order = orderRep.findById(req.getId()).orElseThrow(()-> new Exception(msgS.getMessage("does-not-exist-update")));
+
+        if(orderShipped(order)){
+            throw new Exception(msgS.getMessage("order-already-shipped"));
         }
-        Order order = orderOptional.get();
 
         Optional<Address> addressOptional = addresRep.findById(req.getAddressId());
         if (addressOptional.isEmpty()) {
@@ -195,6 +194,11 @@ public class OrderImpl implements OrderServices {
         order.setAddress(address);
         orderRep.save(order);
 
+    }
+
+    private boolean orderShipped(Order order) {
+        return !(Objects.equals(order.getStatus(), OrderStatusEnum.PENDING.toString())
+                || Objects.equals(order.getStatus(), OrderStatusEnum.PREPARING.toString()));
     }
 
     @Override
@@ -221,6 +225,22 @@ public class OrderImpl implements OrderServices {
 
         orderRep.delete(order);
         prodRep.saveAll(lp);
+
+    }
+
+    @Override
+    public void updateStatus(OrderRequest req) throws Exception {
+        if (req.getId() == null) {
+            throw new Exception(msgS.getMessage("missing-id-update"));
+        }
+        if(req.getStatus() == null || req.getStatus().isBlank()){
+            throw new Exception(msgS.getMessage("not-enough-data-update"));
+        }
+
+        Order order = orderRep.findById(req.getId()).orElseThrow(()-> new Exception(msgS.getMessage("does-not-exist-update")));
+        order.setStatus(OrderStatusEnum.valueOf(req.getStatus()).toString());
+        orderRep.save(order);
+
 
     }
 }

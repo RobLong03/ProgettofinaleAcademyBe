@@ -105,6 +105,6 @@ public class StorageImpl implements StorageServices{
 	
 	private boolean mancanoAttributi(StorageRequest req) {
         return req.getSize() == null
-                || req.getType() == null || req.getType().isBlank();
+                || req.getStype() == null || req.getStype().isBlank();
     }
 }

@@ -110,24 +110,31 @@ public class CustomerImpl implements CustomerSevices {
 
     }
 
-    @Override
     public void update(CustomerRequest req) throws Exception {
         if (req.getId() == null) {
             throw new Exception(msgS.getMessage("missing-id-update"));
         }
-        
+
         Optional<Customer> customerOpt = CustRep.findById(req.getId());
         if (customerOpt.isEmpty()) {
             throw new Exception(msgS.getMessage("does-not-exist-update"));
         }
 
-        Customer customer = new Customer(req);
-        if(req.getPassword()!=null && !req.getPassword().isBlank()){
+        Customer customer = customerOpt.get(); // Usa il customer esistente
+
+        customer.setName(req.getName());
+        customer.setSurname(req.getSurname());
+        customer.setTaxId(req.getTaxId());
+        customer.setEmail(req.getEmail());
+
+        // Aggiorna la password solo se è presente nel request
+        if (req.getPassword() != null && !req.getPassword().isBlank()) {
             customer.setPassword(passwordService.hashPassword(req.getPassword()));
         }
 
-        CustRep.save(customer);
+        CustRep.save(customer); // Salva il customer aggiornato
     }
+
 
     @Override
     public void delete(Long id) throws Exception {

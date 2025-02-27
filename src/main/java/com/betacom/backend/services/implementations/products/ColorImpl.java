@@ -12,6 +12,7 @@ import com.betacom.backend.dto.products.ColorDTO;
 import com.betacom.backend.model.products.Color;
 import com.betacom.backend.repositories.products.IColorRepository;
 import com.betacom.backend.request.products.ColorRequest;
+import com.betacom.backend.services.interfaces.products.CaseServices;
 import com.betacom.backend.services.interfaces.products.ColorServices;
 
 @Service
@@ -22,6 +23,12 @@ public class ColorImpl implements ColorServices{
 
 	@Autowired
 	MessageServices msgS;
+	
+	//per controllare che nessun case venga eliminato distruggendo la correlazione con 
+	//il color abbiamo bisogno di controllare fattivamente che questo avvenga 
+	//controllando quali abbiano il colore
+	@Autowired
+	CaseServices casS;
 
 	@Override
 	public List<ColorDTO> list() {
@@ -77,7 +84,12 @@ public class ColorImpl implements ColorServices{
 		if(id == null){
 			throw new Exception(msgS.getMessage("missing-id-delete"));
         }
-
+	//da controllare eventuali problemi
+		if(casS.list("EN").stream().filter
+				(x->x.getColor().getId()==id).findFirst().isPresent())
+			throw new Exception(msgS.getMessage("delete-is-case-present"));
+			;
+		
         colRep.deleteById(id);
 	}
 	

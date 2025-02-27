@@ -91,6 +91,7 @@
         customer_id bigint not null,
         id bigint not null auto_increment,
         order_date datetime(6),
+        status varchar(255),
         primary key (id)
     ) engine=InnoDB;
 
