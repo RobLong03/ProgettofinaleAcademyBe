@@ -2,10 +2,18 @@ package com.betacom.backend.controller.cart;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.betacom.backend.dto.cart.CartDTO;
 import com.betacom.backend.request.cart.CartRequest;
 import com.betacom.backend.response.ResponseBase;
+import com.betacom.backend.response.ResponseObject;
 import com.betacom.backend.services.interfaces.cart.CartServices;
 
 @RestController
@@ -15,10 +23,10 @@ public class CartController {
 
 	@Autowired
 	Logger log;
-	
+
 	@Autowired
 	CartServices carS;
-	
+
 	@PostMapping("/create")
 	public ResponseBase create(@RequestBody(required = true) CartRequest req) {
 		log.debug("create: " + req);
@@ -32,7 +40,7 @@ public class CartController {
 		}
 		return r;
 	}
-	
+
 	@PostMapping("/delete")
 	public ResponseBase delete(@RequestBody(required = true) CartRequest req) {
 		log.debug("create: " + req);
@@ -46,7 +54,7 @@ public class CartController {
 		}
 		return r;
 	}
-	
+
 	@PostMapping("/clear")
 	public ResponseBase clear(@RequestBody(required = true) CartRequest req) {
 		log.debug("clear: " + req);
@@ -60,5 +68,26 @@ public class CartController {
 		}
 		return r;
 	}
-	
+
+	@GetMapping("/get")
+	public ResponseObject<CartDTO> get(@RequestParam Long id) {
+
+		log.debug("get");
+
+		ResponseObject<CartDTO>res=new ResponseObject<CartDTO>();
+		res.setRc(true);
+
+		try {
+
+			res.setDati(carS.get(id));
+		} catch (Exception e) {
+
+			log.error(e.getMessage());
+
+			res.setRc(false);
+			res.setMsg(e.getMessage());
+		}
+
+		return res;
+	}
 }
