@@ -5,6 +5,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.betacom.backend.services.interfaces.messages.MessageServices;
+
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,6 +36,9 @@ public class CartItemImpl implements CartItemServices{
 
 	@Autowired
 	IProductRepository prodR;
+	
+	@Autowired
+	Logger log;
 
 	@Override
 	public List<CartItemDTO> listByCart(Long cartId) {
@@ -60,11 +65,14 @@ public class CartItemImpl implements CartItemServices{
 	}
 
 	@Override
-	public void create(CartItemRequest req) throws Exception {
+	public void create(CartItemRequest req, Long customerId) throws Exception {
 		if(mancanoAttributi(req))
 			throw new Exception(msgS.getMessage("missing-attributes-create"));
 
-		Optional<Cart> cartOptional = cartR.findById(req.getCartId());
+		if(customerId==null)
+			throw new Exception(msgS.getMessage("missing-customer-id-cartItem-create"));
+		
+		Optional<Cart> cartOptional = cartR.findByCustomer_id(customerId);
 		if(cartOptional.isEmpty())
 			throw new Exception(msgS.getMessage("no-cart-found-cartitem-create"));
 
@@ -78,8 +86,9 @@ public class CartItemImpl implements CartItemServices{
 
 		p.setCart(cartOptional.get());
 		p.setProduct(prodOp.get());
+		if(req.getQuantity() == null)
+			req.setQuantity(1);
 		p.setQuantity(req.getQuantity());
-
 		carItR.save(p);
 
 	}
@@ -193,9 +202,7 @@ public class CartItemImpl implements CartItemServices{
 	}
 
 	private boolean mancanoAttributi(CartItemRequest req) {
-		return req.getCartId() == null ||
-				req.getProductId() == null ||
-				req.getQuantity() == null;
+		return req.getProductId() == null;
 	}
 
 }

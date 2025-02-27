@@ -51,6 +51,10 @@
        drop 
        foreign key FK624gtjin3po807j3vix093tlf;
 
+    alter table `product-description` 
+       drop 
+       foreign key FKtdnlth5lpoqijt5ui8fbv2hs8;
+
     alter table psu 
        drop 
        foreign key FKa2fj0ush945rntfhw7j4kka4w;
@@ -100,6 +104,8 @@
     drop table if exists orders;
 
     drop table if exists product;
+
+    drop table if exists `product-description`;
 
     drop table if exists psu;
 

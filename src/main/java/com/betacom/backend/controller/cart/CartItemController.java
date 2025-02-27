@@ -22,12 +22,12 @@ public class CartItemController {
 	CartItemServices carS;
 	
 	@PostMapping("/create")
-	public ResponseBase create(@RequestBody(required = true) CartItemRequest req) {
+	public ResponseBase create(@RequestBody(required = true) CartItemRequest req, @RequestParam Long customerId) {
 		log.debug("create: " + req);
 		ResponseBase r = new ResponseBase();
 		r.setRc(true);
 		try {
-			carS.create(req);
+			carS.create(req, customerId);
 		} catch (Exception e) {
 			r.setMsg(e.getMessage());
 			r.setRc(false);
