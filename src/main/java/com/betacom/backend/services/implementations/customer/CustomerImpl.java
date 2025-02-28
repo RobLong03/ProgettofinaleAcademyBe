@@ -154,7 +154,7 @@ public class CustomerImpl implements CustomerSevices {
         Address defAddress = defAddressopt.orElse(null);
 
         // moving the order of the customer to a default customer when deleting the customer
-        Customer defCustomer = CustRep.findById(0L).get();
+        Customer defCustomer = CustRep.findById(0L).orElseThrow(()->new Exception("error in delete"));
         List<Order> listOfOrders = orderR.findByCustomer_Id(id);
         log.debug(listOfOrders.toString());
         listOfOrders.forEach(order -> {
