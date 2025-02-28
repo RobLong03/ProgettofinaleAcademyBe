@@ -70,7 +70,7 @@ public class CartController {
 	}
 
 	@GetMapping("/get")
-	public ResponseObject<CartDTO> get(@RequestParam Long id) {
+	public ResponseObject<CartDTO> get(@RequestParam Long customerId) {
 
 		log.debug("get");
 
@@ -79,7 +79,7 @@ public class CartController {
 
 		try {
 
-			res.setDati(carS.get(id));
+			res.setDati(carS.get(customerId));
 		} catch (Exception e) {
 
 			log.error(e.getMessage());
