@@ -22,12 +22,12 @@ public class CartItemController {
 	CartItemServices carS;
 	
 	@PostMapping("/create")
-	public ResponseBase create(@RequestBody(required = true) CartItemRequest req) {
+	public ResponseBase create(@RequestBody(required = true) CartItemRequest req, @RequestParam Long customerId) {
 		log.debug("create: " + req);
 		ResponseBase r = new ResponseBase();
 		r.setRc(true);
 		try {
-			carS.create(req);
+			carS.create(req, customerId);
 		} catch (Exception e) {
 			r.setMsg(e.getMessage());
 			r.setRc(false);
@@ -43,6 +43,7 @@ public class CartItemController {
 		try {
 			carS.delete(req.getId());
 		} catch (Exception e) {
+			log.debug("Errore");
 			r.setMsg(e.getMessage());
 			r.setRc(false);
 		}
@@ -65,7 +66,7 @@ public class CartItemController {
 
 	@PostMapping("/removeItems")
 	public ResponseBase removeItems(@RequestBody CartItemRequest req) {
-		log.debug("************remove: " + req);
+		log.debug("************removeQuantity: " + req);
 		ResponseBase r = new ResponseBase();
 		r.setRc(true);
 		try {
@@ -79,6 +80,7 @@ public class CartItemController {
 	
 	@GetMapping("/listByCart")
 	public ResponseList<CartItemDTO> listByCart(@RequestParam(required = true) Long id){
+		
 		ResponseList<CartItemDTO> r = new ResponseList<CartItemDTO>();
 		r.setRc(true);
 		try {

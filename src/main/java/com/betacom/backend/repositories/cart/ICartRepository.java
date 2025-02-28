@@ -1,6 +1,5 @@
 package com.betacom.backend.repositories.cart;
 
-import com.betacom.backend.model.wishlist.Wishlist;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.betacom.backend.model.cart.Cart;

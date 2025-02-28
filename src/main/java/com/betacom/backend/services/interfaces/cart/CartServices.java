@@ -9,7 +9,7 @@ public interface CartServices {
 
 	List<CartDTO> list();        //list per fare list di tutto
 
-	CartDTO get(Long id) throws Exception;         //get per prendere con id,
+	CartDTO get(Long customerId) throws Exception;         //get per prendere con id,
 
     //poi altri get o list con specifiche diverse si decide dopo
 

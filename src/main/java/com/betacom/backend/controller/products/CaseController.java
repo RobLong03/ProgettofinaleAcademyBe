@@ -28,6 +28,7 @@ public class CaseController {
 		log.debug("Create case: " + req);
 		ResponseBase r = new ResponseBase();
 		try {
+			
 			caseS.create(req);
 			r.setRc(true);
 		} catch (Exception e) {

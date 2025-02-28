@@ -91,6 +91,7 @@
         customer_id bigint not null,
         id bigint not null auto_increment,
         order_date datetime(6),
+        status varchar(255),
         primary key (id)
     ) engine=InnoDB;
 
@@ -99,9 +100,17 @@
         stock integer not null,
         id bigint not null auto_increment,
         brand varchar(255) not null,
-        description varchar(255) not null,
         image_url varchar(255) not null,
         model varchar(255) not null,
+        type varchar(255),
+        primary key (id)
+    ) engine=InnoDB;
+
+    create table `product-description` (
+        id bigint not null auto_increment,
+        product_id bigint not null,
+        description VARCHAR(2500) not null,
+        lang varchar(255) not null,
         primary key (id)
     ) engine=InnoDB;
 
@@ -120,7 +129,7 @@
 
     create table storage (
         size integer not null,
-        type tinyint not null check (type between 0 and 2),
+        stype tinyint not null check (stype between 0 and 2),
         id bigint not null,
         primary key (id)
     ) engine=InnoDB;
@@ -153,6 +162,9 @@
 
     alter table customer 
        add constraint UKdwk6cx0afu8bs9o4t536v1j5v unique (email);
+
+    alter table `product-description` 
+       add constraint UKgelb8od8w72k9fcrmjg02xjmf unique (lang, product_id);
 
     alter table wishlist 
        add constraint UKi62hn96gwmmykqrbf8j2heo6b unique (customer_id);
@@ -224,6 +236,11 @@
        add constraint FK624gtjin3po807j3vix093tlf 
        foreign key (customer_id) 
        references customer (id);
+
+    alter table `product-description` 
+       add constraint FKtdnlth5lpoqijt5ui8fbv2hs8 
+       foreign key (product_id) 
+       references product (id);
 
     alter table psu 
        add constraint FKa2fj0ush945rntfhw7j4kka4w 

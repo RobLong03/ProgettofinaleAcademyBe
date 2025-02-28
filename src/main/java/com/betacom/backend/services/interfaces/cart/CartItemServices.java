@@ -13,7 +13,7 @@ public interface CartItemServices {
 
     //poi altri get o list con specifiche diverse si decide dopo
 
-    void create(CartItemRequest req ) throws Exception;
+    void create(CartItemRequest req, Long customerId) throws Exception;
 
     void update(CartItemRequest req) throws Exception;
 

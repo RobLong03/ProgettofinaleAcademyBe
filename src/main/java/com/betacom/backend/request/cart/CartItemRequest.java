@@ -49,4 +49,9 @@ public class CartItemRequest {
 		this.cartId = cartId;
 		this.quantity = quantity;
 	}
+	@Override
+	public String toString() {
+		return "CartItemRequest [id=" + id + ", productId=" + productId + ", cartId=" + cartId + ", quantity="
+				+ quantity + "]";
+	}
 }
