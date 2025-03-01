@@ -11,7 +11,7 @@ public interface MotherboardServices {
 	
 	MotherboardDTO get(Long id,String lang)  throws Exception;
 	
-	void create(MotherboardRequest req) throws Exception;
+	String create(MotherboardRequest req) throws Exception;
 	
 	void update(MotherboardRequest req) throws Exception;
 	

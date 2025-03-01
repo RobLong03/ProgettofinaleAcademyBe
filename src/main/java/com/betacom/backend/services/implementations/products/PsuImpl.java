@@ -76,13 +76,14 @@ public class PsuImpl implements PsuServices {
 	}
 
 	@Override
-	public void create(PsuRequest req) throws Exception {
+	public String create(PsuRequest req) throws Exception {
 		if (mancanoAttributi(req))
 			throw new Exception(msgS.getMessage("missing-attributes-create"));
 
 		Psu p = new Psu(req);
-		prodRep.save(p);
+		psuRep.save(p);
 
+		return ""+psuRep.findAll().getLast().getId();
 	}
 
 	@Override

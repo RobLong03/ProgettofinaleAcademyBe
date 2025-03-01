@@ -41,7 +41,7 @@ public class ProductController {
         ResponseBase r = new ResponseBase();
 
         try{
-            productServices.create(req);
+        	r.setMsg(productServices.create(req));
             r.setRc(true);
             log.debug("PC: Product created");
 

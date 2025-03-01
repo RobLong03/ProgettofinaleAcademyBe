@@ -77,7 +77,7 @@ public class CaseImpl implements CaseServices{
 	    }
 
 	@Override
-	public void create(CaseRequest req) throws Exception {
+	public String create(CaseRequest req) throws Exception {
 		if(mancanoAttributi(req))
             throw new Exception(msgS.getMessage("does-not-exist-get"));
 
@@ -90,7 +90,9 @@ public class CaseImpl implements CaseServices{
 		p.setColor(color);
 		//da definire se ritornare il valore penso di no faccio fare con 
 		//l' upadte per mancanza di tempo
-         caseRep.save(p);
+        caseRep.save(p);
+         
+        return ""+caseRep.findAll().getLast().getId();
 	}
 
 	@Override

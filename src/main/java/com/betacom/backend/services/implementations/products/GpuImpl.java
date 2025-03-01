@@ -73,13 +73,14 @@ public class GpuImpl implements GpuServices {
 	}
 
 	@Override
-	public void create(GpuRequest req) throws Exception {
+	public String create(GpuRequest req) throws Exception {
 		if (mancanoAttributi(req))
 			throw new Exception(msgS.getMessage("missing-attributes-create"));
 
 		Gpu p = new Gpu(req);
 		gpuRep.save(p);
 
+		return ""+gpuRep.findAll().getLast().getId();
 	}
 
 	@Override

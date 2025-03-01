@@ -13,7 +13,7 @@ public interface CaseServices {
 
     //poi altri get o list con specifiche diverse si decide dopo
 
-    void create(CaseRequest req ) throws Exception;
+    String create(CaseRequest req ) throws Exception;
 
     void update(CaseRequest req) throws Exception;
 

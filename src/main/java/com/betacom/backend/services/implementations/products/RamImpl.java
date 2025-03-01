@@ -70,13 +70,15 @@ public class RamImpl implements RamServices {
 	}
 
 	@Override
-	public void create(RamRequest req) throws Exception {
+	public String create(RamRequest req) throws Exception {
 		
 		if(missingAttributes(req))
 			throw new Exception(msgS.getMessage("missing-attributes-create"));
 		
 		Ram r=new Ram(req);
 		ramRep.save(r);
+		
+		return ""+ramRep.findAll().getLast().getId();
 	}
 
 	@Override

@@ -13,7 +13,7 @@ public interface GpuServices {
 
     //poi altri get o list con specifiche diverse si decide dopo
 
-    void create(GpuRequest req ) throws Exception;
+    String create(GpuRequest req ) throws Exception;
 
     void update(GpuRequest req) throws Exception;
 }

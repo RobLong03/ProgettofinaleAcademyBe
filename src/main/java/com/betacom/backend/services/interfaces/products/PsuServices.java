@@ -13,7 +13,7 @@ public interface PsuServices {
 
     //poi altri get o list con specifiche diverse si decide dopo
 
-    void create(PsuRequest req ) throws Exception;
+    String create(PsuRequest req ) throws Exception;
 
     void update(PsuRequest req) throws Exception;
 

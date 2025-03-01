@@ -27,7 +27,7 @@ public class CpuController {
         ResponseBase r = new ResponseBase();
 
         try{
-            cpuServices.create(req);
+            r.setMsg(cpuServices.create(req));
             r.setRc(true);
             log.debug("CC: Cpu created");
         } catch (Exception e) {

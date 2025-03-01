@@ -74,13 +74,15 @@ public class MotherboardImpl implements MotherboardServices {
 	
 
 	@Override
-	public void create(MotherboardRequest req) throws Exception {
+	public String create(MotherboardRequest req) throws Exception {
 		
 		if(missingAttributes(req))
 			throw new Exception(msgS.getMessage("missing-attributes-create"));
 		
 		Motherboard m=new Motherboard(req);
 		motherbRep.save(m);
+		
+		return ""+motherbRep.findAll().getLast().getId();
 	}
 
 	@Override
