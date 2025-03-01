@@ -74,13 +74,14 @@ public class CpuImpl implements CpuServices {
     }
 
     @Override
-    public void create(CpuRequest req) throws Exception {
+    public String create(CpuRequest req) throws Exception {
         if(mancanoAttributi(req))
             throw new Exception(msgS.getMessage("missing-attributes-create"));
 
         Cpu p = new Cpu(req );
         cpuRep.save(p);
 
+        return ""+cpuRep.findAll().getLast().getId();
     }
 
     private boolean mancanoAttributi(CpuRequest req) {

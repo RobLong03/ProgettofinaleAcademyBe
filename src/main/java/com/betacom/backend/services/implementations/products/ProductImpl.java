@@ -108,7 +108,7 @@ public class ProductImpl implements ProductServices {
     }
 //creating of description is distincted with other class ProductDescriptionImpl
     @Override
-    public void create(ProductRequest req) throws Exception {
+    public String create(ProductRequest req) throws Exception {
         log.debug("PI: create request:"+req);
 
         if(mancanoAttributi(req)) {
@@ -117,7 +117,9 @@ public class ProductImpl implements ProductServices {
         }
 
         Product p = new Product(req);
-         prodRep.save(p);
+        prodRep.save(p);
+         
+        return ""+prodRep.findAll().getLast().getId();
     }
 
 

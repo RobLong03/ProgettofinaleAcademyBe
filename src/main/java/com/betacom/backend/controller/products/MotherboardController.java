@@ -61,7 +61,7 @@ public class MotherboardController {
 		
 		try {
 			
-			motherbS.create(req);
+			res.setMsg(motherbS.create(req));
 		} catch (Exception e) {
 			
 			log.error(e.getMessage());

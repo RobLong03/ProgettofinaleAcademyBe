@@ -15,7 +15,7 @@ public interface ProductServices {
 
     //poi altri get o list con specifiche diverse si decide dopo
 
-    void create(ProductRequest req ) throws Exception;
+    String create(ProductRequest req ) throws Exception;
 
     void update(ProductRequest req) throws Exception;
 

@@ -33,7 +33,7 @@ public class StorageController {
 		log.debug("Create storage: " + req);
 		ResponseBase r = new ResponseBase();
 		try {
-			stoS.create(req);
+			r.setMsg(stoS.create(req));
 			r.setRc(true);
 		} catch (Exception e) {
 			r.setRc(false);
