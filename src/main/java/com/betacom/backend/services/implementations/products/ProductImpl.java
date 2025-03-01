@@ -61,6 +61,7 @@ public class ProductImpl implements ProductServices {
 	public List<ProductDTO> filteredList(List<String> types, Double minPrice, Double maxPrice,
 			List<String> brands, String lang) throws Exception {
 		
+    	
     	List<Product> lProd=prodRep.findFilteredProducts(types, minPrice, maxPrice, brands);
     	
     	return lProd.stream()

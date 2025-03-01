@@ -120,7 +120,7 @@ public class Product {
 		this.id = id;
 		this.brand = brand;
 		this.model = model;
-		this.type=type;
+		this.type="Product";
 		this.stock = stock;
 		this.price = price;
 		this.imageUrl = imageUrl;
@@ -132,7 +132,7 @@ public class Product {
 		this.brand = brand;
 		this.model = model;
 		this.stock = stock;
-		this.type=type;
+		this.type="Product";
 		this.price = price;
 		this.imageUrl = imageUrl;
 	}
@@ -141,6 +141,7 @@ public class Product {
 		this.brand = req.getBrand();
 		this.model = req.getModel();
 		this.stock = req.getStock();
+		this.setType("Product");
 		this.price = req.getPrice();
 		this.imageUrl = req.getImageUrl();
 		if (req.getId() != null)

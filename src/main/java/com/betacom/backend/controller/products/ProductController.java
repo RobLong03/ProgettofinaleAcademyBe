@@ -1,6 +1,7 @@
 package com.betacom.backend.controller.products;
 
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -79,10 +80,11 @@ public class ProductController {
     		@RequestParam(required=false) Double maxPrice,
     		@RequestParam(required=false) List<String> brands,
     		@RequestParam(defaultValue = "EN")  String lang){
-        log.debug("PC: Product filteredList request received");
+        log.debug("PC: Product filteredList request received"+types);
         ResponseList<ProductDTO> r = new ResponseList<ProductDTO>();
-
+        
         try{
+        	
             r.setDati(productServices.filteredList(types, minPrice, maxPrice, brands, lang));
             r.setRc(true);
             log.debug("PC: Product filteredList done");
