@@ -34,6 +34,10 @@ public class AdministratorImpl implements AdministratorServices {
     @Autowired
     private PasswordService passwordService;
 
+    /**
+     * Recupera la lista di tutti gli amministratori.
+     * @return Una lista di AdministratorDTO.
+     */
     @Override
     public List<AdministratorDTO> list() {
         log.debug("AI: list");
@@ -44,6 +48,12 @@ public class AdministratorImpl implements AdministratorServices {
         ).collect(Collectors.toList());
     }
 
+    /**
+     * Recupera un amministratore per ID.
+     * @param id L'ID dell'amministratore.
+     * @return Un AdministratorDTO.
+     * @throws Exception Se l'ID è mancante o l'amministratore non esiste.
+     */
     @Override
     public AdministratorDTO get(Long id) throws Exception {
         log.debug("AI: get request, checking id");
@@ -52,16 +62,21 @@ public class AdministratorImpl implements AdministratorServices {
         }
 
         log.debug("AI: get request, attempting fetch");
-       Optional<Administrator> adm = admRep.findById(id);
-       if(adm.isPresent()){
-           log.debug("AI: get request, returning administrator");
-           return new AdministratorDTO(adm.get());
-       }else{
-           log.debug("AI: get request, not found");
-           throw new Exception(msgS.getMessage("does-not-exist-get"));
-       }
+        Optional<Administrator> adm = admRep.findById(id);
+        if(adm.isPresent()){
+            log.debug("AI: get request, returning administrator");
+            return new AdministratorDTO(adm.get());
+        }else{
+            log.debug("AI: get request, not found");
+            throw new Exception(msgS.getMessage("does-not-exist-get"));
+        }
     }
 
+    /**
+     * Crea un nuovo amministratore.
+     * @param req La richiesta contenente i dettagli dell'amministratore.
+     * @throws Exception Se mancano attributi o l'username/email è già in uso.
+     */
     @Override
     public void create(AdministratorRequest req) throws Exception {
         log.debug("AI: create request");
@@ -78,20 +93,27 @@ public class AdministratorImpl implements AdministratorServices {
             throw new Exception(msgS.getMessage("email-already-in-use"));
         }
 
-
-
         Administrator adm = new Administrator(req);
         adm.setPassword(passwordService.hashPassword(req.getPassword()));
         admRep.save(adm);
-
     }
 
+    /**
+     * Controlla se mancano attributi nella richiesta.
+     * @param req La richiesta dell'amministratore.
+     * @return true se mancano attributi, altrimenti false.
+     */
     private boolean missingattributes(AdministratorRequest req) {
         return req.getEmail() == null || req.getEmail().isBlank()
                 || req.getPassword() == null || req.getPassword().isBlank()
                 || req.getUsername() == null || req.getUsername().isBlank();
     }
 
+    /**
+     * Aggiorna i dettagli di un amministratore.
+     * @param req La richiesta contenente i nuovi dettagli.
+     * @throws Exception Se l'ID è mancante o l'amministratore non esiste.
+     */
     @Override
     public void update(AdministratorRequest req) throws Exception {
         log.debug("AI: update request");
@@ -106,7 +128,7 @@ public class AdministratorImpl implements AdministratorServices {
         }
         Administrator adm = admOpt.get();
 
-        log.debug("AI:  upating ....");
+        log.debug("AI: updating ....");
 
         if(req.getUsername() != null && !req.getUsername().isBlank()){
             adm.setUsername(req.getUsername());
@@ -121,26 +143,36 @@ public class AdministratorImpl implements AdministratorServices {
         }
 
         admRep.save(adm);
-        log.debug("AI:  updating complete");
+        log.debug("AI: updating complete");
     }
 
+    /**
+     * Elimina un amministratore per ID.
+     * @param id L'ID dell'amministratore da eliminare.
+     * @throws Exception Se l'ID è mancante.
+     */
     @Override
     public void delete(Long id) throws Exception {
         log.debug("AI: delete request");
         if(id==null){
             throw new Exception(msgS.getMessage("missing-id-update"));
         }
-        log.debug("AI:  deleting ....");
+        log.debug("AI: deleting ....");
         admRep.deleteById(id);
-        log.debug("AI:  deleting complete");
+        log.debug("AI: deleting complete");
     }
 
+    /**
+     * Effettua il login di un amministratore.
+     * @param req La richiesta di login contenente l'username e la password.
+     * @return Un SignInDTO con lo stato del login.
+     */
     @Override
     public SignInDTO signIn(SignInRequest req) {
         log.debug("AI: signIn request received");
-        SignInDTO  resp = new SignInDTO();
+        SignInDTO resp = new SignInDTO();
 
-        log.debug("AI: preccessing signin request");
+        log.debug("AI: processing signin request");
         if(req.getUsername() == null || req.getUsername().isBlank() || req.getPwd() == null || req.getPwd().isBlank()){
             resp.setLogged(false);
             return resp;
@@ -154,7 +186,7 @@ public class AdministratorImpl implements AdministratorServices {
                 resp.setRole(Roles.valueOf("ADMIN").toString());
             }
         }
-        log.debug("AI:  signIn processed");
+        log.debug("AI: signIn processed");
         return resp;
     }
 }

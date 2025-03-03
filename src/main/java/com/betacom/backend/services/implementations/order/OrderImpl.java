@@ -25,7 +25,6 @@ import com.betacom.backend.repositories.products.IProductRepository;
 import com.betacom.backend.request.order.OrderRequest;
 import com.betacom.backend.services.interfaces.order.OrderServices;
 
-
 @Service
 public class OrderImpl implements OrderServices {
 
@@ -50,7 +49,10 @@ public class OrderImpl implements OrderServices {
     @Autowired
     IProductRepository prodRep;
 
-
+    /**
+     * Recupera la lista di tutti gli ordini.
+     * @return Una lista di OrderDTO.
+     */
     @Override
     public List<OrderDTO> list() {
         log.debug("OI.list: list request received");
@@ -58,6 +60,12 @@ public class OrderImpl implements OrderServices {
         return orderList.stream().map(o -> new OrderDTO(o)).collect(Collectors.toList());
     }
 
+    /**
+     * Recupera un ordine per ID.
+     * @param id L'ID dell'ordine.
+     * @return Un OrderDTO.
+     * @throws Exception Se l'ID è mancante o l'ordine non esiste.
+     */
     @Override
     public OrderDTO get(Long id) throws Exception {
         log.debug("OI.get: get request received");
@@ -76,6 +84,12 @@ public class OrderImpl implements OrderServices {
         return orderDTO;
     }
 
+    /**
+     * Recupera la lista degli ordini per un cliente specifico.
+     * @param customerId L'ID del cliente.
+     * @return Una lista di OrderDTO.
+     * @throws Exception Se l'ID del cliente è mancante.
+     */
     @Override
     public List<OrderDTO> listByCustomer(Long customerId) throws Exception {
         log.debug("OI.listByCustomer: listByCustomer request received");
@@ -86,9 +100,13 @@ public class OrderImpl implements OrderServices {
         return orders.stream().map(o -> new OrderDTO(o)).collect(Collectors.toList());
     }
 
+    /**
+     * Crea un nuovo ordine.
+     * @param req La richiesta contenente i dettagli dell'ordine.
+     * @throws Exception Se mancano attributi o ci sono errori nella richiesta.
+     */
     @Override
     public void create(OrderRequest req) throws Exception {
-
         log.debug("OI.create: Order request:" + req);
         if (missingparams(req)) {
             log.debug("OI.create: missing params");
@@ -98,10 +116,8 @@ public class OrderImpl implements OrderServices {
         Customer customer = customerRep.findById(req.getCustomerId())
                 .orElseThrow(() -> new Exception(msgS.getMessage("customer-not-found-order-create")));
 
-
         Address address = addresRep.findById(req.getAddressId())
                 .orElseThrow(() -> new Exception(msgS.getMessage("address-not-found-order-create")));
-
 
         Cart cart = cartRep.findByCustomer_id(req.getCustomerId())
                 .orElseThrow(() -> new Exception(msgS.getMessage("cart-not-found-order-create")));
@@ -151,20 +167,27 @@ public class OrderImpl implements OrderServices {
         cartRep.save(cart);
 
         log.debug("OI.create: Order saved successfully");
-
     }
 
+    /**
+     * Controlla se mancano parametri nella richiesta.
+     * @param req La richiesta dell'ordine.
+     * @return true se mancano parametri, altrimenti false.
+     */
     private boolean missingparams(OrderRequest req) {
         return req.getAddressId() == null
-                || req.getCustomerId() == null
-                ;
+                || req.getCustomerId() == null;
     }
 
+    /**
+     * Aggiorna i dettagli di un ordine.
+     * @param req La richiesta contenente i nuovi dettagli.
+     * @throws Exception Se l'ID è mancante o l'ordine non esiste.
+     */
     @Override
     public void update(OrderRequest req) throws Exception {
         log.debug("OI.update: Order request:" + req);
-        //per un update puo aver senso togliere un oggetto o aggiungerlo al ordine...[meglio altro metodo]
-        //o cambiare indirizzo spedizione
+
         if (req.getId() == null) {
             throw new Exception(msgS.getMessage("missing-id-update"));
         }
@@ -193,14 +216,23 @@ public class OrderImpl implements OrderServices {
         log.debug("OI.update: setting request address");
         order.setAddress(address);
         orderRep.save(order);
-
     }
 
+    /**
+     * Controlla se l'ordine è stato spedito.
+     * @param order L'ordine.
+     * @return true se l'ordine è stato spedito, altrimenti false.
+     */
     private boolean orderShipped(Order order) {
         return !(Objects.equals(order.getStatus(), OrderStatusEnum.PENDING.toString())
                 || Objects.equals(order.getStatus(), OrderStatusEnum.PREPARING.toString()));
     }
 
+    /**
+     * Elimina un ordine per ID.
+     * @param id L'ID dell'ordine da eliminare.
+     * @throws Exception Se l'ID è mancante o l'ordine non esiste.
+     */
     @Override
     public void delete(Long id) throws Exception {
         if (id == null) {
@@ -225,9 +257,13 @@ public class OrderImpl implements OrderServices {
 
         orderRep.delete(order);
         prodRep.saveAll(lp);
-
     }
 
+    /**
+     * Aggiorna lo stato di un ordine.
+     * @param req La richiesta contenente il nuovo stato.
+     * @throws Exception Se mancano dati o l'ordine non esiste.
+     */
     @Override
     public void updateStatus(OrderRequest req) throws Exception {
         if (req.getId() == null) {
@@ -240,7 +276,5 @@ public class OrderImpl implements OrderServices {
         Order order = orderRep.findById(req.getId()).orElseThrow(()-> new Exception(msgS.getMessage("does-not-exist-update")));
         order.setStatus(OrderStatusEnum.valueOf(req.getStatus()).toString());
         orderRep.save(order);
-
-
     }
 }
