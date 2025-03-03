@@ -13,7 +13,7 @@ public interface StorageServices {
 
     //poi altri get o list con specifiche diverse si decide dopo
 
-    void create(StorageRequest req ) throws Exception;
+    String create(StorageRequest req ) throws Exception;
 
     void update(StorageRequest req) throws Exception;
 

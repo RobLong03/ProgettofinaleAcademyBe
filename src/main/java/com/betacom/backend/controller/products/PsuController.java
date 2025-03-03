@@ -46,7 +46,7 @@ public class PsuController {
 		ResponseBase r = new ResponseBase();
 		r.setRc(true);
 		try {
-			servRep.create(req);
+			r.setMsg(servRep.create(req));
 		} catch (Exception e) {
 			r.setMsg(e.getMessage());
 			r.setRc(false);

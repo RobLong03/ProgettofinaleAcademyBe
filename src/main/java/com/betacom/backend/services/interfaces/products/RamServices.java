@@ -11,7 +11,7 @@ public interface RamServices {
 	
 	RamDTO get(Long id,String lang)  throws Exception;
 	
-	void create(RamRequest req) throws Exception;
+	String create(RamRequest req) throws Exception;
 	
 	void update(RamRequest req) throws Exception;
 	

@@ -45,7 +45,7 @@ public class GpuController {
 			ResponseBase r = new ResponseBase();
 			r.setRc(true);
 			try {
-				gpuS.create(req);
+				r.setMsg(gpuS.create(req));
 			} catch (Exception e) {
 				r.setMsg(e.getMessage());
 				r.setRc(false);

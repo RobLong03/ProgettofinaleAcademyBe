@@ -71,12 +71,14 @@ public class StorageImpl implements StorageServices{
 	}
 
 	@Override
-	public void create(StorageRequest req) throws Exception {
+	public String create(StorageRequest req) throws Exception {
 		 if(mancanoAttributi(req))
 			 throw new Exception(msgS.getMessage("missing-attributes-create"));
 
-	        Storage s = new Storage(req);
-	         stoRep.save(s);
+	     Storage s = new Storage(req);
+	     stoRep.save(s);
+	     
+	     return ""+stoRep.findAll().getLast().getId();
 	}
 
 	@Override

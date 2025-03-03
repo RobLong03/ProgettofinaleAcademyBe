@@ -61,6 +61,7 @@ public class ProductImpl implements ProductServices {
 	public List<ProductDTO> filteredList(List<String> types, Double minPrice, Double maxPrice,
 			List<String> brands, String lang) throws Exception {
 		
+    	
     	List<Product> lProd=prodRep.findFilteredProducts(types, minPrice, maxPrice, brands);
     	
     	return lProd.stream()
@@ -107,7 +108,7 @@ public class ProductImpl implements ProductServices {
     }
 //creating of description is distincted with other class ProductDescriptionImpl
     @Override
-    public void create(ProductRequest req) throws Exception {
+    public String create(ProductRequest req) throws Exception {
         log.debug("PI: create request:"+req);
 
         if(mancanoAttributi(req)) {
@@ -116,7 +117,9 @@ public class ProductImpl implements ProductServices {
         }
 
         Product p = new Product(req);
-         prodRep.save(p);
+        prodRep.save(p);
+         
+        return ""+prodRep.findAll().getLast().getId();
     }
 
 

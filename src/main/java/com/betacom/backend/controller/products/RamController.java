@@ -67,7 +67,7 @@ public class RamController {
 		
 		try {
 			
-			ramS.create(req);
+			res.setMsg(ramS.create(req));
 		} catch (Exception e) {
 			
 			log.error(e.getMessage());

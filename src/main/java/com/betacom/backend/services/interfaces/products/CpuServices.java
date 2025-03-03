@@ -12,7 +12,7 @@ public interface CpuServices {
 
     //poi altri get o list con specifiche diverse si decide dopo
 
-    void create(CpuRequest req ) throws Exception;
+    String create(CpuRequest req ) throws Exception;
 
     void update(CpuRequest req) throws Exception;
 
