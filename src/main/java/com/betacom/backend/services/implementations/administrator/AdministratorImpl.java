@@ -12,6 +12,7 @@ import com.betacom.backend.services.interfaces.messages.MessageServices;
 import com.betacom.backend.utils.Roles;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -66,6 +67,18 @@ public class AdministratorImpl implements AdministratorServices {
         log.debug("AI: create request");
         if(missingattributes(req))
             throw new Exception(msgS.getMessage("missing-attributes-create"));
+
+        Optional<Administrator> admin = admRep.findByUsername(req.getUsername());
+        if(admin.isPresent()){
+            throw new Exception(msgS.getMessage("username-already-in-use"));
+        }
+
+        admin = admRep.findByEmail(req.getEmail());
+        if(admin.isPresent()){
+            throw new Exception(msgS.getMessage("email-already-in-use"));
+        }
+
+
 
         Administrator adm = new Administrator(req);
         adm.setPassword(passwordService.hashPassword(req.getPassword()));
